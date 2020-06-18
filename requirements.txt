@@ -1,8 +1,11 @@
 # Sync with readthedocs:
 # https://github.com/readthedocs/readthedocs.org/blob/master/requirements/pip.txt
-# https://github.com/readthedocs/readthedocs.org/blob/master/requirements/local-docs-build.txt
 sphinx==1.8.5  # pyup: <2.0.0
 sphinx_rtd_theme==0.4.3
 
 # Code tabs extension for GDScript/C#
 sphinx-tabs==1.1.13
+
+# Pygments GDScript hightlight support
+# https://github.com/pygments/pygments/pull/1457
+git+https://github.com/pygments/pygments@16bd34655497f2c9ffce02a2bf3d5b66bb06f526

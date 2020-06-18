@@ -11,23 +11,27 @@ project = "Goost"
 copyright = "2020, Andrii Doroshenko and the Goost community (CC-BY 3.0)"
 author = "Andrii Doroshenko and the Goost community"
 
-# Version info for the project, acts as replacement for |version| and |release|
-# The short X.Y version
-version = os.getenv("READTHEDOCS_VERSION", "latest")
-# The full version, including alpha/beta/rc tags
+version = os.getenv("READTHEDOCS_VERSION", "gd3")
 release = version
 
 # -- General configuration ---------------------------------------------------
 
 extensions = [
     "sphinx.ext.intersphinx",
+    "sphinx.ext.imgmath",
+    "sphinx_tabs.tabs",
 ]
 
 templates_path = ["_templates"]
-source_suffix = ".rst"
+source_suffix = [".rst", ".md"]
 master_doc = "index"
-language = "en"
-exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
+language = None
+exclude_patterns = ["_build", "Thumbs.db", ".DS_Store", "README.md"]
+
+# Syntax highlighting
+from sphinx.highlighting import lexers
+from pygments.lexers import GDScriptLexer
+lexers['gdscript'] = GDScriptLexer()
 pygments_style = "sphinx"
 highlight_language = "gdscript"
 
@@ -41,7 +45,7 @@ html_theme_options = {
     "logo_only": True,
     "display_version": True,
     "prev_next_buttons_location": "bottom",
-    "style_external_links": True,
+    "style_external_links": False,
     "style_nav_header_background": "#343131",  # Match sidebar background.
     # Toc options
     "collapse_navigation": True,
@@ -83,4 +87,6 @@ latex_documents = [
 
 # -- Options for intersphinx extension ---------------------------------------
 
-# intersphinx_mapping = {'https://docs.godotengine.org/': None}
+# Goost uses Godot atomic datatypes and classes, so provide an external URI
+# to the Godot API to avoid invalid references throughout the class reference.
+intersphinx_mapping = {'https://docs.godotengine.org/en/3.2/': None}
