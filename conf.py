@@ -26,7 +26,7 @@ templates_path = ["_templates"]
 source_suffix = [".rst", ".md"]
 master_doc = "index"
 language = None
-exclude_patterns = ["_build", "Thumbs.db", ".DS_Store", "README.md"]
+exclude_patterns = ["_build", "Thumbs.db", ".DS_Store", "README.md", ".github"]
 
 # Syntax highlighting
 from sphinx.highlighting import lexers
@@ -65,6 +65,8 @@ html_context = {
 }
 
 html_static_path = ["_static"]
+html_extra_path = ["robots.txt"]
+html_css_files = ["css/custom.css"]
 
 # -- Options for HTMLHelp output ---------------------------------------------
 
