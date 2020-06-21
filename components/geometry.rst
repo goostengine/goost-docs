@@ -1,6 +1,10 @@
 Geometry
 ========
 
+.. note::
+    To disable this component, use ``goost_math_enabled=no`` option (see
+    :ref:`doc_configuring_the_build`).
+
 .. image:: img/geometry_decomp_triangles.*
     :alt: Geometry Polygon Decomposition
 

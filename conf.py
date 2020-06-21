@@ -31,9 +31,19 @@ exclude_patterns = ["_build", "Thumbs.db", ".DS_Store", "README.md", ".github"]
 # Syntax highlighting
 from sphinx.highlighting import lexers
 from pygments.lexers import GDScriptLexer
-lexers['gdscript'] = GDScriptLexer()
+
+lexers["gdscript"] = GDScriptLexer()
 pygments_style = "sphinx"
 highlight_language = "gdscript"
+
+# Define common substitutions
+rst_prolog = """
+.. |goost_branch| replace:: {goost_branch}
+.. |godot_branch| replace:: {godot_branch}
+""".format(
+    goost_branch=version, 
+    godot_branch="3.2"
+)
 
 # -- Options for HTML output -------------------------------------------------
 
@@ -91,4 +101,4 @@ latex_documents = [
 
 # Goost uses Godot atomic datatypes and classes, so provide an external URI
 # to the Godot API to avoid invalid references throughout the class reference.
-intersphinx_mapping = {'https://docs.godotengine.org/en/3.2/': None}
+intersphinx_mapping = {"https://docs.godotengine.org/en/3.2/": None}
