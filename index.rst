@@ -1,5 +1,5 @@
-Goost Docs - *gd3* branch
-=========================
+Goost Docs - |goost_branch| branch
+==================================
 
 Welcome to the official documentation of
 `Goost <https://github.com/GoostGD/goost>`_, the free and open source

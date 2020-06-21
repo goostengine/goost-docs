@@ -14,6 +14,12 @@ author = "Andrii Doroshenko and the Goost community"
 version = os.getenv("READTHEDOCS_VERSION", "gd3")
 release = version
 
+gd_map = {
+    "gd3": "3.2",
+    "gd4": "latest",
+}
+godot_docs_url = "https://docs.godotengine.org/en/%s/" % (gd_map[version])
+
 # -- General configuration ---------------------------------------------------
 
 extensions = [
@@ -42,7 +48,7 @@ rst_prolog = """
 .. |godot_branch| replace:: {godot_branch}
 """.format(
     goost_branch=version, 
-    godot_branch="3.2"
+    godot_branch=gd_map[version]
 )
 
 # -- Options for HTML output -------------------------------------------------
@@ -70,7 +76,7 @@ html_context = {
     "display_github": True,  # Integrate GitHub
     "github_user": "GoostGD",  # Username
     "github_repo": "goost-docs",  # Repo name
-    "github_version": "gd3",  # Version
+    "github_version": version,  # Version
     "conf_py_path": "/",  # Path in the checkout to the docs root
 }
 
@@ -100,5 +106,5 @@ latex_documents = [
 # -- Options for intersphinx extension ---------------------------------------
 
 # Goost uses Godot atomic datatypes and classes, so provide an external URI
-# to the Godot API to avoid invalid references throughout the class reference.
-intersphinx_mapping = {"https://docs.godotengine.org/en/3.2/": None}
+# to the Godot API to have valid links throughout the class reference.
+intersphinx_mapping = {godot_docs_url: None}
