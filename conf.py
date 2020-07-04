@@ -17,6 +17,7 @@ release = version
 gd_map = {
     "gd3": "3.2",
     "gd4": "latest",
+    "latest" : "latest",
 }
 godot_docs_url = "https://docs.godotengine.org/en/%s/" % (gd_map[version])
 
