@@ -25,6 +25,14 @@ If using `custom_modules` build option:
 python doc/tools/makerst.py "doc/classes" "modules" "/path/to/goost/doc" --output "/path/to/goost-docs/classes/"
 ```
 
-Specifying `doc/classes` path is needed so that the `makerst` script can properly
-check and generate the classes as Goost uses built-in types provided by Godot.
-Make sure that only Goost related classes are added or updated.
+Specifying `doc/classes` and `modules` paths is needed so that the `makerst`
+script can properly check and generate the classes as Goost uses built-in types
+provided by Godot.
+
+To make sure that only Goost classes are updated and no Godot classes are added:
+
+```
+git add --update
+```
+
+For the new Goost classes, you'll have to add the docs manually.

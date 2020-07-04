@@ -46,6 +46,8 @@ Methods
 +-------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | :ref:`Image<class_Image>`     | :ref:`render_polygon<class_GoostImage_method_render_polygon>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon, :ref:`bool<class_bool>` fill=false, :ref:`Color<class_Color>` foreground_color=Color( 1, 1, 1, 1 ), :ref:`Color<class_Color>` background_color=Color( 0, 0, 0, 0 ) **)** |
 +-------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Image<class_Image>`     | :ref:`render_svg<class_GoostImage_method_render_svg>` **(** :ref:`String<class_String>` svg_document, :ref:`float<class_float>` scale=1.0 **)**                                                                                                                                                       |
++-------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | :ref:`Image<class_Image>`     | :ref:`repeat<class_GoostImage_method_repeat>` **(** :ref:`Image<class_Image>` image, :ref:`Vector2<class_Vector2>` count, :ref:`WrapMode<enum_GoostImage_WrapMode>` wrap_mode=0, :ref:`Vector2<class_Vector2>` max_size=Vector2( 65536, 65536 ) **)**                                                 |
 +-------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | void                          | :ref:`replace_color<class_GoostImage_method_replace_color>` **(** :ref:`Image<class_Image>` image, :ref:`Color<class_Color>` color, :ref:`Color<class_Color>` with_color **)**                                                                                                                        |
@@ -236,6 +238,30 @@ Performs basic image morphing operations. The structuring element (kernel) is a 
 - :ref:`Image<class_Image>` **render_polygon** **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon, :ref:`bool<class_bool>` fill=false, :ref:`Color<class_Color>` foreground_color=Color( 1, 1, 1, 1 ), :ref:`Color<class_Color>` background_color=Color( 0, 0, 0, 0 ) **)**
 
 Renders a binary representation of the polygon as a new image. If ``fill`` is ``true``, fills the interior of the polygon with ``foreground_color`` (white by default), else just renders the polygon's outline alone with the same color. The boundary pixels are always :ref:`FOUR_CONNECTED<class_GoostImage_constant_FOUR_CONNECTED>`. The image ``background_color`` can also be overridden (transparent by default).
+
+----
+
+.. _class_GoostImage_method_render_svg:
+
+- :ref:`Image<class_Image>` **render_svg** **(** :ref:`String<class_String>` svg_document, :ref:`float<class_float>` scale=1.0 **)**
+
+Rasterizes a SVG document as a new image. Any positive scale can be set, as long as the resulting image does not exceed maximum image size determined by :ref:`Image.MAX_WIDTH<class_Image_constant_MAX_WIDTH>` and :ref:`Image.MAX_HEIGHT<class_Image_constant_MAX_HEIGHT>` constants. Returns ``null`` if SVG is corrupt.
+
+In order to render a SVG from a :ref:`File<class_File>`:
+
+::
+
+    var file = File.new()
+    file.open("res://icon.svg", File.READ)
+    var svg = file.get_as_text()
+    var image = GoostImage.render_svg(svg)
+    file.close()
+
+**Known limitations:**
+
+This method reuses **nanosvg** implementation bundled with Godot for rendering editor icons and importing simple SVG images, so the functionality may be limited for more complex images.
+
+**Note:** this method is not available in Godot builds with SVG module disabled (enabled by default).
 
 ----
 

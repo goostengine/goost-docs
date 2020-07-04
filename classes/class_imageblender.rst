@@ -13,29 +13,36 @@ ImageBlender
 
 Provides advanced image blending methods (derived from OpenGL specification).
 
+Description
+-----------
+
+Sets up a custom blending method if the blending methods provided by Godot's :ref:`Image<class_Image>` class do not meet the user's criteria. This class uses two equations: one for the RGB values, and another one for the alpha value. This class's default behavior is the same as :ref:`Image.blend_rect<class_Image_method_blend_rect>`.
+
 Properties
 ----------
 
 +-------------------------------------------------------+-----------------------------------------------------------------------+--------+
-| :ref:`BlendFactor<enum_ImageBlender_BlendFactor>`     | :ref:`alpha_dst_factor<class_ImageBlender_property_alpha_dst_factor>` | ``7``  |
+| :ref:`BlendEquation<enum_ImageBlender_BlendEquation>` | :ref:`rgb_equation<class_ImageBlender_property_rgb_equation>`         | ``0``  |
 +-------------------------------------------------------+-----------------------------------------------------------------------+--------+
 | :ref:`BlendEquation<enum_ImageBlender_BlendEquation>` | :ref:`alpha_equation<class_ImageBlender_property_alpha_equation>`     | ``0``  |
++-------------------------------------------------------+-----------------------------------------------------------------------+--------+
+| :ref:`BlendFactor<enum_ImageBlender_BlendFactor>`     | :ref:`rgb_src_factor<class_ImageBlender_property_rgb_src_factor>`     | ``6``  |
 +-------------------------------------------------------+-----------------------------------------------------------------------+--------+
 | :ref:`BlendFactor<enum_ImageBlender_BlendFactor>`     | :ref:`alpha_src_factor<class_ImageBlender_property_alpha_src_factor>` | ``1``  |
 +-------------------------------------------------------+-----------------------------------------------------------------------+--------+
 | :ref:`BlendFactor<enum_ImageBlender_BlendFactor>`     | :ref:`rgb_dst_factor<class_ImageBlender_property_rgb_dst_factor>`     | ``10`` |
 +-------------------------------------------------------+-----------------------------------------------------------------------+--------+
-| :ref:`BlendEquation<enum_ImageBlender_BlendEquation>` | :ref:`rgb_equation<class_ImageBlender_property_rgb_equation>`         | ``0``  |
-+-------------------------------------------------------+-----------------------------------------------------------------------+--------+
-| :ref:`BlendFactor<enum_ImageBlender_BlendFactor>`     | :ref:`rgb_src_factor<class_ImageBlender_property_rgb_src_factor>`     | ``6``  |
+| :ref:`BlendFactor<enum_ImageBlender_BlendFactor>`     | :ref:`alpha_dst_factor<class_ImageBlender_property_alpha_dst_factor>` | ``7``  |
 +-------------------------------------------------------+-----------------------------------------------------------------------+--------+
 
 Methods
 -------
 
-+------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| void | :ref:`blend_rect<class_ImageBlender_method_blend_rect>` **(** :ref:`Image<class_Image>` src, :ref:`Rect2<class_Rect2>` src_rect, :ref:`Image<class_Image>` dst, :ref:`Vector2<class_Vector2>` dst_pos **)** const |
-+------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| void | :ref:`blend_rect<class_ImageBlender_method_blend_rect>` **(** :ref:`Image<class_Image>` src, :ref:`Rect2<class_Rect2>` src_rect, :ref:`Image<class_Image>` dst, :ref:`Vector2<class_Vector2>` dst_pos **)** const                                                                                    |
++------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| void | :ref:`stamp_rect<class_ImageBlender_method_stamp_rect>` **(** :ref:`Image<class_Image>` src, :ref:`Rect2<class_Rect2>` src_rect, :ref:`Image<class_Image>` dst, :ref:`Vector2<class_Vector2>` dst_init_pos, :ref:`Vector2<class_Vector2>` dst_end_pos, :ref:`float<class_float>` spacing **)** const |
++------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 Enumerations
 ------------
@@ -54,15 +61,15 @@ Enumerations
 
 enum **BlendEquation**:
 
-- **FUNC_ADD** = **0**
+- **FUNC_ADD** = **0** --- Adds the ``src`` and ``dst`` values.
 
-- **FUNC_SUBTRACT** = **1**
+- **FUNC_SUBTRACT** = **1** --- Substracts the ``dst`` value from the ``src`` value.
 
-- **FUNC_REVERSE_SUBTRACT** = **2**
+- **FUNC_REVERSE_SUBTRACT** = **2** --- Substracts the ``src`` value from the ``dst`` value.
 
-- **FUNC_MIN** = **3**
+- **FUNC_MIN** = **3** --- Selects the minimum from the ``src`` and ``dst`` values.
 
-- **FUNC_MAX** = **4**
+- **FUNC_MAX** = **4** --- Selects the maximum from the ``src`` and ``dst`` values.
 
 ----
 
@@ -92,42 +99,44 @@ enum **BlendEquation**:
 
 enum **BlendFactor**:
 
-- **FACTOR_ZERO** = **0**
+- **FACTOR_ZERO** = **0** --- Factor is equal to 0.
 
-- **FACTOR_ONE** = **1**
+- **FACTOR_ONE** = **1** --- Factor is equal to 1.
 
-- **FACTOR_SRC_COLOR** = **2**
+- **FACTOR_SRC_COLOR** = **2** --- Factor is equal to the ``src`` color.
 
-- **FACTOR_ONE_MINUS_SRC_COLOR** = **3**
+- **FACTOR_ONE_MINUS_SRC_COLOR** = **3** --- Factor is equal to 1 minus the ``src`` color.
 
-- **FACTOR_DST_COLOR** = **4**
+- **FACTOR_DST_COLOR** = **4** --- Factor is equal to the ``dst`` color.
 
-- **FACTOR_ONE_MINUS_DST_COLOR** = **5**
+- **FACTOR_ONE_MINUS_DST_COLOR** = **5** --- Factor is equal to 1 minus the ``dst`` color.
 
-- **FACTOR_SRC_ALPHA** = **6**
+- **FACTOR_SRC_ALPHA** = **6** --- Factor is equal to the alpha value of the ``src`` color.
 
-- **FACTOR_ONE_MINUS_SRC_ALPHA** = **7**
+- **FACTOR_ONE_MINUS_SRC_ALPHA** = **7** --- Factor is equal to 1 minus the alpha value of the ``src`` color.
 
-- **FACTOR_DST_ALPHA** = **8**
+- **FACTOR_DST_ALPHA** = **8** --- Factor is equal to the alpha value of the ``dst`` color.
 
-- **FACTOR_ONE_MINUS_DST_ALPHA** = **9**
+- **FACTOR_ONE_MINUS_DST_ALPHA** = **9** --- Factor is equal to 1 minus the alpha value of the ``dst`` color.
 
-- **FACTOR_DST_ALPHA_TIMES_ONE_MINUS_SRC_ALPHA** = **10**
+- **FACTOR_DST_ALPHA_TIMES_ONE_MINUS_SRC_ALPHA** = **10** --- Factor is equal to ``FACTOR_DST_ALPHA`` times ``FACTOR_ONE_MINUS_SRC_ALPHA``.
 
 Property Descriptions
 ---------------------
 
-.. _class_ImageBlender_property_alpha_dst_factor:
+.. _class_ImageBlender_property_rgb_equation:
 
-- :ref:`BlendFactor<enum_ImageBlender_BlendFactor>` **alpha_dst_factor**
+- :ref:`BlendEquation<enum_ImageBlender_BlendEquation>` **rgb_equation**
 
-+-----------+-----------------------------+
-| *Default* | ``7``                       |
-+-----------+-----------------------------+
-| *Setter*  | set_alpha_dst_factor(value) |
-+-----------+-----------------------------+
-| *Getter*  | get_alpha_dst_factor()      |
-+-----------+-----------------------------+
++-----------+-------------------------+
+| *Default* | ``0``                   |
++-----------+-------------------------+
+| *Setter*  | set_rgb_equation(value) |
++-----------+-------------------------+
+| *Getter*  | get_rgb_equation()      |
++-----------+-------------------------+
+
+Determines the equation that blends the RGB values.
 
 ----
 
@@ -143,47 +152,7 @@ Property Descriptions
 | *Getter*  | get_alpha_equation()      |
 +-----------+---------------------------+
 
-----
-
-.. _class_ImageBlender_property_alpha_src_factor:
-
-- :ref:`BlendFactor<enum_ImageBlender_BlendFactor>` **alpha_src_factor**
-
-+-----------+-----------------------------+
-| *Default* | ``1``                       |
-+-----------+-----------------------------+
-| *Setter*  | set_alpha_src_factor(value) |
-+-----------+-----------------------------+
-| *Getter*  | get_alpha_src_factor()      |
-+-----------+-----------------------------+
-
-----
-
-.. _class_ImageBlender_property_rgb_dst_factor:
-
-- :ref:`BlendFactor<enum_ImageBlender_BlendFactor>` **rgb_dst_factor**
-
-+-----------+---------------------------+
-| *Default* | ``10``                    |
-+-----------+---------------------------+
-| *Setter*  | set_rgb_dst_factor(value) |
-+-----------+---------------------------+
-| *Getter*  | get_rgb_dst_factor()      |
-+-----------+---------------------------+
-
-----
-
-.. _class_ImageBlender_property_rgb_equation:
-
-- :ref:`BlendEquation<enum_ImageBlender_BlendEquation>` **rgb_equation**
-
-+-----------+-------------------------+
-| *Default* | ``0``                   |
-+-----------+-------------------------+
-| *Setter*  | set_rgb_equation(value) |
-+-----------+-------------------------+
-| *Getter*  | get_rgb_equation()      |
-+-----------+-------------------------+
+Determines the equation that blends the alpha values.
 
 ----
 
@@ -199,10 +168,70 @@ Property Descriptions
 | *Getter*  | get_rgb_src_factor()      |
 +-----------+---------------------------+
 
+Determines the values that multiply the ``src`` RGB values on those equations that require it.
+
+----
+
+.. _class_ImageBlender_property_alpha_src_factor:
+
+- :ref:`BlendFactor<enum_ImageBlender_BlendFactor>` **alpha_src_factor**
+
++-----------+-----------------------------+
+| *Default* | ``1``                       |
++-----------+-----------------------------+
+| *Setter*  | set_alpha_src_factor(value) |
++-----------+-----------------------------+
+| *Getter*  | get_alpha_src_factor()      |
++-----------+-----------------------------+
+
+Determines the value that multiply the ``src`` alpha value on those equations that require it.
+
+----
+
+.. _class_ImageBlender_property_rgb_dst_factor:
+
+- :ref:`BlendFactor<enum_ImageBlender_BlendFactor>` **rgb_dst_factor**
+
++-----------+---------------------------+
+| *Default* | ``10``                    |
++-----------+---------------------------+
+| *Setter*  | set_rgb_dst_factor(value) |
++-----------+---------------------------+
+| *Getter*  | get_rgb_dst_factor()      |
++-----------+---------------------------+
+
+Determines the values that multiply the ``dst`` RGB values on those equations that require it.
+
+----
+
+.. _class_ImageBlender_property_alpha_dst_factor:
+
+- :ref:`BlendFactor<enum_ImageBlender_BlendFactor>` **alpha_dst_factor**
+
++-----------+-----------------------------+
+| *Default* | ``7``                       |
++-----------+-----------------------------+
+| *Setter*  | set_alpha_dst_factor(value) |
++-----------+-----------------------------+
+| *Getter*  | get_alpha_dst_factor()      |
++-----------+-----------------------------+
+
+Determines the value that multiply the ``dst`` alpha value on those equations that require it.
+
 Method Descriptions
 -------------------
 
 .. _class_ImageBlender_method_blend_rect:
 
 - void **blend_rect** **(** :ref:`Image<class_Image>` src, :ref:`Rect2<class_Rect2>` src_rect, :ref:`Image<class_Image>` dst, :ref:`Vector2<class_Vector2>` dst_pos **)** const
+
+Blends ``src_rect`` from ``src`` image to ``dst`` image at coordinates ``dst_pos``.
+
+----
+
+.. _class_ImageBlender_method_stamp_rect:
+
+- void **stamp_rect** **(** :ref:`Image<class_Image>` src, :ref:`Rect2<class_Rect2>` src_rect, :ref:`Image<class_Image>` dst, :ref:`Vector2<class_Vector2>` dst_init_pos, :ref:`Vector2<class_Vector2>` dst_end_pos, :ref:`float<class_float>` spacing **)** const
+
+Stamps ``src_rect`` from ``src`` image to ``dst`` image in a straight line from ``dst_init_pos`` to ``dst_end_pos``, with a certain ``spacing`` between stamps.
 
