@@ -11,7 +11,18 @@ ShapeCast2D
 
 **Inherits:** :ref:`Node2D<class_Node2D>` **<** :ref:`CanvasItem<class_CanvasItem>` **<** :ref:`Node<class_Node>` **<** :ref:`Object<class_Object>`
 
+Node for physics collision sweep and immediate overlap queries. Similar to the :ref:`RayCast2D<class_RayCast2D>` node.
 
+Description
+-----------
+
+Unlike :ref:`RayCast2D<class_RayCast2D>`, shape casting allows to detect collision objects along the cast area (for instance, beam weapons).
+
+Immediate collision overlaps can be easily done with the :ref:`cast_to<class_ShapeCast2D_property_cast_to>` set to ``Vector2(0, 0)`` and by calling :ref:`force_shapecast_update<class_ShapeCast2D_method_force_shapecast_update>` within the same **physics_frame**. This also helps to overcome some limitations of :ref:`Area2D<class_Area2D>` when used as a continuos detection area, often requiring waiting a couple of frames before collision information is available to :ref:`Area2D<class_Area2D>` nodes, and when using the signals creates unnecessary complexity.
+
+This node can detect multiple collision objects. If you want to use this just like :ref:`RayCast2D<class_RayCast2D>`, use corresponding ``get_closest_*`` methods instead. Cannot detect all objects along the cast motion, but only when collision occurs (same as in :ref:`RayCast2D<class_RayCast2D>`).
+
+**Note:** shape casting is more computationally expensive compared to ray casting.
 
 Properties
 ----------
@@ -98,6 +109,8 @@ Property Descriptions
 | *Getter*  | get_cast_to()        |
 +-----------+----------------------+
 
+The shape's destination point, relative to this node's ``position``.
+
 ----
 
 .. _class_ShapeCast2D_property_collide_with_areas:
@@ -111,6 +124,8 @@ Property Descriptions
 +-----------+---------------------------------+
 | *Getter*  | is_collide_with_areas_enabled() |
 +-----------+---------------------------------+
+
+If ``true``, collision with :ref:`Area2D<class_Area2D>`\ s will be reported.
 
 ----
 
@@ -126,6 +141,8 @@ Property Descriptions
 | *Getter*  | is_collide_with_bodies_enabled() |
 +-----------+----------------------------------+
 
+If ``true``, collision with :ref:`PhysicsBody2D<class_PhysicsBody2D>`\ s will be reported.
+
 ----
 
 .. _class_ShapeCast2D_property_collision_mask:
@@ -140,6 +157,8 @@ Property Descriptions
 | *Getter*  | get_collision_mask()      |
 +-----------+---------------------------+
 
+The shape's collision mask. Only objects in at least one collision layer enabled in the mask will be detected.
+
 ----
 
 .. _class_ShapeCast2D_property_collision_result:
@@ -149,6 +168,8 @@ Property Descriptions
 +-----------+----------+
 | *Default* | ``[  ]`` |
 +-----------+----------+
+
+A complete collision information. The data returned is the same as in the :ref:`Physics2DDirectSpaceState.get_rest_info<class_Physics2DDirectSpaceState_method_get_rest_info>` method.
 
 ----
 
@@ -164,6 +185,8 @@ Property Descriptions
 | *Getter*  | is_enabled()       |
 +-----------+--------------------+
 
+If ``true``, collisions will be reported.
+
 ----
 
 .. _class_ShapeCast2D_property_exclude_parent:
@@ -177,6 +200,8 @@ Property Descriptions
 +-----------+--------------------------------+
 | *Getter*  | get_exclude_parent_body()      |
 +-----------+--------------------------------+
+
+If ``true``, the parent node will be excluded from collision detection.
 
 ----
 
@@ -192,6 +217,8 @@ Property Descriptions
 | *Getter*  | get_margin()      |
 +-----------+-------------------+
 
+The collision margin for the shape. Large margin speeds up the performance at the cost of precision.
+
 ----
 
 .. _class_ShapeCast2D_property_max_results:
@@ -206,6 +233,8 @@ Property Descriptions
 | *Getter*  | get_max_results()      |
 +-----------+------------------------+
 
+The number of intersections can be limited with this parameter, to reduce the processing time.
+
 ----
 
 .. _class_ShapeCast2D_property_shape:
@@ -218,6 +247,8 @@ Property Descriptions
 | *Getter* | get_shape()      |
 +----------+------------------+
 
+Any :ref:`Shape2D<class_Shape2D>` used for collision queries.
+
 Method Descriptions
 -------------------
 
@@ -225,11 +256,15 @@ Method Descriptions
 
 - void **add_exception** **(** :ref:`Object<class_Object>` node **)**
 
+Adds a collision exception so the shape does not report collisions with the specified node.
+
 ----
 
 .. _class_ShapeCast2D_method_add_exception_rid:
 
 - void **add_exception_rid** **(** :ref:`RID<class_RID>` rid **)**
+
+Adds a collision exception so the shape does not report collisions with the specified :ref:`RID<class_RID>`.
 
 ----
 
@@ -237,11 +272,17 @@ Method Descriptions
 
 - void **clear_exceptions** **(** **)**
 
+Removes all collision exceptions for this shape.
+
 ----
 
 .. _class_ShapeCast2D_method_force_shapecast_update:
 
 - void **force_shapecast_update** **(** **)**
+
+Updates the collision information for the shape. Use this method to update the collision information immediately instead of waiting for the next ``_physics_process`` call, for example if the shape or its parent has changed state.
+
+**Note:** ``enabled == true`` is not required for this to work.
 
 ----
 
@@ -249,11 +290,15 @@ Method Descriptions
 
 - :ref:`Object<class_Object>` **get_closest_collider** **(** **)** const
 
+Returns the first object that the shape intersects, or ``null`` if no object is intersecting the shape (i.e. :ref:`is_colliding<class_ShapeCast2D_method_is_colliding>` returns ``false``).
+
 ----
 
 .. _class_ShapeCast2D_method_get_closest_collider_shape:
 
 - :ref:`int<class_int>` **get_closest_collider_shape** **(** **)** const
+
+Returns the shape ID of the first object that the shape intersects, or ``0`` if no object is intersecting the shape (i.e. :ref:`is_colliding<class_ShapeCast2D_method_is_colliding>` returns ``false``).
 
 ----
 
@@ -261,11 +306,17 @@ Method Descriptions
 
 - :ref:`Vector2<class_Vector2>` **get_closest_collision_normal** **(** **)** const
 
+Returns the normal of the closest intersecting object's shape at the collision point.
+
 ----
 
 .. _class_ShapeCast2D_method_get_closest_collision_point:
 
 - :ref:`Vector2<class_Vector2>` **get_closest_collision_point** **(** **)** const
+
+Returns the collision point at which the shape intersects the closest object.
+
+**Note:** this point is in the **global** coordinate system.
 
 ----
 
@@ -273,11 +324,15 @@ Method Descriptions
 
 - :ref:`float<class_float>` **get_closest_collision_safe_distance** **(** **)** const
 
+The fraction of the motion (determined by :ref:`cast_to<class_ShapeCast2D_property_cast_to>`) of how far the shape can move without triggering a collision.
+
 ----
 
 .. _class_ShapeCast2D_method_get_closest_collision_unsafe_distance:
 
 - :ref:`float<class_float>` **get_closest_collision_unsafe_distance** **(** **)** const
+
+The fraction of the motion (determined by :ref:`cast_to<class_ShapeCast2D_property_cast_to>`) when the shape triggers a collision.
 
 ----
 
@@ -285,11 +340,15 @@ Method Descriptions
 
 - :ref:`Object<class_Object>` **get_collider** **(** :ref:`int<class_int>` index **)** const
 
+Returns the first object that the shape intersects, or ``null`` if no object is intersecting the shape (i.e. :ref:`is_colliding<class_ShapeCast2D_method_is_colliding>` returns ``false``).
+
 ----
 
 .. _class_ShapeCast2D_method_get_collider_shape:
 
 - :ref:`int<class_int>` **get_collider_shape** **(** :ref:`int<class_int>` index **)** const
+
+Returns the shape ID of one of the multiple collisions at ``index`` that the shape intersects, or ``0`` if no object is intersecting the shape (i.e. :ref:`is_colliding<class_ShapeCast2D_method_is_colliding>` returns ``false``).
 
 ----
 
@@ -297,11 +356,15 @@ Method Descriptions
 
 - :ref:`int<class_int>` **get_collision_count** **(** **)** const
 
+The number of collisions detected. Use this to iterate over multiple collisions as provided by :ref:`get_collider<class_ShapeCast2D_method_get_collider>`, :ref:`get_collider_shape<class_ShapeCast2D_method_get_collider_shape>`, :ref:`get_collision_point<class_ShapeCast2D_method_get_collision_point>`, and :ref:`get_collision_normal<class_ShapeCast2D_method_get_collision_normal>` methods.
+
 ----
 
 .. _class_ShapeCast2D_method_get_collision_mask_bit:
 
 - :ref:`bool<class_bool>` **get_collision_mask_bit** **(** :ref:`int<class_int>` bit **)** const
+
+Returns an individual bit on the collision mask.
 
 ----
 
@@ -309,11 +372,17 @@ Method Descriptions
 
 - :ref:`Vector2<class_Vector2>` **get_collision_normal** **(** :ref:`int<class_int>` index **)** const
 
+Returns the normal containing one of the multiple collisions at ``index`` of the intersecting object.
+
 ----
 
 .. _class_ShapeCast2D_method_get_collision_point:
 
 - :ref:`Vector2<class_Vector2>` **get_collision_point** **(** :ref:`int<class_int>` index **)** const
+
+Returns the collision point containing one of the multiple collisions at ``index`` at which the shape intersects the object.
+
+**Note:** this point is in the **global** coordinate system.
 
 ----
 
@@ -321,11 +390,15 @@ Method Descriptions
 
 - :ref:`bool<class_bool>` **is_colliding** **(** **)** const
 
+Returns whether any object is intersecting with the shape's vector (considering the vector length).
+
 ----
 
 .. _class_ShapeCast2D_method_remove_exception:
 
 - void **remove_exception** **(** :ref:`Object<class_Object>` node **)**
+
+Removes a collision exception so the shape does report collisions with the specified node.
 
 ----
 
@@ -333,9 +406,13 @@ Method Descriptions
 
 - void **remove_exception_rid** **(** :ref:`RID<class_RID>` rid **)**
 
+Removes a collision exception so the shape does report collisions with the specified :ref:`RID<class_RID>`.
+
 ----
 
 .. _class_ShapeCast2D_method_set_collision_mask_bit:
 
 - void **set_collision_mask_bit** **(** :ref:`int<class_int>` bit, :ref:`bool<class_bool>` value **)**
+
+Sets or clears individual bits on the collision mask. This makes selecting the areas scanned easier.
 
