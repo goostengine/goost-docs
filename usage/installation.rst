@@ -48,11 +48,11 @@ Getting the source
 ~~~~~~~~~~~~~~~~~~
 
 The most straightforward way to get the source is by cloning the
-`Goost repository <https://github.com/GoostGD/goost>`_:
+`Goost repository <https://github.com/goostengine/goost>`_:
 
 .. code-block:: shell
 
-    git clone https://github.com/GoostGD/goost
+    git clone https://github.com/goostengine/goost
 
 Building
 ~~~~~~~~
@@ -94,5 +94,5 @@ the classes provided by the extension are instantly accessible (as seen in the
         scons custom_modules=".." extra_suffix="goost"
 
 .. note:: 
-    Please `report any issues <https://github.com/GoostGD/goost/issues/new/choose>`_ 
+    Please `report any issues <https://github.com/goostengine/goost/issues/new/choose>`_ 
     if you stumble upon compilation errors.

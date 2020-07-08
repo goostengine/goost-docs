@@ -83,7 +83,7 @@ Or if you haven't yet cloned Goost:
 
 .. code-block:: shell
 
-    git clone https://github.com/GoostGD/goost.git --recurse-submodules
+    git clone https://github.com/goostengine/goost.git --recurse-submodules
 
 Other
 -----

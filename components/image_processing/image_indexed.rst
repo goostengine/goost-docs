@@ -92,4 +92,4 @@ Example project
 ~~~~~~~~~~~~~~~
 
 The indexed image processing is demonstrated at
-`Goost Examples repository <https://github.com/GoostGD/goost-examples/tree/gd3/imaging/image_indexed>`_.
+`Goost Examples repository <https://github.com/goostengine/goost-examples/tree/gd3/imaging/image_indexed>`_.

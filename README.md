@@ -3,7 +3,7 @@
 [![Documentation Status](https://readthedocs.org/projects/goost/badge/?version=gd3)](https://goost.readthedocs.io/en/latest/?badge=gd3)
 
 This repository contains the source files of
-[Goost](https://github.com/GoostGD/goost)'s documentation.
+[Goost](https://github.com/goostengine/goost)'s documentation.
 
 See [Godot Engine Documentation](https://github.com/godotengine/godot-docs)
 for existing documentation writing workflow and other instructions.
