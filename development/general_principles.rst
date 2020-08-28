@@ -45,10 +45,9 @@ particular feature would be useful or needed for most or only a handful of the
 users, but lets make some estimations.
 
 If you're developing a new feature directly in Godot Engine, the proposed
-feature must be useful for at least 70% of the users.
-
-Now, if you're developing a new feature in Goost, the feature must be useful for
-at least **30%** of the users, directly or indirectly.
+feature must be useful for at least **70%** of the users. Now, if you're
+developing a new feature in Goost, the feature must be useful for at least
+**30%** of the users.
 
 A lot of the existing Goost functionality is a result of not approved and
 not-yet-approved proposals by Godot Engine's core developers but which received
@@ -61,11 +60,25 @@ Performance
 
 If you think that GDScript is still too slow for your use cases, you may
 consider re-implementing a feature in Goost using C++ if you think that it will
-benefit other developers. The most common bottlenecks may be math operations,
-procedural generation etc.
+benefit other developers (see Usefulness criteria). The most common bottlenecks
+may be math operations, procedural generation etc.
+
+For instance, there are a lot of finite-state machine implementations which
+should be better implemented via script currently, as it may be difficult to
+implement a general-purpose implementation to suite most use cases. But if some
+parts are too slow, this could be optimized by creating general-purpose enough
+C++ data structures and algorithms to help you speed up computation. Again,
+those classes and methods should be useful to a decent percentage of developers
+using Goost.
 
 Reusability
 ~~~~~~~~~~~
+
+Some existing Goost classes and methods reuse existing Godot Engine
+functionality which are unavailable in the official builds (a feature may be
+deemed too corner case for it to be exposed by Godot Engine core developers). If
+there's some Godot feature which is inaccessible to scripting but nonetheless
+reachable through C++ code, that's a good opportunity to expose it via Goost.
 
 If you don't want to reinvent the wheel and you need to use a feature for which
 there's an existing C/C++ library which can be bundled as part of Goost, that's
@@ -91,7 +104,7 @@ it **must** be implemented as a module.
 Community
 ~~~~~~~~~
 
-If you're an independent Godot Engine C++ module developer who wants to link an
+If you're an independent Godot Engine C++ modules developer who wants to link an
 existing module to be included as part of Goost, feel free to open a pull
 request linking your module as a ``git submodule``. This might be the best
 option if you'd like to have more freedom over your module's development.
