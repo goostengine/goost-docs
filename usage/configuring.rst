@@ -3,25 +3,60 @@
 Configuring the build
 =====================
 
+.. note::
+
+    This page assumes that you've read :ref:`doc_installation`.
+
+Extension
+---------
+
+The root ``SConstruct`` allows you to compile the engine with the extension by
+running the same ``scons`` command, and the behavior can be configured.
+
+By default, running ``scons`` from within Goost source root will clone the Godot
+repository within the current working directory. If you'd like to prevent this
+behavior, you can define ``GODOT_SOURCE_PATH`` environment variable pointing to
+Godot source within your filesystem before compiling:
+
+.. tabs::
+ .. code-tab:: bash Linux/macOS
+
+     export GODOT_SOURCE_PATH="/path/to/godot"
+
+ .. code-tab:: bat Windows (cmd)
+
+     set GODOT_SOURCE_PATH=C:\src\godot
+
+ .. code-tab:: powershell Windows (powershell)
+
+     $env:GODOT_SOURCE_PATH="C:/src/godot"
+     
+If the path is invalid, the script shall try to find Godot at the parent
+directory. If this fails too, then the Godot repository is cloned from the
+remote URL defined by ``GODOT_REPO_URL`` environment variable, which can be
+configured similarly as above.
+
+The specific Godot version can also be overridden with ``GODOT_VERSION``
+environment variable accepting branch names, commit hash, tag etc, everything
+which is supported by ``git``.
+
 Components
 ----------
 
 By default, all extension components are built, but it's also possible to
-disable them.
-
-Disabling a single component involves compiling the engine with one of the
-``goost_*_enabled`` build options:
+disable them. Disabling a single component involves compiling the engine with
+one of the ``goost_*_enabled`` build options:
 
 .. code-block:: shell
 
-    scons custom_modules="/path/to/dir/containing/goost" goost_math_enabled=no
+    scons goost_math_enabled=no
 
 It's also possible to disable a entire branch of components:
 
 .. code-block:: shell
 
     # For instance, this disables both ``image`` and ``math`` components.
-    scons custom_modules="/path/to/dir/containing/goost" goost_core_enabled=no
+    scons goost_core_enabled=no
     
 See each component build options in the :ref:`sec-components` section.
 
@@ -29,9 +64,10 @@ Modules
 -------
 
 The extension provides as set of optional modules (regular C++ modules just like
-this extension) which are not compiled alongside this extension by default. In
-order to compile them, you can append to the list of paths specified by
-``custom_modules`` option:
+this extension) which are compiled alongside this extension by default if you
+build the engine from within Goost root with the ``scons`` command. If you
+compile the Goost extension externally, those modules can be compiled by
+appending to the list of paths specified by ``custom_modules`` option:
 
 .. code-block:: shell
 
