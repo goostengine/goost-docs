@@ -18,6 +18,11 @@ Description
 
 The class adds support for indexed images with a color palette and provides common operations to create, generate and operate on color palette and index data. This does not actually add a ``FORMAT_INDEXED`` image format as modern GPUs don't actually support it, yet index data is stored internally alongside regular pixels if an image has a palette. This allows to interchange (swap, extend) index data to pixel data via :ref:`apply_palette<class_ImageIndexed_method_apply_palette>`, allowing for things like simple palette swapping without using shaders, finding average/dominant colors in an image as the class provides a way to generate color palette with specified number of colors which involves color quantization.
 
+Tutorials
+---------
+
+- `https://goost.readthedocs.io/en/gd3/components/image_processing/image_indexed.html <https://goost.readthedocs.io/en/gd3/components/image_processing/image_indexed.html>`_
+
 Properties
 ----------
 
@@ -45,19 +50,19 @@ Methods
 +---------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | :ref:`float<class_float>`             | :ref:`generate_palette<class_ImageIndexed_method_generate_palette>` **(** :ref:`int<class_int>` num_colors=256, :ref:`DitherMode<enum_ImageIndexed_DitherMode>` dithering=0, :ref:`bool<class_bool>` with_alpha=true, :ref:`bool<class_bool>` high_quality=false **)** |
 +---------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Color<class_Color>`             | :ref:`get_palette_color<class_ImageIndexed_method_get_palette_color>` **(** :ref:`int<class_int>` index **)** const                                                                                                                                                    |
+| :ref:`Color<class_Color>`             | :ref:`get_palette_color<class_ImageIndexed_method_get_palette_color>` **(** :ref:`int<class_int>` index **)** |const|                                                                                                                                                  |
 +---------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`int<class_int>`                 | :ref:`get_palette_size<class_ImageIndexed_method_get_palette_size>` **(** **)** const                                                                                                                                                                                  |
+| :ref:`int<class_int>`                 | :ref:`get_palette_size<class_ImageIndexed_method_get_palette_size>` **(** **)** |const|                                                                                                                                                                                |
 +---------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`int<class_int>`                 | :ref:`get_pixel_indexed<class_ImageIndexed_method_get_pixel_indexed>` **(** :ref:`int<class_int>` x, :ref:`int<class_int>` y **)** const                                                                                                                               |
+| :ref:`int<class_int>`                 | :ref:`get_pixel_indexed<class_ImageIndexed_method_get_pixel_indexed>` **(** :ref:`int<class_int>` x, :ref:`int<class_int>` y **)** |const|                                                                                                                             |
 +---------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`bool<class_bool>`               | :ref:`has_palette<class_ImageIndexed_method_has_palette>` **(** **)** const                                                                                                                                                                                            |
+| :ref:`bool<class_bool>`               | :ref:`has_palette<class_ImageIndexed_method_has_palette>` **(** **)** |const|                                                                                                                                                                                          |
 +---------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | :ref:`Error<enum_@GlobalScope_Error>` | :ref:`load_indexed_png<class_ImageIndexed_method_load_indexed_png>` **(** :ref:`String<class_String>` path **)**                                                                                                                                                       |
 +---------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | void                                  | :ref:`lock_indexed<class_ImageIndexed_method_lock_indexed>` **(** **)**                                                                                                                                                                                                |
 +---------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Error<enum_@GlobalScope_Error>` | :ref:`save_indexed_png<class_ImageIndexed_method_save_indexed_png>` **(** :ref:`String<class_String>` path **)** const                                                                                                                                                 |
+| :ref:`Error<enum_@GlobalScope_Error>` | :ref:`save_indexed_png<class_ImageIndexed_method_save_indexed_png>` **(** :ref:`String<class_String>` path **)** |const|                                                                                                                                               |
 +---------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | void                                  | :ref:`set_palette_color<class_ImageIndexed_method_set_palette_color>` **(** :ref:`int<class_int>` index, :ref:`Color<class_Color>` color **)**                                                                                                                         |
 +---------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -186,7 +191,7 @@ Note that this method overwrites previously created or generated palette and ind
 
 .. _class_ImageIndexed_method_get_palette_color:
 
-- :ref:`Color<class_Color>` **get_palette_color** **(** :ref:`int<class_int>` index **)** const
+- :ref:`Color<class_Color>` **get_palette_color** **(** :ref:`int<class_int>` index **)** |const|
 
 Returns color palette entry at ``index`` position.
 
@@ -194,7 +199,7 @@ Returns color palette entry at ``index`` position.
 
 .. _class_ImageIndexed_method_get_palette_size:
 
-- :ref:`int<class_int>` **get_palette_size** **(** **)** const
+- :ref:`int<class_int>` **get_palette_size** **(** **)** |const|
 
 Returns the total number of color palette entries.
 
@@ -202,7 +207,7 @@ Returns the total number of color palette entries.
 
 .. _class_ImageIndexed_method_get_pixel_indexed:
 
-- :ref:`int<class_int>` **get_pixel_indexed** **(** :ref:`int<class_int>` x, :ref:`int<class_int>` y **)** const
+- :ref:`int<class_int>` **get_pixel_indexed** **(** :ref:`int<class_int>` x, :ref:`int<class_int>` y **)** |const|
 
 Returns an index which is mapped to color palette. See notes for :ref:`Image.get_pixel<class_Image_method_get_pixel>`.
 
@@ -210,7 +215,7 @@ Returns an index which is mapped to color palette. See notes for :ref:`Image.get
 
 .. _class_ImageIndexed_method_has_palette:
 
-- :ref:`bool<class_bool>` **has_palette** **(** **)** const
+- :ref:`bool<class_bool>` **has_palette** **(** **)** |const|
 
 Return ``true`` is this image has color palette.
 
@@ -234,7 +239,7 @@ Locks the index data for writing access.
 
 .. _class_ImageIndexed_method_save_indexed_png:
 
-- :ref:`Error<enum_@GlobalScope_Error>` **save_indexed_png** **(** :ref:`String<class_String>` path **)** const
+- :ref:`Error<enum_@GlobalScope_Error>` **save_indexed_png** **(** :ref:`String<class_String>` path **)** |const|
 
 Saves indexed PNG image to disk at specified path. If image has palette and index data associated with it, the image will be saved as indexed, else saved as true color, see :ref:`Image.save_png<class_Image_method_save_png>`. The image with transparency is saved in a separate PNG alpha chunk, preserving transparency in indexed image with regular RGB color palette.
 
@@ -262,3 +267,6 @@ Sets an index which should be mapped to color palette. See notes for :ref:`Image
 
 Unlocks the index data and prevents changes.
 
+.. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
+.. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`

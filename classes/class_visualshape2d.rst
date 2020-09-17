@@ -141,3 +141,6 @@ Method Descriptions
 
 Forces to update the shape from parent node. This is called automatically each **idle frame** if :ref:`use_parent_shape<class_VisualShape2D_property_use_parent_shape>` is enabled. Updating the shape each frame may be costly, so you can disable this behavior with ``set_process(false)`` on this node, and update the shape manually with this method when needed.
 
+.. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
+.. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`

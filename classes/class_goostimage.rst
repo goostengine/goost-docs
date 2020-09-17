@@ -18,6 +18,11 @@ Description
 
 A singleton which handles various :ref:`Image<class_Image>` processing and analysis tasks. Most methods accept an image as an input.
 
+Tutorials
+---------
+
+- `https://goost.readthedocs.io/en/gd3/components/image_processing/index.html <https://goost.readthedocs.io/en/gd3/components/image_processing/index.html>`_
+
 Methods
 -------
 
@@ -48,7 +53,7 @@ Methods
 +-------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | :ref:`Image<class_Image>`     | :ref:`render_svg<class_GoostImage_method_render_svg>` **(** :ref:`String<class_String>` svg_document, :ref:`float<class_float>` scale=1.0 **)**                                                                                                                                                       |
 +-------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Image<class_Image>`     | :ref:`repeat<class_GoostImage_method_repeat>` **(** :ref:`Image<class_Image>` image, :ref:`Vector2<class_Vector2>` count, :ref:`WrapMode<enum_GoostImage_WrapMode>` wrap_mode=0, :ref:`Vector2<class_Vector2>` max_size=Vector2( 65536, 65536 ) **)**                                                 |
+| :ref:`Image<class_Image>`     | :ref:`repeat<class_GoostImage_method_repeat>` **(** :ref:`Image<class_Image>` image, :ref:`Vector2<class_Vector2>` count, :ref:`WrapMode<enum_GoostImage_WrapMode>` wrap_mode=0, :ref:`Vector2<class_Vector2>` max_size=Vector2( 16384, 16384 ) **)**                                                 |
 +-------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | void                          | :ref:`replace_color<class_GoostImage_method_replace_color>` **(** :ref:`Image<class_Image>` image, :ref:`Color<class_Color>` color, :ref:`Color<class_Color>` with_color **)**                                                                                                                        |
 +-------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -267,7 +272,7 @@ This method reuses **nanosvg** implementation bundled with Godot for rendering e
 
 .. _class_GoostImage_method_repeat:
 
-- :ref:`Image<class_Image>` **repeat** **(** :ref:`Image<class_Image>` image, :ref:`Vector2<class_Vector2>` count, :ref:`WrapMode<enum_GoostImage_WrapMode>` wrap_mode=0, :ref:`Vector2<class_Vector2>` max_size=Vector2( 65536, 65536 ) **)**
+- :ref:`Image<class_Image>` **repeat** **(** :ref:`Image<class_Image>` image, :ref:`Vector2<class_Vector2>` count, :ref:`WrapMode<enum_GoostImage_WrapMode>` wrap_mode=0, :ref:`Vector2<class_Vector2>` max_size=Vector2( 16384, 16384 ) **)**
 
 Repeats an image in both horizontal and vertical directions several times as determined by the X and Y components of ``count`` respectively. The ``wrap_mode`` specifies how the image is tiled. The ``max_size`` can be overridden to prevent the resulting image from exceeding some size, and the default maximum size is determined by :ref:`Image.MAX_WIDTH<class_Image_constant_MAX_WIDTH>` and :ref:`Image.MAX_HEIGHT<class_Image_constant_MAX_HEIGHT>`. See also :ref:`tile<class_GoostImage_method_tile>`.
 
@@ -336,3 +341,6 @@ Rotates the image by 90 degrees in either clockwise or counterclockwise :ref:`Di
 
 Tiles an image in both horizontal and vertical directions over a region limited by ``size`` onto a new image. The ``wrap_mode`` specifies how the image is tiled. See also :ref:`repeat<class_GoostImage_method_repeat>`.
 
+.. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
+.. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`

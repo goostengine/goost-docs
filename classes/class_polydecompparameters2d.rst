@@ -62,3 +62,6 @@ Filling indicates those regions that are inside a closed path ("filled" with a b
 
 **Note:** this is only currently relevant in the **clipper10** backend for :ref:`GoostGeometry2D.DECOMP_TRIANGLES_MONO<class_GoostGeometry2D_constant_DECOMP_TRIANGLES_MONO>` algorithm.
 
+.. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
+.. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`

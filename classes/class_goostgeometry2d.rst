@@ -18,78 +18,83 @@ Description
 
 Performs polygon clipping, offsetting and decomposition, and other geometry utility operations mostly revolving around polygons and polylines.
 
+Tutorials
+---------
+
+- `https://goost.readthedocs.io/en/gd3/components/geometry.html <https://goost.readthedocs.io/en/gd3/components/geometry.html>`_
+
 Methods
 -------
 
-+-------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`PoolVector2Array<class_PoolVector2Array>` | :ref:`circle<class_GoostGeometry2D_method_circle>` **(** :ref:`float<class_float>` radius, :ref:`float<class_float>` max_error=0.25 **)** const                                                                                                                                                                                                 |
-+-------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Array<class_Array>`                       | :ref:`clip_multiple_polygons<class_GoostGeometry2D_method_clip_multiple_polygons>` **(** :ref:`Array<class_Array>` polygons_a, :ref:`Array<class_Array>` polygons_b, :ref:`PolyBooleanParameters2D<class_PolyBooleanParameters2D>` params=null **)** const                                                                                      |
-+-------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Array<class_Array>`                       | :ref:`clip_multiple_polylines_with_polygons<class_GoostGeometry2D_method_clip_multiple_polylines_with_polygons>` **(** :ref:`Array<class_Array>` polylines, :ref:`Array<class_Array>` polygons, :ref:`PolyBooleanParameters2D<class_PolyBooleanParameters2D>` params=null **)** const                                                           |
-+-------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Array<class_Array>`                       | :ref:`clip_polygons<class_GoostGeometry2D_method_clip_polygons>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon_a, :ref:`PoolVector2Array<class_PoolVector2Array>` polygon_b, :ref:`PolyBooleanParameters2D<class_PolyBooleanParameters2D>` params=null **)** const                                                              |
-+-------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Array<class_Array>`                       | :ref:`clip_polyline_with_polygon<class_GoostGeometry2D_method_clip_polyline_with_polygon>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polyline, :ref:`PoolVector2Array<class_PoolVector2Array>` polygon, :ref:`PolyBooleanParameters2D<class_PolyBooleanParameters2D>` params=null **)** const                                       |
-+-------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Array<class_Array>`                       | :ref:`decompose_multiple_polygons_into_convex<class_GoostGeometry2D_method_decompose_multiple_polygons_into_convex>` **(** :ref:`Array<class_Array>` polygon, :ref:`PolyDecompParameters2D<class_PolyDecompParameters2D>` params=null **)** const                                                                                               |
-+-------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Array<class_Array>`                       | :ref:`decompose_polygon_into_convex<class_GoostGeometry2D_method_decompose_polygon_into_convex>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon, :ref:`PolyDecompParameters2D<class_PolyDecompParameters2D>` params=null **)** const                                                                                             |
-+-------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Array<class_Array>`                       | :ref:`decompose_polygons<class_GoostGeometry2D_method_decompose_polygons>` **(** :ref:`PolyDecompType<enum_GoostGeometry2D_PolyDecompType>` type, :ref:`Array<class_Array>` polygons, :ref:`PolyDecompParameters2D<class_PolyDecompParameters2D>` params=null **)** const                                                                       |
-+-------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Array<class_Array>`                       | :ref:`deflate_multiple_polygons<class_GoostGeometry2D_method_deflate_multiple_polygons>` **(** :ref:`Array<class_Array>` polygons, :ref:`float<class_float>` delta, :ref:`PolyOffsetParameters2D<class_PolyOffsetParameters2D>` params=null **)** const                                                                                         |
-+-------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Array<class_Array>`                       | :ref:`deflate_multiple_polylines<class_GoostGeometry2D_method_deflate_multiple_polylines>` **(** :ref:`Array<class_Array>` polylines, :ref:`float<class_float>` delta, :ref:`PolyOffsetParameters2D<class_PolyOffsetParameters2D>` params=null **)** const                                                                                      |
-+-------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Array<class_Array>`                       | :ref:`deflate_polygon<class_GoostGeometry2D_method_deflate_polygon>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon, :ref:`float<class_float>` delta, :ref:`PolyOffsetParameters2D<class_PolyOffsetParameters2D>` params=null **)** const                                                                                        |
-+-------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Array<class_Array>`                       | :ref:`deflate_polyline<class_GoostGeometry2D_method_deflate_polyline>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polyline, :ref:`float<class_float>` delta, :ref:`PolyOffsetParameters2D<class_PolyOffsetParameters2D>` params=null **)** const                                                                                     |
-+-------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Array<class_Array>`                       | :ref:`exclude_multiple_polygons<class_GoostGeometry2D_method_exclude_multiple_polygons>` **(** :ref:`Array<class_Array>` polygons_a, :ref:`Array<class_Array>` polygons_b, :ref:`PolyBooleanParameters2D<class_PolyBooleanParameters2D>` params=null **)** const                                                                                |
-+-------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Array<class_Array>`                       | :ref:`exclude_polygons<class_GoostGeometry2D_method_exclude_polygons>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon_a, :ref:`PoolVector2Array<class_PoolVector2Array>` polygon_b, :ref:`PolyBooleanParameters2D<class_PolyBooleanParameters2D>` params=null **)** const                                                        |
-+-------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Array<class_Array>`                       | :ref:`inflate_multiple_polygons<class_GoostGeometry2D_method_inflate_multiple_polygons>` **(** :ref:`Array<class_Array>` polygons, :ref:`float<class_float>` delta, :ref:`PolyOffsetParameters2D<class_PolyOffsetParameters2D>` params=null **)** const                                                                                         |
-+-------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Array<class_Array>`                       | :ref:`inflate_polygon<class_GoostGeometry2D_method_inflate_polygon>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon, :ref:`float<class_float>` delta, :ref:`PolyOffsetParameters2D<class_PolyOffsetParameters2D>` params=null **)** const                                                                                        |
-+-------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Array<class_Array>`                       | :ref:`intersect_multiple_polygons<class_GoostGeometry2D_method_intersect_multiple_polygons>` **(** :ref:`Array<class_Array>` polygons_a, :ref:`Array<class_Array>` polygons_b, :ref:`PolyBooleanParameters2D<class_PolyBooleanParameters2D>` params=null **)** const                                                                            |
-+-------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Array<class_Array>`                       | :ref:`intersect_multiple_polylines_with_polygons<class_GoostGeometry2D_method_intersect_multiple_polylines_with_polygons>` **(** :ref:`Array<class_Array>` polylines, :ref:`Array<class_Array>` polygons, :ref:`PolyBooleanParameters2D<class_PolyBooleanParameters2D>` params=null **)** const                                                 |
-+-------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Array<class_Array>`                       | :ref:`intersect_polygons<class_GoostGeometry2D_method_intersect_polygons>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon_a, :ref:`PoolVector2Array<class_PoolVector2Array>` polygon_b, :ref:`PolyBooleanParameters2D<class_PolyBooleanParameters2D>` params=null **)** const                                                    |
-+-------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Array<class_Array>`                       | :ref:`intersect_polyline_with_polygon<class_GoostGeometry2D_method_intersect_polyline_with_polygon>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polyline, :ref:`PoolVector2Array<class_PoolVector2Array>` polygon, :ref:`PolyBooleanParameters2D<class_PolyBooleanParameters2D>` params=null **)** const                             |
-+-------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Array<class_Array>`                       | :ref:`merge_multiple_polygons<class_GoostGeometry2D_method_merge_multiple_polygons>` **(** :ref:`Array<class_Array>` polygons_a, :ref:`Array<class_Array>` polygons_b=null, :ref:`PolyBooleanParameters2D<class_PolyBooleanParameters2D>` params=null **)** const                                                                               |
-+-------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Array<class_Array>`                       | :ref:`merge_polygons<class_GoostGeometry2D_method_merge_polygons>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon_a, :ref:`PoolVector2Array<class_PoolVector2Array>` polygon_b, :ref:`PolyBooleanParameters2D<class_PolyBooleanParameters2D>` params=null **)** const                                                            |
-+-------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Array<class_Array>`                       | :ref:`offset_multiple_polygons<class_GoostGeometry2D_method_offset_multiple_polygons>` **(** :ref:`Array<class_Array>` polygons, :ref:`float<class_float>` delta, :ref:`PolyOffsetParameters2D<class_PolyOffsetParameters2D>` params=null **)** const                                                                                           |
-+-------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Array<class_Array>`                       | :ref:`offset_polygon<class_GoostGeometry2D_method_offset_polygon>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon, :ref:`float<class_float>` delta, :ref:`PolyOffsetParameters2D<class_PolyOffsetParameters2D>` params=null **)** const                                                                                          |
-+-------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`int<class_int>`                           | :ref:`point_in_polygon<class_GoostGeometry2D_method_point_in_polygon>` **(** :ref:`Vector2<class_Vector2>` point, :ref:`PoolVector2Array<class_PoolVector2Array>` polygon **)** const                                                                                                                                                           |
-+-------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`float<class_float>`                       | :ref:`polygon_area<class_GoostGeometry2D_method_polygon_area>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon **)** const                                                                                                                                                                                                        |
-+-------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Vector2<class_Vector2>`                   | :ref:`polygon_centroid<class_GoostGeometry2D_method_polygon_centroid>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon **)** const                                                                                                                                                                                                |
-+-------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`float<class_float>`                       | :ref:`polygon_perimeter<class_GoostGeometry2D_method_polygon_perimeter>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon **)** const                                                                                                                                                                                              |
-+-------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Array<class_Array>`                       | :ref:`polygons_boolean<class_GoostGeometry2D_method_polygons_boolean>` **(** :ref:`PolyBooleanOperation<enum_GoostGeometry2D_PolyBooleanOperation>` operation, :ref:`Array<class_Array>` polygons_a, :ref:`Array<class_Array>` polygons_b=null, :ref:`PolyBooleanParameters2D<class_PolyBooleanParameters2D>` params=null **)** const           |
-+-------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`PolyNode2D<class_PolyNode2D>`             | :ref:`polygons_boolean_tree<class_GoostGeometry2D_method_polygons_boolean_tree>` **(** :ref:`PolyBooleanOperation<enum_GoostGeometry2D_PolyBooleanOperation>` operation, :ref:`Array<class_Array>` polygons_a, :ref:`Array<class_Array>` polygons_b=null, :ref:`PolyBooleanParameters2D<class_PolyBooleanParameters2D>` params=null **)** const |
-+-------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`float<class_float>`                       | :ref:`polyline_length<class_GoostGeometry2D_method_polyline_length>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polyline **)** const                                                                                                                                                                                                 |
-+-------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`PoolVector2Array<class_PoolVector2Array>` | :ref:`regular_polygon<class_GoostGeometry2D_method_regular_polygon>` **(** :ref:`int<class_int>` sides, :ref:`float<class_float>` size=64.0 **)** const                                                                                                                                                                                         |
-+-------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Array<class_Array>`                       | :ref:`triangulate_multiple_polygons<class_GoostGeometry2D_method_triangulate_multiple_polygons>` **(** :ref:`Array<class_Array>` polygon, :ref:`PolyDecompParameters2D<class_PolyDecompParameters2D>` params=null **)** const                                                                                                                   |
-+-------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Array<class_Array>`                       | :ref:`triangulate_polygon<class_GoostGeometry2D_method_triangulate_polygon>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon, :ref:`PolyDecompParameters2D<class_PolyDecompParameters2D>` params=null **)** const                                                                                                                 |
-+-------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++-------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`PoolVector2Array<class_PoolVector2Array>` | :ref:`circle<class_GoostGeometry2D_method_circle>` **(** :ref:`float<class_float>` radius, :ref:`float<class_float>` max_error=0.25 **)** |const|                                                                                                                                                                                                 |
++-------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Array<class_Array>`                       | :ref:`clip_multiple_polygons<class_GoostGeometry2D_method_clip_multiple_polygons>` **(** :ref:`Array<class_Array>` polygons_a, :ref:`Array<class_Array>` polygons_b, :ref:`PolyBooleanParameters2D<class_PolyBooleanParameters2D>` params=null **)** |const|                                                                                      |
++-------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Array<class_Array>`                       | :ref:`clip_multiple_polylines_with_polygons<class_GoostGeometry2D_method_clip_multiple_polylines_with_polygons>` **(** :ref:`Array<class_Array>` polylines, :ref:`Array<class_Array>` polygons, :ref:`PolyBooleanParameters2D<class_PolyBooleanParameters2D>` params=null **)** |const|                                                           |
++-------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Array<class_Array>`                       | :ref:`clip_polygons<class_GoostGeometry2D_method_clip_polygons>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon_a, :ref:`PoolVector2Array<class_PoolVector2Array>` polygon_b, :ref:`PolyBooleanParameters2D<class_PolyBooleanParameters2D>` params=null **)** |const|                                                              |
++-------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Array<class_Array>`                       | :ref:`clip_polyline_with_polygon<class_GoostGeometry2D_method_clip_polyline_with_polygon>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polyline, :ref:`PoolVector2Array<class_PoolVector2Array>` polygon, :ref:`PolyBooleanParameters2D<class_PolyBooleanParameters2D>` params=null **)** |const|                                       |
++-------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Array<class_Array>`                       | :ref:`decompose_multiple_polygons_into_convex<class_GoostGeometry2D_method_decompose_multiple_polygons_into_convex>` **(** :ref:`Array<class_Array>` polygon, :ref:`PolyDecompParameters2D<class_PolyDecompParameters2D>` params=null **)** |const|                                                                                               |
++-------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Array<class_Array>`                       | :ref:`decompose_polygon_into_convex<class_GoostGeometry2D_method_decompose_polygon_into_convex>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon, :ref:`PolyDecompParameters2D<class_PolyDecompParameters2D>` params=null **)** |const|                                                                                             |
++-------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Array<class_Array>`                       | :ref:`decompose_polygons<class_GoostGeometry2D_method_decompose_polygons>` **(** :ref:`PolyDecompType<enum_GoostGeometry2D_PolyDecompType>` type, :ref:`Array<class_Array>` polygons, :ref:`PolyDecompParameters2D<class_PolyDecompParameters2D>` params=null **)** |const|                                                                       |
++-------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Array<class_Array>`                       | :ref:`deflate_multiple_polygons<class_GoostGeometry2D_method_deflate_multiple_polygons>` **(** :ref:`Array<class_Array>` polygons, :ref:`float<class_float>` delta, :ref:`PolyOffsetParameters2D<class_PolyOffsetParameters2D>` params=null **)** |const|                                                                                         |
++-------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Array<class_Array>`                       | :ref:`deflate_multiple_polylines<class_GoostGeometry2D_method_deflate_multiple_polylines>` **(** :ref:`Array<class_Array>` polylines, :ref:`float<class_float>` delta, :ref:`PolyOffsetParameters2D<class_PolyOffsetParameters2D>` params=null **)** |const|                                                                                      |
++-------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Array<class_Array>`                       | :ref:`deflate_polygon<class_GoostGeometry2D_method_deflate_polygon>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon, :ref:`float<class_float>` delta, :ref:`PolyOffsetParameters2D<class_PolyOffsetParameters2D>` params=null **)** |const|                                                                                        |
++-------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Array<class_Array>`                       | :ref:`deflate_polyline<class_GoostGeometry2D_method_deflate_polyline>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polyline, :ref:`float<class_float>` delta, :ref:`PolyOffsetParameters2D<class_PolyOffsetParameters2D>` params=null **)** |const|                                                                                     |
++-------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Array<class_Array>`                       | :ref:`exclude_multiple_polygons<class_GoostGeometry2D_method_exclude_multiple_polygons>` **(** :ref:`Array<class_Array>` polygons_a, :ref:`Array<class_Array>` polygons_b, :ref:`PolyBooleanParameters2D<class_PolyBooleanParameters2D>` params=null **)** |const|                                                                                |
++-------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Array<class_Array>`                       | :ref:`exclude_polygons<class_GoostGeometry2D_method_exclude_polygons>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon_a, :ref:`PoolVector2Array<class_PoolVector2Array>` polygon_b, :ref:`PolyBooleanParameters2D<class_PolyBooleanParameters2D>` params=null **)** |const|                                                        |
++-------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Array<class_Array>`                       | :ref:`inflate_multiple_polygons<class_GoostGeometry2D_method_inflate_multiple_polygons>` **(** :ref:`Array<class_Array>` polygons, :ref:`float<class_float>` delta, :ref:`PolyOffsetParameters2D<class_PolyOffsetParameters2D>` params=null **)** |const|                                                                                         |
++-------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Array<class_Array>`                       | :ref:`inflate_polygon<class_GoostGeometry2D_method_inflate_polygon>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon, :ref:`float<class_float>` delta, :ref:`PolyOffsetParameters2D<class_PolyOffsetParameters2D>` params=null **)** |const|                                                                                        |
++-------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Array<class_Array>`                       | :ref:`intersect_multiple_polygons<class_GoostGeometry2D_method_intersect_multiple_polygons>` **(** :ref:`Array<class_Array>` polygons_a, :ref:`Array<class_Array>` polygons_b, :ref:`PolyBooleanParameters2D<class_PolyBooleanParameters2D>` params=null **)** |const|                                                                            |
++-------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Array<class_Array>`                       | :ref:`intersect_multiple_polylines_with_polygons<class_GoostGeometry2D_method_intersect_multiple_polylines_with_polygons>` **(** :ref:`Array<class_Array>` polylines, :ref:`Array<class_Array>` polygons, :ref:`PolyBooleanParameters2D<class_PolyBooleanParameters2D>` params=null **)** |const|                                                 |
++-------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Array<class_Array>`                       | :ref:`intersect_polygons<class_GoostGeometry2D_method_intersect_polygons>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon_a, :ref:`PoolVector2Array<class_PoolVector2Array>` polygon_b, :ref:`PolyBooleanParameters2D<class_PolyBooleanParameters2D>` params=null **)** |const|                                                    |
++-------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Array<class_Array>`                       | :ref:`intersect_polyline_with_polygon<class_GoostGeometry2D_method_intersect_polyline_with_polygon>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polyline, :ref:`PoolVector2Array<class_PoolVector2Array>` polygon, :ref:`PolyBooleanParameters2D<class_PolyBooleanParameters2D>` params=null **)** |const|                             |
++-------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Array<class_Array>`                       | :ref:`merge_multiple_polygons<class_GoostGeometry2D_method_merge_multiple_polygons>` **(** :ref:`Array<class_Array>` polygons_a, :ref:`Array<class_Array>` polygons_b=null, :ref:`PolyBooleanParameters2D<class_PolyBooleanParameters2D>` params=null **)** |const|                                                                               |
++-------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Array<class_Array>`                       | :ref:`merge_polygons<class_GoostGeometry2D_method_merge_polygons>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon_a, :ref:`PoolVector2Array<class_PoolVector2Array>` polygon_b, :ref:`PolyBooleanParameters2D<class_PolyBooleanParameters2D>` params=null **)** |const|                                                            |
++-------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Array<class_Array>`                       | :ref:`offset_multiple_polygons<class_GoostGeometry2D_method_offset_multiple_polygons>` **(** :ref:`Array<class_Array>` polygons, :ref:`float<class_float>` delta, :ref:`PolyOffsetParameters2D<class_PolyOffsetParameters2D>` params=null **)** |const|                                                                                           |
++-------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Array<class_Array>`                       | :ref:`offset_polygon<class_GoostGeometry2D_method_offset_polygon>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon, :ref:`float<class_float>` delta, :ref:`PolyOffsetParameters2D<class_PolyOffsetParameters2D>` params=null **)** |const|                                                                                          |
++-------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`int<class_int>`                           | :ref:`point_in_polygon<class_GoostGeometry2D_method_point_in_polygon>` **(** :ref:`Vector2<class_Vector2>` point, :ref:`PoolVector2Array<class_PoolVector2Array>` polygon **)** |const|                                                                                                                                                           |
++-------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`float<class_float>`                       | :ref:`polygon_area<class_GoostGeometry2D_method_polygon_area>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon **)** |const|                                                                                                                                                                                                        |
++-------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Vector2<class_Vector2>`                   | :ref:`polygon_centroid<class_GoostGeometry2D_method_polygon_centroid>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon **)** |const|                                                                                                                                                                                                |
++-------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`float<class_float>`                       | :ref:`polygon_perimeter<class_GoostGeometry2D_method_polygon_perimeter>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon **)** |const|                                                                                                                                                                                              |
++-------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Array<class_Array>`                       | :ref:`polygons_boolean<class_GoostGeometry2D_method_polygons_boolean>` **(** :ref:`PolyBooleanOperation<enum_GoostGeometry2D_PolyBooleanOperation>` operation, :ref:`Array<class_Array>` polygons_a, :ref:`Array<class_Array>` polygons_b=null, :ref:`PolyBooleanParameters2D<class_PolyBooleanParameters2D>` params=null **)** |const|           |
++-------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`PolyNode2D<class_PolyNode2D>`             | :ref:`polygons_boolean_tree<class_GoostGeometry2D_method_polygons_boolean_tree>` **(** :ref:`PolyBooleanOperation<enum_GoostGeometry2D_PolyBooleanOperation>` operation, :ref:`Array<class_Array>` polygons_a, :ref:`Array<class_Array>` polygons_b=null, :ref:`PolyBooleanParameters2D<class_PolyBooleanParameters2D>` params=null **)** |const| |
++-------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`float<class_float>`                       | :ref:`polyline_length<class_GoostGeometry2D_method_polyline_length>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polyline **)** |const|                                                                                                                                                                                                 |
++-------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`PoolVector2Array<class_PoolVector2Array>` | :ref:`regular_polygon<class_GoostGeometry2D_method_regular_polygon>` **(** :ref:`int<class_int>` sides, :ref:`float<class_float>` size=64.0 **)** |const|                                                                                                                                                                                         |
++-------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Array<class_Array>`                       | :ref:`triangulate_multiple_polygons<class_GoostGeometry2D_method_triangulate_multiple_polygons>` **(** :ref:`Array<class_Array>` polygon, :ref:`PolyDecompParameters2D<class_PolyDecompParameters2D>` params=null **)** |const|                                                                                                                   |
++-------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Array<class_Array>`                       | :ref:`triangulate_polygon<class_GoostGeometry2D_method_triangulate_polygon>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon, :ref:`PolyDecompParameters2D<class_PolyDecompParameters2D>` params=null **)** |const|                                                                                                                 |
++-------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 Enumerations
 ------------
@@ -159,7 +164,7 @@ Method Descriptions
 
 .. _class_GoostGeometry2D_method_circle:
 
-- :ref:`PoolVector2Array<class_PoolVector2Array>` **circle** **(** :ref:`float<class_float>` radius, :ref:`float<class_float>` max_error=0.25 **)** const
+- :ref:`PoolVector2Array<class_PoolVector2Array>` **circle** **(** :ref:`float<class_float>` radius, :ref:`float<class_float>` max_error=0.25 **)** |const|
 
 Generates a closed path approximating the shape of a circle with the specified radius.
 
@@ -169,7 +174,7 @@ The ``max_error`` parameter represents the maximum gap in pixels allowed between
 
 .. _class_GoostGeometry2D_method_clip_multiple_polygons:
 
-- :ref:`Array<class_Array>` **clip_multiple_polygons** **(** :ref:`Array<class_Array>` polygons_a, :ref:`Array<class_Array>` polygons_b, :ref:`PolyBooleanParameters2D<class_PolyBooleanParameters2D>` params=null **)** const
+- :ref:`Array<class_Array>` **clip_multiple_polygons** **(** :ref:`Array<class_Array>` polygons_a, :ref:`Array<class_Array>` polygons_b, :ref:`PolyBooleanParameters2D<class_PolyBooleanParameters2D>` params=null **)** |const|
 
 Similar to :ref:`polygons_boolean<class_GoostGeometry2D_method_polygons_boolean>`, but performs :ref:`OPERATION_DIFFERENCE<class_GoostGeometry2D_constant_OPERATION_DIFFERENCE>` between the polygons specifically.
 
@@ -177,7 +182,7 @@ Similar to :ref:`polygons_boolean<class_GoostGeometry2D_method_polygons_boolean>
 
 .. _class_GoostGeometry2D_method_clip_multiple_polylines_with_polygons:
 
-- :ref:`Array<class_Array>` **clip_multiple_polylines_with_polygons** **(** :ref:`Array<class_Array>` polylines, :ref:`Array<class_Array>` polygons, :ref:`PolyBooleanParameters2D<class_PolyBooleanParameters2D>` params=null **)** const
+- :ref:`Array<class_Array>` **clip_multiple_polylines_with_polygons** **(** :ref:`Array<class_Array>` polylines, :ref:`Array<class_Array>` polygons, :ref:`PolyBooleanParameters2D<class_PolyBooleanParameters2D>` params=null **)** |const|
 
 Similar to :ref:`clip_polyline_with_polygon<class_GoostGeometry2D_method_clip_polyline_with_polygon>`, but operates on multiple polylines in batch.
 
@@ -185,7 +190,7 @@ Similar to :ref:`clip_polyline_with_polygon<class_GoostGeometry2D_method_clip_po
 
 .. _class_GoostGeometry2D_method_clip_polygons:
 
-- :ref:`Array<class_Array>` **clip_polygons** **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon_a, :ref:`PoolVector2Array<class_PoolVector2Array>` polygon_b, :ref:`PolyBooleanParameters2D<class_PolyBooleanParameters2D>` params=null **)** const
+- :ref:`Array<class_Array>` **clip_polygons** **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon_a, :ref:`PoolVector2Array<class_PoolVector2Array>` polygon_b, :ref:`PolyBooleanParameters2D<class_PolyBooleanParameters2D>` params=null **)** |const|
 
 Similar to :ref:`polygons_boolean<class_GoostGeometry2D_method_polygons_boolean>`, but performs :ref:`OPERATION_DIFFERENCE<class_GoostGeometry2D_constant_OPERATION_DIFFERENCE>` between the polygons specifically, and accepts individual polygons only.
 
@@ -193,7 +198,7 @@ Similar to :ref:`polygons_boolean<class_GoostGeometry2D_method_polygons_boolean>
 
 .. _class_GoostGeometry2D_method_clip_polyline_with_polygon:
 
-- :ref:`Array<class_Array>` **clip_polyline_with_polygon** **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polyline, :ref:`PoolVector2Array<class_PoolVector2Array>` polygon, :ref:`PolyBooleanParameters2D<class_PolyBooleanParameters2D>` params=null **)** const
+- :ref:`Array<class_Array>` **clip_polyline_with_polygon** **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polyline, :ref:`PoolVector2Array<class_PoolVector2Array>` polygon, :ref:`PolyBooleanParameters2D<class_PolyBooleanParameters2D>` params=null **)** |const|
 
 Clips a single ``polyline`` against a single ``polygon`` and returns an array of clipped polylines. This performs :ref:`OPERATION_DIFFERENCE<class_GoostGeometry2D_constant_OPERATION_DIFFERENCE>` between the polyline and the polygon. Returns an empty array if the ``polygon`` completely encloses ``polyline``. This operation can be thought of as cutting a line with a closed shape.
 
@@ -201,7 +206,7 @@ Clips a single ``polyline`` against a single ``polygon`` and returns an array of
 
 .. _class_GoostGeometry2D_method_decompose_multiple_polygons_into_convex:
 
-- :ref:`Array<class_Array>` **decompose_multiple_polygons_into_convex** **(** :ref:`Array<class_Array>` polygon, :ref:`PolyDecompParameters2D<class_PolyDecompParameters2D>` params=null **)** const
+- :ref:`Array<class_Array>` **decompose_multiple_polygons_into_convex** **(** :ref:`Array<class_Array>` polygon, :ref:`PolyDecompParameters2D<class_PolyDecompParameters2D>` params=null **)** |const|
 
 Similar to :ref:`decompose_polygons<class_GoostGeometry2D_method_decompose_polygons>`, but partitions multiple polygons with the :ref:`DECOMP_CONVEX_HM<class_GoostGeometry2D_constant_DECOMP_CONVEX_HM>`.
 
@@ -209,7 +214,7 @@ Similar to :ref:`decompose_polygons<class_GoostGeometry2D_method_decompose_polyg
 
 .. _class_GoostGeometry2D_method_decompose_polygon_into_convex:
 
-- :ref:`Array<class_Array>` **decompose_polygon_into_convex** **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon, :ref:`PolyDecompParameters2D<class_PolyDecompParameters2D>` params=null **)** const
+- :ref:`Array<class_Array>` **decompose_polygon_into_convex** **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon, :ref:`PolyDecompParameters2D<class_PolyDecompParameters2D>` params=null **)** |const|
 
 Similar to :ref:`decompose_polygons<class_GoostGeometry2D_method_decompose_polygons>`, but partitions a single polygon with the :ref:`DECOMP_CONVEX_HM<class_GoostGeometry2D_constant_DECOMP_CONVEX_HM>`.
 
@@ -217,7 +222,7 @@ Similar to :ref:`decompose_polygons<class_GoostGeometry2D_method_decompose_polyg
 
 .. _class_GoostGeometry2D_method_decompose_polygons:
 
-- :ref:`Array<class_Array>` **decompose_polygons** **(** :ref:`PolyDecompType<enum_GoostGeometry2D_PolyDecompType>` type, :ref:`Array<class_Array>` polygons, :ref:`PolyDecompParameters2D<class_PolyDecompParameters2D>` params=null **)** const
+- :ref:`Array<class_Array>` **decompose_polygons** **(** :ref:`PolyDecompType<enum_GoostGeometry2D_PolyDecompType>` type, :ref:`Array<class_Array>` polygons, :ref:`PolyDecompParameters2D<class_PolyDecompParameters2D>` params=null **)** |const|
 
 Partitions polygons into several other convex polygons. The exact algorithm used depends on the type from :ref:`PolyDecompType<enum_GoostGeometry2D_PolyDecompType>`.
 
@@ -229,7 +234,7 @@ Both outer and inner polygons can be passed to cut holes during decomposition an
 
 .. _class_GoostGeometry2D_method_deflate_multiple_polygons:
 
-- :ref:`Array<class_Array>` **deflate_multiple_polygons** **(** :ref:`Array<class_Array>` polygons, :ref:`float<class_float>` delta, :ref:`PolyOffsetParameters2D<class_PolyOffsetParameters2D>` params=null **)** const
+- :ref:`Array<class_Array>` **deflate_multiple_polygons** **(** :ref:`Array<class_Array>` polygons, :ref:`float<class_float>` delta, :ref:`PolyOffsetParameters2D<class_PolyOffsetParameters2D>` params=null **)** |const|
 
 Similar to :ref:`offset_multiple_polygons<class_GoostGeometry2D_method_offset_multiple_polygons>`, but allows to grow polygons by the absolute value of ``delta``.
 
@@ -237,7 +242,7 @@ Similar to :ref:`offset_multiple_polygons<class_GoostGeometry2D_method_offset_mu
 
 .. _class_GoostGeometry2D_method_deflate_multiple_polylines:
 
-- :ref:`Array<class_Array>` **deflate_multiple_polylines** **(** :ref:`Array<class_Array>` polylines, :ref:`float<class_float>` delta, :ref:`PolyOffsetParameters2D<class_PolyOffsetParameters2D>` params=null **)** const
+- :ref:`Array<class_Array>` **deflate_multiple_polylines** **(** :ref:`Array<class_Array>` polylines, :ref:`float<class_float>` delta, :ref:`PolyOffsetParameters2D<class_PolyOffsetParameters2D>` params=null **)** |const|
 
 Similar to :ref:`deflate_polyline<class_GoostGeometry2D_method_deflate_polyline>`, but operates on multiple polylines simultaneously.
 
@@ -245,7 +250,7 @@ Similar to :ref:`deflate_polyline<class_GoostGeometry2D_method_deflate_polyline>
 
 .. _class_GoostGeometry2D_method_deflate_polygon:
 
-- :ref:`Array<class_Array>` **deflate_polygon** **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon, :ref:`float<class_float>` delta, :ref:`PolyOffsetParameters2D<class_PolyOffsetParameters2D>` params=null **)** const
+- :ref:`Array<class_Array>` **deflate_polygon** **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon, :ref:`float<class_float>` delta, :ref:`PolyOffsetParameters2D<class_PolyOffsetParameters2D>` params=null **)** |const|
 
 Deflates (grows) a single ``polygon`` by ``delta`` pixels.
 
@@ -255,7 +260,7 @@ Each polygon's vertices will be rounded as determined by :ref:`PolyOffsetParamet
 
 .. _class_GoostGeometry2D_method_deflate_polyline:
 
-- :ref:`Array<class_Array>` **deflate_polyline** **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polyline, :ref:`float<class_float>` delta, :ref:`PolyOffsetParameters2D<class_PolyOffsetParameters2D>` params=null **)** const
+- :ref:`Array<class_Array>` **deflate_polyline** **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polyline, :ref:`float<class_float>` delta, :ref:`PolyOffsetParameters2D<class_PolyOffsetParameters2D>` params=null **)** |const|
 
 Deflates (grows) ``polylines`` into polygons by ``delta`` pixels.
 
@@ -267,7 +272,7 @@ Each polygon's endpoints will be rounded as determined by :ref:`PolyOffsetParame
 
 .. _class_GoostGeometry2D_method_exclude_multiple_polygons:
 
-- :ref:`Array<class_Array>` **exclude_multiple_polygons** **(** :ref:`Array<class_Array>` polygons_a, :ref:`Array<class_Array>` polygons_b, :ref:`PolyBooleanParameters2D<class_PolyBooleanParameters2D>` params=null **)** const
+- :ref:`Array<class_Array>` **exclude_multiple_polygons** **(** :ref:`Array<class_Array>` polygons_a, :ref:`Array<class_Array>` polygons_b, :ref:`PolyBooleanParameters2D<class_PolyBooleanParameters2D>` params=null **)** |const|
 
 Similar to :ref:`polygons_boolean<class_GoostGeometry2D_method_polygons_boolean>`, but performs :ref:`OPERATION_XOR<class_GoostGeometry2D_constant_OPERATION_XOR>` between the polygons specifically.
 
@@ -275,7 +280,7 @@ Similar to :ref:`polygons_boolean<class_GoostGeometry2D_method_polygons_boolean>
 
 .. _class_GoostGeometry2D_method_exclude_polygons:
 
-- :ref:`Array<class_Array>` **exclude_polygons** **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon_a, :ref:`PoolVector2Array<class_PoolVector2Array>` polygon_b, :ref:`PolyBooleanParameters2D<class_PolyBooleanParameters2D>` params=null **)** const
+- :ref:`Array<class_Array>` **exclude_polygons** **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon_a, :ref:`PoolVector2Array<class_PoolVector2Array>` polygon_b, :ref:`PolyBooleanParameters2D<class_PolyBooleanParameters2D>` params=null **)** |const|
 
 Similar to :ref:`polygons_boolean<class_GoostGeometry2D_method_polygons_boolean>`, but performs :ref:`OPERATION_XOR<class_GoostGeometry2D_constant_OPERATION_XOR>` between the polygons specifically, and accepts individual polygons only.
 
@@ -283,7 +288,7 @@ Similar to :ref:`polygons_boolean<class_GoostGeometry2D_method_polygons_boolean>
 
 .. _class_GoostGeometry2D_method_inflate_multiple_polygons:
 
-- :ref:`Array<class_Array>` **inflate_multiple_polygons** **(** :ref:`Array<class_Array>` polygons, :ref:`float<class_float>` delta, :ref:`PolyOffsetParameters2D<class_PolyOffsetParameters2D>` params=null **)** const
+- :ref:`Array<class_Array>` **inflate_multiple_polygons** **(** :ref:`Array<class_Array>` polygons, :ref:`float<class_float>` delta, :ref:`PolyOffsetParameters2D<class_PolyOffsetParameters2D>` params=null **)** |const|
 
 Similar to :ref:`offset_multiple_polygons<class_GoostGeometry2D_method_offset_multiple_polygons>`, but allows to shrink polygons by the absolute value of ``delta``.
 
@@ -291,7 +296,7 @@ Similar to :ref:`offset_multiple_polygons<class_GoostGeometry2D_method_offset_mu
 
 .. _class_GoostGeometry2D_method_inflate_polygon:
 
-- :ref:`Array<class_Array>` **inflate_polygon** **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon, :ref:`float<class_float>` delta, :ref:`PolyOffsetParameters2D<class_PolyOffsetParameters2D>` params=null **)** const
+- :ref:`Array<class_Array>` **inflate_polygon** **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon, :ref:`float<class_float>` delta, :ref:`PolyOffsetParameters2D<class_PolyOffsetParameters2D>` params=null **)** |const|
 
 Similar to :ref:`offset_polygon<class_GoostGeometry2D_method_offset_polygon>`, but allows to shrink a single polygon by the absolute value of ``delta``.
 
@@ -299,7 +304,7 @@ Similar to :ref:`offset_polygon<class_GoostGeometry2D_method_offset_polygon>`, b
 
 .. _class_GoostGeometry2D_method_intersect_multiple_polygons:
 
-- :ref:`Array<class_Array>` **intersect_multiple_polygons** **(** :ref:`Array<class_Array>` polygons_a, :ref:`Array<class_Array>` polygons_b, :ref:`PolyBooleanParameters2D<class_PolyBooleanParameters2D>` params=null **)** const
+- :ref:`Array<class_Array>` **intersect_multiple_polygons** **(** :ref:`Array<class_Array>` polygons_a, :ref:`Array<class_Array>` polygons_b, :ref:`PolyBooleanParameters2D<class_PolyBooleanParameters2D>` params=null **)** |const|
 
 Similar to :ref:`polygons_boolean<class_GoostGeometry2D_method_polygons_boolean>`, but performs :ref:`OPERATION_INTERSECTION<class_GoostGeometry2D_constant_OPERATION_INTERSECTION>` between the polygons specifically.
 
@@ -307,7 +312,7 @@ Similar to :ref:`polygons_boolean<class_GoostGeometry2D_method_polygons_boolean>
 
 .. _class_GoostGeometry2D_method_intersect_multiple_polylines_with_polygons:
 
-- :ref:`Array<class_Array>` **intersect_multiple_polylines_with_polygons** **(** :ref:`Array<class_Array>` polylines, :ref:`Array<class_Array>` polygons, :ref:`PolyBooleanParameters2D<class_PolyBooleanParameters2D>` params=null **)** const
+- :ref:`Array<class_Array>` **intersect_multiple_polylines_with_polygons** **(** :ref:`Array<class_Array>` polylines, :ref:`Array<class_Array>` polygons, :ref:`PolyBooleanParameters2D<class_PolyBooleanParameters2D>` params=null **)** |const|
 
 Similar to :ref:`intersect_polyline_with_polygon<class_GoostGeometry2D_method_intersect_polyline_with_polygon>`, but operates on multiple polylines in batch.
 
@@ -315,7 +320,7 @@ Similar to :ref:`intersect_polyline_with_polygon<class_GoostGeometry2D_method_in
 
 .. _class_GoostGeometry2D_method_intersect_polygons:
 
-- :ref:`Array<class_Array>` **intersect_polygons** **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon_a, :ref:`PoolVector2Array<class_PoolVector2Array>` polygon_b, :ref:`PolyBooleanParameters2D<class_PolyBooleanParameters2D>` params=null **)** const
+- :ref:`Array<class_Array>` **intersect_polygons** **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon_a, :ref:`PoolVector2Array<class_PoolVector2Array>` polygon_b, :ref:`PolyBooleanParameters2D<class_PolyBooleanParameters2D>` params=null **)** |const|
 
 Similar to :ref:`polygons_boolean<class_GoostGeometry2D_method_polygons_boolean>`, but performs :ref:`OPERATION_INTERSECTION<class_GoostGeometry2D_constant_OPERATION_INTERSECTION>` between the polygons specifically, and accepts individual polygons only.
 
@@ -323,7 +328,7 @@ Similar to :ref:`polygons_boolean<class_GoostGeometry2D_method_polygons_boolean>
 
 .. _class_GoostGeometry2D_method_intersect_polyline_with_polygon:
 
-- :ref:`Array<class_Array>` **intersect_polyline_with_polygon** **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polyline, :ref:`PoolVector2Array<class_PoolVector2Array>` polygon, :ref:`PolyBooleanParameters2D<class_PolyBooleanParameters2D>` params=null **)** const
+- :ref:`Array<class_Array>` **intersect_polyline_with_polygon** **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polyline, :ref:`PoolVector2Array<class_PoolVector2Array>` polygon, :ref:`PolyBooleanParameters2D<class_PolyBooleanParameters2D>` params=null **)** |const|
 
 Intersects polyline with polygon and returns an array of intersected polylines. This performs OPERATION_INTERSECTION between the polyline and the polygon. This operation can be thought of as chopping a line with a closed shape.
 
@@ -331,7 +336,7 @@ Intersects polyline with polygon and returns an array of intersected polylines. 
 
 .. _class_GoostGeometry2D_method_merge_multiple_polygons:
 
-- :ref:`Array<class_Array>` **merge_multiple_polygons** **(** :ref:`Array<class_Array>` polygons_a, :ref:`Array<class_Array>` polygons_b=null, :ref:`PolyBooleanParameters2D<class_PolyBooleanParameters2D>` params=null **)** const
+- :ref:`Array<class_Array>` **merge_multiple_polygons** **(** :ref:`Array<class_Array>` polygons_a, :ref:`Array<class_Array>` polygons_b=null, :ref:`PolyBooleanParameters2D<class_PolyBooleanParameters2D>` params=null **)** |const|
 
 Similar to :ref:`polygons_boolean<class_GoostGeometry2D_method_polygons_boolean>`, but performs :ref:`OPERATION_UNION<class_GoostGeometry2D_constant_OPERATION_UNION>` between the polygons specifically.
 
@@ -339,7 +344,7 @@ Similar to :ref:`polygons_boolean<class_GoostGeometry2D_method_polygons_boolean>
 
 .. _class_GoostGeometry2D_method_merge_polygons:
 
-- :ref:`Array<class_Array>` **merge_polygons** **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon_a, :ref:`PoolVector2Array<class_PoolVector2Array>` polygon_b, :ref:`PolyBooleanParameters2D<class_PolyBooleanParameters2D>` params=null **)** const
+- :ref:`Array<class_Array>` **merge_polygons** **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon_a, :ref:`PoolVector2Array<class_PoolVector2Array>` polygon_b, :ref:`PolyBooleanParameters2D<class_PolyBooleanParameters2D>` params=null **)** |const|
 
 Similar to :ref:`polygons_boolean<class_GoostGeometry2D_method_polygons_boolean>`, but performs :ref:`OPERATION_UNION<class_GoostGeometry2D_constant_OPERATION_UNION>` between the polygons specifically, and accepts individual polygons only.
 
@@ -347,7 +352,7 @@ Similar to :ref:`polygons_boolean<class_GoostGeometry2D_method_polygons_boolean>
 
 .. _class_GoostGeometry2D_method_offset_multiple_polygons:
 
-- :ref:`Array<class_Array>` **offset_multiple_polygons** **(** :ref:`Array<class_Array>` polygons, :ref:`float<class_float>` delta, :ref:`PolyOffsetParameters2D<class_PolyOffsetParameters2D>` params=null **)** const
+- :ref:`Array<class_Array>` **offset_multiple_polygons** **(** :ref:`Array<class_Array>` polygons, :ref:`float<class_float>` delta, :ref:`PolyOffsetParameters2D<class_PolyOffsetParameters2D>` params=null **)** |const|
 
 Inflates or deflates an array of ``polygons`` by ``delta`` pixels. If ``delta`` is positive, makes the polygons grow outward. If ``delta`` is negative, shrinks the polygons inward. Returns an empty array if ``delta`` is negative and the absolute value of it approximately exceeds the minimum bounding rectangle dimensions of each of the polygons.
 
@@ -357,7 +362,7 @@ Each polygon's vertices will be rounded as determined by :ref:`PolyOffsetParamet
 
 .. _class_GoostGeometry2D_method_offset_polygon:
 
-- :ref:`Array<class_Array>` **offset_polygon** **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon, :ref:`float<class_float>` delta, :ref:`PolyOffsetParameters2D<class_PolyOffsetParameters2D>` params=null **)** const
+- :ref:`Array<class_Array>` **offset_polygon** **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon, :ref:`float<class_float>` delta, :ref:`PolyOffsetParameters2D<class_PolyOffsetParameters2D>` params=null **)** |const|
 
 Inflates or deflates a single ``polygon`` by ``delta`` pixels. If ``delta`` is positive, makes the polygon grow outward. If ``delta`` is negative, shrinks the polygon inward. Returns an empty array if ``delta`` is negative and the absolute value of it approximately exceeds the minimum bounding rectangle dimensions of the polygon.
 
@@ -367,7 +372,7 @@ Each polygon's vertices will be rounded as determined by :ref:`PolyOffsetParamet
 
 .. _class_GoostGeometry2D_method_point_in_polygon:
 
-- :ref:`int<class_int>` **point_in_polygon** **(** :ref:`Vector2<class_Vector2>` point, :ref:`PoolVector2Array<class_PoolVector2Array>` polygon **)** const
+- :ref:`int<class_int>` **point_in_polygon** **(** :ref:`Vector2<class_Vector2>` point, :ref:`PoolVector2Array<class_PoolVector2Array>` polygon **)** |const|
 
 Returns +1 if the point is *inside* the polygon, 0 if the point is *outside* the polygon, and -1 if the point is *exactly* on the polygon's boundary. Supports arbitrary polygons.
 
@@ -375,7 +380,7 @@ Returns +1 if the point is *inside* the polygon, 0 if the point is *outside* the
 
 .. _class_GoostGeometry2D_method_polygon_area:
 
-- :ref:`float<class_float>` **polygon_area** **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon **)** const
+- :ref:`float<class_float>` **polygon_area** **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon **)** |const|
 
 Returns ``polygon``'s positive or negative area depending on whether vertices are ordered in counterclockwise or anticlockwise order. See also :ref:`Geometry.is_polygon_clockwise<class_Geometry_method_is_polygon_clockwise>`. If the order is clockwise, the polygon can be interpreted as an inner polygon (hole), otherwise it's an outer polygon (boundary).
 
@@ -383,7 +388,7 @@ Returns ``polygon``'s positive or negative area depending on whether vertices ar
 
 .. _class_GoostGeometry2D_method_polygon_centroid:
 
-- :ref:`Vector2<class_Vector2>` **polygon_centroid** **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon **)** const
+- :ref:`Vector2<class_Vector2>` **polygon_centroid** **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon **)** |const|
 
 Calculates the centroid (also known as "center of mass" or "center of gravity") of the ``polygon`` and returns the consistent result regardless of polygon orientation, see :ref:`Geometry.is_polygon_clockwise<class_Geometry_method_is_polygon_clockwise>`. For accurate results, the polygon must be strictly simple, meaning there should be no self-intersecting edges.
 
@@ -391,7 +396,7 @@ Calculates the centroid (also known as "center of mass" or "center of gravity") 
 
 .. _class_GoostGeometry2D_method_polygon_perimeter:
 
-- :ref:`float<class_float>` **polygon_perimeter** **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon **)** const
+- :ref:`float<class_float>` **polygon_perimeter** **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon **)** |const|
 
 Returns the perimeter of an arbitrary polygon. See also :ref:`polyline_length<class_GoostGeometry2D_method_polyline_length>`.
 
@@ -399,7 +404,7 @@ Returns the perimeter of an arbitrary polygon. See also :ref:`polyline_length<cl
 
 .. _class_GoostGeometry2D_method_polygons_boolean:
 
-- :ref:`Array<class_Array>` **polygons_boolean** **(** :ref:`PolyBooleanOperation<enum_GoostGeometry2D_PolyBooleanOperation>` operation, :ref:`Array<class_Array>` polygons_a, :ref:`Array<class_Array>` polygons_b=null, :ref:`PolyBooleanParameters2D<class_PolyBooleanParameters2D>` params=null **)** const
+- :ref:`Array<class_Array>` **polygons_boolean** **(** :ref:`PolyBooleanOperation<enum_GoostGeometry2D_PolyBooleanOperation>` operation, :ref:`Array<class_Array>` polygons_a, :ref:`Array<class_Array>` polygons_b=null, :ref:`PolyBooleanParameters2D<class_PolyBooleanParameters2D>` params=null **)** |const|
 
 Performs a boolean operation between an array of polygons, with the ``polygons_a`` acting as the *subject* of the operation. Returns an array of resulting polygons with vertices in either clockwise or counterclockwise order, which determines whether a polygon is an outer polygon (boundary) or an inner polygon (hole). The orientation of returned polygons can be checked with :ref:`Geometry.is_polygon_clockwise<class_Geometry_method_is_polygon_clockwise>`. If you need to retain the hierarchy of nested outer and inner polygons, use :ref:`polygons_boolean_tree<class_GoostGeometry2D_method_polygons_boolean_tree>` instead.
 
@@ -434,7 +439,7 @@ Mutually excludes common area defined by the intersection of the polygons. In ot
 
 .. _class_GoostGeometry2D_method_polygons_boolean_tree:
 
-- :ref:`PolyNode2D<class_PolyNode2D>` **polygons_boolean_tree** **(** :ref:`PolyBooleanOperation<enum_GoostGeometry2D_PolyBooleanOperation>` operation, :ref:`Array<class_Array>` polygons_a, :ref:`Array<class_Array>` polygons_b=null, :ref:`PolyBooleanParameters2D<class_PolyBooleanParameters2D>` params=null **)** const
+- :ref:`PolyNode2D<class_PolyNode2D>` **polygons_boolean_tree** **(** :ref:`PolyBooleanOperation<enum_GoostGeometry2D_PolyBooleanOperation>` operation, :ref:`Array<class_Array>` polygons_a, :ref:`Array<class_Array>` polygons_b=null, :ref:`PolyBooleanParameters2D<class_PolyBooleanParameters2D>` params=null **)** |const|
 
 Similar to :ref:`polygons_boolean<class_GoostGeometry2D_method_polygons_boolean>`, but builds an hierarchy of clipped polygons and returns a top-level root node representing the tree of polygons, which has some performance cost. Whether a polygon is an outer or an inner path can be checked with :ref:`PolyNode2D.is_hole<class_PolyNode2D_method_is_hole>` more easily and effectively compared to calculating polygon area to determine orientation, see :ref:`polygon_area<class_GoostGeometry2D_method_polygon_area>`.
 
@@ -442,7 +447,7 @@ Similar to :ref:`polygons_boolean<class_GoostGeometry2D_method_polygons_boolean>
 
 .. _class_GoostGeometry2D_method_polyline_length:
 
-- :ref:`float<class_float>` **polyline_length** **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polyline **)** const
+- :ref:`float<class_float>` **polyline_length** **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polyline **)** |const|
 
 Returns the total length of the segments representing the polyline. See also :ref:`polygon_perimeter<class_GoostGeometry2D_method_polygon_perimeter>`.
 
@@ -450,7 +455,7 @@ Returns the total length of the segments representing the polyline. See also :re
 
 .. _class_GoostGeometry2D_method_regular_polygon:
 
-- :ref:`PoolVector2Array<class_PoolVector2Array>` **regular_polygon** **(** :ref:`int<class_int>` sides, :ref:`float<class_float>` size=64.0 **)** const
+- :ref:`PoolVector2Array<class_PoolVector2Array>` **regular_polygon** **(** :ref:`int<class_int>` sides, :ref:`float<class_float>` size=64.0 **)** |const|
 
 Generates a regular polygon (triangle, rectangle, pentagon, hexagon etc.) with all equal sides and angles. The specified size can be seen as a radius, with an increasing number of sides approximating a :ref:`circle<class_GoostGeometry2D_method_circle>`.
 
@@ -460,7 +465,7 @@ The order of vertices returned is counterclockwise which makes it an outer polyg
 
 .. _class_GoostGeometry2D_method_triangulate_multiple_polygons:
 
-- :ref:`Array<class_Array>` **triangulate_multiple_polygons** **(** :ref:`Array<class_Array>` polygon, :ref:`PolyDecompParameters2D<class_PolyDecompParameters2D>` params=null **)** const
+- :ref:`Array<class_Array>` **triangulate_multiple_polygons** **(** :ref:`Array<class_Array>` polygon, :ref:`PolyDecompParameters2D<class_PolyDecompParameters2D>` params=null **)** |const|
 
 Similar to :ref:`decompose_polygons<class_GoostGeometry2D_method_decompose_polygons>`, but triangulates multiple polygons with the :ref:`DECOMP_TRIANGLES_EC<class_GoostGeometry2D_constant_DECOMP_TRIANGLES_EC>`.
 
@@ -468,7 +473,10 @@ Similar to :ref:`decompose_polygons<class_GoostGeometry2D_method_decompose_polyg
 
 .. _class_GoostGeometry2D_method_triangulate_polygon:
 
-- :ref:`Array<class_Array>` **triangulate_polygon** **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon, :ref:`PolyDecompParameters2D<class_PolyDecompParameters2D>` params=null **)** const
+- :ref:`Array<class_Array>` **triangulate_polygon** **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon, :ref:`PolyDecompParameters2D<class_PolyDecompParameters2D>` params=null **)** |const|
 
 Similar to :ref:`decompose_polygons<class_GoostGeometry2D_method_decompose_polygons>`, but triangulates a single polygon with the :ref:`DECOMP_TRIANGLES_EC<class_GoostGeometry2D_constant_DECOMP_TRIANGLES_EC>`.
 
+.. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
+.. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`

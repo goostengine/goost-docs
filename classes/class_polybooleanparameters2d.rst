@@ -156,3 +156,6 @@ The specific :ref:`FillRule<enum_PolyBooleanParameters2D_FillRule>` used for ``p
 
 If ``true``, the subject paths are treated as open polylines, otherwise they are treated as closed polygons. This property is usually set and overridden automatically, but can be fetched to tell whether the previous operation used polylines for clipping.
 
+.. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
+.. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`

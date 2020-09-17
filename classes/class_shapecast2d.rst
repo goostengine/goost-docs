@@ -61,31 +61,31 @@ Methods
 +-------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
 | void                          | :ref:`force_shapecast_update<class_ShapeCast2D_method_force_shapecast_update>` **(** **)**                                                          |
 +-------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Object<class_Object>`   | :ref:`get_closest_collider<class_ShapeCast2D_method_get_closest_collider>` **(** **)** const                                                        |
+| :ref:`Object<class_Object>`   | :ref:`get_closest_collider<class_ShapeCast2D_method_get_closest_collider>` **(** **)** |const|                                                      |
 +-------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`int<class_int>`         | :ref:`get_closest_collider_shape<class_ShapeCast2D_method_get_closest_collider_shape>` **(** **)** const                                            |
+| :ref:`int<class_int>`         | :ref:`get_closest_collider_shape<class_ShapeCast2D_method_get_closest_collider_shape>` **(** **)** |const|                                          |
 +-------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Vector2<class_Vector2>` | :ref:`get_closest_collision_normal<class_ShapeCast2D_method_get_closest_collision_normal>` **(** **)** const                                        |
+| :ref:`Vector2<class_Vector2>` | :ref:`get_closest_collision_normal<class_ShapeCast2D_method_get_closest_collision_normal>` **(** **)** |const|                                      |
 +-------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Vector2<class_Vector2>` | :ref:`get_closest_collision_point<class_ShapeCast2D_method_get_closest_collision_point>` **(** **)** const                                          |
+| :ref:`Vector2<class_Vector2>` | :ref:`get_closest_collision_point<class_ShapeCast2D_method_get_closest_collision_point>` **(** **)** |const|                                        |
 +-------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`float<class_float>`     | :ref:`get_closest_collision_safe_distance<class_ShapeCast2D_method_get_closest_collision_safe_distance>` **(** **)** const                          |
+| :ref:`float<class_float>`     | :ref:`get_closest_collision_safe_distance<class_ShapeCast2D_method_get_closest_collision_safe_distance>` **(** **)** |const|                        |
 +-------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`float<class_float>`     | :ref:`get_closest_collision_unsafe_distance<class_ShapeCast2D_method_get_closest_collision_unsafe_distance>` **(** **)** const                      |
+| :ref:`float<class_float>`     | :ref:`get_closest_collision_unsafe_distance<class_ShapeCast2D_method_get_closest_collision_unsafe_distance>` **(** **)** |const|                    |
 +-------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Object<class_Object>`   | :ref:`get_collider<class_ShapeCast2D_method_get_collider>` **(** :ref:`int<class_int>` index **)** const                                            |
+| :ref:`Object<class_Object>`   | :ref:`get_collider<class_ShapeCast2D_method_get_collider>` **(** :ref:`int<class_int>` index **)** |const|                                          |
 +-------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`int<class_int>`         | :ref:`get_collider_shape<class_ShapeCast2D_method_get_collider_shape>` **(** :ref:`int<class_int>` index **)** const                                |
+| :ref:`int<class_int>`         | :ref:`get_collider_shape<class_ShapeCast2D_method_get_collider_shape>` **(** :ref:`int<class_int>` index **)** |const|                              |
 +-------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`int<class_int>`         | :ref:`get_collision_count<class_ShapeCast2D_method_get_collision_count>` **(** **)** const                                                          |
+| :ref:`int<class_int>`         | :ref:`get_collision_count<class_ShapeCast2D_method_get_collision_count>` **(** **)** |const|                                                        |
 +-------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`bool<class_bool>`       | :ref:`get_collision_mask_bit<class_ShapeCast2D_method_get_collision_mask_bit>` **(** :ref:`int<class_int>` bit **)** const                          |
+| :ref:`bool<class_bool>`       | :ref:`get_collision_mask_bit<class_ShapeCast2D_method_get_collision_mask_bit>` **(** :ref:`int<class_int>` bit **)** |const|                        |
 +-------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Vector2<class_Vector2>` | :ref:`get_collision_normal<class_ShapeCast2D_method_get_collision_normal>` **(** :ref:`int<class_int>` index **)** const                            |
+| :ref:`Vector2<class_Vector2>` | :ref:`get_collision_normal<class_ShapeCast2D_method_get_collision_normal>` **(** :ref:`int<class_int>` index **)** |const|                          |
 +-------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Vector2<class_Vector2>` | :ref:`get_collision_point<class_ShapeCast2D_method_get_collision_point>` **(** :ref:`int<class_int>` index **)** const                              |
+| :ref:`Vector2<class_Vector2>` | :ref:`get_collision_point<class_ShapeCast2D_method_get_collision_point>` **(** :ref:`int<class_int>` index **)** |const|                            |
 +-------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`bool<class_bool>`       | :ref:`is_colliding<class_ShapeCast2D_method_is_colliding>` **(** **)** const                                                                        |
+| :ref:`bool<class_bool>`       | :ref:`is_colliding<class_ShapeCast2D_method_is_colliding>` **(** **)** |const|                                                                      |
 +-------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
 | void                          | :ref:`remove_exception<class_ShapeCast2D_method_remove_exception>` **(** :ref:`Object<class_Object>` node **)**                                     |
 +-------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -288,7 +288,7 @@ Updates the collision information for the shape. Use this method to update the c
 
 .. _class_ShapeCast2D_method_get_closest_collider:
 
-- :ref:`Object<class_Object>` **get_closest_collider** **(** **)** const
+- :ref:`Object<class_Object>` **get_closest_collider** **(** **)** |const|
 
 Returns the first object that the shape intersects, or ``null`` if no object is intersecting the shape (i.e. :ref:`is_colliding<class_ShapeCast2D_method_is_colliding>` returns ``false``).
 
@@ -296,7 +296,7 @@ Returns the first object that the shape intersects, or ``null`` if no object is 
 
 .. _class_ShapeCast2D_method_get_closest_collider_shape:
 
-- :ref:`int<class_int>` **get_closest_collider_shape** **(** **)** const
+- :ref:`int<class_int>` **get_closest_collider_shape** **(** **)** |const|
 
 Returns the shape ID of the first object that the shape intersects, or ``0`` if no object is intersecting the shape (i.e. :ref:`is_colliding<class_ShapeCast2D_method_is_colliding>` returns ``false``).
 
@@ -304,7 +304,7 @@ Returns the shape ID of the first object that the shape intersects, or ``0`` if 
 
 .. _class_ShapeCast2D_method_get_closest_collision_normal:
 
-- :ref:`Vector2<class_Vector2>` **get_closest_collision_normal** **(** **)** const
+- :ref:`Vector2<class_Vector2>` **get_closest_collision_normal** **(** **)** |const|
 
 Returns the normal of the closest intersecting object's shape at the collision point.
 
@@ -312,7 +312,7 @@ Returns the normal of the closest intersecting object's shape at the collision p
 
 .. _class_ShapeCast2D_method_get_closest_collision_point:
 
-- :ref:`Vector2<class_Vector2>` **get_closest_collision_point** **(** **)** const
+- :ref:`Vector2<class_Vector2>` **get_closest_collision_point** **(** **)** |const|
 
 Returns the collision point at which the shape intersects the closest object.
 
@@ -322,7 +322,7 @@ Returns the collision point at which the shape intersects the closest object.
 
 .. _class_ShapeCast2D_method_get_closest_collision_safe_distance:
 
-- :ref:`float<class_float>` **get_closest_collision_safe_distance** **(** **)** const
+- :ref:`float<class_float>` **get_closest_collision_safe_distance** **(** **)** |const|
 
 The fraction of the motion (determined by :ref:`cast_to<class_ShapeCast2D_property_cast_to>`) of how far the shape can move without triggering a collision.
 
@@ -330,7 +330,7 @@ The fraction of the motion (determined by :ref:`cast_to<class_ShapeCast2D_proper
 
 .. _class_ShapeCast2D_method_get_closest_collision_unsafe_distance:
 
-- :ref:`float<class_float>` **get_closest_collision_unsafe_distance** **(** **)** const
+- :ref:`float<class_float>` **get_closest_collision_unsafe_distance** **(** **)** |const|
 
 The fraction of the motion (determined by :ref:`cast_to<class_ShapeCast2D_property_cast_to>`) when the shape triggers a collision.
 
@@ -338,7 +338,7 @@ The fraction of the motion (determined by :ref:`cast_to<class_ShapeCast2D_proper
 
 .. _class_ShapeCast2D_method_get_collider:
 
-- :ref:`Object<class_Object>` **get_collider** **(** :ref:`int<class_int>` index **)** const
+- :ref:`Object<class_Object>` **get_collider** **(** :ref:`int<class_int>` index **)** |const|
 
 Returns the first object that the shape intersects, or ``null`` if no object is intersecting the shape (i.e. :ref:`is_colliding<class_ShapeCast2D_method_is_colliding>` returns ``false``).
 
@@ -346,7 +346,7 @@ Returns the first object that the shape intersects, or ``null`` if no object is 
 
 .. _class_ShapeCast2D_method_get_collider_shape:
 
-- :ref:`int<class_int>` **get_collider_shape** **(** :ref:`int<class_int>` index **)** const
+- :ref:`int<class_int>` **get_collider_shape** **(** :ref:`int<class_int>` index **)** |const|
 
 Returns the shape ID of one of the multiple collisions at ``index`` that the shape intersects, or ``0`` if no object is intersecting the shape (i.e. :ref:`is_colliding<class_ShapeCast2D_method_is_colliding>` returns ``false``).
 
@@ -354,7 +354,7 @@ Returns the shape ID of one of the multiple collisions at ``index`` that the sha
 
 .. _class_ShapeCast2D_method_get_collision_count:
 
-- :ref:`int<class_int>` **get_collision_count** **(** **)** const
+- :ref:`int<class_int>` **get_collision_count** **(** **)** |const|
 
 The number of collisions detected. Use this to iterate over multiple collisions as provided by :ref:`get_collider<class_ShapeCast2D_method_get_collider>`, :ref:`get_collider_shape<class_ShapeCast2D_method_get_collider_shape>`, :ref:`get_collision_point<class_ShapeCast2D_method_get_collision_point>`, and :ref:`get_collision_normal<class_ShapeCast2D_method_get_collision_normal>` methods.
 
@@ -362,7 +362,7 @@ The number of collisions detected. Use this to iterate over multiple collisions 
 
 .. _class_ShapeCast2D_method_get_collision_mask_bit:
 
-- :ref:`bool<class_bool>` **get_collision_mask_bit** **(** :ref:`int<class_int>` bit **)** const
+- :ref:`bool<class_bool>` **get_collision_mask_bit** **(** :ref:`int<class_int>` bit **)** |const|
 
 Returns an individual bit on the collision mask.
 
@@ -370,7 +370,7 @@ Returns an individual bit on the collision mask.
 
 .. _class_ShapeCast2D_method_get_collision_normal:
 
-- :ref:`Vector2<class_Vector2>` **get_collision_normal** **(** :ref:`int<class_int>` index **)** const
+- :ref:`Vector2<class_Vector2>` **get_collision_normal** **(** :ref:`int<class_int>` index **)** |const|
 
 Returns the normal containing one of the multiple collisions at ``index`` of the intersecting object.
 
@@ -378,7 +378,7 @@ Returns the normal containing one of the multiple collisions at ``index`` of the
 
 .. _class_ShapeCast2D_method_get_collision_point:
 
-- :ref:`Vector2<class_Vector2>` **get_collision_point** **(** :ref:`int<class_int>` index **)** const
+- :ref:`Vector2<class_Vector2>` **get_collision_point** **(** :ref:`int<class_int>` index **)** |const|
 
 Returns the collision point containing one of the multiple collisions at ``index`` at which the shape intersects the object.
 
@@ -388,7 +388,7 @@ Returns the collision point containing one of the multiple collisions at ``index
 
 .. _class_ShapeCast2D_method_is_colliding:
 
-- :ref:`bool<class_bool>` **is_colliding** **(** **)** const
+- :ref:`bool<class_bool>` **is_colliding** **(** **)** |const|
 
 Returns whether any object is intersecting with the shape's vector (considering the vector length).
 
@@ -416,3 +416,6 @@ Removes a collision exception so the shape does report collisions with the speci
 
 Sets or clears individual bits on the collision mask. This makes selecting the areas scanned easier.
 
+.. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
+.. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`

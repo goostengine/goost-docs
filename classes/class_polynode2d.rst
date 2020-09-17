@@ -33,13 +33,13 @@ Methods
 +-------------------------------------+----------------------------------------------------------------------------------------------------------------------+
 | :ref:`PolyNode2D<class_PolyNode2D>` | :ref:`get_child<class_PolyNode2D_method_get_child>` **(** :ref:`int<class_int>` index **)**                          |
 +-------------------------------------+----------------------------------------------------------------------------------------------------------------------+
-| :ref:`int<class_int>`               | :ref:`get_child_count<class_PolyNode2D_method_get_child_count>` **(** **)** const                                    |
+| :ref:`int<class_int>`               | :ref:`get_child_count<class_PolyNode2D_method_get_child_count>` **(** **)** |const|                                  |
 +-------------------------------------+----------------------------------------------------------------------------------------------------------------------+
-| :ref:`Array<class_Array>`           | :ref:`get_children<class_PolyNode2D_method_get_children>` **(** **)** const                                          |
+| :ref:`Array<class_Array>`           | :ref:`get_children<class_PolyNode2D_method_get_children>` **(** **)** |const|                                        |
 +-------------------------------------+----------------------------------------------------------------------------------------------------------------------+
-| :ref:`PolyNode2D<class_PolyNode2D>` | :ref:`get_parent<class_PolyNode2D_method_get_parent>` **(** **)** const                                              |
+| :ref:`PolyNode2D<class_PolyNode2D>` | :ref:`get_parent<class_PolyNode2D_method_get_parent>` **(** **)** |const|                                            |
 +-------------------------------------+----------------------------------------------------------------------------------------------------------------------+
-| :ref:`bool<class_bool>`             | :ref:`is_hole<class_PolyNode2D_method_is_hole>` **(** **)** const                                                    |
+| :ref:`bool<class_bool>`             | :ref:`is_hole<class_PolyNode2D_method_is_hole>` **(** **)** |const|                                                  |
 +-------------------------------------+----------------------------------------------------------------------------------------------------------------------+
 | :ref:`PolyNode2D<class_PolyNode2D>` | :ref:`new_child<class_PolyNode2D_method_new_child>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` path **)** |
 +-------------------------------------+----------------------------------------------------------------------------------------------------------------------+
@@ -82,7 +82,7 @@ Returns a child node by its index (see :ref:`get_child_count<class_PolyNode2D_me
 
 .. _class_PolyNode2D_method_get_child_count:
 
-- :ref:`int<class_int>` **get_child_count** **(** **)** const
+- :ref:`int<class_int>` **get_child_count** **(** **)** |const|
 
 Returns the number of child nodes.
 
@@ -90,7 +90,7 @@ Returns the number of child nodes.
 
 .. _class_PolyNode2D_method_get_children:
 
-- :ref:`Array<class_Array>` **get_children** **(** **)** const
+- :ref:`Array<class_Array>` **get_children** **(** **)** |const|
 
 Returns an array of references to node's children.
 
@@ -98,7 +98,7 @@ Returns an array of references to node's children.
 
 .. _class_PolyNode2D_method_get_parent:
 
-- :ref:`PolyNode2D<class_PolyNode2D>` **get_parent** **(** **)** const
+- :ref:`PolyNode2D<class_PolyNode2D>` **get_parent** **(** **)** |const|
 
 Returns the parent node of the current node, or an empty ``PolyNode2D`` if the node lacks a parent.
 
@@ -106,7 +106,7 @@ Returns the parent node of the current node, or an empty ``PolyNode2D`` if the n
 
 .. _class_PolyNode2D_method_is_hole:
 
-- :ref:`bool<class_bool>` **is_hole** **(** **)** const
+- :ref:`bool<class_bool>` **is_hole** **(** **)** |const|
 
 Tells whether the ``PolyNode2D``'s polygon is a hole.
 
@@ -120,3 +120,6 @@ Children of outer polygons are always holes, and children of holes are always (n
 
 Constructs a new ``PolyNode2D`` using the ``path`` polygon vertices.
 
+.. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
+.. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`

@@ -136,3 +136,6 @@ See ``JOIN_*`` constants in :ref:`JoinType<enum_PolyOffsetParameters2D_JoinType>
 
 The maximum distance in multiples of ``delta`` that vertices can be offset from their original positions before squaring is applied. The default value is 2.0 (twice delta) which is the smallest value that's allowed to avoid generating unacceptably long 'spikes' at very acute angles.
 
+.. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
+.. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
