@@ -40,3 +40,7 @@ logo.h
 # Output of list-unused-images.sh tool
 tmp-unused-images
 tmp-unused-images-history
+
+# SCons files
+.sconf_temp
+.sconsign*.dblite

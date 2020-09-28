@@ -10,6 +10,25 @@ for existing documentation writing workflow and other instructions.
 
 ## Goost-specific instructions
 
+### Building documentation
+
+Documentation can be built using the same tool which builds Godot Engine:
+```
+scons
+```
+
+This will build `html` pages by default as seen in the
+[Goost documentation](https://goost.readthedocs.io/en/latest/).
+
+If you'd like to build documentation in other formats supported by Sphinx, 
+run `scons --help` to retrieve a list of all supported build targets.
+
+For instance, to build a single large HTML file:
+
+```
+scons target=singlehtml
+```
+
 ### Generating class reference
 
 If the Goost module resides inside Godot source tree:
