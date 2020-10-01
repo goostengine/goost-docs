@@ -39,28 +39,24 @@ configured similarly as above.
 Command-line options
 ~~~~~~~~~~~~~~~~~~~~
 
-+----------------------------+-------------------------------------------------------------------+
-| Option                     | Description                                                       |
-+----------------------------+-------------------------------------------------------------------+
-| ``godot_version``          | Godot Engine version (branch, tags, commit hashes).               |
-+----------------------------+-------------------------------------------------------------------+
-| ``godot_sync``             | Synchronize Godot Engine version from remote URL before building. |
-+----------------------------+-------------------------------------------------------------------+
-| ``godot_modules_enabled``  | Build all Godot builtin modules.                                  |
-+----------------------------+-------------------------------------------------------------------+
-| ``parent_modules_enabled`` | Build all modules which may reside in the same parent directory.  |
-+----------------------------+-------------------------------------------------------------------+
-
-The specific Godot version can also be overridden with ``GODOT_VERSION``
-environment variable accepting the same branch names, tags, commit hashes,
-everything which is supported by ``git``.
++----------------------------+----------------------------------------------------------------------------------------------------------------------------------+----------------------+
+| SCons build option         | Description                                                                                                                      | Default value        |
++----------------------------+----------------------------------------------------------------------------------------------------------------------------------+----------------------+
+| ``godot_version``          | Godot version to build. Accepts the branch names, tags, ``git`` commit hashes. Can be overridden with ``GODOT_VERSION`` env var. | Run ``scons --help`` |
++----------------------------+----------------------------------------------------------------------------------------------------------------------------------+----------------------+
+| ``godot_sync``             | Synchronize Godot version from remote ``GODOT_REPO_URL`` before building.                                                        | ``no``               |
++----------------------------+----------------------------------------------------------------------------------------------------------------------------------+----------------------+
+| ``godot_modules_enabled``  | Build all Godot builtin modules. If ``no``, disables modules which are not essential to build to test out Goost.                 | ``yes``              |
++----------------------------+----------------------------------------------------------------------------------------------------------------------------------+----------------------+
+| ``parent_modules_enabled`` | Build all modules which may reside in the same parent directory where Goost is located.                                          | ``no``               |
++----------------------------+----------------------------------------------------------------------------------------------------------------------------------+----------------------+
 
 Usage examples
 ^^^^^^^^^^^^^^
 
 Compile the stable version of the engine with Goost::
 
-    scons godot_version=3.2-stable
+    scons godot_version=3.2.3-stable
 
 Compile the beta or development versions of the engine, synchronizing any
 changes from remote URL automatically::
