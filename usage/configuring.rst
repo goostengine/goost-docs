@@ -36,9 +36,45 @@ directory. If this fails too, then the Godot repository is cloned from the
 remote URL defined by ``GODOT_REPO_URL`` environment variable, which can be
 configured similarly as above.
 
+Command-line options
+~~~~~~~~~~~~~~~~~~~~
+
++----------------------------+-------------------------------------------------------------------+
+| Option                     | Description                                                       |
++----------------------------+-------------------------------------------------------------------+
+| ``godot_version``          | Godot Engine version (branch, tags, commit hashes).               |
++----------------------------+-------------------------------------------------------------------+
+| ``godot_sync``             | Synchronize Godot Engine version from remote URL before building. |
++----------------------------+-------------------------------------------------------------------+
+| ``godot_modules_enabled``  | Build all Godot builtin modules.                                  |
++----------------------------+-------------------------------------------------------------------+
+| ``parent_modules_enabled`` | Build all modules which may reside in the same parent directory.  |
++----------------------------+-------------------------------------------------------------------+
+
 The specific Godot version can also be overridden with ``GODOT_VERSION``
-environment variable accepting branch names, commit hash, tag etc, everything
-which is supported by ``git``.
+environment variable accepting the same branch names, tags, commit hashes,
+everything which is supported by ``git``.
+
+Usage examples
+^^^^^^^^^^^^^^
+
+Compile the stable version of the engine with Goost::
+
+    scons godot_version=3.2-stable
+
+Compile the beta or development versions of the engine, synchronizing any
+changes from remote URL automatically::
+
+    scons godot_version=3.2 godot_sync=yes
+
+Disable non-essential Godot modules for testing and development purposes (speeds
+up compilation, optimizes for size)::
+
+    scons godot_modules_enabled=no
+
+Compile additional modules which may reside alongside Goost::
+
+    scons parent_modules_enabled=yes
 
 Components
 ----------
@@ -65,8 +101,9 @@ Modules
 
 The extension provides as set of optional modules (regular C++ modules just like
 this extension) which are compiled alongside this extension by default if you
-build the engine from within Goost root with the ``scons`` command. If you
-compile the Goost extension externally, those modules can be compiled by
+build the engine from within Goost root with the ``scons`` command.
+
+If you compile the Goost extension externally, those modules can be compiled by
 appending to the list of paths specified by ``custom_modules`` option:
 
 .. code-block:: shell
@@ -124,13 +161,6 @@ Or if you haven't yet cloned Goost:
 Other
 -----
 
-For other Goost-specific build options, run:
+For other Godot and Goost options which may be provided by components, run::
 
-.. tabs::
-  .. code-tab:: bash Linux/macOS
-  
-      scons --help | grep goost_
-  
-  .. code-tab:: bat Windows
-  
-      scons --help | Select-String goost_
+    scons --help
