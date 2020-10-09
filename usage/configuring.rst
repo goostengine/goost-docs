@@ -50,25 +50,37 @@ Command-line options
 +----------------------------+----------------------------------------------------------------------------------------------------------------------------------+----------------------+
 | ``parent_modules_enabled`` | Build all modules which may reside in the same parent directory where Goost is located.                                          | ``no``               |
 +----------------------------+----------------------------------------------------------------------------------------------------------------------------------+----------------------+
+| ``use_godot_patches``      | Apply custom fixes and small enhancements to Godot source before building from the ``godot_patches`` directory.                  | ``no``               |
++----------------------------+----------------------------------------------------------------------------------------------------------------------------------+----------------------+
+| ``godot_patches``          | A directory path containing custom Godot patches. Patches at the default directory won't be applied if using a custom path.      | ``"misc/patches"``   |
++----------------------------+----------------------------------------------------------------------------------------------------------------------------------+----------------------+
 
 Usage examples
 ^^^^^^^^^^^^^^
 
-Compile the stable version of the engine with Goost::
+Compile the stable version of the engine with Goost:
+
+.. code-block:: shell
 
     scons godot_version=3.2.3-stable
 
 Compile the beta or development versions of the engine, synchronizing any
-changes from remote URL automatically::
+changes from remote URL automatically:
+
+.. code-block:: shell
 
     scons godot_version=3.2 godot_sync=yes
 
 Disable non-essential Godot modules for testing and development purposes (speeds
-up compilation, optimizes for size)::
+up compilation, optimizes for size):
+
+.. code-block:: shell
 
     scons godot_modules_enabled=no
 
-Compile additional modules which may reside alongside Goost::
+Compile additional modules which may reside alongside Goost:
+
+.. code-block:: shell
 
     scons parent_modules_enabled=yes
 
@@ -153,6 +165,70 @@ Or if you haven't yet cloned Goost:
 .. code-block:: shell
 
     git clone https://github.com/goostengine/goost.git --recurse-submodules
+
+Patching
+--------
+
+The Godot core cannot be modified without tinkering with the engine source, but
+in some cases, it's necessary to do so.
+
+The engine can be optionally modified by applying custom ``git diff`` patches
+which match ``*.patch`` or ``*.diff`` filenames automatically. This is disabled
+by default, and can be enabled with the ``use_godot_patches`` build option:
+
+.. code-block:: shell
+
+    scons use_godot_patches=yes
+
+By default, patches are searched within the built-in ``misc/patches`` directory
+in Goost. All patches in the directory are collected and applied automatically
+before building Godot with Goost.
+
+.. note::
+
+    Patching only works if you have Godot cloned under the Goost directory.
+
+The ``godot_patches`` build option can be overridden to point to a custom
+directory path. If you do specify a custom directory, the built-in patches will
+not be applied. It's recommended that you copy built-in patches to your own
+directory instead:
+
+.. code-block:: shell
+
+    scons use_godot_patches=yes godot_patches=/path/to/custom/patches
+
+The built-in ``misc/patches`` directory exists for the purpose of collecting
+various patches which may benefit other developers, and may not always apply
+to the current version of Godot.
+
+Creating patches
+~~~~~~~~~~~~~~~~
+
+The following commands can be run to generate patches from within Godot Engine
+repository:
+
+.. tabs::
+ .. code-tab:: bash Linux/macOS (shell)
+
+    # From committed changes:
+    git format-patch HEAD~1 -o ../misc/patches/custom.patch
+    # From non-committed changes (working tree):
+    git diff > ../misc/patches/custom.patch
+    # From a pull request/remotely:
+    curl https://github.com/godotengine/godot/pull/42653.patch > custom.patch
+
+ .. code-tab:: powershell Windows (powershell)
+
+    # From committed changes:
+    git format-patch HEAD~1 --stdout | Out-File -Encoding utf8 ../misc/patches/custom.patch
+    # From non-committed changes (working tree):
+    git diff | Out-File -Encoding utf8 ../misc/patches/custom.patch
+    # From a pull request/remotely:
+    Invoke-RestMethod "https://github.com/godotengine/godot/pull/42653.patch" | Select-Object -Expand Content | Out-File -Encoding utf8 "custom.patch"
+
+On some systems, the resulting patch encoding and line endings may not be
+compatible with ``git``, so they may fail to apply. Patches must use ``utf8``
+encoding and have ``LF`` line endings.
 
 Other
 -----
