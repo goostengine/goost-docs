@@ -89,6 +89,12 @@ Methods
 +-------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | :ref:`float<class_float>`                       | :ref:`polyline_length<class_GoostGeometry2D_method_polyline_length>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polyline **)** |const|                                                                                                                                                                                                 |
 +-------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Vector2<class_Vector2>`                   | :ref:`rand_point_in_circle<class_GoostGeometry2D_method_rand_point_in_circle>` **(** :ref:`float<class_float>` radius **)** |const|                                                                                                                                                                                                               |
++-------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Vector2<class_Vector2>`                   | :ref:`rand_point_in_ring<class_GoostGeometry2D_method_rand_point_in_ring>` **(** :ref:`float<class_float>` min_radius, :ref:`float<class_float>` max_radius **)** |const|                                                                                                                                                                         |
++-------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Vector2<class_Vector2>`                   | :ref:`rand_point_on_circle<class_GoostGeometry2D_method_rand_point_on_circle>` **(** :ref:`float<class_float>` radius **)** |const|                                                                                                                                                                                                               |
++-------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | :ref:`PoolVector2Array<class_PoolVector2Array>` | :ref:`regular_polygon<class_GoostGeometry2D_method_regular_polygon>` **(** :ref:`int<class_int>` sides, :ref:`float<class_float>` size=64.0 **)** |const|                                                                                                                                                                                         |
 +-------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | :ref:`Array<class_Array>`                       | :ref:`triangulate_multiple_polygons<class_GoostGeometry2D_method_triangulate_multiple_polygons>` **(** :ref:`Array<class_Array>` polygon, :ref:`PolyDecompParameters2D<class_PolyDecompParameters2D>` params=null **)** |const|                                                                                                                   |
@@ -450,6 +456,46 @@ Similar to :ref:`polygons_boolean<class_GoostGeometry2D_method_polygons_boolean>
 - :ref:`float<class_float>` **polyline_length** **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polyline **)** |const|
 
 Returns the total length of the segments representing the polyline. See also :ref:`polygon_perimeter<class_GoostGeometry2D_method_polygon_perimeter>`.
+
+----
+
+.. _class_GoostGeometry2D_method_rand_point_in_circle:
+
+- :ref:`Vector2<class_Vector2>` **rand_point_in_circle** **(** :ref:`float<class_float>` radius **)** |const|
+
+Returns a random point uniformly distributed within a circle, such that :ref:`Geometry.is_point_in_circle<class_Geometry_method_is_point_in_circle>` shall return ``true`` given the same ``radius``.
+
+This method is faster than :ref:`rand_point_in_ring<class_GoostGeometry2D_method_rand_point_in_ring>` and equivalent to:
+
+::
+
+    GoostGeometry2D.rand_point_in_ring(0.0, radius)
+
+----
+
+.. _class_GoostGeometry2D_method_rand_point_in_ring:
+
+- :ref:`Vector2<class_Vector2>` **rand_point_in_ring** **(** :ref:`float<class_float>` min_radius, :ref:`float<class_float>` max_radius **)** |const|
+
+Returns a random point uniformly distributed within the ring's area confined by inner (hole) and outer (boundary) circles as specified with ``min_radius`` and ``max_radius`` respectively.
+
+The method can be used to generate points distributed strictly on the circle's boundary if ``min_radius == max_radius`` which is equivalent to :ref:`rand_point_on_circle<class_GoostGeometry2D_method_rand_point_on_circle>`.
+
+----
+
+.. _class_GoostGeometry2D_method_rand_point_on_circle:
+
+- :ref:`Vector2<class_Vector2>` **rand_point_on_circle** **(** :ref:`float<class_float>` radius **)** |const|
+
+Returns a random point uniformly distributed strictly **on** the circle's boundary.
+
+This method is faster than :ref:`rand_point_in_ring<class_GoostGeometry2D_method_rand_point_in_ring>` with the following equivalent code:
+
+::
+
+    GoostGeometry2D.rand_point_in_ring(radius, radius)
+
+**Note**: the point may slightly deviate from the actual circle's boundary due to floating point error accumulation.
 
 ----
 
