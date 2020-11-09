@@ -16,7 +16,7 @@ Represents a single polygon node in the hierarchy of nested polygons.
 Description
 -----------
 
-A data structure which is used to receive solutions from clipping and offsetting operations. It's an alternative to the array-based data structures which also receive these solutions in :ref:`GoostGeometry2D<class_GoostGeometry2D>`. The class has a major advantage over the :ref:`Array<class_Array>` structure by having an ability to properly represent the parent-child relationships of the returned polygons. However, since this is a more complex structure, and since it's more computationally expensive to process, it should only be used when parent-child polygon relationships are needed.
+A data structure which is used to receive solutions from clipping and offsetting operations. It's an alternative to the array-based data structures which also receive these solutions in :ref:`PolyBoolean2D<class_PolyBoolean2D>`. The class has a major advantage over the :ref:`Array<class_Array>` structure by having an ability to properly represent the parent-child relationships of the returned polygons. However, since this is a more complex structure, and since it's more computationally expensive to process, it should only be used when parent-child polygon relationships are needed.
 
 Properties
 ----------

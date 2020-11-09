@@ -11,6 +11,8 @@ Random
 
 **Inherits:** :ref:`RandomNumberGenerator<class_RandomNumberGenerator>` **<** :ref:`Reference<class_Reference>` **<** :ref:`Object<class_Object>`
 
+**Inherited By:** :ref:`Random2D<class_Random2D>`
+
 An instance of :ref:`RandomNumberGenerator<class_RandomNumberGenerator>` available at :ref:`@GlobalScope<class_@GlobalScope>`.
 
 Description
@@ -25,25 +27,185 @@ This is a singleton which allows to use :ref:`RandomNumberGenerator<class_Random
     var i = Random.randi() % 100
     var f = Random.randf_range(-1.0, 1.0)
 
-The class may implement other methods other than what :ref:`RandomNumberGenerator<class_RandomNumberGenerator>` already provides out of the box.
+The class provides other useful and intuitive methods other than what :ref:`RandomNumberGenerator<class_RandomNumberGenerator>` already provides out of the box.
 
 It's not possible to instantiate a new ``Random`` instance with ``Random.new()`` in GDScript. If you'd like to instantiate a local instance of ``Random``, use :ref:`new_instance<class_Random_method_new_instance>` instead, or ``ClassDB.instance("Random")``, see :ref:`ClassDB.instance<class_ClassDB_method_instance>`.
+
+You have to call :ref:`RandomNumberGenerator.randomize<class_RandomNumberGenerator_method_randomize>` for local instances manually if you want to have non-reproducible results, else done automatically for the global instance by default.
+
+For 2D, use :ref:`Random2D<class_Random2D>` class, which inherits all the functionality behind ``Random`` as well.
+
+Properties
+----------
+
++---------------------------+---------------------------------------------------+---------------------------+
+| :ref:`Color<class_Color>` | :ref:`color<class_Random_property_color>`         | ``Color( 0, 0, 1, 1 )``   |
++---------------------------+---------------------------------------------------+---------------------------+
+| :ref:`bool<class_bool>`   | :ref:`condition<class_Random_property_condition>` | ``true``                  |
++---------------------------+---------------------------------------------------+---------------------------+
+| :ref:`int<class_int>`     | :ref:`number<class_Random_property_number>`       | ``37``                    |
++---------------------------+---------------------------------------------------+---------------------------+
+| :ref:`int<class_int>`     | seed                                              | ``0`` *(parent override)* |
++---------------------------+---------------------------------------------------+---------------------------+
+| :ref:`float<class_float>` | :ref:`value<class_Random_property_value>`         | ``0.5``                   |
++---------------------------+---------------------------------------------------+---------------------------+
 
 Methods
 -------
 
-+-----------------------------+---------------------------------------------------------------------------+
-| :ref:`Random<class_Random>` | :ref:`new_instance<class_Random_method_new_instance>` **(** **)** |const| |
-+-----------------------------+---------------------------------------------------------------------------+
++-------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Variant<class_Variant>` | :ref:`choice<class_Random_method_choice>` **(** :ref:`Variant<class_Variant>` from_sequence **)**                                                                                                                                                                                                                                                                                                        |
++-------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Color<class_Color>`     | :ref:`color_hsv<class_Random_method_color_hsv>` **(** :ref:`float<class_float>` hue_min=0.0, :ref:`float<class_float>` hue_max=1.0, :ref:`float<class_float>` saturation_min=0.0, :ref:`float<class_float>` saturation_max=1.0, :ref:`float<class_float>` value_min=0.0, :ref:`float<class_float>` value_max=1.0, :ref:`float<class_float>` alpha_min=1.0, :ref:`float<class_float>` alpha_max=1.0 **)** |
++-------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Color<class_Color>`     | :ref:`color_rgb<class_Random_method_color_rgb>` **(** :ref:`float<class_float>` red_min=0.0, :ref:`float<class_float>` red_max=1.0, :ref:`float<class_float>` green_min=0.0, :ref:`float<class_float>` green_max=1.0, :ref:`float<class_float>` blue_min=0.0, :ref:`float<class_float>` blue_max=1.0, :ref:`float<class_float>` alpha_min=1.0, :ref:`float<class_float>` alpha_max=1.0 **)**             |
++-------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Random<class_Random>`   | :ref:`new_instance<class_Random_method_new_instance>` **(** **)** |const|                                                                                                                                                                                                                                                                                                                                |
++-------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Variant<class_Variant>` | :ref:`range<class_Random_method_range>` **(** :ref:`Variant<class_Variant>` from, :ref:`Variant<class_Variant>` to **)**                                                                                                                                                                                                                                                                                 |
++-------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| void                          | :ref:`shuffle<class_Random_method_shuffle>` **(** :ref:`Array<class_Array>` array **)**                                                                                                                                                                                                                                                                                                                  |
++-------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+Property Descriptions
+---------------------
+
+.. _class_Random_property_color:
+
+- :ref:`Color<class_Color>` **color**
+
++-----------+-------------------------+
+| *Default* | ``Color( 0, 0, 1, 1 )`` |
++-----------+-------------------------+
+| *Getter*  | get_color()             |
++-----------+-------------------------+
+
+The next random color in HSV color space. Saturated, bright colors are preferred. Equivalent to the following code:
+
+::
+
+    var color = Color.from_hsv(randf(), rand_range(0.5, 1.0), rand_range(0.5, 1.0))
+
+For more options, use :ref:`color_hsv<class_Random_method_color_hsv>` or :ref:`color_rgb<class_Random_method_color_rgb>`.
+
+----
+
+.. _class_Random_property_condition:
+
+- :ref:`bool<class_bool>` **condition**
+
++-----------+-----------------+
+| *Default* | ``true``        |
++-----------+-----------------+
+| *Getter*  | get_condition() |
++-----------+-----------------+
+
+Generates a random boolean value. Useful for randomizing ``true`` and ``false`` states, conditions, decisions etc. The outcome is equal for both values.
+
+::
+
+    if Random.condition:
+        pass
+
+Equivalent to the following code:
+
+::
+
+    if randf() >= 0.5:
+        pass
+
+----
+
+.. _class_Random_property_number:
+
+- :ref:`int<class_int>` **number**
+
++-----------+--------------+
+| *Default* | ``37``       |
++-----------+--------------+
+| *Getter*  | get_number() |
++-----------+--------------+
+
+Generates a random unsigned 32-bit integer. Equivalent to :ref:`RandomNumberGenerator.randi<class_RandomNumberGenerator_method_randi>`.
+
+----
+
+.. _class_Random_property_value:
+
+- :ref:`float<class_float>` **value**
+
++-----------+-------------+
+| *Default* | ``0.5``     |
++-----------+-------------+
+| *Getter*  | get_value() |
++-----------+-------------+
+
+Generates a random real number in the range of ``0.0..1.0``. Equivalent to :ref:`RandomNumberGenerator.randf<class_RandomNumberGenerator_method_randf>`.
 
 Method Descriptions
 -------------------
+
+.. _class_Random_method_choice:
+
+- :ref:`Variant<class_Variant>` **choice** **(** :ref:`Variant<class_Variant>` from_sequence **)**
+
+Returns a random element from indexable sequence-based types, such as :ref:`Array<class_Array>` or :ref:`String<class_String>`. If the sequence is empty, prints an error and returns ``null``.
+
+----
+
+.. _class_Random_method_color_hsv:
+
+- :ref:`Color<class_Color>` **color_hsv** **(** :ref:`float<class_float>` hue_min=0.0, :ref:`float<class_float>` hue_max=1.0, :ref:`float<class_float>` saturation_min=0.0, :ref:`float<class_float>` saturation_max=1.0, :ref:`float<class_float>` value_min=0.0, :ref:`float<class_float>` value_max=1.0, :ref:`float<class_float>` alpha_min=1.0, :ref:`float<class_float>` alpha_max=1.0 **)**
+
+Generates a random :ref:`Color<class_Color>` specified in HSV color model. See also :ref:`Color.from_hsv<class_Color_method_from_hsv>`. By default, equivalent to the following code:
+
+::
+
+    var color = Color.from_hsv(randf(), randf(), randf())
+
+If you want to generate colors which are not too pale and not too dark, use :ref:`color<class_Random_property_color>`.
+
+----
+
+.. _class_Random_method_color_rgb:
+
+- :ref:`Color<class_Color>` **color_rgb** **(** :ref:`float<class_float>` red_min=0.0, :ref:`float<class_float>` red_max=1.0, :ref:`float<class_float>` green_min=0.0, :ref:`float<class_float>` green_max=1.0, :ref:`float<class_float>` blue_min=0.0, :ref:`float<class_float>` blue_max=1.0, :ref:`float<class_float>` alpha_min=1.0, :ref:`float<class_float>` alpha_max=1.0 **)**
+
+Generates a random :ref:`Color<class_Color>` specified in RGB color model. By default, equivalent to the following code:
+
+::
+
+    var color = Color(randf(), randf(), randf())
+
+If you want to generate colors which are not too pale and not too dark, use :ref:`color<class_Random_property_color>`.
+
+----
 
 .. _class_Random_method_new_instance:
 
 - :ref:`Random<class_Random>` **new_instance** **(** **)** |const|
 
 Instantiates a new local ``Random`` instance based on :ref:`RandomNumberGenerator<class_RandomNumberGenerator>`. Does not override the ``Random`` instance accessible at :ref:`@GlobalScope<class_@GlobalScope>`.
+
+----
+
+.. _class_Random_method_range:
+
+- :ref:`Variant<class_Variant>` **range** **(** :ref:`Variant<class_Variant>` from, :ref:`Variant<class_Variant>` to **)**
+
+Generates a singular value in a specified range depending on the type of :ref:`Variant<class_Variant>`. The types of ``from`` and ``to`` must be the same.
+
+For integer and float values, generates a random number in the range equivalently to :ref:`RandomNumberGenerator.randi_range<class_RandomNumberGenerator_method_randi_range>` and :ref:`RandomNumberGenerator.randf_range<class_RandomNumberGenerator_method_randf_range>` respectively.
+
+For any other type, the value is linearly interpolated with a random weight of ``0.0..1.0``.
+
+----
+
+.. _class_Random_method_shuffle:
+
+- void **shuffle** **(** :ref:`Array<class_Array>` array **)**
+
+Shuffles the array such that the items will have a random order. By default, this method uses the global random number generator in ``Random`` singletons, but unlike in :ref:`Array.shuffle<class_Array_method_shuffle>`, local instances of ``Random`` can be created with :ref:`new_instance<class_Random_method_new_instance>` to achieve reproducible results given the same seed.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
