@@ -29,6 +29,8 @@ Methods
 -------
 
 +-------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Rect2<class_Rect2>`                       | :ref:`bounding_rect<class_GoostGeometry2D_method_bounding_rect>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` points **)** |const|                                                                                                |
++-------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | :ref:`PoolVector2Array<class_PoolVector2Array>` | :ref:`circle<class_GoostGeometry2D_method_circle>` **(** :ref:`float<class_float>` radius, :ref:`float<class_float>` max_error=0.25 **)** |const|                                                                                          |
 +-------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | :ref:`Array<class_Array>`                       | :ref:`clip_polygons<class_GoostGeometry2D_method_clip_polygons>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon_a, :ref:`PoolVector2Array<class_PoolVector2Array>` polygon_b **)** |const|                                  |
@@ -69,6 +71,14 @@ Methods
 Method Descriptions
 -------------------
 
+.. _class_GoostGeometry2D_method_bounding_rect:
+
+- :ref:`Rect2<class_Rect2>` **bounding_rect** **(** :ref:`PoolVector2Array<class_PoolVector2Array>` points **)** |const|
+
+Computes the axis-aligned bounding rectangle of given points.
+
+----
+
 .. _class_GoostGeometry2D_method_circle:
 
 - :ref:`PoolVector2Array<class_PoolVector2Array>` **circle** **(** :ref:`float<class_float>` radius, :ref:`float<class_float>` max_error=0.25 **)** |const|
@@ -83,7 +93,7 @@ The ``max_error`` parameter represents the maximum gap in pixels allowed between
 
 - :ref:`Array<class_Array>` **clip_polygons** **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon_a, :ref:`PoolVector2Array<class_PoolVector2Array>` polygon_b **)** |const|
 
-Performs :ref:`PolyBoolean2D.OPERATION_DIFFERENCE<class_PolyBoolean2D_constant_OPERATION_DIFFERENCE>` between individual polygons.
+Performs :ref:`PolyBoolean2D.OP_DIFFERENCE<class_PolyBoolean2D_constant_OP_DIFFERENCE>` between individual polygons.
 
 ----
 
@@ -91,7 +101,7 @@ Performs :ref:`PolyBoolean2D.OPERATION_DIFFERENCE<class_PolyBoolean2D_constant_O
 
 - :ref:`Array<class_Array>` **clip_polyline_with_polygon** **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polyline, :ref:`PoolVector2Array<class_PoolVector2Array>` polygon **)** |const|
 
-Clips a single ``polyline`` against a single ``polygon`` and returns an array of clipped polylines. This performs :ref:`PolyBoolean2D.OPERATION_DIFFERENCE<class_PolyBoolean2D_constant_OPERATION_DIFFERENCE>` between the polyline and the polygon. Returns an empty array if the ``polygon`` completely encloses ``polyline``. This operation can be thought of as cutting a line with a closed shape.
+Clips a single ``polyline`` against a single ``polygon`` and returns an array of clipped polylines. This performs :ref:`PolyBoolean2D.OP_DIFFERENCE<class_PolyBoolean2D_constant_OP_DIFFERENCE>` between the polyline and the polygon. Returns an empty array if the ``polygon`` completely encloses ``polyline``. This operation can be thought of as cutting a line with a closed shape.
 
 ----
 
@@ -123,7 +133,7 @@ Grows a single non-closed path into a polygon by ``delta`` pixels. See also :ref
 
 - :ref:`Array<class_Array>` **exclude_polygons** **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon_a, :ref:`PoolVector2Array<class_PoolVector2Array>` polygon_b **)** |const|
 
-Performs :ref:`PolyBoolean2D.OPERATION_XOR<class_PolyBoolean2D_constant_OPERATION_XOR>` between individual polygons.
+Performs :ref:`PolyBoolean2D.OP_XOR<class_PolyBoolean2D_constant_OP_XOR>` between individual polygons.
 
 ----
 
@@ -139,7 +149,7 @@ Shrinks a polygon by ``delta`` pixels. See also :ref:`PolyOffset2D.inflate_polyg
 
 - :ref:`Array<class_Array>` **intersect_polygons** **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon_a, :ref:`PoolVector2Array<class_PoolVector2Array>` polygon_b **)** |const|
 
-Performs :ref:`PolyBoolean2D.OPERATION_INTERSECTION<class_PolyBoolean2D_constant_OPERATION_INTERSECTION>` between individual polygons.
+Performs :ref:`PolyBoolean2D.OP_INTERSECTION<class_PolyBoolean2D_constant_OP_INTERSECTION>` between individual polygons.
 
 ----
 
@@ -147,7 +157,7 @@ Performs :ref:`PolyBoolean2D.OPERATION_INTERSECTION<class_PolyBoolean2D_constant
 
 - :ref:`Array<class_Array>` **intersect_polyline_with_polygon** **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polyline, :ref:`PoolVector2Array<class_PoolVector2Array>` polygon **)** |const|
 
-Intersects polyline with polygon and returns an array of intersected polylines. This performs :ref:`PolyBoolean2D.OPERATION_INTERSECTION<class_PolyBoolean2D_constant_OPERATION_INTERSECTION>` between the polyline and the polygon. This operation can be thought of as chopping a line with a closed shape.
+Intersects polyline with polygon and returns an array of intersected polylines. This performs :ref:`PolyBoolean2D.OP_INTERSECTION<class_PolyBoolean2D_constant_OP_INTERSECTION>` between the polyline and the polygon. This operation can be thought of as chopping a line with a closed shape.
 
 ----
 
@@ -155,7 +165,7 @@ Intersects polyline with polygon and returns an array of intersected polylines. 
 
 - :ref:`Array<class_Array>` **merge_polygons** **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon_a, :ref:`PoolVector2Array<class_PoolVector2Array>` polygon_b **)** |const|
 
-Performs :ref:`PolyBoolean2D.OPERATION_UNION<class_PolyBoolean2D_constant_OPERATION_UNION>` between individual polygons. If you need to merge multiple polygons, use :ref:`PolyBoolean2D.merge_polygons<class_PolyBoolean2D_method_merge_polygons>` instead.
+Performs :ref:`PolyBoolean2D.OP_UNION<class_PolyBoolean2D_constant_OP_UNION>` between individual polygons. If you need to merge multiple polygons, use :ref:`PolyBoolean2D.merge_polygons<class_PolyBoolean2D_method_merge_polygons>` instead.
 
 ----
 
@@ -171,7 +181,7 @@ Returns +1 if the point is *inside* the polygon, 0 if the point is *outside* the
 
 - :ref:`float<class_float>` **polygon_area** **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon **)** |const|
 
-Returns ``polygon``'s positive or negative area depending on whether vertices are ordered in counterclockwise or anticlockwise order. See also :ref:`Geometry.is_polygon_clockwise<class_Geometry_method_is_polygon_clockwise>`. If the order is clockwise, the polygon can be interpreted as an inner polygon (hole), otherwise it's an outer polygon (boundary).
+Returns ``polygon``'s positive or negative area depending on whether vertices are ordered in clockwise or counterclockwise order. See also :ref:`Geometry.is_polygon_clockwise<class_Geometry_method_is_polygon_clockwise>`. If the order is clockwise, the polygon can be interpreted as an inner polygon (hole), otherwise it's an outer polygon (boundary).
 
 ----
 

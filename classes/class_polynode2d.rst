@@ -9,116 +9,368 @@
 PolyNode2D
 ==========
 
-**Inherits:** :ref:`Reference<class_Reference>` **<** :ref:`Object<class_Object>`
+**Inherits:** :ref:`Node2D<class_Node2D>` **<** :ref:`CanvasItem<class_CanvasItem>` **<** :ref:`Node<class_Node>` **<** :ref:`Object<class_Object>`
 
-Represents a single polygon node in the hierarchy of nested polygons.
+**Inherited By:** :ref:`PolyCircle2D<class_PolyCircle2D>`, :ref:`PolyRectangle2D<class_PolyRectangle2D>`
+
+Represents a single polygon-based node in the hierarchy of nested polygons.
 
 Description
 -----------
 
-A data structure which is used to receive solutions from clipping and offsetting operations. It's an alternative to the array-based data structures which also receive these solutions in :ref:`PolyBoolean2D<class_PolyBoolean2D>`. The class has a major advantage over the :ref:`Array<class_Array>` structure by having an ability to properly represent the parent-child relationships of the returned polygons. However, since this is a more complex structure, and since it's more computationally expensive to process, it should only be used when parent-child polygon relationships are needed.
+The class provides exhaustive boolean operators used to shape the outlines of nodes at run-time, similarly to CSG nodes in 3D, while also giving ability to represent nested polygons. Unlike in 3D, this class doesn't allow to use it as a collision. Instead, :ref:`PolyCollisionShape2D<class_PolyCollisionShape2D>` is used to build collision shapes.
+
+Drawing is only done on the level of root node (see :ref:`is_root<class_PolyNode2D_method_is_root>`), and not it's children.
+
+This data structure is also used to receive solutions from clipping and offsetting operations. It's an alternative to the array-based data structures which also receive these solutions in :ref:`PolyBoolean2D<class_PolyBoolean2D>`. The class has a major advantage over the :ref:`Array<class_Array>` structure by having an ability to properly represent the parent-child relationships of the returned polygons, but it may be more computationally expensive to process.
 
 Properties
 ----------
 
-+-------------------------------------------------+---------------------------------------------+--------------------------+
-| :ref:`PoolVector2Array<class_PoolVector2Array>` | :ref:`path<class_PolyNode2D_property_path>` | ``PoolVector2Array(  )`` |
-+-------------------------------------------------+---------------------------------------------+--------------------------+
++-------------------------------------------------+-------------------------------------------------------------------------------------+--------------------------+
+| :ref:`bool<class_bool>`                         | :ref:`antialiased<class_PolyNode2D_property_antialiased>`                           | ``false``                |
++-------------------------------------------------+-------------------------------------------------------------------------------------+--------------------------+
+| :ref:`Color<class_Color>`                       | :ref:`color<class_PolyNode2D_property_color>`                                       | ``Color( 1, 1, 1, 1 )``  |
++-------------------------------------------------+-------------------------------------------------------------------------------------+--------------------------+
+| :ref:`bool<class_bool>`                         | :ref:`filled<class_PolyNode2D_property_filled>`                                     | ``true``                 |
++-------------------------------------------------+-------------------------------------------------------------------------------------+--------------------------+
+| :ref:`float<class_float>`                       | :ref:`line_width<class_PolyNode2D_property_line_width>`                             | ``2.0``                  |
++-------------------------------------------------+-------------------------------------------------------------------------------------+--------------------------+
+| :ref:`Texture<class_Texture>`                   | :ref:`normal_map<class_PolyNode2D_property_normal_map>`                             |                          |
++-------------------------------------------------+-------------------------------------------------------------------------------------+--------------------------+
+| :ref:`bool<class_bool>`                         | :ref:`open<class_PolyNode2D_property_open>`                                         | ``false``                |
++-------------------------------------------------+-------------------------------------------------------------------------------------+--------------------------+
+| :ref:`Operation<enum_PolyNode2D_Operation>`     | :ref:`operation<class_PolyNode2D_property_operation>`                               | ``1``                    |
++-------------------------------------------------+-------------------------------------------------------------------------------------+--------------------------+
+| :ref:`PoolVector2Array<class_PoolVector2Array>` | :ref:`points<class_PolyNode2D_property_points>`                                     | ``PoolVector2Array(  )`` |
++-------------------------------------------------+-------------------------------------------------------------------------------------+--------------------------+
+| :ref:`Texture<class_Texture>`                   | :ref:`texture<class_PolyNode2D_property_texture>`                                   |                          |
++-------------------------------------------------+-------------------------------------------------------------------------------------+--------------------------+
+| :ref:`Vector2<class_Vector2>`                   | :ref:`texture_offset<class_PolyNode2D_property_texture_offset>`                     | ``Vector2( 0, 0 )``      |
++-------------------------------------------------+-------------------------------------------------------------------------------------+--------------------------+
+| :ref:`float<class_float>`                       | :ref:`texture_rotation<class_PolyNode2D_property_texture_rotation>`                 |                          |
++-------------------------------------------------+-------------------------------------------------------------------------------------+--------------------------+
+| :ref:`float<class_float>`                       | :ref:`texture_rotation_degrees<class_PolyNode2D_property_texture_rotation_degrees>` | ``0.0``                  |
++-------------------------------------------------+-------------------------------------------------------------------------------------+--------------------------+
+| :ref:`Vector2<class_Vector2>`                   | :ref:`texture_scale<class_PolyNode2D_property_texture_scale>`                       | ``Vector2( 1, 1 )``      |
++-------------------------------------------------+-------------------------------------------------------------------------------------+--------------------------+
 
 Methods
 -------
 
-+-------------------------------------+----------------------------------------------------------------------------------------------------------------------+
-| void                                | :ref:`clear<class_PolyNode2D_method_clear>` **(** **)**                                                              |
-+-------------------------------------+----------------------------------------------------------------------------------------------------------------------+
-| :ref:`PolyNode2D<class_PolyNode2D>` | :ref:`get_child<class_PolyNode2D_method_get_child>` **(** :ref:`int<class_int>` index **)**                          |
-+-------------------------------------+----------------------------------------------------------------------------------------------------------------------+
-| :ref:`int<class_int>`               | :ref:`get_child_count<class_PolyNode2D_method_get_child_count>` **(** **)** |const|                                  |
-+-------------------------------------+----------------------------------------------------------------------------------------------------------------------+
-| :ref:`Array<class_Array>`           | :ref:`get_children<class_PolyNode2D_method_get_children>` **(** **)** |const|                                        |
-+-------------------------------------+----------------------------------------------------------------------------------------------------------------------+
-| :ref:`PolyNode2D<class_PolyNode2D>` | :ref:`get_parent<class_PolyNode2D_method_get_parent>` **(** **)** |const|                                            |
-+-------------------------------------+----------------------------------------------------------------------------------------------------------------------+
-| :ref:`bool<class_bool>`             | :ref:`is_hole<class_PolyNode2D_method_is_hole>` **(** **)** |const|                                                  |
-+-------------------------------------+----------------------------------------------------------------------------------------------------------------------+
-| :ref:`PolyNode2D<class_PolyNode2D>` | :ref:`new_child<class_PolyNode2D_method_new_child>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` path **)** |
-+-------------------------------------+----------------------------------------------------------------------------------------------------------------------+
++-------------------------------------+-----------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Array<class_Array>`           | :ref:`build_outlines<class_PolyNode2D_method_build_outlines>` **(** **)**                                                   |
++-------------------------------------+-----------------------------------------------------------------------------------------------------------------------------+
+| void                                | :ref:`clear<class_PolyNode2D_method_clear>` **(** **)**                                                                     |
++-------------------------------------+-----------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Array<class_Array>`           | :ref:`get_outlines<class_PolyNode2D_method_get_outlines>` **(** **)**                                                       |
++-------------------------------------+-----------------------------------------------------------------------------------------------------------------------------+
+| :ref:`bool<class_bool>`             | :ref:`is_inner<class_PolyNode2D_method_is_inner>` **(** **)** |const|                                                       |
++-------------------------------------+-----------------------------------------------------------------------------------------------------------------------------+
+| :ref:`bool<class_bool>`             | :ref:`is_root<class_PolyNode2D_method_is_root>` **(** **)** |const|                                                         |
++-------------------------------------+-----------------------------------------------------------------------------------------------------------------------------+
+| void                                | :ref:`make_from_outlines<class_PolyNode2D_method_make_from_outlines>` **(** :ref:`Array<class_Array>` outlines **)**        |
++-------------------------------------+-----------------------------------------------------------------------------------------------------------------------------+
+| :ref:`PolyNode2D<class_PolyNode2D>` | :ref:`new_child<class_PolyNode2D_method_new_child>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` from_points **)** |
++-------------------------------------+-----------------------------------------------------------------------------------------------------------------------------+
+
+Signals
+-------
+
+.. _class_PolyNode2D_signal_outlines_updated:
+
+- **outlines_updated** **(** **)**
+
+Emitted whenever the outlines are updated. Changes in local transform, :ref:`operation<class_PolyNode2D_property_operation>` and :ref:`points<class_PolyNode2D_property_points>` of children triggers outlines to get updated on idle frame.
+
+Enumerations
+------------
+
+.. _enum_PolyNode2D_Operation:
+
+.. _class_PolyNode2D_constant_OP_NONE:
+
+.. _class_PolyNode2D_constant_OP_UNION:
+
+.. _class_PolyNode2D_constant_OP_DIFFERENCE:
+
+.. _class_PolyNode2D_constant_OP_INTERSECTION:
+
+.. _class_PolyNode2D_constant_OP_XOR:
+
+enum **Operation**:
+
+- **OP_NONE** = **0** --- No operation is applied. Nodes with no operation set are able to be drawn separately from the root ``PolyNode2D``.
+
+- **OP_UNION** = **1** --- Outlines of parent and child nodes are merged together.
+
+- **OP_DIFFERENCE** = **2** --- Outlines from the child node is subtracted from the parent's outlines.
+
+- **OP_INTERSECTION** = **3** --- Only intersecting outlines from parent and child nodes remain, the rest is removed.
+
+- **OP_XOR** = **4** --- Common area defined by intersection of outlines between the parent and child is removed, the rest outlines remain unaffected.
 
 Property Descriptions
 ---------------------
 
-.. _class_PolyNode2D_property_path:
+.. _class_PolyNode2D_property_antialiased:
 
-- :ref:`PoolVector2Array<class_PoolVector2Array>` **path**
+- :ref:`bool<class_bool>` **antialiased**
+
++-----------+------------------------+
+| *Default* | ``false``              |
++-----------+------------------------+
+| *Setter*  | set_antialiased(value) |
++-----------+------------------------+
+| *Getter*  | is_antialiased()       |
++-----------+------------------------+
+
+Draws polygons and polylines antialiased.
+
+**Note:** this property doesn't work reliably in Godot 3.2 to draw polygons, but works fine for drawing polylines.
+
+----
+
+.. _class_PolyNode2D_property_color:
+
+- :ref:`Color<class_Color>` **color**
+
++-----------+-------------------------+
+| *Default* | ``Color( 1, 1, 1, 1 )`` |
++-----------+-------------------------+
+| *Setter*  | set_color(value)        |
++-----------+-------------------------+
+| *Getter*  | get_color()             |
++-----------+-------------------------+
+
+The color used to draw the node. Texture is also modulated by this property.
+
+----
+
+.. _class_PolyNode2D_property_filled:
+
+- :ref:`bool<class_bool>` **filled**
+
++-----------+-------------------+
+| *Default* | ``true``          |
++-----------+-------------------+
+| *Setter*  | set_filled(value) |
++-----------+-------------------+
+| *Getter*  | is_filled()       |
++-----------+-------------------+
+
+If ``true``, draws polygons with a solid color. Does not have an effect on polylines.
+
+----
+
+.. _class_PolyNode2D_property_line_width:
+
+- :ref:`float<class_float>` **line_width**
+
++-----------+-----------------------+
+| *Default* | ``2.0``               |
++-----------+-----------------------+
+| *Setter*  | set_line_width(value) |
++-----------+-----------------------+
+| *Getter*  | get_line_width()      |
++-----------+-----------------------+
+
+The line width used to draw polylines. Does not have an effect on polygons.
+
+----
+
+.. _class_PolyNode2D_property_normal_map:
+
+- :ref:`Texture<class_Texture>` **normal_map**
+
++----------+-----------------------+
+| *Setter* | set_normal_map(value) |
++----------+-----------------------+
+| *Getter* | get_normal_map()      |
++----------+-----------------------+
+
+The normal map used to provide depth to the :ref:`texture<class_PolyNode2D_property_texture>`.
+
+----
+
+.. _class_PolyNode2D_property_open:
+
+- :ref:`bool<class_bool>` **open**
+
++-----------+-----------------+
+| *Default* | ``false``       |
++-----------+-----------------+
+| *Setter*  | set_open(value) |
++-----------+-----------------+
+| *Getter*  | is_open()       |
++-----------+-----------------+
+
+If ``true``, this node is treated as a polyline (open line), otherwise this is a polygon (closed outline).
+
+----
+
+.. _class_PolyNode2D_property_operation:
+
+- :ref:`Operation<enum_PolyNode2D_Operation>` **operation**
+
++-----------+----------------------+
+| *Default* | ``1``                |
++-----------+----------------------+
+| *Setter*  | set_operation(value) |
++-----------+----------------------+
+| *Getter*  | get_operation()      |
++-----------+----------------------+
+
+The boolean operation that is performed on this node. This is ignored for the first child node as the operation is between this node and the previous child of this nodes parent.
+
+----
+
+.. _class_PolyNode2D_property_points:
+
+- :ref:`PoolVector2Array<class_PoolVector2Array>` **points**
 
 +-----------+--------------------------+
 | *Default* | ``PoolVector2Array(  )`` |
 +-----------+--------------------------+
-| *Setter*  | set_path(value)          |
+| *Setter*  | set_points(value)        |
 +-----------+--------------------------+
-| *Getter*  | get_path()               |
+| *Getter*  | get_points()             |
 +-----------+--------------------------+
 
-The contour representing the node. The top level root node has no contour, so this logic can be used to distinguish between the nodes and the tree itself containing them all.
+The vertices which represent the outer or inner outline of this node.
+
+----
+
+.. _class_PolyNode2D_property_texture:
+
+- :ref:`Texture<class_Texture>` **texture**
+
++----------+--------------------+
+| *Setter* | set_texture(value) |
++----------+--------------------+
+| *Getter* | get_texture()      |
++----------+--------------------+
+
+:ref:`Texture<class_Texture>` object to draw. Only the area defined by :ref:`get_outlines<class_PolyNode2D_method_get_outlines>` is drawn.
+
+----
+
+.. _class_PolyNode2D_property_texture_offset:
+
+- :ref:`Vector2<class_Vector2>` **texture_offset**
+
++-----------+---------------------------+
+| *Default* | ``Vector2( 0, 0 )``       |
++-----------+---------------------------+
+| *Setter*  | set_texture_offset(value) |
++-----------+---------------------------+
+| *Getter*  | get_texture_offset()      |
++-----------+---------------------------+
+
+Amount to offset the texture. If (0, 0) the texture's origin (its top-left corner) will be placed at the node's position.
+
+----
+
+.. _class_PolyNode2D_property_texture_rotation:
+
+- :ref:`float<class_float>` **texture_rotation**
+
++----------+-----------------------------+
+| *Setter* | set_texture_rotation(value) |
++----------+-----------------------------+
+| *Getter* | get_texture_rotation()      |
++----------+-----------------------------+
+
+The texture's rotation in radians.
+
+----
+
+.. _class_PolyNode2D_property_texture_rotation_degrees:
+
+- :ref:`float<class_float>` **texture_rotation_degrees**
+
++-----------+-------------------------------------+
+| *Default* | ``0.0``                             |
++-----------+-------------------------------------+
+| *Setter*  | set_texture_rotation_degrees(value) |
++-----------+-------------------------------------+
+| *Getter*  | get_texture_rotation_degrees()      |
++-----------+-------------------------------------+
+
+The texture's rotation in degrees.
+
+----
+
+.. _class_PolyNode2D_property_texture_scale:
+
+- :ref:`Vector2<class_Vector2>` **texture_scale**
+
++-----------+--------------------------+
+| *Default* | ``Vector2( 1, 1 )``      |
++-----------+--------------------------+
+| *Setter*  | set_texture_scale(value) |
++-----------+--------------------------+
+| *Getter*  | get_texture_scale()      |
++-----------+--------------------------+
+
+Amount to multiply the ``uv`` coordinates when using a texture. Larger values make the texture smaller, and vice versa.
 
 Method Descriptions
 -------------------
+
+.. _class_PolyNode2D_method_build_outlines:
+
+- :ref:`Array<class_Array>` **build_outlines** **(** **)**
+
+Builds outlines from selected :ref:`operation<class_PolyNode2D_property_operation>`. Unlike :ref:`get_outlines<class_PolyNode2D_method_get_outlines>`, returns outlines immediately without scheduling operation for the next frame, so prefer to use :ref:`get_outlines<class_PolyNode2D_method_get_outlines>` if you care about performance over immediate information.
+
+----
 
 .. _class_PolyNode2D_method_clear:
 
 - void **clear** **(** **)**
 
-Removes all ``PolyNode2D`` children.
+Removes all ``PolyNode2D`` children immediately. Use :ref:`Object.call_deferred<class_Object_method_call_deferred>` if you want to emulate the :ref:`Node.queue_free<class_Node_method_queue_free>` behavior.
 
 ----
 
-.. _class_PolyNode2D_method_get_child:
+.. _class_PolyNode2D_method_get_outlines:
 
-- :ref:`PolyNode2D<class_PolyNode2D>` **get_child** **(** :ref:`int<class_int>` index **)**
+- :ref:`Array<class_Array>` **get_outlines** **(** **)**
 
-Returns a child node by its index (see :ref:`get_child_count<class_PolyNode2D_method_get_child_count>`). This method can be used for iterating all children of a node.
-
-----
-
-.. _class_PolyNode2D_method_get_child_count:
-
-- :ref:`int<class_int>` **get_child_count** **(** **)** |const|
-
-Returns the number of child nodes.
+Returns the outlines representing this node, which may result from the clipping :ref:`operation<class_PolyNode2D_property_operation>`. This is different from :ref:`points<class_PolyNode2D_property_points>`.
 
 ----
 
-.. _class_PolyNode2D_method_get_children:
+.. _class_PolyNode2D_method_is_inner:
 
-- :ref:`Array<class_Array>` **get_children** **(** **)** |const|
+- :ref:`bool<class_bool>` **is_inner** **(** **)** |const|
 
-Returns an array of references to node's children.
-
-----
-
-.. _class_PolyNode2D_method_get_parent:
-
-- :ref:`PolyNode2D<class_PolyNode2D>` **get_parent** **(** **)** |const|
-
-Returns the parent node of the current node, or an empty ``PolyNode2D`` if the node lacks a parent.
+Tells whether this node is an inner or an outer node in the hierarchy of nested nodes. If this node has no ``PolyNode2D`` parent and has empty :ref:`points<class_PolyNode2D_property_points>`, this node is considered as inner node containing outer children. If :ref:`points<class_PolyNode2D_property_points>` is not empty, this is an outer node.
 
 ----
 
-.. _class_PolyNode2D_method_is_hole:
+.. _class_PolyNode2D_method_is_root:
 
-- :ref:`bool<class_bool>` **is_hole** **(** **)** |const|
+- :ref:`bool<class_bool>` **is_root** **(** **)** |const|
 
-Tells whether the ``PolyNode2D``'s polygon is a hole.
+Returns ``true`` if this node has no ``PolyNode2D`` as parent.
 
-Children of outer polygons are always holes, and children of holes are always (nested) outer polygons.
+----
+
+.. _class_PolyNode2D_method_make_from_outlines:
+
+- void **make_from_outlines** **(** :ref:`Array<class_Array>` outlines **)**
+
+Constructs an hierarchy of nodes from an array of outer and inner outlines. New nodes are constructed to represent inner outlines with :ref:`operation<class_PolyNode2D_property_operation>` set to :ref:`OP_DIFFERENCE<class_PolyNode2D_constant_OP_DIFFERENCE>`.
 
 ----
 
 .. _class_PolyNode2D_method_new_child:
 
-- :ref:`PolyNode2D<class_PolyNode2D>` **new_child** **(** :ref:`PoolVector2Array<class_PoolVector2Array>` path **)**
+- :ref:`PolyNode2D<class_PolyNode2D>` **new_child** **(** :ref:`PoolVector2Array<class_PoolVector2Array>` from_points **)**
 
-Constructs a new ``PolyNode2D`` using the ``path`` polygon vertices.
+Constructs a new ``PolyNode2D`` using vertices from supplied points.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`

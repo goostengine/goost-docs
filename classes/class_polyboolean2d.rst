@@ -65,27 +65,27 @@ Enumerations
 
 .. _enum_PolyBoolean2D_Operation:
 
-.. _class_PolyBoolean2D_constant_OPERATION_NONE:
+.. _class_PolyBoolean2D_constant_OP_NONE:
 
-.. _class_PolyBoolean2D_constant_OPERATION_UNION:
+.. _class_PolyBoolean2D_constant_OP_UNION:
 
-.. _class_PolyBoolean2D_constant_OPERATION_DIFFERENCE:
+.. _class_PolyBoolean2D_constant_OP_DIFFERENCE:
 
-.. _class_PolyBoolean2D_constant_OPERATION_INTERSECTION:
+.. _class_PolyBoolean2D_constant_OP_INTERSECTION:
 
-.. _class_PolyBoolean2D_constant_OPERATION_XOR:
+.. _class_PolyBoolean2D_constant_OP_XOR:
 
 enum **Operation**:
 
-- **OPERATION_NONE** = **0** --- No-op, but may perform polygons fixup, build hierarchy, depending on the poly_boolean implementation.
+- **OP_NONE** = **0** --- No-op, but may perform polygons fixup, build hierarchy, depending on the poly_boolean implementation.
 
-- **OPERATION_UNION** = **1** --- Merge (combine) polygons.
+- **OP_UNION** = **1** --- Merge (combine) polygons.
 
-- **OPERATION_DIFFERENCE** = **2** --- Clip (cut) polygons or polylines.
+- **OP_DIFFERENCE** = **2** --- Clip (cut) polygons or polylines.
 
-- **OPERATION_INTERSECTION** = **3** --- Intersect polygons or polylines.
+- **OP_INTERSECTION** = **3** --- Intersect polygons or polylines.
 
-- **OPERATION_XOR** = **4** --- Mutually exclude polygons.
+- **OP_XOR** = **4** --- Mutually exclude polygons.
 
 Property Descriptions
 ---------------------
@@ -113,21 +113,21 @@ Performs a boolean operation between an array of polygons, with the ``polygons_a
 
 **Operations:**
 
-:ref:`OPERATION_UNION<class_PolyBoolean2D_constant_OPERATION_UNION>`:
+:ref:`OP_UNION<class_PolyBoolean2D_constant_OP_UNION>`:
 
 Merges polygons into one if they overlap in any way. Passing ``polygons_b`` is optional in this case, but you can specify a different :ref:`PolyBooleanParameters2D.clip_fill_rule<class_PolyBooleanParameters2D_property_clip_fill_rule>` for these polygons, producing different results.
 
 This operation can also be used to convert arbitrary polygons into strictly simple ones (no self-intersections).
 
-:ref:`OPERATION_DIFFERENCE<class_PolyBoolean2D_constant_OPERATION_DIFFERENCE>`:
+:ref:`OP_DIFFERENCE<class_PolyBoolean2D_constant_OP_DIFFERENCE>`:
 
 Clips polygons, the *subject* remains intact if neither polygons overlap. Returns an empty array if ``polygons_b`` completely covers ``polygons_a``. If ``polygons_b`` are enclosed by ``polygons_a``, returns an array of boundary and hole polygons.
 
-:ref:`OPERATION_INTERSECTION<class_PolyBoolean2D_constant_OPERATION_INTERSECTION>`:
+:ref:`OP_INTERSECTION<class_PolyBoolean2D_constant_OP_INTERSECTION>`:
 
 Intersects polygons, effectively returning the common area shared by these polygons. Returns an empty array if no intersection occurs.
 
-:ref:`OPERATION_XOR<class_PolyBoolean2D_constant_OPERATION_XOR>`:
+:ref:`@GlobalScope.OP_XOR<class_@GlobalScope_constant_OP_XOR>`:
 
 Mutually excludes common area defined by the intersection of the polygons. In other words, returns all but common area between the polygons.
 
@@ -137,7 +137,7 @@ Mutually excludes common area defined by the intersection of the polygons. In ot
 
 - :ref:`PolyNode2D<class_PolyNode2D>` **boolean_polygons_tree** **(** :ref:`Array<class_Array>` polygons_a, :ref:`Array<class_Array>` polygons_b, :ref:`Operation<enum_PolyBoolean2D_Operation>` operation **)** |const|
 
-Similar to :ref:`boolean_polygons<class_PolyBoolean2D_method_boolean_polygons>`, but builds an hierarchy of clipped polygons and returns a top-level root node representing the tree of polygons, which has some performance cost. Whether a polygon is an outer or an inner path can be checked with :ref:`PolyNode2D.is_hole<class_PolyNode2D_method_is_hole>` more easily and effectively compared to calculating polygon area to determine orientation, see :ref:`GoostGeometry2D.polygon_area<class_GoostGeometry2D_method_polygon_area>`.
+Similar to :ref:`boolean_polygons<class_PolyBoolean2D_method_boolean_polygons>`, but builds an hierarchy of clipped polygons and returns a top-level root node representing the tree of polygons, which has some performance cost. Whether a polygon is an outer or an inner path can be checked with :ref:`PolyNode2D.is_inner<class_PolyNode2D_method_is_inner>` more easily and effectively compared to calculating polygon area to determine orientation, see :ref:`GoostGeometry2D.polygon_area<class_GoostGeometry2D_method_polygon_area>`.
 
 ----
 
@@ -145,7 +145,7 @@ Similar to :ref:`boolean_polygons<class_PolyBoolean2D_method_boolean_polygons>`,
 
 - :ref:`Array<class_Array>` **clip_polygons** **(** :ref:`Array<class_Array>` polygons_a, :ref:`Array<class_Array>` polygons_b **)** |const|
 
-Similar to :ref:`boolean_polygons<class_PolyBoolean2D_method_boolean_polygons>`, but performs :ref:`OPERATION_DIFFERENCE<class_PolyBoolean2D_constant_OPERATION_DIFFERENCE>` between the polygons specifically.
+Similar to :ref:`boolean_polygons<class_PolyBoolean2D_method_boolean_polygons>`, but performs :ref:`OP_DIFFERENCE<class_PolyBoolean2D_constant_OP_DIFFERENCE>` between the polygons specifically.
 
 ----
 
@@ -153,7 +153,7 @@ Similar to :ref:`boolean_polygons<class_PolyBoolean2D_method_boolean_polygons>`,
 
 - :ref:`Array<class_Array>` **clip_polylines_with_polygons** **(** :ref:`Array<class_Array>` polylines, :ref:`Array<class_Array>` polygons **)** |const|
 
-Clips multiple polylines against polygons and returns an array of clipped polylines. This performs :ref:`OPERATION_DIFFERENCE<class_PolyBoolean2D_constant_OPERATION_DIFFERENCE>` between the polylines and the polygons. Returns an empty array if polygons completely enclose polylines.
+Clips multiple polylines against polygons and returns an array of clipped polylines. This performs :ref:`OP_DIFFERENCE<class_PolyBoolean2D_constant_OP_DIFFERENCE>` between the polylines and the polygons. Returns an empty array if polygons completely enclose polylines.
 
 ----
 
@@ -161,7 +161,7 @@ Clips multiple polylines against polygons and returns an array of clipped polyli
 
 - :ref:`Array<class_Array>` **exclude_polygons** **(** :ref:`Array<class_Array>` polygons_a, :ref:`Array<class_Array>` polygons_b **)** |const|
 
-Similar to :ref:`boolean_polygons<class_PolyBoolean2D_method_boolean_polygons>`, but performs :ref:`OPERATION_XOR<class_PolyBoolean2D_constant_OPERATION_XOR>` between the polygons specifically.
+Similar to :ref:`boolean_polygons<class_PolyBoolean2D_method_boolean_polygons>`, but performs :ref:`@GlobalScope.OP_XOR<class_@GlobalScope_constant_OP_XOR>` between the polygons specifically.
 
 ----
 
@@ -169,7 +169,7 @@ Similar to :ref:`boolean_polygons<class_PolyBoolean2D_method_boolean_polygons>`,
 
 - :ref:`Array<class_Array>` **intersect_polygons** **(** :ref:`Array<class_Array>` polygons_a, :ref:`Array<class_Array>` polygons_b **)** |const|
 
-Similar to :ref:`boolean_polygons<class_PolyBoolean2D_method_boolean_polygons>`, but performs :ref:`OPERATION_INTERSECTION<class_PolyBoolean2D_constant_OPERATION_INTERSECTION>` between the polygons specifically.
+Similar to :ref:`boolean_polygons<class_PolyBoolean2D_method_boolean_polygons>`, but performs :ref:`OP_INTERSECTION<class_PolyBoolean2D_constant_OP_INTERSECTION>` between the polygons specifically.
 
 ----
 
@@ -177,7 +177,7 @@ Similar to :ref:`boolean_polygons<class_PolyBoolean2D_method_boolean_polygons>`,
 
 - :ref:`Array<class_Array>` **intersect_polylines_with_polygons** **(** :ref:`Array<class_Array>` polylines, :ref:`Array<class_Array>` polygons **)** |const|
 
-Intersects multiple polylines with polygons and returns an array of intersected polylines. This performs :ref:`OPERATION_INTERSECTION<class_PolyBoolean2D_constant_OPERATION_INTERSECTION>` between the polylines and the polygons.
+Intersects multiple polylines with polygons and returns an array of intersected polylines. This performs :ref:`OP_INTERSECTION<class_PolyBoolean2D_constant_OP_INTERSECTION>` between the polylines and the polygons.
 
 ----
 
@@ -185,7 +185,7 @@ Intersects multiple polylines with polygons and returns an array of intersected 
 
 - :ref:`Array<class_Array>` **merge_polygons** **(** :ref:`Array<class_Array>` polygons_a, :ref:`Array<class_Array>` polygons_b=null **)** |const|
 
-Similar to :ref:`boolean_polygons<class_PolyBoolean2D_method_boolean_polygons>`, but performs :ref:`OPERATION_UNION<class_PolyBoolean2D_constant_OPERATION_UNION>` between the polygons specifically. The second parameter is optional.
+Similar to :ref:`boolean_polygons<class_PolyBoolean2D_method_boolean_polygons>`, but performs :ref:`OP_UNION<class_PolyBoolean2D_constant_OP_UNION>` between the polygons specifically. The second parameter is optional.
 
 ----
 
