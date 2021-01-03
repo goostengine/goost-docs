@@ -16,7 +16,7 @@ Polygon partitioning.
 Description
 -----------
 
-A singleton which provides various method for polygon decomposition, partitioning etc.
+A singleton which provides various methods for polygon decomposition, partitioning etc.
 
 A new local instance must be created manually with :ref:`new_instance<class_PolyDecomp2D_method_new_instance>` method if you need to override the default :ref:`parameters<class_PolyDecomp2D_property_parameters>`, else the methods in this class are available globally:
 

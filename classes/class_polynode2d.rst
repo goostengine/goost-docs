@@ -18,9 +18,11 @@ Represents a single polygon-based node in the hierarchy of nested polygons.
 Description
 -----------
 
-The class provides exhaustive boolean operators used to shape the outlines of nodes at run-time, similarly to CSG nodes in 3D, while also giving ability to represent nested polygons. Unlike in 3D, this class doesn't allow to use it as a collision. Instead, :ref:`PolyCollisionShape2D<class_PolyCollisionShape2D>` is used to build collision shapes.
+The class provides boolean operators used to shape the outlines of nodes at run-time, similarly to CSG nodes in 3D, while also giving ability to represent nested polygons.
 
-Drawing is only done on the level of root node (see :ref:`is_root<class_PolyNode2D_method_is_root>`), and not it's children.
+Unlike in 3D, this class cannot be used as a collision object directly. Instead, use :ref:`PolyCollisionShape2D<class_PolyCollisionShape2D>` to build collision shapes which can be applied to any :ref:`CollisionObject2D<class_CollisionObject2D>` node.
+
+Drawing is only done on the level of the root node (see :ref:`is_root<class_PolyNode2D_method_is_root>`), unless children do not perform any :ref:`operation<class_PolyNode2D_property_operation>` with parent nodes.
 
 This data structure is also used to receive solutions from clipping and offsetting operations. It's an alternative to the array-based data structures which also receive these solutions in :ref:`PolyBoolean2D<class_PolyBoolean2D>`. The class has a major advantage over the :ref:`Array<class_Array>` structure by having an ability to properly represent the parent-child relationships of the returned polygons, but it may be more computationally expensive to process.
 
@@ -127,7 +129,7 @@ Property Descriptions
 
 Draws polygons and polylines antialiased.
 
-**Note:** this property doesn't work reliably in Godot 3.2 to draw polygons, but works fine for drawing polylines.
+**Note:** anti-aliasing may not work reliably in Godot 3.2, especially on GLES3 backend. This property will be removed in the future version of Godot.
 
 ----
 
@@ -159,7 +161,7 @@ The color used to draw the node. Texture is also modulated by this property.
 | *Getter*  | is_filled()       |
 +-----------+-------------------+
 
-If ``true``, draws polygons with a solid color. Does not have an effect on polylines.
+If ``true``, draws outlines with a solid color. Does not have an effect on polylines.
 
 ----
 

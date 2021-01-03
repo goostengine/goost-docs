@@ -27,9 +27,9 @@ This is a singleton which allows to use :ref:`RandomNumberGenerator<class_Random
     var i = Random.randi() % 100
     var f = Random.randf_range(-1.0, 1.0)
 
-The class provides other useful and intuitive methods other than what :ref:`RandomNumberGenerator<class_RandomNumberGenerator>` already provides out of the box.
+The class provides other useful convenience methods and properties other than what :ref:`RandomNumberGenerator<class_RandomNumberGenerator>` already provides out of the box.
 
-It's not possible to instantiate a new ``Random`` instance with ``Random.new()`` in GDScript. If you'd like to instantiate a local instance of ``Random``, use :ref:`new_instance<class_Random_method_new_instance>` instead, or ``ClassDB.instance("Random")``, see :ref:`ClassDB.instance<class_ClassDB_method_instance>`.
+Local instances must be created with :ref:`new_instance<class_Random_method_new_instance>` method. It's not possible to instantiate a new ``Random`` instance with ``Random.new()`` in GDScript. Alternatively, a new instance can be created with ``ClassDB.instance("Random")``, see :ref:`ClassDB.instance<class_ClassDB_method_instance>`.
 
 You have to call :ref:`RandomNumberGenerator.randomize<class_RandomNumberGenerator_method_randomize>` for local instances manually if you want to have non-reproducible results, else done automatically for the global instance by default.
 

@@ -16,7 +16,7 @@ A two-dimensional data container.
 Description
 -----------
 
-A data structure which holds an arbitrary number of elements in a grid. Each cell represents a single element which stores any :ref:`Variant<class_Variant>` compatible datatype. Can act as a helper class for other pixel-based classes such as :ref:`Image<class_Image>`, :ref:`BitMap<class_BitMap>`, :ref:`TileMap<class_TileMap>` etc.
+A data structure which holds an arbitrary number of elements in a grid. Each cell represents a single element which stores any :ref:`Variant<class_Variant>` compatible datatype. Can act as a helper class for other pixel-based classes such as :ref:`Image<class_Image>` (:ref:`Color<class_Color>`), :ref:`BitMap<class_BitMap>` (@GlobalScope.bool) etc.
 
 The grid is initialized with :ref:`create<class_Grid2D_method_create>` method:
 
@@ -63,6 +63,8 @@ Methods
 +-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | :ref:`Variant<class_Variant>` | :ref:`get_cell<class_Grid2D_method_get_cell>` **(** :ref:`Vector2<class_Vector2>` position **)**                                                                    |
 +-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Variant<class_Variant>` | :ref:`get_cell_or_null<class_Grid2D_method_get_cell_or_null>` **(** :ref:`Vector2<class_Vector2>` position **)**                                                    |
++-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | :ref:`Variant<class_Variant>` | :ref:`get_element<class_Grid2D_method_get_element>` **(** :ref:`int<class_int>` x, :ref:`int<class_int>` y **)**                                                    |
 +-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | :ref:`int<class_int>`         | :ref:`get_height<class_Grid2D_method_get_height>` **(** **)** |const|                                                                                               |
@@ -70,6 +72,8 @@ Methods
 | :ref:`Vector2<class_Vector2>` | :ref:`get_size<class_Grid2D_method_get_size>` **(** **)** |const|                                                                                                   |
 +-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | :ref:`int<class_int>`         | :ref:`get_width<class_Grid2D_method_get_width>` **(** **)** |const|                                                                                                 |
++-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`bool<class_bool>`       | :ref:`has_cell<class_Grid2D_method_has_cell>` **(** :ref:`Vector2<class_Vector2>` position **)**                                                                    |
 +-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | :ref:`bool<class_bool>`       | :ref:`is_empty<class_Grid2D_method_is_empty>` **(** **)** |const|                                                                                                   |
 +-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -138,6 +142,14 @@ Similar to :ref:`get_element<class_Grid2D_method_get_element>`, but accepts :ref
 
 ----
 
+.. _class_Grid2D_method_get_cell_or_null:
+
+- :ref:`Variant<class_Variant>` **get_cell_or_null** **(** :ref:`Vector2<class_Vector2>` position **)**
+
+Returns cell's value if the grid contains an element at specified position, otherwise returns ``null``. See also :ref:`has_cell<class_Grid2D_method_has_cell>`.
+
+----
+
 .. _class_Grid2D_method_get_element:
 
 - :ref:`Variant<class_Variant>` **get_element** **(** :ref:`int<class_int>` x, :ref:`int<class_int>` y **)**
@@ -167,6 +179,14 @@ Returns the grid dimensions as :ref:`Vector2<class_Vector2>` (width and height).
 - :ref:`int<class_int>` **get_width** **(** **)** |const|
 
 Returns the total number of elements per row.
+
+----
+
+.. _class_Grid2D_method_has_cell:
+
+- :ref:`bool<class_bool>` **has_cell** **(** :ref:`Vector2<class_Vector2>` position **)**
+
+Returns ``true`` if the grid contains an element at specified position. Returns ``false`` if the position lies outside the grid dimensions. See also :ref:`get_cell_or_null<class_Grid2D_method_get_cell_or_null>`.
 
 ----
 

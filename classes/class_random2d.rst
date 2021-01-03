@@ -16,7 +16,9 @@ Randomization methods in 2D.
 Description
 -----------
 
-A singleton which provides various randomization methods relating to 2D space and operations.
+A singleton which provides various randomization methods relating to 2D space.
+
+**Note:** ``Random2D`` inherits all the methods from :ref:`Random<class_Random>`, but has a separate global instance and is treated separately from the base one. This means that the seed and the state are not shared between instances by default.
 
 Properties
 ----------

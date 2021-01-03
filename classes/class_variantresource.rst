@@ -16,7 +16,7 @@ A :ref:`Resource<class_Resource>` which holds any :ref:`Variant<class_Variant>` 
 Description
 -----------
 
-This class allows to store any :ref:`Variant<class_Variant>` compatible built-in types as a :ref:`Resource<class_Resource>`, such as :ref:`Vector2<class_Vector2>`, :ref:`Dictionary<class_Dictionary>`, :ref:`Array<class_Array>`, and even nested``VariantResource``\ s themselves. These can be edited in the inspector and saved to disk to be reused throughout the project, as resources are shared between instances by default.
+This class allows to store any :ref:`Variant<class_Variant>` compatible built-in types as a :ref:`Resource<class_Resource>`, such as :ref:`Vector2<class_Vector2>`, :ref:`Dictionary<class_Dictionary>`, :ref:`Array<class_Array>`, and even nested ``VariantResource`` objects themselves. These can be edited in the inspector and saved to disk to be reused throughout the project, as resources are shared between instances by default.
 
 ``VariantResource`` is normally edited via the editor inspector, but the :ref:`type<class_VariantResource_property_type>` and ``value`` can be changed via code as well:
 

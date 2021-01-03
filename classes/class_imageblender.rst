@@ -16,7 +16,7 @@ Provides advanced image blending methods (derived from OpenGL specification).
 Description
 -----------
 
-Sets up a custom blending method if the blending methods provided by Godot's :ref:`Image<class_Image>` class do not meet the user's criteria. This class uses two equations: one for the RGB values, and another one for the alpha value. This class's default behavior is the same as :ref:`Image.blend_rect<class_Image_method_blend_rect>`.
+Sets up custom blending options which builds upon :ref:`Image<class_Image>` blending methods. This class uses two equations: one for the RGB values, and another one for the alpha value. The default behavior of this class is the same as :ref:`Image.blend_rect<class_Image_method_blend_rect>`.
 
 Properties
 ----------
