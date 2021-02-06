@@ -26,14 +26,30 @@ Tutorials
 Methods
 -------
 
-+-------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| void                                | :ref:`defer_call_unique<class_GoostEngine_method_defer_call_unique>` **(** :ref:`Object<class_Object>` object, :ref:`String<class_String>` method, ... **)** |vararg| |
-+-------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Dictionary<class_Dictionary>` | :ref:`get_color_constants<class_GoostEngine_method_get_color_constants>` **(** **)** |const|                                                                          |
-+-------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++---------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| void                                  | :ref:`defer_call<class_GoostEngine_method_defer_call>` **(** :ref:`Object<class_Object>` object, :ref:`String<class_String>` method, ... **)** |vararg|                                                                                                                           |
++---------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| void                                  | :ref:`defer_call_unique<class_GoostEngine_method_defer_call_unique>` **(** :ref:`Object<class_Object>` object, :ref:`String<class_String>` method, ... **)** |vararg|                                                                                                             |
++---------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Dictionary<class_Dictionary>`   | :ref:`get_color_constants<class_GoostEngine_method_get_color_constants>` **(** **)** |const|                                                                                                                                                                                      |
++---------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Array<class_Array>`             | :ref:`get_invokes<class_GoostEngine_method_get_invokes>` **(** **)** |const|                                                                                                                                                                                                      |
++---------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`InvokeState<class_InvokeState>` | :ref:`invoke<class_GoostEngine_method_invoke>` **(** :ref:`Object<class_Object>` object, :ref:`String<class_String>` method, :ref:`float<class_float>` delay, :ref:`float<class_float>` repeat_rate=-1.0, :ref:`bool<class_bool>` pause_mode_process=true **)**                   |
++---------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`InvokeState<class_InvokeState>` | :ref:`invoke_deferred<class_GoostEngine_method_invoke_deferred>` **(** :ref:`Object<class_Object>` object, :ref:`String<class_String>` method, :ref:`float<class_float>` delay, :ref:`float<class_float>` repeat_rate=-1.0, :ref:`bool<class_bool>` pause_mode_process=true **)** |
++---------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 Method Descriptions
 -------------------
+
+.. _class_GoostEngine_method_defer_call:
+
+- void **defer_call** **(** :ref:`Object<class_Object>` object, :ref:`String<class_String>` method, ... **)** |vararg|
+
+Calls the ``method`` on the ``object`` during idle time. Mostly equivalent to :ref:`Object.call_deferred<class_Object_method_call_deferred>`, so prefer to use :ref:`Object.call_deferred<class_Object_method_call_deferred>` unless you need the same behavior along with :ref:`defer_call_unique<class_GoostEngine_method_defer_call_unique>` which uses the same deferring mechanism.
+
+----
 
 .. _class_GoostEngine_method_defer_call_unique:
 
@@ -57,6 +73,40 @@ Returns a :ref:`Dictionary<class_Dictionary>` of color constants listed in :ref:
         var name = Random.choice(colors.keys())
         var color = colors[name]
         return color
+
+----
+
+.. _class_GoostEngine_method_get_invokes:
+
+- :ref:`Array<class_Array>` **get_invokes** **(** **)** |const|
+
+Returns an :ref:`Array<class_Array>` of active :ref:`InvokeState<class_InvokeState>` objects which can be used to track pending method invocations. If any reference to repeating :ref:`InvokeState<class_InvokeState>` is lost, then all such invocations can be cancelled the following way:
+
+::
+
+    for state in GoostEngine.get_invokes():
+        if state.is_repeating():
+            state.cancel()
+
+----
+
+.. _class_GoostEngine_method_invoke:
+
+- :ref:`InvokeState<class_InvokeState>` **invoke** **(** :ref:`Object<class_Object>` object, :ref:`String<class_String>` method, :ref:`float<class_float>` delay, :ref:`float<class_float>` repeat_rate=-1.0, :ref:`bool<class_bool>` pause_mode_process=true **)**
+
+Schedules a ``method`` on the ``object`` to be called ``delay`` seconds later.
+
+If ``repeat_rate >= 0.0``, then the method is invoked repeatedly every ``repeat_rate`` seconds until it's cancelled manually using :ref:`InvokeState.cancel<class_InvokeState_method_cancel>`. If the object is freed during the wait period, the invocation is cancelled automatically.
+
+If ``pause_mode_process`` is set to ``false``, pausing the :ref:`SceneTree<class_SceneTree>` will also postpone the function from being called until the :ref:`SceneTree<class_SceneTree>` pause state is resumed.
+
+----
+
+.. _class_GoostEngine_method_invoke_deferred:
+
+- :ref:`InvokeState<class_InvokeState>` **invoke_deferred** **(** :ref:`Object<class_Object>` object, :ref:`String<class_String>` method, :ref:`float<class_float>` delay, :ref:`float<class_float>` repeat_rate=-1.0, :ref:`bool<class_bool>` pause_mode_process=true **)**
+
+Same as :ref:`invoke<class_GoostEngine_method_invoke>`, but calls the ``method`` on idle time when the time arrives. This means that the method may not always be invoked exactly after ``delay`` seconds.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
