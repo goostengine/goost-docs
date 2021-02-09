@@ -48,8 +48,6 @@ Command-line options
 +----------------------------+----------------------------------------------------------------------------------------------------------------------------------+----------------------+
 | ``godot_modules_enabled``  | Build all Godot builtin modules. If ``no``, disables modules which are not essential to build to test out Goost.                 | ``yes``              |
 +----------------------------+----------------------------------------------------------------------------------------------------------------------------------+----------------------+
-| ``parent_modules_enabled`` | Build all modules which may reside in the same parent directory where Goost is located.                                          | ``no``               |
-+----------------------------+----------------------------------------------------------------------------------------------------------------------------------+----------------------+
 | ``use_godot_patches``      | Apply custom fixes and small enhancements to Godot source before building from the ``godot_patches`` directory.                  | ``no``               |
 +----------------------------+----------------------------------------------------------------------------------------------------------------------------------+----------------------+
 | ``godot_patches``          | A directory path containing custom Godot patches. Patches at the default directory won't be applied if using a custom path.      | ``"misc/patches"``   |
@@ -77,12 +75,6 @@ up compilation, optimizes for size):
 .. code-block:: shell
 
     scons godot_modules_enabled=no
-
-Compile additional modules which may reside alongside Goost:
-
-.. code-block:: shell
-
-    scons parent_modules_enabled=yes
 
 Components
 ----------
