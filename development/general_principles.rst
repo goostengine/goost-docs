@@ -96,18 +96,24 @@ which aims to fulfill this need.
 
 If you really want a feature to be included in Goost despite all of the above,
 it might make sense to implement it as a module under the ``modules/``
-directory. But bear in mind that users will need to enable extra modules support
-manually, and the complexity of the added features is always taken into account.
-Likewise, if a new feature is specific to a single genre of games (or domains),
-it **must** be implemented as a module.
+directory. But bear in mind that the complexity of the added features is always
+taken into account, as it has to be maintained. Likewise, if a new feature is
+specific to a single genre of games (or domains), it **must** be implemented as
+a module.
 
 Community
 ~~~~~~~~~
 
 If you're an independent Godot Engine C++ modules developer who wants to link an
-existing module to be included as part of Goost, feel free to open a pull
-request linking your module as a ``git submodule``. This might be the best
-option if you'd like to have more freedom over your module's development.
+existing module to be included as part of Goost, it may be worth to link the
+module as a ``git submodule``. This might be the best option if you'd like to
+have more freedom over your module's development, but most of the time this is
+not required since the module can be maintained independently of Goost.
+
+Nonetheless, if you'd like to share your module to increase discoverability,
+then feel free to open a pull request in the dedicated
+`goostengine/godot-modules <https://github.com/goostengine/godot-modules>`_
+repository.
 
 .. seealso::
     :ref:`doc_adding_community_modules`.
