@@ -31,27 +31,21 @@ scons target=singlehtml
 
 ### Generating class reference
 
-If the Goost module resides inside Godot source tree:
+The following instructions assume that you compile Goost with the `scons` option,
+so that Godot repository is cloned inside Goost repository (default behavior):
 
 ```
-cd godot
-python doc/tools/makerst.py "doc/classes" "modules" --output "/path/to/goost-docs/classes/"
+cd goost
+python godot/doc/tools/makerst.py "godot/doc/classes" "godot/modules" "doc" "modules" --output "../goost-docs/classes" --filter "^(?!.*godot)"
 ```
 
-If using `custom_modules` build option:
+The `"godot/doc/classes" "godot/modules"` specify the path to Godot XML classes,
+and `"doc" "modules"` specify Goost classes relative to current directory. This 
+is needed so that the `makerst` script can properly check and generate the
+classes as Goost uses built-in types provided by Godot.
 
-```
-python doc/tools/makerst.py "doc/classes" "modules" "/path/to/goost/doc" --output "/path/to/goost-docs/classes/"
-```
+You can specify the output to Goost Docs `classes` directory using absolute path
+as well if you have this repository cloned in a separate location.
 
-Specifying `doc/classes` and `modules` paths is needed so that the `makerst`
-script can properly check and generate the classes as Goost uses built-in types
-provided by Godot.
-
-To make sure that only Goost classes are updated and no Godot classes are added:
-
-```
-git add --update
-```
-
-For the new Goost classes, you'll have to add the docs manually.
+The `--filter "^(?!.*godot)"` tells `makerst` to skip generating classes
+originating from Godot itself (requires Godot 3.2.4+).
