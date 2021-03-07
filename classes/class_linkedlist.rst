@@ -309,7 +309,7 @@ Returns the total number of nodes in the list.
 
 - void **sort** **(** **)**
 
-Sorts the list in alphabetical order if the list contains :ref:`String<class_String>`\ s. If the list contains nodes with different types of values, these are sorted according to the order of :ref:`Variant.Type<enum_@GlobalScope_Variant.Type>`.
+Sorts the list in alphabetical order if the list contains :ref:`String<class_String>`\ s. If the list contains nodes with different types of values, these are sorted according to the order of type in :ref:`Variant<class_Variant>`.
 
 ----
 
