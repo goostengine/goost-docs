@@ -61,15 +61,7 @@ Performance
 If you think that GDScript is still too slow for your use cases, you may
 consider re-implementing a feature in Goost using C++ if you think that it will
 benefit other developers (see Usefulness criteria). The most common bottlenecks
-may be math operations, procedural generation etc.
-
-For instance, there are a lot of finite-state machine implementations which
-should be better implemented via script currently, as it may be difficult to
-implement a general-purpose implementation to suite most use cases. But if some
-parts are too slow, this could be optimized by creating general-purpose enough
-C++ data structures and algorithms to help you speed up computation. Again,
-those classes and methods should be useful to a decent percentage of developers
-using Goost.
+may be math operations, procedural generation, machine learning etc.
 
 Reusability
 ~~~~~~~~~~~
