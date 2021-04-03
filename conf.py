@@ -8,7 +8,7 @@ import os
 # -- Project information -----------------------------------------------------
 
 project = "Goost"
-copyright = "2020, Andrii Doroshenko and the Goost community (CC-BY 3.0)"
+copyright = "2019-2021, Andrii Doroshenko and the Goost community (CC-BY 3.0)"
 author = "Andrii Doroshenko and the Goost community"
 
 version = os.getenv("READTHEDOCS_VERSION", "gd3")
