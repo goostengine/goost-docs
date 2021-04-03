@@ -75,7 +75,7 @@ html_theme_options = {
 # VCS options: https://docs.readthedocs.io/en/latest/vcs.html#github
 html_context = {
     "display_github": True,  # Integrate GitHub
-    "github_user": "GoostGD",  # Username
+    "github_user": "goostengine",  # Username
     "github_repo": "goost-docs",  # Repo name
     "github_version": version,  # Version
     "conf_py_path": "/",  # Path in the checkout to the docs root
