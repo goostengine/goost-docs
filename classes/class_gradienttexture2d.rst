@@ -11,6 +11,8 @@ GradientTexture2D
 
 **Inherits:** :ref:`Texture<class_Texture>` **<** :ref:`Resource<class_Resource>` **<** :ref:`Reference<class_Reference>` **<** :ref:`Object<class_Object>`
 
+**Inherited By:** :ref:`LightTexture<class_LightTexture>`
+
 Gradient-filled 2D texture.
 
 Description
@@ -30,11 +32,11 @@ Properties
 +----------------------------------------------+--------------------------------------------------------------+---------------------+
 | :ref:`Gradient<class_Gradient>`              | :ref:`gradient<class_GradientTexture2D_property_gradient>`   |                     |
 +----------------------------------------------+--------------------------------------------------------------+---------------------+
-| :ref:`int<class_int>`                        | :ref:`height<class_GradientTexture2D_property_height>`       | ``64``              |
+| :ref:`int<class_int>`                        | :ref:`height<class_GradientTexture2D_property_height>`       | ``256``             |
 +----------------------------------------------+--------------------------------------------------------------+---------------------+
 | :ref:`Repeat<enum_GradientTexture2D_Repeat>` | :ref:`repeat<class_GradientTexture2D_property_repeat>`       | ``0``               |
 +----------------------------------------------+--------------------------------------------------------------+---------------------+
-| :ref:`int<class_int>`                        | :ref:`width<class_GradientTexture2D_property_width>`         | ``64``              |
+| :ref:`int<class_int>`                        | :ref:`width<class_GradientTexture2D_property_width>`         | ``256``             |
 +----------------------------------------------+--------------------------------------------------------------+---------------------+
 
 Enumerations
@@ -140,7 +142,7 @@ The :ref:`Gradient<class_Gradient>` used to fill the texture.
 - :ref:`int<class_int>` **height**
 
 +-----------+-------------------+
-| *Default* | ``64``            |
+| *Default* | ``256``           |
 +-----------+-------------------+
 | *Setter*  | set_height(value) |
 +-----------+-------------------+
@@ -172,7 +174,7 @@ The gradient repeat type, one of the :ref:`Repeat<enum_GradientTexture2D_Repeat>
 - :ref:`int<class_int>` **width**
 
 +-----------+------------------+
-| *Default* | ``64``           |
+| *Default* | ``256``          |
 +-----------+------------------+
 | *Setter*  | set_width(value) |
 +-----------+------------------+
