@@ -3,93 +3,66 @@
 Installing Goost
 ================
 
-Prerequisites
--------------
+Downloading
+-----------
 
-Compiling Godot
-~~~~~~~~~~~~~~~
+Goost provides custom Godot editor and export templates which you can freely
+download for each platform of interest. Proceed to the
+`Download <https://goostengine.github.io/download.html>`_ page to get the latest
+released version.
 
-The only way to start using Goost is by compiling the Godot Engine from source,
-please follow the Godot Engine official documentation instructions for your 
-target platform of interest if you're not familiar with the build process yet:
+Installing export templates
+---------------------------
 
-- :ref:`Compiling Godot Engine<toc-devel-compiling>`
+The process of installing the export templates that you download from
+`Goost website <https://goostengine.github.io/>`_ is similar to Godot, with the
+caveat that they cannot be downloaded from within the editor directly.
 
-Compatibility
-~~~~~~~~~~~~~
-
-Goost aims to target both Godot Engine's stable and development versions. For
-the current version this documentation targets, you'll need to checkout the
-respective Godot branch:
-
-.. parsed-literal::
-    cd godot
-    git checkout |godot_branch|
-
-If you ever need to compile Goost for other versions, the compatibility table
-can be summarized as following:
-
-+----------------------+---------------------+
-|     Goost branch     |    Godot branch     |
-+======================+=====================+
-| ``gd3`` (latest)     | ``3.2`` (stable)    |
-+----------------------+---------------------+
-| ``1.0-gd3`` (stable) | ``3.2`` (stable)    |
-+----------------------+---------------------+
-| ``gd4`` (latest)     | ``master`` (latest) |
-+----------------------+---------------------+
-
-.. note::
-    The default Goost branch always targets the latest Godot *stable* version. 
-
-Compiling Goost
----------------
-
-Building Godot with Goost is done in the same way as building the engine itself:
-
-.. code-block:: shell
-
-    git clone https://github.com/goostengine/goost
-    cd goost
-    scons
+1. `Download <https://goostengine.github.io/download.html>`_ export templates
+   (either ``Standard`` or ``Mono`` version).
+2. Launch Godot editor and go to ``Editor`` → ``Manage Export Templates...``
+   menu option.
+3. You'll see a window asking you to download the export templates. Do **not**
+   press the ``Download`` button as it will download raw Godot export templates
+   without Goost:
+   
+   .. image:: img/export_templates_no_download.*
+    :alt: Export Template Manager - No download
     
-This clones the Godot Engine repository automatically and allows to compile the
-engine with all the Goost components and other modules provided alongside the
-extension.
+   If you already have export templates installed, uninstall them first.
+4. Instead, you need to install export templates from a downloaded ``tpz`` file:
 
-After compilation is done, the resulting binaries can be found at ``godot/bin``
-directory relative to the Goost repository. The binaries have the ``goost``
-suffix appended for each target platform. Run the executable and search the
-built-in documentation pages to make sure that the classes provided by the
-extension are instantly accessible (as seen in the
-:ref:`Class reference <toc-class-ref>`).
-
-.. note:: 
-    Please `report any issues <https://github.com/goostengine/goost/issues/new/choose>`_ 
-    if you stumble upon compilation errors.
-
-Compiling externally
-~~~~~~~~~~~~~~~~~~~~
-
-Goost is implemented as a regular C++ module, so please refer to the official 
-Godot Engine documentation on how to compile the engine with custom modules:
-
-- :ref:`Introduction to the build system: Custom modules <doc_buildsystem_custom_modules>`
-- :ref:`Custom modules in C++ <doc_custom_modules_in_c++>`
-
-An alternative way to compile Goost is by using the ``custom_modules`` build
-option explicitly from within Godot source root:
-
-.. code-block:: shell
-
-    cd godot
-    scons custom_modules="/path/to/directory/containing/goost"
-
-.. tip::
-    You can use ``extra_suffix`` build option if you want to distinguish between
-    vanilla Godot binaries and Godot with the Goost extension:
+   .. image:: img/export_templates_install_from_file.*
+    :alt: Export Template Manager - Install From File
     
-    .. code-block:: shell
+   .. image:: img/export_templates_open.*
+    :alt: Export Template Manager - Open a File
+    
+   This will extract templates into editor templates folder on your filesystem.
+   
+   .. image:: img/export_templates_installed.*
+    :alt: Export Template Manager - Installed
+5. Close the window and go to ``Project`` → ``Export...`` to export a project
+   with Goost!
 
-        scons custom_modules=".." extra_suffix="goost"
+Again, do not attempt to re-download the export templates if you need to change
+the export templates due to **Goost** update. Uninstall and install export
+templates manually. However, if the update is coming from Godot, it should be
+safe to install a new set of export templates for each released **Godot**
+version.
 
+Installing separately
+~~~~~~~~~~~~~~~~~~~~~
+
+If don't want to replace Godot's official export templates with the ones
+provided by Goost, you have two options:
+
+- Run Godot in self-contained mode. Create a file with a ``_sc_`` name next to
+  downloaded Goost editor executable, and proceed to installing export templates
+  as described above. The resulting export templates are going to be extracted
+  under ``editor_data/templates`` directory relative to the editor executable.
+- Extract the downloaded export templates yourself and specify custom export
+  templates via ``Custom Template`` option for each new export preset:
+  
+  .. image:: img/export_custom_template.*
+   :alt: Export - Custom templates

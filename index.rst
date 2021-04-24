@@ -26,6 +26,7 @@ extension provides. For a complete list of classes, see :ref:`toc-class-ref`.
    :name: sec-usage
 
    usage/installation
+   usage/building
    usage/configuring
 
 .. toctree::

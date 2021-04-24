@@ -5,7 +5,7 @@ Configuring the build
 
 .. note::
 
-    This page assumes that you've read :ref:`doc_installation`.
+    This page assumes that you've read :ref:`doc_building`.
 
 Extension
 ---------
