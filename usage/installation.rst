@@ -54,7 +54,7 @@ version.
 Installing separately
 ~~~~~~~~~~~~~~~~~~~~~
 
-If don't want to replace Godot's official export templates with the ones
+If you don't want to replace Godot's official export templates with the ones
 provided by Goost, you have two options:
 
 - Run Godot in self-contained mode. Create a file with a ``_sc_`` name next to
