@@ -35,6 +35,8 @@ Methods
 +---------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | :ref:`Array<class_Array>`             | :ref:`get_invokes<class_GoostEngine_method_get_invokes>` **(** **)** |const|                                                                                                                                                                                                      |
 +---------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Dictionary<class_Dictionary>`   | :ref:`get_version_info<class_GoostEngine_method_get_version_info>` **(** **)** |const|                                                                                                                                                                                            |
++---------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | :ref:`InvokeState<class_InvokeState>` | :ref:`invoke<class_GoostEngine_method_invoke>` **(** :ref:`Object<class_Object>` object, :ref:`String<class_String>` method, :ref:`float<class_float>` delay, :ref:`float<class_float>` repeat_rate=-1.0, :ref:`bool<class_bool>` pause_mode_process=true **)**                   |
 +---------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | :ref:`InvokeState<class_InvokeState>` | :ref:`invoke_deferred<class_GoostEngine_method_invoke_deferred>` **(** :ref:`Object<class_Object>` object, :ref:`String<class_String>` method, :ref:`float<class_float>` delay, :ref:`float<class_float>` repeat_rate=-1.0, :ref:`bool<class_bool>` pause_mode_process=true **)** |
@@ -87,6 +89,32 @@ Returns an :ref:`Array<class_Array>` of active :ref:`InvokeState<class_InvokeSta
     for state in GoostEngine.get_invokes():
         if state.is_repeating():
             state.cancel()
+
+----
+
+.. _class_GoostEngine_method_get_version_info:
+
+- :ref:`Dictionary<class_Dictionary>` **get_version_info** **(** **)** |const|
+
+Returns the current Goost version information in a Dictionary.
+
+``major``    - Holds the major version number as an int
+
+``minor``    - Holds the minor version number as an int
+
+``patch``    - Holds the patch version number as an int
+
+``hex``      - Holds the full version number encoded as a hexadecimal int with one byte (2 places) per number (see example below)
+
+``status``   - Holds the status (e.g. "beta", "rc1", "rc2", ... "stable") as a String
+
+``hash``     - Holds the full Git commit hash as a String
+
+``year``     - Holds the year the version was released in as an int
+
+``string``   - ``major`` + ``minor`` + ``patch`` + ``status`` + ``build`` in a single String
+
+**Note: ** This method does not contain the build name as in :ref:`Engine.get_version_info<class_Engine_method_get_version_info>`, since the build name is related to the engine, not the extension. In Goost, the build name is usually overridden to ``"goost"`` value.
 
 ----
 
