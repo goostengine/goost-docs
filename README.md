@@ -48,4 +48,4 @@ You can specify the output to Goost Docs `classes` directory using absolute path
 as well if you have this repository cloned in a separate location.
 
 The `--filter "^(?!.*godot)"` tells `makerst` to skip generating classes
-originating from Godot itself (requires Godot 3.2.4+).
+originating from Godot itself (requires Godot 3.3+).

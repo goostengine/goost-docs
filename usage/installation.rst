@@ -6,8 +6,8 @@ Installing Goost
 Downloading
 -----------
 
-Goost provides custom Godot editor and export templates which you can freely
-download for each platform of interest. Proceed to the
+Goost officially provides custom Godot editor and export templates which you can
+freely download for each platform of interest. Proceed to the
 `Download <https://goostengine.github.io/download.html>`_ page to get the latest
 released version.
 

@@ -60,14 +60,14 @@ Compile the stable version of the engine with Goost:
 
 .. code-block:: shell
 
-    scons godot_version=3.2.3-stable
+    scons godot_version=3.3-stable
 
 Compile the beta or development versions of the engine, synchronizing any
 changes from remote URL automatically:
 
 .. code-block:: shell
 
-    scons godot_version=3.2 godot_sync=yes
+    scons godot_version=3.3 godot_sync=yes
 
 Disable non-essential Godot modules for testing and development purposes (speeds
 up compilation, optimizes for size):

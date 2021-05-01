@@ -14,12 +14,16 @@ author = "Andrii Doroshenko and the Goost community"
 version = os.getenv("READTHEDOCS_VERSION", "gd3")
 release = version
 
-gd_map = {
-    "gd3": "3.2",
+goost_branch = version
+if version == "latest":
+    goost_branch = "gd3"
+
+godot_map = {
+    "gd3": "3.3",
     "gd4": "latest",
     "latest" : "latest",
 }
-godot_docs_url = "https://docs.godotengine.org/en/%s/" % (gd_map[version])
+godot_docs_url = "https://docs.godotengine.org/en/%s/" % (godot_map[version])
 
 # -- General configuration ---------------------------------------------------
 
@@ -48,8 +52,8 @@ rst_prolog = """
 .. |goost_branch| replace:: {goost_branch}
 .. |godot_branch| replace:: {godot_branch}
 """.format(
-    goost_branch=version, 
-    godot_branch=gd_map[version]
+    goost_branch=goost_branch, 
+    godot_branch=godot_map[version]
 )
 
 # -- Options for HTML output -------------------------------------------------
