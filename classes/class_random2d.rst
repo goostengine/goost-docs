@@ -32,15 +32,15 @@ Properties
 Methods
 -------
 
-+-------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Vector2<class_Vector2>` | :ref:`point_in_circle<class_Random2D_method_point_in_circle>` **(** :ref:`float<class_float>` radius_min=0.0, :ref:`float<class_float>` radius_max=1.0 **)**       |
-+-------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Variant<class_Variant>` | :ref:`point_in_polygon<class_Random2D_method_point_in_polygon>` **(** :ref:`Variant<class_Variant>` polygon, :ref:`int<class_int>` point_count=1 **)**             |
-+-------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Vector2<class_Vector2>` | :ref:`point_in_region<class_Random2D_method_point_in_region>` **(** :ref:`Vector2<class_Vector2>` position_start, :ref:`Vector2<class_Vector2>` position_end **)** |
-+-------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Vector2<class_Vector2>` | :ref:`point_in_triangle<class_Random2D_method_point_in_triangle>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` triangle **)**                             |
-+-------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++-------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Vector2<class_Vector2>` | :ref:`point_in_circle<class_Random2D_method_point_in_circle>` **(** :ref:`float<class_float>` radius_min=0.0, :ref:`float<class_float>` radius_max=1.0 **)** |
++-------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Variant<class_Variant>` | :ref:`point_in_polygon<class_Random2D_method_point_in_polygon>` **(** :ref:`Variant<class_Variant>` polygon, :ref:`int<class_int>` point_count=1 **)**       |
++-------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Vector2<class_Vector2>` | :ref:`point_in_region<class_Random2D_method_point_in_region>` **(** :ref:`Rect2<class_Rect2>` region **)**                                                   |
++-------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Vector2<class_Vector2>` | :ref:`point_in_triangle<class_Random2D_method_point_in_triangle>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` triangle **)**                       |
++-------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 Property Descriptions
 ---------------------
@@ -120,14 +120,14 @@ The quality of distribution works better for single polygons with arbitrary numb
 
 .. _class_Random2D_method_point_in_region:
 
-- :ref:`Vector2<class_Vector2>` **point_in_region** **(** :ref:`Vector2<class_Vector2>` position_start, :ref:`Vector2<class_Vector2>` position_end **)**
+- :ref:`Vector2<class_Vector2>` **point_in_region** **(** :ref:`Rect2<class_Rect2>` region **)**
 
-Generates a random point in the area specified by top-left and bottom-right corners of a rectangle.
+Generates a random point in the area specified by top-left and bottom-right corners of a :ref:`Rect2<class_Rect2>`.
 
 ::
 
     var rect := Rect2(-100, -100, 100, 100) # Position and size.
-    var point = Random2D.point_in_region(rect.position, rect.end)
+    var point = Random2D.point_in_region(rect)
 
 ----
 
