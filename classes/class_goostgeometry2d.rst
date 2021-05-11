@@ -28,45 +28,57 @@ Tutorials
 Methods
 -------
 
-+-------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Rect2<class_Rect2>`                       | :ref:`bounding_rect<class_GoostGeometry2D_method_bounding_rect>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` points **)** |const|                                                                                                |
-+-------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`PoolVector2Array<class_PoolVector2Array>` | :ref:`circle<class_GoostGeometry2D_method_circle>` **(** :ref:`float<class_float>` radius, :ref:`float<class_float>` max_error=0.25 **)** |const|                                                                                          |
-+-------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Array<class_Array>`                       | :ref:`clip_polygons<class_GoostGeometry2D_method_clip_polygons>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon_a, :ref:`PoolVector2Array<class_PoolVector2Array>` polygon_b **)** |const|                                  |
-+-------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Array<class_Array>`                       | :ref:`clip_polyline_with_polygon<class_GoostGeometry2D_method_clip_polyline_with_polygon>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polyline, :ref:`PoolVector2Array<class_PoolVector2Array>` polygon **)** |const|           |
-+-------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Array<class_Array>`                       | :ref:`decompose_polygon<class_GoostGeometry2D_method_decompose_polygon>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon **)** |const|                                                                                       |
-+-------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Array<class_Array>`                       | :ref:`deflate_polygon<class_GoostGeometry2D_method_deflate_polygon>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon, :ref:`float<class_float>` delta **)** |const|                                                          |
-+-------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Array<class_Array>`                       | :ref:`deflate_polyline<class_GoostGeometry2D_method_deflate_polyline>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polyline, :ref:`float<class_float>` delta **)** |const|                                                       |
-+-------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Array<class_Array>`                       | :ref:`exclude_polygons<class_GoostGeometry2D_method_exclude_polygons>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon_a, :ref:`PoolVector2Array<class_PoolVector2Array>` polygon_b **)** |const|                            |
-+-------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Array<class_Array>`                       | :ref:`inflate_polygon<class_GoostGeometry2D_method_inflate_polygon>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon, :ref:`float<class_float>` delta **)** |const|                                                          |
-+-------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Array<class_Array>`                       | :ref:`intersect_polygons<class_GoostGeometry2D_method_intersect_polygons>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon_a, :ref:`PoolVector2Array<class_PoolVector2Array>` polygon_b **)** |const|                        |
-+-------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Array<class_Array>`                       | :ref:`intersect_polyline_with_polygon<class_GoostGeometry2D_method_intersect_polyline_with_polygon>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polyline, :ref:`PoolVector2Array<class_PoolVector2Array>` polygon **)** |const| |
-+-------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Array<class_Array>`                       | :ref:`merge_polygons<class_GoostGeometry2D_method_merge_polygons>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon_a, :ref:`PoolVector2Array<class_PoolVector2Array>` polygon_b **)** |const|                                |
-+-------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`int<class_int>`                           | :ref:`point_in_polygon<class_GoostGeometry2D_method_point_in_polygon>` **(** :ref:`Vector2<class_Vector2>` point, :ref:`PoolVector2Array<class_PoolVector2Array>` polygon **)** |const|                                                    |
-+-------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`float<class_float>`                       | :ref:`polygon_area<class_GoostGeometry2D_method_polygon_area>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon **)** |const|                                                                                                 |
-+-------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Vector2<class_Vector2>`                   | :ref:`polygon_centroid<class_GoostGeometry2D_method_polygon_centroid>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon **)** |const|                                                                                         |
-+-------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`float<class_float>`                       | :ref:`polygon_perimeter<class_GoostGeometry2D_method_polygon_perimeter>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon **)** |const|                                                                                       |
-+-------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`float<class_float>`                       | :ref:`polyline_length<class_GoostGeometry2D_method_polyline_length>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polyline **)** |const|                                                                                          |
-+-------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`PoolVector2Array<class_PoolVector2Array>` | :ref:`regular_polygon<class_GoostGeometry2D_method_regular_polygon>` **(** :ref:`int<class_int>` sides, :ref:`float<class_float>` size **)** |const|                                                                                       |
-+-------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Array<class_Array>`                       | :ref:`triangulate_polygon<class_GoostGeometry2D_method_triangulate_polygon>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon **)** |const|                                                                                   |
-+-------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++-------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Rect2<class_Rect2>`                       | :ref:`bounding_rect<class_GoostGeometry2D_method_bounding_rect>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` points **)** |const|                                                                                                      |
++-------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`PoolVector2Array<class_PoolVector2Array>` | :ref:`bresenham_line<class_GoostGeometry2D_method_bresenham_line>` **(** :ref:`Vector2<class_Vector2>` start, :ref:`Vector2<class_Vector2>` end **)** |const|                                                                                    |
++-------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`PoolVector2Array<class_PoolVector2Array>` | :ref:`circle<class_GoostGeometry2D_method_circle>` **(** :ref:`float<class_float>` radius, :ref:`float<class_float>` max_error=0.25 **)** |const|                                                                                                |
++-------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Array<class_Array>`                       | :ref:`clip_polygons<class_GoostGeometry2D_method_clip_polygons>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon_a, :ref:`PoolVector2Array<class_PoolVector2Array>` polygon_b **)** |const|                                        |
++-------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Array<class_Array>`                       | :ref:`clip_polyline_with_polygon<class_GoostGeometry2D_method_clip_polyline_with_polygon>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polyline, :ref:`PoolVector2Array<class_PoolVector2Array>` polygon **)** |const|                 |
++-------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Array<class_Array>`                       | :ref:`decompose_polygon<class_GoostGeometry2D_method_decompose_polygon>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon **)** |const|                                                                                             |
++-------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Array<class_Array>`                       | :ref:`deflate_polygon<class_GoostGeometry2D_method_deflate_polygon>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon, :ref:`float<class_float>` delta **)** |const|                                                                |
++-------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Array<class_Array>`                       | :ref:`deflate_polyline<class_GoostGeometry2D_method_deflate_polyline>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polyline, :ref:`float<class_float>` delta **)** |const|                                                             |
++-------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Array<class_Array>`                       | :ref:`exclude_polygons<class_GoostGeometry2D_method_exclude_polygons>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon_a, :ref:`PoolVector2Array<class_PoolVector2Array>` polygon_b **)** |const|                                  |
++-------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Array<class_Array>`                       | :ref:`inflate_polygon<class_GoostGeometry2D_method_inflate_polygon>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon, :ref:`float<class_float>` delta **)** |const|                                                                |
++-------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Array<class_Array>`                       | :ref:`intersect_polygons<class_GoostGeometry2D_method_intersect_polygons>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon_a, :ref:`PoolVector2Array<class_PoolVector2Array>` polygon_b **)** |const|                              |
++-------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Array<class_Array>`                       | :ref:`intersect_polyline_with_polygon<class_GoostGeometry2D_method_intersect_polyline_with_polygon>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polyline, :ref:`PoolVector2Array<class_PoolVector2Array>` polygon **)** |const|       |
++-------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Array<class_Array>`                       | :ref:`merge_polygons<class_GoostGeometry2D_method_merge_polygons>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon_a, :ref:`PoolVector2Array<class_PoolVector2Array>` polygon_b **)** |const|                                      |
++-------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`int<class_int>`                           | :ref:`point_in_polygon<class_GoostGeometry2D_method_point_in_polygon>` **(** :ref:`Vector2<class_Vector2>` point, :ref:`PoolVector2Array<class_PoolVector2Array>` polygon **)** |const|                                                          |
++-------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`float<class_float>`                       | :ref:`polygon_area<class_GoostGeometry2D_method_polygon_area>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon **)** |const|                                                                                                       |
++-------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Vector2<class_Vector2>`                   | :ref:`polygon_centroid<class_GoostGeometry2D_method_polygon_centroid>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon **)** |const|                                                                                               |
++-------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`float<class_float>`                       | :ref:`polygon_perimeter<class_GoostGeometry2D_method_polygon_perimeter>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon **)** |const|                                                                                             |
++-------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`float<class_float>`                       | :ref:`polyline_length<class_GoostGeometry2D_method_polyline_length>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polyline **)** |const|                                                                                                |
++-------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`PoolVector2Array<class_PoolVector2Array>` | :ref:`regular_polygon<class_GoostGeometry2D_method_regular_polygon>` **(** :ref:`int<class_int>` sides, :ref:`float<class_float>` size **)** |const|                                                                                             |
++-------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`PoolVector2Array<class_PoolVector2Array>` | :ref:`simplify_polyline<class_GoostGeometry2D_method_simplify_polyline>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polyline, :ref:`float<class_float>` epsilon **)** |const|                                                         |
++-------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`PoolVector2Array<class_PoolVector2Array>` | :ref:`smooth_polygon<class_GoostGeometry2D_method_smooth_polygon>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon, :ref:`float<class_float>` density, :ref:`float<class_float>` alpha=0.5 **)** |const|                           |
++-------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`PoolVector2Array<class_PoolVector2Array>` | :ref:`smooth_polygon_approx<class_GoostGeometry2D_method_smooth_polygon_approx>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon, :ref:`int<class_int>` iterations=1, :ref:`float<class_float>` cut_distance=0.25 **)** |const|    |
++-------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`PoolVector2Array<class_PoolVector2Array>` | :ref:`smooth_polyline<class_GoostGeometry2D_method_smooth_polyline>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polyline, :ref:`float<class_float>` density, :ref:`float<class_float>` alpha=0.5 **)** |const|                        |
++-------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`PoolVector2Array<class_PoolVector2Array>` | :ref:`smooth_polyline_approx<class_GoostGeometry2D_method_smooth_polyline_approx>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polyline, :ref:`int<class_int>` iterations=1, :ref:`float<class_float>` cut_distance=0.25 **)** |const| |
++-------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Array<class_Array>`                       | :ref:`triangulate_polygon<class_GoostGeometry2D_method_triangulate_polygon>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon **)** |const|                                                                                         |
++-------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 Method Descriptions
 -------------------
@@ -76,6 +88,14 @@ Method Descriptions
 - :ref:`Rect2<class_Rect2>` **bounding_rect** **(** :ref:`PoolVector2Array<class_PoolVector2Array>` points **)** |const|
 
 Computes the axis-aligned bounding rectangle of given points.
+
+----
+
+.. _class_GoostGeometry2D_method_bresenham_line:
+
+- :ref:`PoolVector2Array<class_PoolVector2Array>` **bresenham_line** **(** :ref:`Vector2<class_Vector2>` start, :ref:`Vector2<class_Vector2>` end **)** |const|
+
+Returns an array of 2D-dimensional raster coordinates going through a segment determined by ``start`` and ``end`` points. The line is a close approximation to a straight line between those points.
 
 ----
 
@@ -216,6 +236,64 @@ Returns the total length of the segments representing the polyline. See also :re
 Generates a regular polygon (triangle, rectangle, pentagon, hexagon etc.) with all equal sides and angles. The specified size can be seen as a radius, with an increasing number of sides approximating a :ref:`circle<class_GoostGeometry2D_method_circle>`.
 
 The order of vertices returned is counterclockwise which makes it an outer polygon by default. To convert it to an inner polygon specifically, use :ref:`PoolVector2Array.invert<class_PoolVector2Array_method_invert>`.
+
+----
+
+.. _class_GoostGeometry2D_method_simplify_polyline:
+
+- :ref:`PoolVector2Array<class_PoolVector2Array>` **simplify_polyline** **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polyline, :ref:`float<class_float>` epsilon **)** |const|
+
+Simplifies a polyline by reducing the number of points using the Ramer-Douglas-Peucker (RDP) algorithm. Higher ``epsilon`` values result in fewer points retained.
+
+----
+
+.. _class_GoostGeometry2D_method_smooth_polygon:
+
+- :ref:`PoolVector2Array<class_PoolVector2Array>` **smooth_polygon** **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon, :ref:`float<class_float>` density, :ref:`float<class_float>` alpha=0.5 **)** |const|
+
+Smoothers the polygon using the Catmull-Rom's interpolating spline, resulting in larger number of vertices.
+
+The ``density`` parameter configures the desired number of vertices in the output polygon: ``n = polygon.size() * density``, where ``n`` is the point count computed. If ``density < 1.0``, returns original ``polygon``. The number of vertices is weighted per segment according to the :ref:`polygon_perimeter<class_GoostGeometry2D_method_polygon_perimeter>`.
+
+The ``alpha`` parameter determines the type of the Catmull-Rom's spline: uniform - ``alpha == 0``, centripetal - ``alpha == 0.5``, chordal - ``alpha > 0.5``. The default value of ``0.5`` is recommended for eliminating self-intersections and cusps.
+
+For faster, approximate smoothing method, see :ref:`smooth_polygon_approx<class_GoostGeometry2D_method_smooth_polygon_approx>`.
+
+----
+
+.. _class_GoostGeometry2D_method_smooth_polygon_approx:
+
+- :ref:`PoolVector2Array<class_PoolVector2Array>` **smooth_polygon_approx** **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon, :ref:`int<class_int>` iterations=1, :ref:`float<class_float>` cut_distance=0.25 **)** |const|
+
+Approximately smoothers the polygon using the Chaikin's algorithm resulting in larger number of vertices. Number of ``iterations`` can be specified to produce smoother polygons. The ``cut_distance`` determines at what distance new control points are selected from segments.
+
+Unlike :ref:`smooth_polygon<class_GoostGeometry2D_method_smooth_polygon>`, the resulting curve does not go through input vertices, but instead touches the segments of the original ``polygon``.
+
+----
+
+.. _class_GoostGeometry2D_method_smooth_polyline:
+
+- :ref:`PoolVector2Array<class_PoolVector2Array>` **smooth_polyline** **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polyline, :ref:`float<class_float>` density, :ref:`float<class_float>` alpha=0.5 **)** |const|
+
+Smoothers the polyline using the Catmull-Rom's interpolating spline, resulting in larger number of vertices.
+
+The ``density`` parameter configures the desired number of vertices in the output polyline: ``n = polyline.size() * density``, where ``n`` is the point count computed. If ``density < 1.0``, returns original ``polyline``. The number of vertices is weighted per segment according to the :ref:`polyline_length<class_GoostGeometry2D_method_polyline_length>`.
+
+The ``alpha`` parameter determines the type of the Catmull-Rom's spline: uniform - ``alpha == 0``, centripetal - ``alpha == 0.5``, chordal - ``alpha > 0.5``. The default value of ``0.5`` is recommended for eliminating self-intersections and cusps.
+
+For faster, approximate smoothing method, see :ref:`smooth_polyline_approx<class_GoostGeometry2D_method_smooth_polyline_approx>`.
+
+----
+
+.. _class_GoostGeometry2D_method_smooth_polyline_approx:
+
+- :ref:`PoolVector2Array<class_PoolVector2Array>` **smooth_polyline_approx** **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polyline, :ref:`int<class_int>` iterations=1, :ref:`float<class_float>` cut_distance=0.25 **)** |const|
+
+Approximately smoothers the polyline using the Chaikin's algorithm resulting in larger number of vertices. Number of ``iterations`` can be specified to produce smoother polylines. The ``cut_distance`` determines at what distance new control points are selected from segments.
+
+Unlike :ref:`smooth_polyline<class_GoostGeometry2D_method_smooth_polyline>`, the resulting curve does not go through input vertices, but instead touches the segments of the original polyline.
+
+Unlike :ref:`smooth_polygon_approx<class_GoostGeometry2D_method_smooth_polygon_approx>`, this method always retains start and end points from the original ``polyline``.
 
 ----
 
