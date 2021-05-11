@@ -5,37 +5,60 @@ Development philosophy
 ----------------------
 
 As of now, Goost tries to follow some of the philosophical principles when it
-comes to the development itself.
+comes to the development itself. This page is continuously updated to convey
+the current development approach.
 
-Simplicity should not come at the cost of limited features
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+If something should be in Godot, let it be in Godot
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Even if something won't be used often, always strive for completeness. The most
-obvious example of this is the presence of math operations. Even if the division
-operation won't be used as often compared to other operations, it's silly to
-deny the existence of it. A user doesn't have to make yet another utility script
-for something which should be an inherent part of a feature.
+If you really believe that a particular feature should be implemented directly
+in Godot Engine for the greater good of everyone, please go ahead and create a
+`Godot Improvement Proposal <https://github.com/godotengine/godot-proposals>`_
+to be discussed and reviewed by Godot core developers first. A feature backed up
+by a Godot proposal that received a decent amount of user support is more likely
+to be approved for Goost development, even if no consensus is reached among
+Godot core contributors.
 
-Designing for extensibility is not future-proofing
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+One of the main reasons why Goost exists as a project is because of
+`Godot's idea of being small <https://docs.godotengine.org/en/stable/about/faq.html#why-does-godot-aim-to-keep-its-core-feature-set-small>`_
+to prevent feature bloat, which, of course, leads to a problem of being
+bare-bones in contrast with other equivalent (commercial) game engines. Goost
+attempts to solve this problem by building upon Godot's core functionality to
+deliver feature-rich experience.
 
-The technology moves at a fast pace. Expect people to use the software in
-unexpected ways. Don't make it difficult for your future self having to redesign
-and rewrite the software. But don't look too far into the future either, because
-that's not designing for the future - that's just anxious thinking.
+Completeness
+~~~~~~~~~~~~
 
-Problems demand solutions, solutions resolve problems
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+There are type of tools which are not used often, but when you need them, you
+really wish they were there. Therefore, we strive to have the "batteries
+included" mentality whenever possible. Even if something won't be used often,
+always strive for **completeness**. A user doesn't have to make yet another
+utility script for something which should be an inherent part of a feature.
 
-While solutions may certainly create new problems, the problems themselves are
-not inherently a bad thing as long as they bring valuable insights, leading to
-new solutions. It's the circle of life.
+Extensibility and customization
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Goost is designed to be **extensible** and **customizable** from the ground up.
+If something cannot be disabled, it's most likely a bug.
+
+We strive to look into the future, which help us avoid to redesign and rewrite
+the software, even before a limitation or problem starts to pop up in real-life
+projects.
+
+We strive to find balance between extreme pragmatism and future-proofing. We
+don't look too far into the future either, because that's not designing for the
+future - that's just anxious thinking.
 
 Scope of features being developed
 ---------------------------------
 
 In order to set up correct expectations, lets outline what kind of features are
 deemed meaningful for Goost development.
+
+Goost's development is mainly focused on game development needs, even if they're
+marginally related. We also realize that Godot can be used to develop general
+GUI-only applications, so we don't exclude the possibility of supporting these
+type of features as well.
 
 Usefulness
 ~~~~~~~~~~
