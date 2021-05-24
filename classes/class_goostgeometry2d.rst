@@ -31,8 +31,6 @@ Methods
 +-------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | :ref:`Rect2<class_Rect2>`                       | :ref:`bounding_rect<class_GoostGeometry2D_method_bounding_rect>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` points **)** |const|                                                                                                      |
 +-------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`PoolVector2Array<class_PoolVector2Array>` | :ref:`bresenham_line<class_GoostGeometry2D_method_bresenham_line>` **(** :ref:`Vector2<class_Vector2>` start, :ref:`Vector2<class_Vector2>` end **)** |const|                                                                                    |
-+-------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | :ref:`PoolVector2Array<class_PoolVector2Array>` | :ref:`circle<class_GoostGeometry2D_method_circle>` **(** :ref:`float<class_float>` radius, :ref:`float<class_float>` max_error=0.25 **)** |const|                                                                                                |
 +-------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | :ref:`Array<class_Array>`                       | :ref:`clip_polygons<class_GoostGeometry2D_method_clip_polygons>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon_a, :ref:`PoolVector2Array<class_PoolVector2Array>` polygon_b **)** |const|                                        |
@@ -55,6 +53,10 @@ Methods
 +-------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | :ref:`Array<class_Array>`                       | :ref:`merge_polygons<class_GoostGeometry2D_method_merge_polygons>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon_a, :ref:`PoolVector2Array<class_PoolVector2Array>` polygon_b **)** |const|                                      |
 +-------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`PoolVector2Array<class_PoolVector2Array>` | :ref:`pixel_circle<class_GoostGeometry2D_method_pixel_circle>` **(** :ref:`int<class_int>` radius, :ref:`Vector2<class_Vector2>` origin=Vector2( 0, 0 ) **)** |const|                                                                            |
++-------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`PoolVector2Array<class_PoolVector2Array>` | :ref:`pixel_line<class_GoostGeometry2D_method_pixel_line>` **(** :ref:`Vector2<class_Vector2>` start, :ref:`Vector2<class_Vector2>` end **)** |const|                                                                                            |
++-------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | :ref:`int<class_int>`                           | :ref:`point_in_polygon<class_GoostGeometry2D_method_point_in_polygon>` **(** :ref:`Vector2<class_Vector2>` point, :ref:`PoolVector2Array<class_PoolVector2Array>` polygon **)** |const|                                                          |
 +-------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | :ref:`float<class_float>`                       | :ref:`polygon_area<class_GoostGeometry2D_method_polygon_area>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon **)** |const|                                                                                                       |
@@ -63,7 +65,11 @@ Methods
 +-------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | :ref:`float<class_float>`                       | :ref:`polygon_perimeter<class_GoostGeometry2D_method_polygon_perimeter>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon **)** |const|                                                                                             |
 +-------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`PoolVector2Array<class_PoolVector2Array>` | :ref:`polygon_to_pixels<class_GoostGeometry2D_method_polygon_to_pixels>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` points **)** |const|                                                                                              |
++-------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | :ref:`float<class_float>`                       | :ref:`polyline_length<class_GoostGeometry2D_method_polyline_length>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polyline **)** |const|                                                                                                |
++-------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`PoolVector2Array<class_PoolVector2Array>` | :ref:`polyline_to_pixels<class_GoostGeometry2D_method_polyline_to_pixels>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` points **)** |const|                                                                                            |
 +-------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | :ref:`PoolVector2Array<class_PoolVector2Array>` | :ref:`regular_polygon<class_GoostGeometry2D_method_regular_polygon>` **(** :ref:`int<class_int>` sides, :ref:`float<class_float>` size **)** |const|                                                                                             |
 +-------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -88,14 +94,6 @@ Method Descriptions
 - :ref:`Rect2<class_Rect2>` **bounding_rect** **(** :ref:`PoolVector2Array<class_PoolVector2Array>` points **)** |const|
 
 Computes the axis-aligned bounding rectangle of given points.
-
-----
-
-.. _class_GoostGeometry2D_method_bresenham_line:
-
-- :ref:`PoolVector2Array<class_PoolVector2Array>` **bresenham_line** **(** :ref:`Vector2<class_Vector2>` start, :ref:`Vector2<class_Vector2>` end **)** |const|
-
-Returns an array of 2D-dimensional raster coordinates going through a segment determined by ``start`` and ``end`` points. The line is a close approximation to a straight line between those points.
 
 ----
 
@@ -189,6 +187,24 @@ Performs :ref:`PolyBoolean2D.OP_UNION<class_PolyBoolean2D_constant_OP_UNION>` be
 
 ----
 
+.. _class_GoostGeometry2D_method_pixel_circle:
+
+- :ref:`PoolVector2Array<class_PoolVector2Array>` **pixel_circle** **(** :ref:`int<class_int>` radius, :ref:`Vector2<class_Vector2>` origin=Vector2( 0, 0 ) **)** |const|
+
+Returns an array of 2D-dimensional raster coordinates approximating a circle using a Bresenham type algorithm.
+
+**Note:** pixels are created per circle's octant for performance reasons, so you should not rely on the order of returned pixels. If you do need ordered points, consider using methods such as :ref:`polygon_to_pixels<class_GoostGeometry2D_method_polygon_to_pixels>` and :ref:`circle<class_GoostGeometry2D_method_circle>` with lower values for ``max_error`` parameter, but take in mind that the quality of the returned points is going to be sub-optimal in comparison.
+
+----
+
+.. _class_GoostGeometry2D_method_pixel_line:
+
+- :ref:`PoolVector2Array<class_PoolVector2Array>` **pixel_line** **(** :ref:`Vector2<class_Vector2>` start, :ref:`Vector2<class_Vector2>` end **)** |const|
+
+Returns an array of 2D-dimensional raster coordinates going through a segment determined by ``start`` and ``end`` points using a Bresenham type algorithm. The line is a close approximation to a straight line between those points.
+
+----
+
 .. _class_GoostGeometry2D_method_point_in_polygon:
 
 - :ref:`int<class_int>` **point_in_polygon** **(** :ref:`Vector2<class_Vector2>` point, :ref:`PoolVector2Array<class_PoolVector2Array>` polygon **)** |const|
@@ -221,11 +237,29 @@ Returns the perimeter of an arbitrary polygon. See also :ref:`polyline_length<cl
 
 ----
 
+.. _class_GoostGeometry2D_method_polygon_to_pixels:
+
+- :ref:`PoolVector2Array<class_PoolVector2Array>` **polygon_to_pixels** **(** :ref:`PoolVector2Array<class_PoolVector2Array>` points **)** |const|
+
+Returns an array of 2D-dimensional raster coordinates approximating a polygon going through ``points`` using :ref:`pixel_line<class_GoostGeometry2D_method_pixel_line>`. Point coordinates in the input ``points`` are rounded to nearest integer values.
+
+**Note:** this method does not fill the interior of the polygon. If you need this to raster polygons onto an image, use :ref:`GoostImage.render_polygon<class_GoostImage_method_render_polygon>` instead.
+
+----
+
 .. _class_GoostGeometry2D_method_polyline_length:
 
 - :ref:`float<class_float>` **polyline_length** **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polyline **)** |const|
 
 Returns the total length of the segments representing the polyline. See also :ref:`polygon_perimeter<class_GoostGeometry2D_method_polygon_perimeter>`.
+
+----
+
+.. _class_GoostGeometry2D_method_polyline_to_pixels:
+
+- :ref:`PoolVector2Array<class_PoolVector2Array>` **polyline_to_pixels** **(** :ref:`PoolVector2Array<class_PoolVector2Array>` points **)** |const|
+
+Returns an array of 2D-dimensional raster coordinates approximating a polyline going through ``points`` using :ref:`pixel_line<class_GoostGeometry2D_method_pixel_line>`. Point coordinates in the input ``points`` are rounded to nearest integer values.
 
 ----
 
