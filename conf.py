@@ -19,9 +19,10 @@ if version == "latest":
     goost_branch = "gd3"
 
 godot_map = {
+    # Goost : Godot
+    "latest" : "3.3",
     "gd3": "3.3",
     "gd4": "latest",
-    "latest" : "latest",
 }
 godot_docs_url = "https://docs.godotengine.org/en/%s/" % (godot_map[version])
 
