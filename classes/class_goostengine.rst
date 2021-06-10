@@ -31,9 +31,17 @@ Methods
 +---------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | void                                  | :ref:`defer_call_unique<class_GoostEngine_method_defer_call_unique>` **(** :ref:`Object<class_Object>` object, :ref:`String<class_String>` method, ... **)** |vararg|                                                                                                             |
 +---------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Dictionary<class_Dictionary>`   | :ref:`get_author_info<class_GoostEngine_method_get_author_info>` **(** **)** |const|                                                                                                                                                                                              |
++---------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | :ref:`Dictionary<class_Dictionary>`   | :ref:`get_color_constants<class_GoostEngine_method_get_color_constants>` **(** **)** |const|                                                                                                                                                                                      |
 +---------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Array<class_Array>`             | :ref:`get_copyright_info<class_GoostEngine_method_get_copyright_info>` **(** **)** |const|                                                                                                                                                                                        |
++---------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | :ref:`Array<class_Array>`             | :ref:`get_invokes<class_GoostEngine_method_get_invokes>` **(** **)** |const|                                                                                                                                                                                                      |
++---------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Dictionary<class_Dictionary>`   | :ref:`get_license_info<class_GoostEngine_method_get_license_info>` **(** **)** |const|                                                                                                                                                                                            |
++---------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`String<class_String>`           | :ref:`get_license_text<class_GoostEngine_method_get_license_text>` **(** **)** |const|                                                                                                                                                                                            |
 +---------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | :ref:`Dictionary<class_Dictionary>`   | :ref:`get_version_info<class_GoostEngine_method_get_version_info>` **(** **)** |const|                                                                                                                                                                                            |
 +---------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -61,6 +69,22 @@ Calls the ``method`` on the ``object`` during idle time. Whether a call is uniqu
 
 ----
 
+.. _class_GoostEngine_method_get_author_info:
+
+- :ref:`Dictionary<class_Dictionary>` **get_author_info** **(** **)** |const|
+
+Returns Goost author information in a :ref:`Dictionary<class_Dictionary>`.
+
+``lead_developers``    - :ref:`Array<class_Array>` of :ref:`String<class_String>`, lead developer names
+
+``founders``           - :ref:`Array<class_Array>` of :ref:`String<class_String>`, founder names
+
+``project_managers``   - :ref:`Array<class_Array>` of :ref:`String<class_String>`, project manager names
+
+``developers``         - :ref:`Array<class_Array>` of :ref:`String<class_String>`, developer names
+
+----
+
 .. _class_GoostEngine_method_get_color_constants:
 
 - :ref:`Dictionary<class_Dictionary>` **get_color_constants** **(** **)** |const|
@@ -78,6 +102,18 @@ Returns a :ref:`Dictionary<class_Dictionary>` of color constants listed in :ref:
 
 ----
 
+.. _class_GoostEngine_method_get_copyright_info:
+
+- :ref:`Array<class_Array>` **get_copyright_info** **(** **)** |const|
+
+Returns an :ref:`Array<class_Array>` of :ref:`Dictionary<class_Dictionary>` including copyright information.
+
+``name``    - :ref:`String<class_String>`, component name
+
+``parts``   - :ref:`Array<class_Array>` of :ref:`Dictionary<class_Dictionary>` {``files``, ``copyright``, ``license``} describing subsections of the component
+
+----
+
 .. _class_GoostEngine_method_get_invokes:
 
 - :ref:`Array<class_Array>` **get_invokes** **(** **)** |const|
@@ -89,6 +125,22 @@ Returns an :ref:`Array<class_Array>` of active :ref:`InvokeState<class_InvokeSta
     for state in GoostEngine.get_invokes():
         if state.is_repeating():
             state.cancel()
+
+----
+
+.. _class_GoostEngine_method_get_license_info:
+
+- :ref:`Dictionary<class_Dictionary>` **get_license_info** **(** **)** |const|
+
+Returns :ref:`Dictionary<class_Dictionary>` of licenses used by Goost and included third-party components.
+
+----
+
+.. _class_GoostEngine_method_get_license_text:
+
+- :ref:`String<class_String>` **get_license_text** **(** **)** |const|
+
+Returns Goost license text.
 
 ----
 
