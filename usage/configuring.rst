@@ -31,10 +31,9 @@ Godot source within your filesystem before compiling:
 
      $env:GODOT_SOURCE_PATH="C:/src/godot"
      
-If the path is invalid, the script shall try to find Godot at the parent
-directory. If this fails too, then the Godot repository is cloned from the
-remote URL defined by ``GODOT_REPO_URL`` environment variable, which can be
-configured similarly as above.
+If the path is invalid, then the Godot repository is cloned from the remote URL
+defined by ``GODOT_REPO_URL`` environment variable, which can be configured
+similarly as above.
 
 Command-line options
 ~~~~~~~~~~~~~~~~~~~~
@@ -87,14 +86,65 @@ one of the ``goost_*_enabled`` build options:
 
     scons goost_math_enabled=no
 
-It's also possible to disable a entire branch of components:
+It's also possible to disable an entire branch of components. For instance, the
+following disables both ``image`` and ``math`` components:
 
 .. code-block:: shell
 
-    # For instance, this disables both ``image`` and ``math`` components.
     scons goost_core_enabled=no
     
-See each component build options in the :ref:`sec-components` section.
+If you're only interested in using a single Goost component, then you should
+use ``goost_components_enabled=no`` to tell the build system that all components
+are disabled by default. For instance, the following will enable the ``image``
+component.
+
+.. code-block:: shell
+
+    scons goost_components_enabled=no goost_image_enabled=yes
+    
+The above will also force parent components to be enabled as well (in this case,
+``core``), otherwise child components won't compile at all. Similarly, if
+``goost_components_enabled=yes`` and you disable a single component, all child
+components are going to be disabled recursively.
+
+If you don't need the functionality provided by some components, Goost allows to
+disable individual classes as well! It may not be practical to specify all those
+options via command-line interface, so you can also create ``custom.py`` at the
+root of Goost repository to configure both enabled components and individual
+classes:
+
+.. code-block:: python
+
+    # custom.py
+
+    components_enabled_by_default = False
+    components = {
+        "math": True,
+        "gui": False,
+    }
+
+    classes_enabled_by_default = True
+    classes = {
+        "GoostEngine": True,
+        "LinkedList": False,
+        "VariantMap": False,
+        "VariantResource": False,
+    }
+
+If some classes depend on others, you don't have to worry about enabling them
+manually, dependencies are going to be satisfied automatically.
+
+.. tip::
+
+    You can run ``python goost.py --generate-config`` at the root of Goost
+    repository to generate the ``custom.py`` file above.
+
+.. note::
+    
+    It's not possible configure individual classes via command-line interface,
+    only via ``custom.py``.
+
+See each component build options in the :ref:`sec-components` section as well.
 
 Modules
 -------
@@ -103,12 +153,12 @@ The extension provides as set of optional modules (regular C++ modules just like
 this extension) which are compiled alongside this extension by default if you
 build the engine from within Goost root with the ``scons`` command.
 
-If you compile the Goost extension externally, those modules can be compiled by
-appending to the list of paths specified by ``custom_modules`` option:
+If you compile Goost externally and don't want to compile modules provided by
+Goost, use ``custom_modules_recursive=no``:
 
 .. code-block:: shell
 
-    scons custom_modules="/path/to/dir/containing/goost,/path/to/goost/modules"
+    scons custom_modules="/path/to/dir/containing/goost" custom_modules_recursive=no
 
 It's possible to compile the modules independently of whether Goost is enabled:
 
