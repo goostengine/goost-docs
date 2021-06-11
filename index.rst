@@ -9,7 +9,7 @@ Proceed to the table of contents below and in the sidebar to access the
 documentation for your topic of interest.
 
 The :ref:`sec-components` section lists all of the functional components this
-extension provides. For a complete list of classes, see :ref:`sec-class-ref`.
+extension provides. For a complete list of classes, see :ref:`goost_api`.
 
 .. note::
   Goost is developed by people! If you don't understand something or would like to

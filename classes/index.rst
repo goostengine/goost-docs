@@ -3,6 +3,8 @@
 .. THIS FILE IS GENERATED, DO NOT EDIT!
 .. Use `python goost.py --generate-doc-api` at Goost's source tree instead.
 
+.. _goost_api:
+
 Goost API
 =========
 
