@@ -1,0 +1,24 @@
+.. THIS FILE IS GENERATED, DO NOT EDIT!
+.. Use `python goost.py --generate-doc-api` at Goost's source tree instead.
+
+Classes
+-------
+
+* :ref:`GradientTexture2D<class_GradientTexture2D>`
+* :ref:`LightTexture<class_LightTexture>`
+* :ref:`PolyCircle2D<class_PolyCircle2D>`
+* :ref:`PolyRectangle2D<class_PolyRectangle2D>`
+* :ref:`PolyShape2D<class_PolyShape2D>`
+* :ref:`VisualShape2D<class_VisualShape2D>`
+
+Usage
+-----
+
+.. code-block:: shell
+
+    # Disable scene component.
+    scons goost_scene_enabled=no
+
+    # Enable scene component, disable all others.
+    scons goost_components_enabled=no goost_scene_enabled=yes
+

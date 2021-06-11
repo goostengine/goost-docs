@@ -33,17 +33,16 @@ tree root, with the contents similar to the following:
 
     components = [
         "core/image",
-        "core/math",
+        "core/math/geometry",
         "scene/physics",
+        "scene/gui",
+        "editor",
     ]
-    
-The list represents some parent/child relationship of related components, so
-that the entire branch of features can be disabled. The rightmost items
-represent the actual functional components this extension provides.
 
-.. note::
-    Despite appearances, this relationship does not necessarily represent the
-    actual file structure.
+The list represents parent/child relationship of related components, so that the
+entire branch of features can be disabled. The rightmost items represent the
+actual functional components this extension provides. Despite appearances, this
+relationship does not necessarily represent the actual file structure.
 
 The list is then transformed in both ``config.py`` and ``SCsub`` to achieve
 the following:

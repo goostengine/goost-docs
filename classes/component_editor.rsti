@@ -1,0 +1,18 @@
+.. THIS FILE IS GENERATED, DO NOT EDIT!
+.. Use `python goost.py --generate-doc-api` at Goost's source tree instead.
+
+Classes
+-------
+
+
+Usage
+-----
+
+.. code-block:: shell
+
+    # Disable editor component.
+    scons goost_editor_enabled=no
+
+    # Enable editor component, disable all others.
+    scons goost_components_enabled=no goost_editor_enabled=yes
+

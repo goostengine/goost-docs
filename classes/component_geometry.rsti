@@ -1,0 +1,27 @@
+.. THIS FILE IS GENERATED, DO NOT EDIT!
+.. Use `python goost.py --generate-doc-api` at Goost's source tree instead.
+
+Classes
+-------
+
+* :ref:`GoostGeometry2D<class_GoostGeometry2D>`
+* :ref:`PolyBoolean2D<class_PolyBoolean2D>`
+* :ref:`PolyBooleanParameters2D<class_PolyBooleanParameters2D>`
+* :ref:`PolyDecomp2D<class_PolyDecomp2D>`
+* :ref:`PolyDecompParameters2D<class_PolyDecompParameters2D>`
+* :ref:`PolyNode2D<class_PolyNode2D>`
+* :ref:`PolyOffset2D<class_PolyOffset2D>`
+* :ref:`PolyOffsetParameters2D<class_PolyOffsetParameters2D>`
+* :ref:`Random2D<class_Random2D>`
+
+Usage
+-----
+
+.. code-block:: shell
+
+    # Disable geometry component.
+    scons goost_geometry_enabled=no
+
+    # Enable geometry component, disable all others.
+    scons goost_components_enabled=no goost_geometry_enabled=yes
+

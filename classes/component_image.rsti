@@ -1,0 +1,22 @@
+.. THIS FILE IS GENERATED, DO NOT EDIT!
+.. Use `python goost.py --generate-doc-api` at Goost's source tree instead.
+
+Classes
+-------
+
+* :ref:`GoostImage<class_GoostImage>`
+* :ref:`ImageBlender<class_ImageBlender>`
+* :ref:`ImageFrames<class_ImageFrames>`
+* :ref:`ImageIndexed<class_ImageIndexed>`
+
+Usage
+-----
+
+.. code-block:: shell
+
+    # Disable image component.
+    scons goost_image_enabled=no
+
+    # Enable image component, disable all others.
+    scons goost_components_enabled=no goost_image_enabled=yes
+

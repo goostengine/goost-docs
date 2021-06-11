@@ -1,0 +1,24 @@
+.. THIS FILE IS GENERATED, DO NOT EDIT!
+.. Use `python goost.py --generate-doc-api` at Goost's source tree instead.
+
+Classes
+-------
+
+* :ref:`GoostEngine<class_GoostEngine>`
+* :ref:`InvokeState<class_InvokeState>`
+* :ref:`LinkedList<class_LinkedList>`
+* :ref:`ListNode<class_ListNode>`
+* :ref:`VariantMap<class_VariantMap>`
+* :ref:`VariantResource<class_VariantResource>`
+
+Usage
+-----
+
+.. code-block:: shell
+
+    # Disable core component.
+    scons goost_core_enabled=no
+
+    # Enable core component, disable all others.
+    scons goost_components_enabled=no goost_core_enabled=yes
+

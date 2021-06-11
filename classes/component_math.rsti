@@ -1,0 +1,19 @@
+.. THIS FILE IS GENERATED, DO NOT EDIT!
+.. Use `python goost.py --generate-doc-api` at Goost's source tree instead.
+
+Classes
+-------
+
+* :ref:`Random<class_Random>`
+
+Usage
+-----
+
+.. code-block:: shell
+
+    # Disable math component.
+    scons goost_math_enabled=no
+
+    # Enable math component, disable all others.
+    scons goost_components_enabled=no goost_math_enabled=yes
+

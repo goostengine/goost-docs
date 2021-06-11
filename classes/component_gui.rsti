@@ -1,0 +1,19 @@
+.. THIS FILE IS GENERATED, DO NOT EDIT!
+.. Use `python goost.py --generate-doc-api` at Goost's source tree instead.
+
+Classes
+-------
+
+* :ref:`GridRect<class_GridRect>`
+
+Usage
+-----
+
+.. code-block:: shell
+
+    # Disable gui component.
+    scons goost_gui_enabled=no
+
+    # Enable gui component, disable all others.
+    scons goost_components_enabled=no goost_gui_enabled=yes
+

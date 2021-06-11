@@ -1,9 +1,10 @@
 Image Processing
 ================
 
-.. note:: 
-   To disable this component, use ``goost_image_enabled=no`` option (see
-   :ref:`doc_configuring_the_build`).
+.. include:: /classes/component_image.rsti
+
+Overview
+--------
 
 The component provides :ref:`GoostImage<class_GoostImage>` singleton for easy
 image processing and analysis, which builds on top of Godot's built-in
