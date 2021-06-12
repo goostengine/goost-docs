@@ -46,6 +46,7 @@ extension provides. For a complete list of classes, see :ref:`goost_api`.
    development/general_principles
    development/components
    development/modules
+   development/adding_new_features
 
 .. toctree::
    :maxdepth: 1
