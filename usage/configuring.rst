@@ -136,7 +136,7 @@ manually, dependencies are going to be satisfied automatically.
 
 .. tip::
 
-    You can run ``python goost.py --configure`` at the root of Goost repository
+    You can run ``python goost.py config`` at the root of Goost repository
     to generate the ``custom.py`` file above with all the components and
     classes.
 
