@@ -232,9 +232,10 @@ you call ``scons`` command:
     scons
 
 However, just compiling the sources above won't automatically make those classes
-appear in Godot. They must be registered in ``ClassDB`` first. To make this
-happen, we'll create ``register_ai_types.h`` and ``register_ai_types.cpp`` where
-we can register ``FiniteStateMachine`` and ``FiniteStateMachineNode`` classes:
+appear in Godot. They must be registered in :ref:`class_classdb` first. To make
+this happen, we'll create ``register_ai_types.h`` and ``register_ai_types.cpp``
+where we can register ``FiniteStateMachine`` and ``FiniteStateMachineNode``
+classes respectively:
 
 .. code-block:: shell
 
@@ -387,25 +388,22 @@ Unit tests
 ~~~~~~~~~~
 
 While implementing new classes, you want to make sure that they work as
-expected!
-
-Goost currently uses `GUT <https://github.com/bitwes/Gut>`_ unit testing
-framework to write and run tests using GDScript.
-
-Running existing unit tests is similar to generating documentation:
+expected! Running existing unit tests is similar to generating documentation:
 
 .. code-block:: shell
 
     cd goost
     python run.py tests
 
-Unit tests reside under ``tests/project`` directory. The project is a master
-Godot test project which contains ``goost`` directory with tests. Tests are
-organized in such a way to closely resemble Goost source tree.
+Unit tests reside under ``tests/project`` directory. The ``project`` folder is a
+master Godot test project which contains ``goost`` directory with tests. Tests
+are organized in such a way to closely resemble Goost's source tree.
 
 Since we've introduced ``ai`` component as described in previous sections, we
 create ``res://goost/scene/ai`` folder and create
-``test_finite_state_machine.gd`` unit test file there:
+``test_finite_state_machine.gd`` unit test file there. Goost currently uses
+`GUT <https://github.com/bitwes/Gut>`_ unit testing framework to write and run
+tests using GDScript:
 
 .. code-block:: gdscript
 
@@ -421,12 +419,6 @@ create ``res://goost/scene/ai`` folder and create
 
         assert_eq(fsm.state, state)
 
-.. note::
-    
-    It's not necessary to start Godot editor to write and run tests. All unit
-    test files in Goost must be prefixed with ``test_`` to be run from the
-    command-line interface.
-
 Save the file and run:
 
 .. code-block:: shell
@@ -439,6 +431,12 @@ To speed up the development, you can run a single unit test file as well:
 .. code-block:: shell
 
     python run.py tests -t "scene/ai/test_finite_state_machine.gd"
+
+.. note::
+
+It's not necessary to start Godot editor to write and run tests. All unit
+test files in Goost must be prefixed with ``test_`` to be run from the
+command-line interface.
 
 Editor icons
 ~~~~~~~~~~~~
@@ -454,10 +452,10 @@ developers, there are several requirements to resolve and steps to perform:
 
 1. The third-party code must be compatible with MIT license.
 2. Do not use ``git`` submodules. Whenever possible, always try to bundle the
-   third-party code in Goost.
-3. Place third-party code in ``goost/thirdparty/`` directory.
+   third-party code.
+3. Place third-party code in ``goost/thirdparty/`` under respective directory.
 4. Compile third-party code from within ``goost/thirdparty/SCsub``, compile
-   conditionally if it's going to be a part of existing Goost component.
+   conditionally if it's part of existing Goost component.
 5. Make sure to list third-party code in ``goost/thirdparty/README.md``.
 6. Update ``goost/COPYRIGHT.txt`` to comply with third-party license terms. Add
    new license text if it doesn't already exist.
