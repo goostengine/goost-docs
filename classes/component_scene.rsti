@@ -9,6 +9,7 @@ Classes
 * :ref:`PolyCircle2D<class_PolyCircle2D>`
 * :ref:`PolyRectangle2D<class_PolyRectangle2D>`
 * :ref:`PolyShape2D<class_PolyShape2D>`
+* :ref:`Stopwatch<class_Stopwatch>`
 * :ref:`VisualShape2D<class_VisualShape2D>`
 
 Usage

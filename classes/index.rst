@@ -93,5 +93,16 @@ further instructions.
     class_polycircle2d.rst
     class_polyrectangle2d.rst
     class_polyshape2d.rst
+    class_stopwatch.rst
     class_visualshape2d.rst
+
+.. toctree::
+    :maxdepth: 1
+    :caption: Script
+    :name: toc-component-script
+
+    class_mixin.rst
+    class_mixinscript.rst
+
+**Script** is part of: :ref:`toc-component-core`
 

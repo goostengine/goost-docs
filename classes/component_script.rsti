@@ -1,0 +1,20 @@
+.. THIS FILE IS GENERATED, DO NOT EDIT!
+.. Use `python goost.py --generate-doc-api` at Goost's source tree instead.
+
+Classes
+-------
+
+* :ref:`Mixin<class_Mixin>`
+* :ref:`MixinScript<class_MixinScript>`
+
+Usage
+-----
+
+.. code-block:: shell
+
+    # Disable script component.
+    scons goost_script_enabled=no
+
+    # Enable script component, disable all others.
+    scons goost_components_enabled=no goost_script_enabled=yes
+
