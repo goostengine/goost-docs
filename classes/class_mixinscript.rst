@@ -11,7 +11,7 @@ MixinScript
 
 **Inherits:** :ref:`Script<class_Script>` **<** :ref:`Resource<class_Resource>` **<** :ref:`Reference<class_Reference>` **<** :ref:`Object<class_Object>`
 
-A script which combines several other :ref:`Script<class_Script>` resources to extend object's run-time functionality.
+**Experimental!** A script which combines several other :ref:`Script<class_Script>` resources to extend object's run-time functionality.
 
 Description
 -----------

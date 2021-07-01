@@ -11,7 +11,7 @@ Mixin
 
 **Inherits:** :ref:`Object<class_Object>`
 
-Adds functionality to :ref:`MixinScript<class_MixinScript>` objects.
+**Experimental!** Adds functionality to :ref:`MixinScript<class_MixinScript>` objects.
 
 Description
 -----------
