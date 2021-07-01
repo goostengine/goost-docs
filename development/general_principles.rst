@@ -132,3 +132,55 @@ repository.
 
 .. seealso::
     :ref:`doc_adding_community_modules`.
+
+Feature removal policy
+----------------------
+
+Features take never-ending maintenance work, but the capabilities to maintain
+them (personal motivation, funding, active maintainers etc.) may not be enough
+to further advance the project as a whole. Due to this, Goost defines a set of
+rules for removing features which may be obsolete, no longer useful, or prove to
+be very difficult to maintain.
+
+Before removal, we always reach out to potential users using communication
+platforms (GitHub, Discord etc.) to figure out the current demand of a
+particular feature.
+
+Note that we are unlikely (if ever) remove a feature just because it's used only
+by a few users at a given period of time, as long as a feature is relatively
+easy to maintain. Unlike in Godot, Goost does not impose engine binary size
+limits which result from having new features implemented. Since Goost's core
+development principles are customization and extensibility, engine's binary size
+is a bad reason to remove a particular feature in Goost.
+
+While we understand the frustration which may result from a lacking feature
+which was present in previous versions of Goost, we also hope that you
+understand the amount of work needed to maintain those features, especially when
+the work is done on a voluntary basis.
+
+Whether a particular feature is going to remain or be removed largely depends on
+user support and the number of contributors interested in development.
+
+You can find a list of such features at
+`A list of deprecated and removed features in Goost <https://github.com/goostengine/goost/issues/95>`_
+tracker.
+
+Rules
+~~~~~
+
+1. If no user expresses interest in a particular feature for 90 days after
+   announcement at the public tracker linked above, it may be removed in future
+   versions.
+
+2. If a feature proves to be very difficult to maintain but is still desired, we
+   attempt to disable a feature using build-time instructions first. This way,
+   the code can remain in the Goost repository, and interested contributors can
+   have a chance to update the code so that a feature properly works in the
+   latest stable version of Godot Engine.
+
+3. If a particular feature is still needed but had to be removed due to huge
+   maintenance cost, it can be resurrected in future versions of Goost by
+   interested contributors.
+
+4. If feature is marked as experimental (via documentation), it may be removed
+   regardless of the rules above.
