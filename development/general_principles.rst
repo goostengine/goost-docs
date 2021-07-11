@@ -23,8 +23,30 @@ One of the main reasons why Goost exists as a project is because of
 `Godot's idea of being small <https://docs.godotengine.org/en/stable/about/faq.html#why-does-godot-aim-to-keep-its-core-feature-set-small>`_
 to prevent feature bloat, which, of course, leads to a problem of being
 bare-bones in contrast with other equivalent (commercial) game engines. Goost
-attempts to solve this problem by building upon Godot's core functionality to
+aims to solve this problem by building upon Godot's core functionality to
 deliver feature-rich experience.
+
+No need to wait
+~~~~~~~~~~~~~~~
+
+We use Goost as a bridge that allows us to implement features independently of
+Godot's review process and release cycles. Following this kind of development
+approach helps us to port existing Goost features to Godot itself with ease in
+the future, given that a particular feature is eventually approved for Godot
+development. If you think that a particular feature might be a bit controversial
+to implement directly in Godot, in all likelihood you should consider
+contributing to Goost. Don't allow your feature proposals and pull requests
+stagnate in the Limbo!
+
+Maximum workflow compatibility
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Goost is **not** an engine fork, but we aim to replicate existing Godot
+development workflows in the best way possible. This allows to minimize the time
+it would take for existing Godot contributors to start implementing features in
+Goost. If you're already familiar with the engine development process, whenever
+fixing a bug or implementing a new feature, always try to think of a problem in
+terms of Godot first.
 
 Completeness
 ~~~~~~~~~~~~
