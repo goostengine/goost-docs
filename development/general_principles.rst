@@ -71,6 +71,9 @@ We strive to find balance between extreme pragmatism and future-proofing. We
 don't look too far into the future either, because that's not designing for the
 future - that's just anxious thinking.
 
+Mindfulness is not speculation. Always think about possible consequences in
+relation to current state of art.
+
 Scope of features being developed
 ---------------------------------
 
