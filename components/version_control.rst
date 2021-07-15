@@ -36,6 +36,9 @@ a commit message, and press "Commit Changes" button.
     does not create an initial empty commit automatically upon repository setup,
     so you can control the contents of the initial commit yourself.
 
+Configuring
+***********
+
 If you don't want the plugin to be automatically initialized upon editor launch
 (say, you want to use external GDNative implementation of the same provider), go
 to "Editor" → "Editor Settings" → "Version Control" → "Git", and disable
@@ -47,3 +50,15 @@ to "Editor" → "Editor Settings" → "Version Control" → "Git", and disable
 You can also override ``user.name`` and ``user.email`` signature via editor
 settings if you don't have Git installed or configured system-wide. Signature is
 required to configure in order to use the commit functionality.
+
+Compiling from source
+*********************
+
+Goost relies on `libgit2 <https://github.com/libgit2/libgit2>`_ to provide
+Git functionality, which is versioned as a git submodule in the Goost
+repository. If you compile Goost from source yourself, you may need to run
+the following command before building:
+
+.. code-block:: shell
+
+    git submodule update --init
