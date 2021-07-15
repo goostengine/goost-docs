@@ -257,8 +257,8 @@ repository:
     git format-patch HEAD~1 -o ../misc/patches/custom.patch
     # From non-committed changes (working tree):
     git diff > ../misc/patches/custom.patch
-    # From a pull request/remotely:
-    curl https://github.com/godotengine/godot/pull/42653.patch > custom.patch
+    # From a pull request/remotely (from root):
+    curl https://github.com/godotengine/godot/pull/42653.patch > misc/patches/custom.patch
 
  .. code-tab:: powershell Windows (powershell)
 
@@ -266,8 +266,8 @@ repository:
     git format-patch HEAD~1 --stdout | Out-File -Encoding utf8 ../misc/patches/custom.patch
     # From non-committed changes (working tree):
     git diff | Out-File -Encoding utf8 ../misc/patches/custom.patch
-    # From a pull request/remotely:
-    Invoke-RestMethod "https://github.com/godotengine/godot/pull/42653.patch" | Select-Object -Expand Content | Out-File -Encoding utf8 "custom.patch"
+    # From a pull request/remotely (from root):
+    Invoke-RestMethod "https://github.com/godotengine/godot/pull/42653.patch" | Out-File -Encoding utf8 "misc/patches/custom.patch"
 
 On some systems, the resulting patch encoding and line endings may not be
 compatible with ``git``, so they may fail to apply. Patches must use ``utf8``
