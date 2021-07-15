@@ -11,9 +11,9 @@ Usage
 
 .. code-block:: shell
 
-    # Disable gui component.
+    # Disable "User Interface" component.
     scons goost_gui_enabled=no
 
-    # Enable gui component, disable all others.
+    # Enable "User Interface" component, disable all others.
     scons goost_components_enabled=no goost_gui_enabled=yes
 

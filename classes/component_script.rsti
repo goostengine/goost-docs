@@ -12,9 +12,9 @@ Usage
 
 .. code-block:: shell
 
-    # Disable script component.
+    # Disable "Scripting" component.
     scons goost_script_enabled=no
 
-    # Enable script component, disable all others.
+    # Enable "Scripting" component, disable all others.
     scons goost_components_enabled=no goost_script_enabled=yes
 

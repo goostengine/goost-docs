@@ -16,9 +16,9 @@ Usage
 
 .. code-block:: shell
 
-    # Disable core component.
+    # Disable "Core" component.
     scons goost_core_enabled=no
 
-    # Enable core component, disable all others.
+    # Enable "Core" component, disable all others.
     scons goost_components_enabled=no goost_core_enabled=yes
 

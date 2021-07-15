@@ -17,9 +17,9 @@ Usage
 
 .. code-block:: shell
 
-    # Disable scene component.
+    # Disable "Scene" component.
     scons goost_scene_enabled=no
 
-    # Enable scene component, disable all others.
+    # Enable "Scene" component, disable all others.
     scons goost_components_enabled=no goost_scene_enabled=yes
 

@@ -12,9 +12,9 @@ Usage
 
 .. code-block:: shell
 
-    # Disable physics component.
+    # Disable "Physics" component.
     scons goost_physics_enabled=no
 
-    # Enable physics component, disable all others.
+    # Enable "Physics" component, disable all others.
     scons goost_components_enabled=no goost_physics_enabled=yes
 

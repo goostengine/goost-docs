@@ -45,16 +45,16 @@ further instructions.
 
 .. toctree::
     :maxdepth: 1
-    :caption: Gui
+    :caption: User Interface
     :name: toc-component-gui
 
     class_gridrect.rst
 
-**Gui** is part of: :ref:`toc-component-scene`
+**User Interface** is part of: :ref:`toc-component-scene`
 
 .. toctree::
     :maxdepth: 1
-    :caption: Image
+    :caption: Image Processing
     :name: toc-component-image
 
     class_goostimage.rst
@@ -62,7 +62,7 @@ further instructions.
     class_imageframes.rst
     class_imageindexed.rst
 
-**Image** is part of: :ref:`toc-component-core`
+**Image Processing** is part of: :ref:`toc-component-core`
 
 .. toctree::
     :maxdepth: 1
@@ -98,11 +98,20 @@ further instructions.
 
 .. toctree::
     :maxdepth: 1
-    :caption: Script
+    :caption: Scripting
     :name: toc-component-script
 
     class_mixin.rst
     class_mixinscript.rst
 
-**Script** is part of: :ref:`toc-component-core`
+**Scripting** is part of: :ref:`toc-component-core`
+
+.. toctree::
+    :maxdepth: 1
+    :caption: Version Control
+    :name: toc-component-vcs
+
+    class_editorvcsinterfacegit.rst
+
+**Version Control** is part of: Editor
 

@@ -11,9 +11,9 @@ Usage
 
 .. code-block:: shell
 
-    # Disable math component.
+    # Disable "Math" component.
     scons goost_math_enabled=no
 
-    # Enable math component, disable all others.
+    # Enable "Math" component, disable all others.
     scons goost_components_enabled=no goost_math_enabled=yes
 

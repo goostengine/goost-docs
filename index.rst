@@ -37,6 +37,7 @@ extension provides. For a complete list of classes, see :ref:`goost_api`.
    components/geometry
    components/image_processing/index
    components/physics
+   components/version_control
 
 .. toctree::
    :maxdepth: 2

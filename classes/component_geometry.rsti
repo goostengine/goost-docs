@@ -19,9 +19,9 @@ Usage
 
 .. code-block:: shell
 
-    # Disable geometry component.
+    # Disable "Geometry" component.
     scons goost_geometry_enabled=no
 
-    # Enable geometry component, disable all others.
+    # Enable "Geometry" component, disable all others.
     scons goost_components_enabled=no goost_geometry_enabled=yes
 

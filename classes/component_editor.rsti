@@ -10,9 +10,9 @@ Usage
 
 .. code-block:: shell
 
-    # Disable editor component.
+    # Disable "Editor" component.
     scons goost_editor_enabled=no
 
-    # Enable editor component, disable all others.
+    # Enable "Editor" component, disable all others.
     scons goost_components_enabled=no goost_editor_enabled=yes
 

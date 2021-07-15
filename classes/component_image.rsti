@@ -14,9 +14,9 @@ Usage
 
 .. code-block:: shell
 
-    # Disable image component.
+    # Disable "Image Processing" component.
     scons goost_image_enabled=no
 
-    # Enable image component, disable all others.
+    # Enable "Image Processing" component, disable all others.
     scons goost_components_enabled=no goost_image_enabled=yes
 
