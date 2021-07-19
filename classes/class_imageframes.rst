@@ -38,6 +38,8 @@ Methods
 +---------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | void                                  | :ref:`remove_frame<class_ImageFrames_method_remove_frame>` **(** :ref:`int<class_int>` idx **)**                                                                          |
 +---------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Error<enum_@GlobalScope_Error>` | :ref:`save_gif<class_ImageFrames_method_save_gif>` **(** :ref:`String<class_String>` filepath, :ref:`int<class_int>` color_count=256 **)**                                |
++---------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | void                                  | :ref:`set_frame_delay<class_ImageFrames_method_set_frame_delay>` **(** :ref:`int<class_int>` idx, :ref:`float<class_float>` delay **)**                                   |
 +---------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | void                                  | :ref:`set_frame_image<class_ImageFrames_method_set_frame_image>` **(** :ref:`int<class_int>` idx, :ref:`Image<class_Image>` image **)**                                   |
@@ -107,6 +109,22 @@ Loads the data from a :ref:`PoolByteArray<class_PoolByteArray>` GIF buffer. The 
 - void **remove_frame** **(** :ref:`int<class_int>` idx **)**
 
 Removes the frame ``idx``.
+
+----
+
+.. _class_ImageFrames_method_save_gif:
+
+- :ref:`Error<enum_@GlobalScope_Error>` **save_gif** **(** :ref:`String<class_String>` filepath, :ref:`int<class_int>` color_count=256 **)**
+
+Saves a GIF file using frames added with :ref:`add_frame<class_ImageFrames_method_add_frame>`. If there are multiple images, creates an animated GIF, taking into account individual frame delays. If there's only one image, GIF is written as a static image.
+
+The ``color_count`` parameter specifies the number of colors in GIF color map. The number of colors are rounded to nearest power of two, and the maximum number of colors is ``256``.
+
+Frames can have different sizes. Dimensions of the first frame is taken as the base canvas size.
+
+Note that GIF animation timing is measured in hundredths of a second, and delay values below ``0.02`` may fallback to ``1.0`` second when rendered on screen, which depends on application displaying such a GIF.
+
+This method depends on :ref:`ImageIndexed<class_ImageIndexed>` used to generate image palette required to write GIF files. By default, indexed images will be created from all images in ``ImageFrames``. If ``ImageFrames`` already contains :ref:`ImageIndexed<class_ImageIndexed>`, then you must ensure that :ref:`ImageIndexed<class_ImageIndexed>` has color palette already generated with :ref:`ImageIndexed.generate_palette<class_ImageIndexed_method_generate_palette>` prior to calling this method.
 
 ----
 
