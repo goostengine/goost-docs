@@ -12,6 +12,7 @@ Classes
 * :ref:`PolyNode2D<class_PolyNode2D>`
 * :ref:`PolyOffset2D<class_PolyOffset2D>`
 * :ref:`PolyOffsetParameters2D<class_PolyOffsetParameters2D>`
+* :ref:`PolyPath2D<class_PolyPath2D>`
 * :ref:`Random2D<class_Random2D>`
 
 Usage

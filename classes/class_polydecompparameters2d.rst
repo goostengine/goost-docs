@@ -9,7 +9,7 @@
 PolyDecompParameters2D
 ======================
 
-**Inherits:** :ref:`Reference<class_Reference>` **<** :ref:`Object<class_Object>`
+**Inherits:** :ref:`Resource<class_Resource>` **<** :ref:`Reference<class_Reference>` **<** :ref:`Object<class_Object>`
 
 A set of parameters to configure polygon partitioning methods in :ref:`PolyDecomp2D<class_PolyDecomp2D>`.
 

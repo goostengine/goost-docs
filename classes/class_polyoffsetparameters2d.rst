@@ -9,7 +9,7 @@
 PolyOffsetParameters2D
 ======================
 
-**Inherits:** :ref:`Reference<class_Reference>` **<** :ref:`Object<class_Object>`
+**Inherits:** :ref:`Resource<class_Resource>` **<** :ref:`Reference<class_Reference>` **<** :ref:`Object<class_Object>`
 
 A set of parameters to configure various polygon and polyline deflating and inflating related methods in :ref:`PolyOffset2D<class_PolyOffset2D>`.
 

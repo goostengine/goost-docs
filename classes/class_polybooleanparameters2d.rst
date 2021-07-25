@@ -9,7 +9,7 @@
 PolyBooleanParameters2D
 =======================
 
-**Inherits:** :ref:`Reference<class_Reference>` **<** :ref:`Object<class_Object>`
+**Inherits:** :ref:`Resource<class_Resource>` **<** :ref:`Reference<class_Reference>` **<** :ref:`Object<class_Object>`
 
 A set of parameters to configure various polygon and polyline boolean related methods in :ref:`PolyBoolean2D<class_PolyBoolean2D>`.
 

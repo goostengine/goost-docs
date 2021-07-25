@@ -39,6 +39,7 @@ further instructions.
     class_polynode2d.rst
     class_polyoffset2d.rst
     class_polyoffsetparameters2d.rst
+    class_polypath2d.rst
     class_random2d.rst
 
 **Geometry** is part of: :ref:`toc-component-math` **>** :ref:`toc-component-core`
