@@ -10,8 +10,9 @@ applies to the process of developing classes in Goost. Refer to Godot's
 :ref:`Object<class_Object>` classes.
 
 The following sections describe the process of writing new classes specifically
-in Goost. Please refer to Godot's :ref:`Engine development<toc-devel-cpp>`
-section if you are not familiar with engine development in general.
+in Goost. Please refer to Godot's
+:ref:`Engine development<toc-devel-cpp-source-beginner>` section if you are not
+familiar with engine development in general.
 
 Writing new classes
 -------------------
@@ -90,8 +91,6 @@ page for more information.
 
 Implementation
 ~~~~~~~~~~~~~~
-
-Once we've declared new classes in ``goost.py``, it's time to implement them!
 
 Depending on a component, we can choose to implement our classes in ``core/``,
 ``scene/``, ``editor/`` etc. folders in Goost's source tree.
@@ -231,11 +230,9 @@ you call ``scons`` command:
     cd goost
     scons
 
-However, just compiling the sources above won't automatically make those classes
-appear in Godot. They must be registered in :ref:`class_classdb` first. To make
-this happen, we'll create ``register_ai_types.h`` and ``register_ai_types.cpp``
-where we can register ``FiniteStateMachine`` and ``FiniteStateMachineNode``
-classes respectively:
+Next, classes must be registered in :ref:`class_classdb`. Create
+``register_ai_types.h`` and ``register_ai_types.cpp`` where we can register
+``FiniteStateMachine`` and ``FiniteStateMachineNode`` classes respectively:
 
 .. code-block:: shell
 
@@ -259,8 +256,6 @@ classes respectively:
     // scene/ai/register_ai_types.cpp
 
     #include "register_ai_types.h"
-
-    #include "goost/register_types.h"
     #include "goost/classes_enabled.gen.h"
     
     namespace goost {
@@ -280,18 +275,18 @@ If you look closer, we don't use ``ClassDB`` directly to register our classes.
 We use a template specialization technique which allows Goost to register those
 classes only if they are enabled. If those classes are disabled via
 ``custom.py``, then the implementation of those will be no-op (as declared in
-auto-generated ``classes_enabled.gen.h``). This way, we don't have to use
-preprocessor defines to conditionally register individual classes.
+auto-generated ``classes_enabled.gen.h``). Unlike components, we don't have to
+use preprocessor defines to conditionally register individual classes.
 
 Every ``register_*_types()`` callback implementation in Goost requires inclusion
-of ``"goost/register_types.h"`` header, where all Goost classes are included
-(because of our special template specialization technique). Due to this, we'll
-need to include our ``FiniteStateMachine`` declaration in there rather than
-``register_ai_types()``:
+of ``"goost/classes_enabled.gen.h"`` header, where all Goost classes are
+included. Due to this, we'll need to include our ``FiniteStateMachine``
+declaration in ``"goost/goost.h"`` as well, which is an umbrella header of all
+classes defined in Goost:
 
 .. code-block:: cpp
 
-    // register_types.h
+    // goost.h
     // ...
     #include "scene/2d/poly_shape_2d.h"
     #include "scene/2d/visual_shape_2d.h"
@@ -300,8 +295,8 @@ need to include our ``FiniteStateMachine`` declaration in there rather than
     #include "scene/physics/2d/poly_collision_shape_2d.h"
     // ...
 
-Just like with the situation of parent ``SCsub``, we also need to call into
-``register_ai_types()`` from within parent ``scene`` component, specifically in
+Just like with parent ``SCsub``, we also need to call into
+``register_ai_types()`` from within parent ``scene`` component, namely in
 ``register_scene_types()``:
 
 .. code-block:: cpp
@@ -313,7 +308,6 @@ Just like with the situation of parent ``SCsub``, we also need to call into
     #include "physics/register_physics_types.h"
     #include "ai/register_ai_types.h" // FiniteStateMachine
 
-    #include "goost/register_types.h"
     #include "goost/classes_enabled.gen.h"
 
     namespace goost {
@@ -434,9 +428,9 @@ To speed up the development, you can run a single unit test file as well:
 
 .. note::
 
-It's not necessary to start Godot editor to write and run tests. All unit
-test files in Goost must be prefixed with ``test_`` to be run from the
-command-line interface.
+    It's not necessary to start Godot editor to write and run tests. All unit
+    test files in Goost must be prefixed with ``test_`` to be run from the
+    command-line interface.
 
 Editor icons
 ~~~~~~~~~~~~
@@ -451,8 +445,10 @@ If you want to add a feature which relies on external code written by other
 developers, there are several requirements to resolve and steps to perform:
 
 1. The third-party code must be compatible with MIT license.
-2. Do not use ``git`` submodules. Whenever possible, always try to bundle the
-   third-party code.
+2. Do not use ``git`` submodules, unless third-party code does not allow to
+   distribute its source code directly, or when it's more safe to distribute the
+   code via submodules. Whenever possible, always try to bundle the third-party
+   code (the Godot way).
 3. Place third-party code in ``goost/thirdparty/`` under respective directory.
 4. Compile third-party code from within ``goost/thirdparty/SCsub``, compile
    conditionally if it's part of existing Goost component.
