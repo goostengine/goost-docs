@@ -261,8 +261,8 @@ Next, classes must be registered in :ref:`class_classdb`. Create
     namespace goost {
     
     void register_ai_types() {
-        goost::register_class<FiniteStateMachine>();
-        goost::register_class<FiniteStateMachineNode>();
+        ClassDB::register_class<FiniteStateMachine>();
+        ClassDB::register_class<FiniteStateMachineNode>();
     }
     
     void unregister_ai_types() {
@@ -271,12 +271,12 @@ Next, classes must be registered in :ref:`class_classdb`. Create
     
     } // namespace goost
 
-If you look closer, we don't use ``ClassDB`` directly to register our classes.
-We use a template specialization technique which allows Goost to register those
-classes only if they are enabled. If those classes are disabled via
-``custom.py``, then the implementation of those will be no-op (as declared in
-auto-generated ``classes_enabled.gen.h``). Unlike components, we don't have to
-use preprocessor defines to conditionally register individual classes.
+Goost uses a template specialization technique which allows to register classes
+only if they are enabled. If those classes are disabled via ``custom.py``, then
+the implementation of ``ClassDB::register_class`` those will be no-op (as
+declared in auto-generated ``classes_enabled.gen.h``). Unlike components, we
+don't have to use preprocessor defines to conditionally register individual
+classes.
 
 Every ``register_*_types()`` callback implementation in Goost requires inclusion
 of ``"goost/classes_enabled.gen.h"`` header, where all Goost classes are
