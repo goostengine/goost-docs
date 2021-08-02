@@ -18,7 +18,7 @@ Description
 
 The list node is an elemental building block which represent the entire structure of :ref:`LinkedList<class_LinkedList>`\ s. It has :ref:`next<class_ListNode_property_next>` and :ref:`prev<class_ListNode_property_prev>` properties which are assigned whenever a new element is inserted into the list, such as using :ref:`LinkedList.push_back<class_LinkedList_method_push_back>`.
 
-**Warning:** do not use :ref:`Object.free<class_Object_method_free>` to remove this node from the list it belongs to (unless it is instantiated manually with ``ListNode.new()``), call :ref:`erase<class_ListNode_method_erase>` instead which allows the list to update neighbor node references as well.
+You can call :ref:`Object.free<class_Object_method_free>` to remove this node from the list it belongs to.
 
 Properties
 ----------
@@ -30,13 +30,6 @@ Properties
 +---------------------------------+---------------------------------------------+
 | :ref:`Variant<class_Variant>`   | :ref:`value<class_ListNode_property_value>` |
 +---------------------------------+---------------------------------------------+
-
-Methods
--------
-
-+------+-------------------------------------------------------+
-| void | :ref:`erase<class_ListNode_method_erase>` **(** **)** |
-+------+-------------------------------------------------------+
 
 Property Descriptions
 ---------------------
@@ -76,15 +69,6 @@ The previous node this node points to in the :ref:`LinkedList<class_LinkedList>`
 +----------+------------------+
 
 The data this node holds, usually initialized with the list methods such as :ref:`LinkedList.push_back<class_LinkedList_method_push_back>`. Can be anything, including other :ref:`LinkedList<class_LinkedList>`\ s.
-
-Method Descriptions
--------------------
-
-.. _class_ListNode_method_erase:
-
-- void **erase** **(** **)**
-
-Erases this node from the :ref:`LinkedList<class_LinkedList>` it originates from.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`

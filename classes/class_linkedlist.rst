@@ -98,8 +98,6 @@ Methods
 +---------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
 | :ref:`ListNode<class_ListNode>` | :ref:`push_front<class_LinkedList_method_push_front>` **(** :ref:`Variant<class_Variant>` value **)**                                                 |
 +---------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`bool<class_bool>`         | :ref:`remove<class_LinkedList_method_remove>` **(** :ref:`ListNode<class_ListNode>` node **)**                                                        |
-+---------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
 | :ref:`int<class_int>`           | :ref:`size<class_LinkedList_method_size>` **(** **)** |const|                                                                                         |
 +---------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
 | void                            | :ref:`sort<class_LinkedList_method_sort>` **(** **)**                                                                                                 |
@@ -286,14 +284,6 @@ Constructs a new :ref:`ListNode<class_ListNode>` and pushes it at the *end* of t
 - :ref:`ListNode<class_ListNode>` **push_front** **(** :ref:`Variant<class_Variant>` value **)**
 
 Constructs a new :ref:`ListNode<class_ListNode>` and pushes it at the *beginning* of the list.
-
-----
-
-.. _class_LinkedList_method_remove:
-
-- :ref:`bool<class_bool>` **remove** **(** :ref:`ListNode<class_ListNode>` node **)**
-
-Removes (and deletes) an existing node from the list.
 
 ----
 
