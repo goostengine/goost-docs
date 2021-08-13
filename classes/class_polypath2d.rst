@@ -28,7 +28,7 @@ Properties
 +-------------------------------------------------------------+-------------------------------------------------------------------------------------------------+----------+
 | :ref:`PolyOffsetParameters2D<class_PolyOffsetParameters2D>` | :ref:`buffer_parameters<class_PolyPath2D_property_buffer_parameters>`                           |          |
 +-------------------------------------------------------------+-------------------------------------------------------------------------------------------------+----------+
-| :ref:`int<class_int>`                                       | :ref:`tessellation_stages<class_PolyPath2D_property_tessellation_stages>`                       | ``5``    |
+| :ref:`int<class_int>`                                       | :ref:`tessellation_stages<class_PolyPath2D_property_tessellation_stages>`                       | ``4``    |
 +-------------------------------------------------------------+-------------------------------------------------------------------------------------------------+----------+
 | :ref:`float<class_float>`                                   | :ref:`tessellation_tolerance_degrees<class_PolyPath2D_property_tessellation_tolerance_degrees>` | ``4.0``  |
 +-------------------------------------------------------------+-------------------------------------------------------------------------------------------------+----------+
@@ -71,7 +71,7 @@ Configures offset parameters such as join type, end type, miter limit.
 - :ref:`int<class_int>` **tessellation_stages**
 
 +-----------+--------------------------------+
-| *Default* | ``5``                          |
+| *Default* | ``4``                          |
 +-----------+--------------------------------+
 | *Setter*  | set_tessellation_stages(value) |
 +-----------+--------------------------------+

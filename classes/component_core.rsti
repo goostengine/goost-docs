@@ -4,6 +4,9 @@
 Classes
 -------
 
+* :ref:`CommandLineHelpFormat<class_CommandLineHelpFormat>`
+* :ref:`CommandLineOption<class_CommandLineOption>`
+* :ref:`CommandLineParser<class_CommandLineParser>`
 * :ref:`GoostEngine<class_GoostEngine>`
 * :ref:`InvokeState<class_InvokeState>`
 * :ref:`LinkedList<class_LinkedList>`

@@ -19,6 +19,9 @@ further instructions.
     :caption: Core
     :name: toc-component-core
 
+    class_commandlinehelpformat.rst
+    class_commandlineoption.rst
+    class_commandlineparser.rst
     class_goostengine.rst
     class_invokestate.rst
     class_linkedlist.rst

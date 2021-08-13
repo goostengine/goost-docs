@@ -233,7 +233,7 @@ Blends ``src_rect`` from ``src`` image to ``dst`` image at coordinates ``dst_pos
 
 - void **stamp_rect** **(** :ref:`Image<class_Image>` src, :ref:`Rect2<class_Rect2>` src_rect, :ref:`Image<class_Image>` dst, :ref:`Vector2<class_Vector2>` dst_init_pos, :ref:`Vector2<class_Vector2>` dst_end_pos, :ref:`float<class_float>` spacing **)** |const|
 
-Stamps ``src_rect`` from ``src`` image to ``dst`` image in a straight line from ``dst_init_pos`` to ``dst_end_pos``, with a certain ``spacing`` between stamps.
+Stamps ``src_rect`` from ``src`` image to ``dst`` image in a straight line from ``dst_init_pos`` to ``dst_end_pos``, with a certain ``spacing`` between stamps. You may use it to draw strokes.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`

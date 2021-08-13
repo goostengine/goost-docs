@@ -22,27 +22,27 @@ Methods
 -------
 
 +---------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| void                                  | :ref:`add_frame<class_ImageFrames_method_add_frame>` **(** :ref:`Image<class_Image>` image, :ref:`float<class_float>` delay, :ref:`int<class_int>` idx=-1 **)**           |
+| void                                  | :ref:`add_frame<class_ImageFrames_method_add_frame>` **(** :ref:`Image<class_Image>` image, :ref:`float<class_float>` delay=-1 **)**                                      |
 +---------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | void                                  | :ref:`clear<class_ImageFrames_method_clear>` **(** **)**                                                                                                                  |
 +---------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | :ref:`int<class_int>`                 | :ref:`get_frame_count<class_ImageFrames_method_get_frame_count>` **(** **)** |const|                                                                                      |
 +---------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`float<class_float>`             | :ref:`get_frame_delay<class_ImageFrames_method_get_frame_delay>` **(** :ref:`int<class_int>` idx **)** |const|                                                            |
+| :ref:`float<class_float>`             | :ref:`get_frame_delay<class_ImageFrames_method_get_frame_delay>` **(** :ref:`int<class_int>` index **)** |const|                                                          |
 +---------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Image<class_Image>`             | :ref:`get_frame_image<class_ImageFrames_method_get_frame_image>` **(** :ref:`int<class_int>` idx **)** |const|                                                            |
+| :ref:`Image<class_Image>`             | :ref:`get_frame_image<class_ImageFrames_method_get_frame_image>` **(** :ref:`int<class_int>` index **)** |const|                                                          |
 +---------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | :ref:`Error<enum_@GlobalScope_Error>` | :ref:`load<class_ImageFrames_method_load>` **(** :ref:`String<class_String>` path, :ref:`int<class_int>` max_frames=0 **)**                                               |
 +---------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | :ref:`Error<enum_@GlobalScope_Error>` | :ref:`load_gif_from_buffer<class_ImageFrames_method_load_gif_from_buffer>` **(** :ref:`PoolByteArray<class_PoolByteArray>` data, :ref:`int<class_int>` max_frames=0 **)** |
 +---------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| void                                  | :ref:`remove_frame<class_ImageFrames_method_remove_frame>` **(** :ref:`int<class_int>` idx **)**                                                                          |
+| void                                  | :ref:`remove_frame<class_ImageFrames_method_remove_frame>` **(** :ref:`int<class_int>` index **)**                                                                        |
 +---------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | :ref:`Error<enum_@GlobalScope_Error>` | :ref:`save_gif<class_ImageFrames_method_save_gif>` **(** :ref:`String<class_String>` filepath, :ref:`int<class_int>` color_count=256 **)**                                |
 +---------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| void                                  | :ref:`set_frame_delay<class_ImageFrames_method_set_frame_delay>` **(** :ref:`int<class_int>` idx, :ref:`float<class_float>` delay **)**                                   |
+| void                                  | :ref:`set_frame_delay<class_ImageFrames_method_set_frame_delay>` **(** :ref:`int<class_int>` index, :ref:`float<class_float>` delay **)**                                 |
 +---------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| void                                  | :ref:`set_frame_image<class_ImageFrames_method_set_frame_image>` **(** :ref:`int<class_int>` idx, :ref:`Image<class_Image>` image **)**                                   |
+| void                                  | :ref:`set_frame_image<class_ImageFrames_method_set_frame_image>` **(** :ref:`int<class_int>` index, :ref:`Image<class_Image>` image **)**                                 |
 +---------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 Method Descriptions
@@ -50,7 +50,7 @@ Method Descriptions
 
 .. _class_ImageFrames_method_add_frame:
 
-- void **add_frame** **(** :ref:`Image<class_Image>` image, :ref:`float<class_float>` delay, :ref:`int<class_int>` idx=-1 **)**
+- void **add_frame** **(** :ref:`Image<class_Image>` image, :ref:`float<class_float>` delay=-1 **)**
 
 Adds a new frame.
 
@@ -74,7 +74,7 @@ Returns the total number of frames.
 
 .. _class_ImageFrames_method_get_frame_delay:
 
-- :ref:`float<class_float>` **get_frame_delay** **(** :ref:`int<class_int>` idx **)** |const|
+- :ref:`float<class_float>` **get_frame_delay** **(** :ref:`int<class_int>` index **)** |const|
 
 Returns the delay of frame ``idx``.
 
@@ -82,7 +82,7 @@ Returns the delay of frame ``idx``.
 
 .. _class_ImageFrames_method_get_frame_image:
 
-- :ref:`Image<class_Image>` **get_frame_image** **(** :ref:`int<class_int>` idx **)** |const|
+- :ref:`Image<class_Image>` **get_frame_image** **(** :ref:`int<class_int>` index **)** |const|
 
 Returns the :ref:`Image<class_Image>` of frame ``idx``.
 
@@ -106,7 +106,7 @@ Loads the data from a :ref:`PoolByteArray<class_PoolByteArray>` GIF buffer. The 
 
 .. _class_ImageFrames_method_remove_frame:
 
-- void **remove_frame** **(** :ref:`int<class_int>` idx **)**
+- void **remove_frame** **(** :ref:`int<class_int>` index **)**
 
 Removes the frame ``idx``.
 
@@ -130,7 +130,7 @@ This method depends on :ref:`ImageIndexed<class_ImageIndexed>` used to generate 
 
 .. _class_ImageFrames_method_set_frame_delay:
 
-- void **set_frame_delay** **(** :ref:`int<class_int>` idx, :ref:`float<class_float>` delay **)**
+- void **set_frame_delay** **(** :ref:`int<class_int>` index, :ref:`float<class_float>` delay **)**
 
 Sets the delay in seconds of frame ``idx``.
 
@@ -138,7 +138,7 @@ Sets the delay in seconds of frame ``idx``.
 
 .. _class_ImageFrames_method_set_frame_image:
 
-- void **set_frame_image** **(** :ref:`int<class_int>` idx, :ref:`Image<class_Image>` image **)**
+- void **set_frame_image** **(** :ref:`int<class_int>` index, :ref:`Image<class_Image>` image **)**
 
 Sets the :ref:`Image<class_Image>` of frame ``idx``.
 
