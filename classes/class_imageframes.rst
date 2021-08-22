@@ -26,6 +26,8 @@ Methods
 +---------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | void                                  | :ref:`clear<class_ImageFrames_method_clear>` **(** **)**                                                                                                                  |
 +---------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Rect2<class_Rect2>`             | :ref:`get_bounding_rect<class_ImageFrames_method_get_bounding_rect>` **(** **)** |const|                                                                                  |
++---------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | :ref:`int<class_int>`                 | :ref:`get_frame_count<class_ImageFrames_method_get_frame_count>` **(** **)** |const|                                                                                      |
 +---------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | :ref:`float<class_float>`             | :ref:`get_frame_delay<class_ImageFrames_method_get_frame_delay>` **(** :ref:`int<class_int>` index **)** |const|                                                          |
@@ -61,6 +63,14 @@ Adds a new frame.
 - void **clear** **(** **)**
 
 Removes all frames.
+
+----
+
+.. _class_ImageFrames_method_get_bounding_rect:
+
+- :ref:`Rect2<class_Rect2>` **get_bounding_rect** **(** **)** |const|
+
+Returns the bounding rectangle which encloses all added images starting from position ``Vector2(0, 0)``.
 
 ----
 
@@ -125,6 +135,8 @@ Frames can have different sizes. Dimensions of the first frame is taken as the b
 Note that GIF animation timing is measured in hundredths of a second, and delay values below ``0.02`` may fallback to ``1.0`` second when rendered on screen, which depends on application displaying such a GIF.
 
 This method depends on :ref:`ImageIndexed<class_ImageIndexed>` used to generate image palette required to write GIF files. By default, indexed images will be created from all images in ``ImageFrames``. If ``ImageFrames`` already contains :ref:`ImageIndexed<class_ImageIndexed>`, then you must ensure that :ref:`ImageIndexed<class_ImageIndexed>` has color palette already generated with :ref:`ImageIndexed.generate_palette<class_ImageIndexed_method_generate_palette>` prior to calling this method.
+
+Saving animated image as transparent is also supported, given all frames are provided in :ref:`Image.FORMAT_RGBA8<class_Image_constant_FORMAT_RGBA8>` format, but note that transparency is not consistently supported across GIF decoders.
 
 ----
 

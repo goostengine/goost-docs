@@ -18,9 +18,12 @@ Description
 
 This plugin provides basic `Git <https://git-scm.com/>`_ functionality from within the editor powered by `libgit2 <https://libgit2.org/>`_ library.
 
-Note that pulling and pushing are not available in :ref:`EditorVCSInterface<class_EditorVCSInterface>` as of Godot 3.x.
+**Note:** pulling and pushing features are not available in :ref:`EditorVCSInterface<class_EditorVCSInterface>` as of Godot 3.x. Signed commits are not implemented.
 
-Signed commits are not implemented yet.
+Tutorials
+---------
+
+- `https://goost.readthedocs.io/en/latest/components/version_control.html <https://goost.readthedocs.io/en/latest/components/version_control.html>`_
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
