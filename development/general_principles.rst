@@ -11,6 +11,9 @@ the current development approach.
 If something should be in Godot, let it be in Godot
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+Goost is *not* a Godot Engine fork. We're *not* interested in the division of
+Godot community.
+
 If you really believe that a particular feature should be implemented directly
 in Godot Engine for the greater good of everyone, please go ahead and create a
 `Godot Improvement Proposal <https://github.com/godotengine/godot-proposals>`_
@@ -41,7 +44,7 @@ stagnate in the Limbo!
 Maximum workflow compatibility
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Goost is **not** an engine fork, but we aim to replicate existing Godot
+Even though Goost is not an engine fork, we aim to replicate existing Godot
 development workflows in the best way possible. This allows to minimize the time
 it would take for existing Godot contributors to start implementing features in
 Goost. If you're already familiar with the engine development process, whenever
