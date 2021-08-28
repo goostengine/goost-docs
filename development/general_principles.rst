@@ -85,6 +85,10 @@ marginally related. We also realize that Godot can be used to develop general
 GUI-only applications, so we don't exclude the possibility of supporting these
 type of features as well.
 
+Regardless of below criteria, you can also refer to
+`the list of features already pre-approved for development <https://github.com/goostengine/goost/issues/7>`_,
+which is continuously updated.
+
 Usefulness
 ~~~~~~~~~~
 
@@ -108,8 +112,8 @@ Performance
 
 If you think that GDScript is still too slow for your use cases, you may
 consider re-implementing a feature in Goost using C++ if you think that it will
-benefit other developers (see Usefulness criteria). The most common bottlenecks
-may be math operations, procedural generation, machine learning etc.
+benefit other developers (see "Usefulness" criterion). The most common
+bottlenecks may be math operations, procedural generation, machine learning etc.
 
 Reusability
 ~~~~~~~~~~~

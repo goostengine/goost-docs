@@ -12,13 +12,17 @@ The :ref:`sec-components` section lists all of the functional components this
 extension provides. For a complete list of classes, see :ref:`goost_api`.
 
 .. note::
+
+   Goost is still in development feature-wise (especially the 3D counterpart).
+   We are looking for contributors who'd like to help the project by
+   implementing new and improving existing features. Read the
+   :ref:`sec-development` section for more information.
+
+.. note::
+
   Goost is developed by people! If you don't understand something or would like to
   improve the existing documentation, feel free to submit an issue or pull request
   on the `GitHub repository <https://github.com/goostengine/goost-docs/issues>`_.
-  
-.. caution::
-   Goost is still in development feature-wise, so you might encounter some bugs.
-   Nonetheless, most of the components should be functional.
 
 .. toctree::
    :maxdepth: 2
