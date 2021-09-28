@@ -31,6 +31,8 @@ Methods
 +-------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | :ref:`Rect2<class_Rect2>`                       | :ref:`bounding_rect<class_GoostGeometry2D_method_bounding_rect>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` points **)** |const|                                                                                                      |
 +-------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`PoolVector2Array<class_PoolVector2Array>` | :ref:`capsule<class_GoostGeometry2D_method_capsule>` **(** :ref:`float<class_float>` radius, :ref:`float<class_float>` height, :ref:`float<class_float>` max_error=0.25 **)** |const|                                                            |
++-------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | :ref:`PoolVector2Array<class_PoolVector2Array>` | :ref:`circle<class_GoostGeometry2D_method_circle>` **(** :ref:`float<class_float>` radius, :ref:`float<class_float>` max_error=0.25 **)** |const|                                                                                                |
 +-------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | :ref:`Array<class_Array>`                       | :ref:`clip_polygons<class_GoostGeometry2D_method_clip_polygons>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon_a, :ref:`PoolVector2Array<class_PoolVector2Array>` polygon_b **)** |const|                                        |
@@ -97,13 +99,23 @@ Computes the axis-aligned bounding rectangle of given points.
 
 ----
 
+.. _class_GoostGeometry2D_method_capsule:
+
+- :ref:`PoolVector2Array<class_PoolVector2Array>` **capsule** **(** :ref:`float<class_float>` radius, :ref:`float<class_float>` height, :ref:`float<class_float>` max_error=0.25 **)** |const|
+
+Generates a closed path approximating the shape of a capsule (stadium) with the specified radius and height.
+
+The ``max_error`` parameter represents the maximum gap in pixels allowed between capsule's half circle segment and the boundary of the mathematical circle, with low values increasing the number of vertices, hence accuracy.
+
+----
+
 .. _class_GoostGeometry2D_method_circle:
 
 - :ref:`PoolVector2Array<class_PoolVector2Array>` **circle** **(** :ref:`float<class_float>` radius, :ref:`float<class_float>` max_error=0.25 **)** |const|
 
 Generates a closed path approximating the shape of a circle with the specified radius.
 
-The ``max_error`` parameter represents the maximum gap in pixels allowed between a circle segment and the boundary of the mathematical circle, with low values increasing the number of vertices. The maximum number of vertices returned is 4096. See also :ref:`regular_polygon<class_GoostGeometry2D_method_regular_polygon>`.
+The ``max_error`` parameter represents the maximum gap in pixels allowed between a circle segment and the boundary of the mathematical circle, with low values increasing the number of vertices, hence accuracy.
 
 ----
 

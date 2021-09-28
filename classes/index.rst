@@ -94,6 +94,7 @@ further instructions.
 
     class_gradienttexture2d.rst
     class_lighttexture.rst
+    class_polycapsule2d.rst
     class_polycircle2d.rst
     class_polyrectangle2d.rst
     class_polyshape2d.rst

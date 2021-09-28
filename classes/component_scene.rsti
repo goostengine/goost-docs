@@ -6,6 +6,7 @@ Classes
 
 * :ref:`GradientTexture2D<class_GradientTexture2D>`
 * :ref:`LightTexture<class_LightTexture>`
+* :ref:`PolyCapsule2D<class_PolyCapsule2D>`
 * :ref:`PolyCircle2D<class_PolyCircle2D>`
 * :ref:`PolyRectangle2D<class_PolyRectangle2D>`
 * :ref:`PolyShape2D<class_PolyShape2D>`
