@@ -20,8 +20,8 @@ if version == "latest":
 
 godot_map = {
     # Goost : Godot
-    "latest" : "3.3",
-    "gd3": "3.3",
+    "latest" : "3.4",
+    "gd3": "3.4",
     "gd4": "latest",
 }
 godot_docs_url = "https://docs.godotengine.org/en/%s/" % (godot_map[version])
