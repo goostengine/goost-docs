@@ -1,6 +1,6 @@
 # Goost documentation
 
-[![Documentation Status](https://readthedocs.org/projects/goost/badge/?version=gd3)](https://goost.readthedocs.io/en/latest/?badge=gd3)
+[![Documentation Status](https://readthedocs.org/projects/goost/badge/?version=1.1-gd3)](https://goost.readthedocs.io/en/latest/?badge=1.1-gd3)
 
 This repository contains the source files of
 [Goost](https://github.com/goostengine/goost)'s documentation.
