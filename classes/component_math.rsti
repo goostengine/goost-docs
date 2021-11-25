@@ -4,6 +4,7 @@
 Classes
 -------
 
+* :ref:`GoostMath<class_GoostMath>`
 * :ref:`Random<class_Random>`
 
 Usage
@@ -11,9 +12,9 @@ Usage
 
 .. code-block:: shell
 
-    # Disable "Math" component.
+    # Disable "Mathematics" component.
     scons goost_math_enabled=no
 
-    # Enable "Math" component, disable all others.
+    # Enable "Mathematics" component, disable all others.
     scons goost_components_enabled=no goost_math_enabled=yes
 

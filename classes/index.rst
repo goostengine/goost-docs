@@ -70,12 +70,13 @@ further instructions.
 
 .. toctree::
     :maxdepth: 1
-    :caption: Math
+    :caption: Mathematics
     :name: toc-component-math
 
+    class_goostmath.rst
     class_random.rst
 
-**Math** is part of: :ref:`toc-component-core`
+**Mathematics** is part of: :ref:`toc-component-core` **>** :ref:`toc-component-core`
 
 .. toctree::
     :maxdepth: 1
