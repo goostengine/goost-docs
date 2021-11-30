@@ -20,7 +20,16 @@ The MidiPlayer class can play MIDI files. It does this using a collection of sou
 
 Although these technologies old, they are still used today in music industry because they are so incredibly handy. MIDI specifically has seen continous with minimal changes since since inception.
 
-In order to use this class you will need to setup a few things. First you will need to add this node to the tree. Then you will need to add an AudioStreamGenerator. Finally you will need to load a SoundFont and the MIDI file. You can find MIDI music and General Midi SoundFonts online.
+In order to use this class, the node should be added to the scene tree. Create a new :ref:`AudioStreamGenerator<class_AudioStreamGenerator>` via inspector in :ref:`AudioStreamPlayer.stream<class_AudioStreamPlayer_property_stream>` and then load a SoundFont using :ref:`load_soundfont<class_MidiPlayer_method_load_soundfont>` and the MIDI file using :ref:`load_midi<class_MidiPlayer_method_load_midi>`. For instance:
+
+::
+
+    func _ready():
+        $MidiPlayer.load_midi("res://moonlight.mid")
+        $MidiPlayer.load_soundfont("res://piano.sf2")
+        $MidiPlayer.play()
+
+You can find MIDI music and General Midi SoundFonts online.
 
 **List of keywords:**
 

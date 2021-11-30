@@ -38,6 +38,7 @@ extension provides. For a complete list of classes, see :ref:`goost_api`.
    :caption: Components
    :name: sec-components
 
+   components/audio
    components/geometry
    components/image_processing/index
    components/physics
