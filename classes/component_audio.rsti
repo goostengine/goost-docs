@@ -1,0 +1,20 @@
+.. THIS FILE IS GENERATED, DO NOT EDIT!
+.. Use `python goost.py --generate-doc-api` at Goost's source tree instead.
+
+Classes
+-------
+
+* :ref:`MidiFile<class_MidiFile>`
+* :ref:`MidiPlayer<class_MidiPlayer>`
+
+Usage
+-----
+
+.. code-block:: shell
+
+    # Disable "Audio" component.
+    scons goost_audio_enabled=no
+
+    # Enable "Audio" component, disable all others.
+    scons goost_components_enabled=no goost_audio_enabled=yes
+

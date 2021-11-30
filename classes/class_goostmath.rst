@@ -16,7 +16,7 @@ Math functions.
 Description
 -----------
 
-The singleton which provides various math functions such as interpolation.
+The singleton which provides various mathematical functions.
 
 Methods
 -------
@@ -26,9 +26,19 @@ Methods
 +-------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | :ref:`Variant<class_Variant>` | :ref:`catmull_rom<class_GoostMath_method_catmull_rom>` **(** :ref:`Variant<class_Variant>` ac, :ref:`Variant<class_Variant>` a, :ref:`Variant<class_Variant>` b, :ref:`Variant<class_Variant>` bc, :ref:`float<class_float>` weight **)** |
 +-------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`bool<class_bool>`       | :ref:`is_between<class_GoostMath_method_is_between>` **(** :ref:`float<class_float>` s, :ref:`float<class_float>` a, :ref:`float<class_float>` b **)**                                                                                    |
++-------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | :ref:`bool<class_bool>`       | :ref:`is_equal_approx<class_GoostMath_method_is_equal_approx>` **(** :ref:`float<class_float>` a, :ref:`float<class_float>` b, :ref:`float<class_float>` tolerance=1e-06 **)**                                                            |
 +-------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`bool<class_bool>`       | :ref:`is_in_range<class_GoostMath_method_is_in_range>` **(** :ref:`float<class_float>` s, :ref:`float<class_float>` min, :ref:`float<class_float>` max **)**                                                                              |
++-------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | :ref:`bool<class_bool>`       | :ref:`is_zero_approx<class_GoostMath_method_is_zero_approx>` **(** :ref:`float<class_float>` s, :ref:`float<class_float>` tolerance=1e-06 **)**                                                                                           |
++-------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`float<class_float>`     | :ref:`log<class_GoostMath_method_log>` **(** :ref:`float<class_float>` x, :ref:`float<class_float>` base=2.71828 **)**                                                                                                                    |
++-------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`float<class_float>`     | :ref:`log10<class_GoostMath_method_log10>` **(** :ref:`float<class_float>` x **)**                                                                                                                                                        |
++-------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`float<class_float>`     | :ref:`log2<class_GoostMath_method_log2>` **(** :ref:`float<class_float>` x **)**                                                                                                                                                          |
 +-------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 Method Descriptions
@@ -54,6 +64,16 @@ The following types are supported: :ref:`float<class_float>`, :ref:`Vector2<clas
 
 ----
 
+.. _class_GoostMath_method_is_between:
+
+- :ref:`bool<class_bool>` **is_between** **(** :ref:`float<class_float>` s, :ref:`float<class_float>` a, :ref:`float<class_float>` b **)**
+
+Returns ``true`` if ``s`` lies between ``a`` and ``b`` values. Here, "between" means that ``s`` lies within the range of ``[a, b]`` **or** ``[b, a]`` ranges, so ``a`` and ``b`` should not be seen as min and max values, but rather as two extremes of the range. To prevent this, use :ref:`is_in_range<class_GoostMath_method_is_in_range>` instead.
+
+Values are compared using non-strict inequality. If ``a`` and ``b`` are the same, then ``s`` will still return ``true`` if ``s`` equals to ``a`` and ``b``.
+
+----
+
 .. _class_GoostMath_method_is_equal_approx:
 
 - :ref:`bool<class_bool>` **is_equal_approx** **(** :ref:`float<class_float>` a, :ref:`float<class_float>` b, :ref:`float<class_float>` tolerance=1e-06 **)**
@@ -66,6 +86,16 @@ Infinity values of the same sign are considered equal.
 
 ----
 
+.. _class_GoostMath_method_is_in_range:
+
+- :ref:`bool<class_bool>` **is_in_range** **(** :ref:`float<class_float>` s, :ref:`float<class_float>` min, :ref:`float<class_float>` max **)**
+
+Returns ``true`` if ``s`` is in the range of ``min`` and ``max`` values. If ``min > max``, the range is considered invalid and an error is printed. To prevent this, use :ref:`is_between<class_GoostMath_method_is_between>` instead.
+
+Values are compared using non-strict inequality. If ``min`` and ``max`` are the same, then ``s`` will still return ``true`` if ``s`` equals to ``min`` and ``max``.
+
+----
+
 .. _class_GoostMath_method_is_zero_approx:
 
 - :ref:`bool<class_bool>` **is_zero_approx** **(** :ref:`float<class_float>` s, :ref:`float<class_float>` tolerance=1e-06 **)**
@@ -73,6 +103,30 @@ Infinity values of the same sign are considered equal.
 Returns ``true`` if ``s`` is zero or almost zero.
 
 This method is faster than using :ref:`is_equal_approx<class_GoostMath_method_is_equal_approx>` with one value as zero.
+
+----
+
+.. _class_GoostMath_method_log:
+
+- :ref:`float<class_float>` **log** **(** :ref:`float<class_float>` x, :ref:`float<class_float>` base=2.71828 **)**
+
+Computes logarithm of ``x`` with arbitrary base. If ``base`` is not specified, returns natural logarithm of ``x``.
+
+----
+
+.. _class_GoostMath_method_log10:
+
+- :ref:`float<class_float>` **log10** **(** :ref:`float<class_float>` x **)**
+
+Computes common logarithm of ``x``.
+
+----
+
+.. _class_GoostMath_method_log2:
+
+- :ref:`float<class_float>` **log2** **(** :ref:`float<class_float>` x **)**
+
+Computes binary logarithm of ``x``.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`

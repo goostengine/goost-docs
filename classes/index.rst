@@ -16,6 +16,16 @@ further instructions.
 
 .. toctree::
     :maxdepth: 1
+    :caption: Audio
+    :name: toc-component-audio
+
+    class_midifile.rst
+    class_midiplayer.rst
+
+**Audio** is part of: :ref:`toc-component-scene`
+
+.. toctree::
+    :maxdepth: 1
     :caption: Core
     :name: toc-component-core
 
