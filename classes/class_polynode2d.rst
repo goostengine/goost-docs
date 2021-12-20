@@ -11,7 +11,7 @@ PolyNode2D
 
 **Inherits:** :ref:`Node2D<class_Node2D>` **<** :ref:`CanvasItem<class_CanvasItem>` **<** :ref:`Node<class_Node>` **<** :ref:`Object<class_Object>`
 
-**Inherited By:** :ref:`PolyCapsule2D<class_PolyCapsule2D>`, :ref:`PolyCircle2D<class_PolyCircle2D>`, :ref:`PolyPath2D<class_PolyPath2D>`, :ref:`PolyRectangle2D<class_PolyRectangle2D>`
+**Inherited By:** :ref:`PolyCapsule2D<class_PolyCapsule2D>`, :ref:`PolyCircle2D<class_PolyCircle2D>`, :ref:`PolyEllipse2D<class_PolyEllipse2D>`, :ref:`PolyPath2D<class_PolyPath2D>`, :ref:`PolyRectangle2D<class_PolyRectangle2D>`
 
 Represents a single polygon-based node in the hierarchy of nested polygons.
 

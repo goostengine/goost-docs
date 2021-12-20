@@ -103,12 +103,16 @@ further instructions.
     :caption: Scene
     :name: toc-component-scene
 
+    class_debug2d.rst
+    class_debugcapture.rst
     class_gradienttexture2d.rst
     class_lighttexture.rst
     class_polycapsule2d.rst
     class_polycircle2d.rst
+    class_polyellipse2d.rst
     class_polyrectangle2d.rst
     class_polyshape2d.rst
+    class_spawner2d.rst
     class_stopwatch.rst
     class_visualshape2d.rst
 

@@ -45,6 +45,8 @@ Methods
 +-------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | :ref:`Array<class_Array>`                       | :ref:`deflate_polyline<class_GoostGeometry2D_method_deflate_polyline>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polyline, :ref:`float<class_float>` delta **)** |const|                                                             |
 +-------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`PoolVector2Array<class_PoolVector2Array>` | :ref:`ellipse<class_GoostGeometry2D_method_ellipse>` **(** :ref:`float<class_float>` width, :ref:`float<class_float>` height, :ref:`float<class_float>` max_error=0.25 **)** |const|                                                             |
++-------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | :ref:`Array<class_Array>`                       | :ref:`exclude_polygons<class_GoostGeometry2D_method_exclude_polygons>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon_a, :ref:`PoolVector2Array<class_PoolVector2Array>` polygon_b **)** |const|                                  |
 +-------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | :ref:`Array<class_Array>`                       | :ref:`inflate_polygon<class_GoostGeometry2D_method_inflate_polygon>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon, :ref:`float<class_float>` delta **)** |const|                                                                |
@@ -158,6 +160,16 @@ Grows a polygon by ``delta`` pixels. See also :ref:`PolyOffset2D.deflate_polygon
 - :ref:`Array<class_Array>` **deflate_polyline** **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polyline, :ref:`float<class_float>` delta **)** |const|
 
 Grows a single non-closed path into a polygon by ``delta`` pixels. See also :ref:`PolyOffset2D.deflate_polylines<class_PolyOffset2D_method_deflate_polylines>`.
+
+----
+
+.. _class_GoostGeometry2D_method_ellipse:
+
+- :ref:`PoolVector2Array<class_PoolVector2Array>` **ellipse** **(** :ref:`float<class_float>` width, :ref:`float<class_float>` height, :ref:`float<class_float>` max_error=0.25 **)** |const|
+
+Generates a closed path approximating the shape of an ellipse with specified width and height.
+
+The ``max_error`` parameter allows to increase accuracy of generated shape, with low values increasing the number of vertices, which is similar to :ref:`circle<class_GoostGeometry2D_method_circle>`.
 
 ----
 

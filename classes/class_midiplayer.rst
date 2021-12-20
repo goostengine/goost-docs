@@ -11,46 +11,56 @@ MidiPlayer
 
 **Inherits:** :ref:`AudioStreamPlayer<class_AudioStreamPlayer>` **<** :ref:`Node<class_Node>` **<** :ref:`Object<class_Object>`
 
-**A MIDI player class.**
+A MIDI and SoundFont player class.
 
 Description
 -----------
 
 The MidiPlayer class can play MIDI files. It does this using a collection of sounds called SoundFont which was originally invented in the early 1990s by Creative Labs for their SoundBlaser AWE32 sound card. The MIDI specification is even older from 1983.
 
-Although these technologies old, they are still used today in music industry because they are so incredibly handy. MIDI specifically has seen continous with minimal changes since since inception.
+Although these technologies are old, they are still being used today in music industry because they are incredibly handy. While SoundFont has become less relevant with the development of sampling, MIDI specifically has seen continuous use very with minimal changes to the standard since inception. 
 
-In order to use this class, the node should be added to the scene tree. Create a new :ref:`AudioStreamGenerator<class_AudioStreamGenerator>` via inspector in :ref:`AudioStreamPlayer.stream<class_AudioStreamPlayer_property_stream>` and then load a SoundFont using :ref:`load_soundfont<class_MidiPlayer_method_load_soundfont>` and the MIDI file using :ref:`load_midi<class_MidiPlayer_method_load_midi>`. For instance:
+In order to use this class, the node should be added to the scene tree. Create a new :ref:`AudioStreamGenerator<class_AudioStreamGenerator>` via inspector in :ref:`AudioStreamPlayer.stream<class_AudioStreamPlayer_property_stream>` and then load a :ref:`MidiFile<class_MidiFile>` containing a SoundFont should be set to  :ref:`soundfont<class_MidiPlayer_property_soundfont>` and a :ref:`MidiFile<class_MidiFile>` midi song set to :ref:`midi<class_MidiPlayer_property_midi>`. For instance:
 
 ::
 
     func _ready():
-        $MidiPlayer.load_midi("res://moonlight.mid")
-        $MidiPlayer.load_soundfont("res://piano.sf2")
+        $MidiPlayer.midi = preload("res://moonlight.mid")
+        $MidiPlayer.soundfont = preload("res://piano.sf2")
         $MidiPlayer.play()
 
-You can find MIDI music and General Midi SoundFonts online.
+You can find MIDI songs and General MIDI SoundFonts online. Here are just a few completely free ones that you might want to look for: ``ChoriumRevA.sf2``, ``WeedsGM3.sf2``, ``SGM-V2.01FluidR3_GM.sf2``, ``TimGM6mb.sf2`` (close in sound with the original Sound Blaster soundfont), ``Timbres Of Heaven GM_GS_XG_SFX V 3.0 Final.sf2`` (very high quality). 
+
+It should be possible to play notes via :ref:`InputEventMIDI<class_InputEventMIDI>` as well.
 
 **List of keywords:**
 
-``channel:`` Audio channels allow notes to play at the same time on top of each other. Usually there are maximum of 16 channel (depending on the implementation).  
+``channel:`` And audio channels (or tracks) is the audio route the sound takes and allows one instrument to play. Multiple channels allow for different instruments to play on top of each other. Channel 10 is always set to Drums and is handled differently. The number of channels depends on implementation most commonly 16. Tiny Sound Font (which MidiPlayer uses) allocates channels dynamically so you can have as many as you want.
 
-``preset:`` The preset is an instrument (Piano, Harpsichord, etc) which is organized in sound banks. 
+``voice:`` A voice is related to a channel except that this is the actual audio you hear. Each channel has a voice called a Channel Voice. Some instruments or sound effects may also use voices. The number of voices depends on the implementation. On a typical instrument can be anywhere from 1 (monophonic) to 64 (polyphonic). Similar to channels, voices are allocated dynamically so you may have as many as you wish. There is a way to hard limit the max voices but hasn't been implemented.
 
-``bank:`` Each sound back contains a number of samples. Drums (usually preset 10) contain very different sample and are usually handled by a special drum mode.
+``program:`` A program is the tone quality. Drums has a unique program for playing individual samples, regular notes have a program, many effects have a program. Note that reverb and chorus have not been implemented.
 
-``note:`` is the note to play (also called key from keyboard). It must be a value between 0 and 127. Here 60 is middle C (C4).
+``preset/instrument:`` This is the instrument for example Piano, Harpsichord, etc. It uses various PCM samples mapped to regions of the keyboard. Drums (usually set to channel 10) are special in that each key has a unique sample and the entire instrument is handled by a drum program.
 
-``volume:`` Also called velocity. A value of 0.0 means no sound, a value of 1.0 means maximum volume.
+``bank:`` All samples inside a SoundFont are organized in groups called banks. A bank is commonly 128 samples. In practice most SoundFonts define their own internal sample organization.
+
+``note/message:`` Sometimes called message as it represents a note ON/OFF event. This is the note (or key) to play. It must be a value between 0 and 127. A value of 60 is middle C (C4).
+
+``volume/velocity:`` Commonly called velocity. A value of 0.0 means lowest volume (mute) while a value of 1.0 is loudest volume.
 
 Properties
 ----------
 
-+---------------------------+---------------------------------------------------------+----------+
-| :ref:`bool<class_bool>`   | :ref:`looping<class_MidiPlayer_property_looping>`       | ``true`` |
-+---------------------------+---------------------------------------------------------+----------+
-| :ref:`float<class_float>` | :ref:`midi_speed<class_MidiPlayer_property_midi_speed>` | ``1.0``  |
-+---------------------------+---------------------------------------------------------+----------+
++---------------------------------+---------------------------------------------------------+----------+
+| :ref:`bool<class_bool>`         | :ref:`looping<class_MidiPlayer_property_looping>`       | ``true`` |
++---------------------------------+---------------------------------------------------------+----------+
+| :ref:`MidiFile<class_MidiFile>` | :ref:`midi<class_MidiPlayer_property_midi>`             |          |
++---------------------------------+---------------------------------------------------------+----------+
+| :ref:`float<class_float>`       | :ref:`midi_speed<class_MidiPlayer_property_midi_speed>` | ``1.0``  |
++---------------------------------+---------------------------------------------------------+----------+
+| :ref:`MidiFile<class_MidiFile>` | :ref:`soundfont<class_MidiPlayer_property_soundfont>`   |          |
++---------------------------------+---------------------------------------------------------+----------+
 
 Methods
 -------
@@ -98,15 +108,7 @@ Methods
 +-----------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | void                                          | :ref:`channel_set_volume<class_MidiPlayer_method_channel_set_volume>` **(** :ref:`int<class_int>` channel, :ref:`float<class_float>` volume **)**                                               |
 +-----------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`String<class_String>`                   | :ref:`get_midi<class_MidiPlayer_method_get_midi>` **(** **)** |const|                                                                                                                           |
-+-----------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | :ref:`PoolStringArray<class_PoolStringArray>` | :ref:`get_preset_names<class_MidiPlayer_method_get_preset_names>` **(** **)** |const|                                                                                                           |
-+-----------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`String<class_String>`                   | :ref:`get_soundfont<class_MidiPlayer_method_get_soundfont>` **(** **)** |const|                                                                                                                 |
-+-----------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| void                                          | :ref:`load_midi<class_MidiPlayer_method_load_midi>` **(** :ref:`String<class_String>` midi_file **)**                                                                                           |
-+-----------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| void                                          | :ref:`load_soundfont<class_MidiPlayer_method_load_soundfont>` **(** :ref:`String<class_String>` soundfont_file **)**                                                                            |
 +-----------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | void                                          | :ref:`note_off<class_MidiPlayer_method_note_off>` **(** :ref:`int<class_int>` preset, :ref:`int<class_int>` note **)**                                                                          |
 +-----------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -122,7 +124,9 @@ Signals
 
 - **loop_finished** **(** **)**
 
-Emitted when the MIDI song finished playing one single loop. This signal is emitted only if looping is ``true``.
+Emitted when the MIDI song finishes playing one loop. This signal is emitted only if looping is ``true``.
+
+**Note**: When not looping, a ``finished`` signal is emitted instead and the MidiPlayer will automatically stop itself when reaching the end of the song.
 
 Property Descriptions
 ---------------------
@@ -136,10 +140,24 @@ Property Descriptions
 +-----------+--------------------+
 | *Setter*  | set_looping(value) |
 +-----------+--------------------+
-| *Getter*  | get_looping()      |
+| *Getter*  | is_looping()       |
 +-----------+--------------------+
 
-When set to ``true``, MIDI file will loop forever.
+When set to ``true``, midi file will loop forever.
+
+----
+
+.. _class_MidiPlayer_property_midi:
+
+- :ref:`MidiFile<class_MidiFile>` **midi**
+
++----------+-----------------+
+| *Setter* | set_midi(value) |
++----------+-----------------+
+| *Getter* | get_midi()      |
++----------+-----------------+
+
+This is the :ref:`MidiFile<class_MidiFile>` resource that contains the SoundFont data.
 
 ----
 
@@ -155,7 +173,21 @@ When set to ``true``, MIDI file will loop forever.
 | *Getter*  | get_midi_speed()      |
 +-----------+-----------------------+
 
-Controls the MIDI file playback speed.
+Controls the midi file playback speed.
+
+----
+
+.. _class_MidiPlayer_property_soundfont:
+
+- :ref:`MidiFile<class_MidiFile>` **soundfont**
+
++----------+----------------------+
+| *Setter* | set_soundfont(value) |
++----------+----------------------+
+| *Getter* | get_soundfont()      |
++----------+----------------------+
+
+This is the :ref:`MidiFile<class_MidiFile>` resource that contains the idi song data.
 
 Method Descriptions
 -------------------
@@ -164,7 +196,7 @@ Method Descriptions
 
 - :ref:`float<class_float>` **channel_get_pan** **(** :ref:`int<class_int>` channel **)**
 
-Returns the panning of the specified channel.
+Returns the left-right panning of the specified channel.
 
 ----
 
@@ -328,45 +360,11 @@ Set volume of a channel.
 
 ----
 
-.. _class_MidiPlayer_method_get_midi:
-
-- :ref:`String<class_String>` **get_midi** **(** **)** |const|
-
-Return the Midi file name and path.
-
-----
-
 .. _class_MidiPlayer_method_get_preset_names:
 
 - :ref:`PoolStringArray<class_PoolStringArray>` **get_preset_names** **(** **)** |const|
 
 Returns a list of preset names stored in the SoundFont.
-
-----
-
-.. _class_MidiPlayer_method_get_soundfont:
-
-- :ref:`String<class_String>` **get_soundfont** **(** **)** |const|
-
-Returns the full path of the soundfont currently loaded.
-
-----
-
-.. _class_MidiPlayer_method_load_midi:
-
-- void **load_midi** **(** :ref:`String<class_String>` midi_file **)**
-
-Loads a MIDI file. It must be a .mid or .midi file and the correct format.
-
-**Note:** A SoundFont file and a playback stream must exist in order for the file to actually play.
-
-----
-
-.. _class_MidiPlayer_method_load_soundfont:
-
-- void **load_soundfont** **(** :ref:`String<class_String>` soundfont_file **)**
-
-Loads a SoundFont 2 file. It must be an .sf2 file.
 
 ----
 

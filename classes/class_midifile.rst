@@ -16,14 +16,42 @@ MIDI data file.
 Description
 -----------
 
-This is a resource which represents the internal MIDI data used by :ref:`MidiPlayer<class_MidiPlayer>`.
+This is a resource which stores MIDI data used by :ref:`MidiPlayer<class_MidiPlayer>`. At load time, :ref:`format<class_MidiFile_property_format>` will be set accordingly.
+
+To load data into the MidiPlayer simply load a ``MidiFile`` with :ref:`FORMAT_MIDI<class_MidiFile_constant_FORMAT_MIDI>` into :ref:`MidiPlayer.midi<class_MidiPlayer_property_midi>` or a ``MidiFile`` with :ref:`FORMAT_SF2<class_MidiFile_constant_FORMAT_SF2>` into :ref:`MidiPlayer.soundfont<class_MidiPlayer_property_soundfont>`.
+
+**Note**: It is not recommended that you set byte :ref:`data<class_MidiFile_property_data>` directly or change the :ref:`format<class_MidiFile_property_format>`. These methods are more useful when loading MIDI data from a :ref:`File<class_File>` and you need to set byte data and format manually.
 
 Properties
 ----------
 
-+-------------------------------------------+-------------------------------------------+-----------------------+
-| :ref:`PoolByteArray<class_PoolByteArray>` | :ref:`data<class_MidiFile_property_data>` | ``PoolByteArray(  )`` |
-+-------------------------------------------+-------------------------------------------+-----------------------+
++-------------------------------------------+-----------------------------------------------+-----------------------+
+| :ref:`PoolByteArray<class_PoolByteArray>` | :ref:`data<class_MidiFile_property_data>`     | ``PoolByteArray(  )`` |
++-------------------------------------------+-----------------------------------------------+-----------------------+
+| :ref:`int<class_int>`                     | :ref:`format<class_MidiFile_property_format>` | ``0``                 |
++-------------------------------------------+-----------------------------------------------+-----------------------+
+
+Methods
+-------
+
++---------------------------------------+-------------------------------------------------------------------------------------------+
+| :ref:`Error<enum_@GlobalScope_Error>` | :ref:`load<class_MidiFile_method_load>` **(** :ref:`String<class_String>` file_path **)** |
++---------------------------------------+-------------------------------------------------------------------------------------------+
+
+Enumerations
+------------
+
+.. _enum_MidiFile_Format:
+
+.. _class_MidiFile_constant_FORMAT_MIDI:
+
+.. _class_MidiFile_constant_FORMAT_SF2:
+
+enum **Format**:
+
+- **FORMAT_MIDI** = **0** --- MIDI song data.
+
+- **FORMAT_SF2** = **1** --- SoundFont data.
 
 Property Descriptions
 ---------------------
@@ -40,7 +68,32 @@ Property Descriptions
 | *Getter*  | get_data()            |
 +-----------+-----------------------+
 
-A stream of bytes which represents MIDI data. This data is not meant to be modified, as MIDI files are imported or loaded via :ref:`MidiPlayer.load_midi<class_MidiPlayer_method_load_midi>`.
+A stream of bytes which represents MIDI data. This data is not meant to be modified, as MIDI files are imported automatically.
+
+----
+
+.. _class_MidiFile_property_format:
+
+- :ref:`int<class_int>` **format**
+
++-----------+-------------------+
+| *Default* | ``0``             |
++-----------+-------------------+
+| *Setter*  | set_format(value) |
++-----------+-------------------+
+| *Getter*  | get_format()      |
++-----------+-------------------+
+
+Represents the internal format of the ``MidiFile`` data. This is set automatically at import time.
+
+Method Descriptions
+-------------------
+
+.. _class_MidiFile_method_load:
+
+- :ref:`Error<enum_@GlobalScope_Error>` **load** **(** :ref:`String<class_String>` file_path **)**
+
+Load MIDI data from a file anywhere on the filesystem. It must be the correct format.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
