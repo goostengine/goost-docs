@@ -11,7 +11,7 @@ project = "Goost"
 copyright = "2019-2021, Andrii Doroshenko and the Goost community (CC-BY 3.0)"
 author = "Andrii Doroshenko and the Goost community"
 
-version = os.getenv("READTHEDOCS_VERSION", "gd3")
+version = os.getenv("READTHEDOCS_VERSION", "1.2-gd3")
 release = version
 
 goost_branch = version
@@ -21,6 +21,7 @@ if version == "latest":
 godot_map = {
     # Goost : Godot
     "latest" : "3.4",
+    "1.2-gd3": "3.4",
     "gd3": "3.4",
     "gd4": "latest",
 }
