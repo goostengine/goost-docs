@@ -1,12 +1,19 @@
 General principles
 ==================
 
+.. _doc_goost_development_philosophy:
+
 Development philosophy
 ----------------------
 
 As of now, Goost tries to follow some of the philosophical principles when it
 comes to the development itself. This page is continuously updated to convey
 the current development approach.
+
+Because Goost's development depends on Godot's development decisions, we advise
+you to read :ref:`doc_godot_development_philosophy` as well. Everything that
+goes below describe the difference between Goost and Godot development
+philosophies.
 
 If something should be in Godot, let it be in Godot
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
