@@ -8,8 +8,9 @@ Godot development philosophy
 .. warning::
 
     This page describes the development philosophy of Godot itself, not Goost.
-    For Goost development philosophy, refer to :ref:`doc_goost_development_philosophy`.
-    
+    For Goost development philosophy, refer to Goost's
+    :ref:`doc_goost_development_philosophy`.
+
     Most of what's written here was inferred from the words of Godot's
     representatives scattered over the Internet, but please note that what is
     written below is not an official description of Godot's development
@@ -125,10 +126,10 @@ accessible for most people, which may also include non-programmers.
 One way, or no way
 ~~~~~~~~~~~~~~~~~~
 
-Due to the above, the ability to tweak the engine performance for corner use
-cases may be lacking. If we take the rendering part, the vision here is that
-ability to customize can be achieved with a relatively simple renderer, so that
-any renderer engineer can still tweak the rendering by themselves that require
+Due to the above, the ability to tweak the engine for corner use cases may be
+lacking. If we take the rendering part, the vision here is that ability to
+customize can be achieved with a relatively simple renderer, so that any
+renderer engineer can still tweak the rendering by themselves that require
 specific functionality in their game projects.
 
 Likewise, if there are too many different possible approaches to implement
@@ -142,23 +143,6 @@ something useful to implement, the default decision is to not change the default
 parameters and values unless there's a clear use case that warrants adjusting
 the defaults.
 
-Preventing bloat
-~~~~~~~~~~~~~~~~
-
-The goal is to provide only the most common tools which are typically used by a
-vast majority of developers creating video games. This is why Godot is striving
-to have a good enough set of editor tools which allow developers to customize
-virtually any part of the editor to satisfy specific use cases. If you'd like to
-start contributing to Godot's development, pull requests that improve the editor
-itself are by far more likely to be merged.
-
-This way, the core stays lean and mean, so the engine developers can better
-focus on other aspects such as usability, stability and extensibility provided
-by modules and plugins. Community plugin ecosystem should be improved to avoid
-bloating the engine with features that will be rarely used. The Godot Editor is
-often seen as the final product and tends to be prioritized over everything
-else.
-
 Performance is low priority
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -168,27 +152,70 @@ Godot favors ease of use and maintenance over absolute performance. Performance
 may still be an important aspect for some projects which use Godot, so
 performance optimizations will be considered, but they may not be acceptable if
 they make something too difficult to use or if they add too much complexity to
-the codebase. A clear example of this is the following rejected pull request:
+the codebase. A clear example of this is the following Godot discussion:
 
 * `Using the slowest data structure almost every time <https://github.com/godotengine/godot/issues/23998>`_
 
-Not invented here
-~~~~~~~~~~~~~~~~~
+Feature scope
+~~~~~~~~~~~~~
 
-Oftentimes, `NIH <https://en.wikipedia.org/wiki/Not_invented_here>`_ is seen as
-negative statement, which describes the tendency to avoid using third-party
-solutions. However, Godot core developers take this decision deliberately, as
-this allows Godot to make independent decisions without trying to fit
+Preventing bloat
+^^^^^^^^^^^^^^^^
+
+The goal is to provide only the most common tools which are typically used by a
+vast majority of developers creating video games. This is why Godot is striving
+to have a good enough set of editor tools which allow developers to customize
+virtually any part of the editor. If you'd like to start contributing to Godot's
+development, pull requests that improve the editor itself are by far more likely
+to be merged.
+
+This way, the core stays lean and mean, so the engine developers can better
+focus on other aspects such as usability, stability and extensibility provided
+by modules and plugins. Community plugin ecosystem should be improved to avoid
+bloating the engine with features that will be rarely used. The Godot Editor is
+often seen as the final product and tends to be prioritized over everything
+else.
+
+Feature proposals in Godot may stagnate and labeled as having **no consensus**,
+so think twice before considering creating a proposal in Godot if you're not
+willing to go through the strict, bureaucratic Godot proposals process, which
+mostly applies to **feature** proposals rather than **enhancement** proposals
+that generally receive a welcoming message from Godot core developers given that
+a proposal "makes sense" to implement, so to speak.
+
+Even if a particular feature is already present in other (commercial) game
+engines, this is not seen as a strong reason for implementing a similar feature
+in Godot. That said, Godot may adapt and prioritize its feature set based on
+concrete use cases instead (*solely* according to the needs of Godot community).
+That also means that features may be removed from Godot quite quickly once a
+particular feature is no longer seen useful by the Godot advisors (based on
+community feedback), as
+`Godot aims to keep its core feature set small <https://docs.godotengine.org/en/stable/about/faq.html#why-does-godot-aim-to-keep-its-core-feature-set-small>`_.
+and generally minimalistic in everything. Eventually, extra functionality may be
+moved to officially supported extensions, and users might need to download them
+manually for each project they are working on.
+
+Not invented here
+^^^^^^^^^^^^^^^^^
+
+The `NIH <https://en.wikipedia.org/wiki/Not_invented_here>`_ syndrome describes
+the tendency to avoid using third-party solutions. Godot core developers do not
+see this as a negative thing and take this approach deliberately, with the
+rationale that Godot's architecture is unique, therefore making independent
+development decisions is required for Godot's success, without trying to fit
 third-party solutions into Godot's specific design. A lot was tested and dumped
 in Godot over years like SDL, Lua, Squirrel, Assimp, Box2D and Bullet, because
-either glue or politics were a problem.
+either glue or politics were a problem. However, Godot is not completely
+allergic to third-party solutions, but tends to prefer smaller sized libraries
+whenever possible, with different degrees of quality.
 
-However, from the user side, this "freedom" results in inability to customize
-the engine when you have specific cases to solve. Due to this, forking the
-engine locally for the project you're working on is the most natural decision to
-take if you do have problems that cannot be solved with Godot out of the box
-even with custom modules and plugins, or when you're not willing to go through
-the strict, bureaucratic Godot proposals process.
+However, from the user side, this so called "freedom" results in inability to
+customize the engine when you have specific cases to solve. Due to this, forking
+the engine locally for the project you're working on is the most natural
+decision to take if you do have problems that cannot be solved with Godot out of
+the box, even with custom modules and plugins. Godot is relatively simple to
+compile from source, so if you're capable of some C++ programming, it's not a
+big issue.
 
 Final notes
 ~~~~~~~~~~~
@@ -199,4 +226,4 @@ needed by your project.
 
 In order to minimize the excess division of Godot community (which is
 inevitable), `Goost <https://goostengine.github.io/>`_ was created. Please
-proceed to :ref:`doc_goost_development_philosophy`.
+proceed to Goost's :ref:`doc_goost_development_philosophy`.

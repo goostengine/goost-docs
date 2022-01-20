@@ -161,8 +161,8 @@ Community
 If you're an independent Godot Engine C++ modules developer who wants to link an
 existing module to be included as part of Goost, it may be worth to link the
 module as a ``git submodule``. This might be the best option if you'd like to
-have more freedom over your module's development, but most of the time this is
-not required since the module can be maintained independently of Goost.
+have more independence over your module's development, but most of the time this
+is not required since the module can be maintained independently of Goost.
 
 Nonetheless, if you'd like to share your module to increase discoverability,
 then feel free to open a pull request in the dedicated
