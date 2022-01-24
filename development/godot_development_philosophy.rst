@@ -44,13 +44,52 @@ History and culture
 One of the best ways to understand the ideas behind the engine is by going
 through the history of Godot development.
 
-The following are some resources which outline the origins of Godot Engine, some
-of which may already suggest a general direction of the project, so you can
-better see all the aspects and the background behind the engine development for
-yourself.
+Juan Linietsky and Ariel Manzur started developing a game engine in 2001 because
+of the lack of a general-purpose engine at the time, as they were often
+specialized, and because they thought it was important for the Argentine and
+Latin America video game industry to gain development experience with this type
+of software. [#f1]_
 
-Release news
-~~~~~~~~~~~~
+However, in 2007, the initial project was undermined by some design
+peculiarities that appeared with certain machines such as the iPhone or the
+PlayStation3. Different memory management and multi-core microprocessors
+required significant changes in the way games were developed [#f2]_. Due to
+this, the engine is still facing some architectural issues inherited from the
+past up to Godot 3.x, with hopes that it will be eventually modernized in
+Godot 4.x. [#f3]_
+
+Their new game engine is the one that will become Godot. At that time, Juan and
+Ariel were consultants in the field of video games and offered Godot as a tool
+to their clients, in various studios [#f4]_. Six years later, they decided to
+join the Okam studio, in order to be able to collaborate with other video game
+professions. This allowed them to focus on preparing the engine while the rest
+of the team was designing games using it. [#f2]_
+
+In 2014, Godot was released as a cross-platform, free and open-source game
+engine released under the MIT license [#f5]_. This allowed other voluntary
+contributors to participate in the development of the engine. Shortly after,
+Juan Linietsky had to leave the Okam studio. The political and economic
+instability of Argentina was making it difficult for the studio to thrive in
+spite of the encouraging beginnings of the government. Despite this, he
+continued to work on Godot in his free time, fixing bugs and responding to
+feedback from users (many of whom complained about the software's poor usability
+at that time, since Godot was largely an in-house engine). [#f4]_
+
+.. [#f1] `Godot 2 interview <https://80.lv/articles/godot2-interview/>`_ 
+.. [#f2] `SteamLUG Cast <https://archive.wikiwix.com/cache/index2.php?url=https%3A%2F%2Fsteamlug.org%2Fcast%2Fs04e05#federation=archive.wikiwix.com>`_
+.. [#f3] `Juan Linietsky tweet on Godot 3.x architecture and future <https://twitter.com/reduzio/status/1431304207139737604>`_
+.. [#f4] `A decade in retrospective and future <https://godotengine.org/article/retrospective-and-future>`_
+.. [#f5] `First public release! <https://godotengine.org/article/first-public-release>`_
+
+Other
+~~~~~
+
+The following are some official online resources which outline the origins of
+Godot Engine, some of which may already suggest a general direction of the
+project, so you can better see all the aspects and the background behind the
+engine development for yourself.
+
+.. rubric:: Release news
 
 * `First public release! <https://godotengine.org/article/first-public-release>`_
 * `Godot Engine reaches 1.0, first stable release <https://godotengine.org/article/godot-engine-reaches-1-0>`_
@@ -61,8 +100,7 @@ Release news
 * `Godot 3.1 is out, improving usability and features <https://godotengine.org/article/godot-3-1-released>`_
 * `Here comes Godot 3.2, with quality as priority <https://godotengine.org/article/here-comes-godot-3-2>`_
 
-Articles
-~~~~~~~~
+.. rubric:: Articles
 
 * `Godot history in images <https://godotengine.org/article/godot-history-images>`_
 * `Open source Godot gets two years old! <https://godotengine.org/article/open-source-godot-gets-two-years-old>`_
