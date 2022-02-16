@@ -75,13 +75,13 @@ Calls the ``method`` on the ``object`` during idle time. Whether a call is uniqu
 
 Returns Goost author information in a :ref:`Dictionary<class_Dictionary>`.
 
-``lead_developers``    - :ref:`Array<class_Array>` of :ref:`String<class_String>`, lead developer names
+\ ``lead_developers``    - :ref:`Array<class_Array>` of :ref:`String<class_String>`, lead developer names
 
-``founders``           - :ref:`Array<class_Array>` of :ref:`String<class_String>`, founder names
+\ ``founders``           - :ref:`Array<class_Array>` of :ref:`String<class_String>`, founder names
 
-``project_managers``   - :ref:`Array<class_Array>` of :ref:`String<class_String>`, project manager names
+\ ``project_managers``   - :ref:`Array<class_Array>` of :ref:`String<class_String>`, project manager names
 
-``developers``         - :ref:`Array<class_Array>` of :ref:`String<class_String>`, developer names
+\ ``developers``         - :ref:`Array<class_Array>` of :ref:`String<class_String>`, developer names
 
 ----
 
@@ -108,9 +108,9 @@ Returns a :ref:`Dictionary<class_Dictionary>` of color constants listed in :ref:
 
 Returns an :ref:`Array<class_Array>` of :ref:`Dictionary<class_Dictionary>` including copyright information.
 
-``name``    - :ref:`String<class_String>`, component name
+\ ``name``    - :ref:`String<class_String>`, component name
 
-``parts``   - :ref:`Array<class_Array>` of :ref:`Dictionary<class_Dictionary>` {``files``, ``copyright``, ``license``} describing subsections of the component
+\ ``parts``   - :ref:`Array<class_Array>` of :ref:`Dictionary<class_Dictionary>` {``files``, ``copyright``, ``license``} describing subsections of the component
 
 ----
 
@@ -150,23 +150,23 @@ Returns Goost license text.
 
 Returns the current Goost version information in a Dictionary.
 
-``major``    - Holds the major version number as an int
+\ ``major``    - Holds the major version number as an int
 
-``minor``    - Holds the minor version number as an int
+\ ``minor``    - Holds the minor version number as an int
 
-``patch``    - Holds the patch version number as an int
+\ ``patch``    - Holds the patch version number as an int
 
-``hex``      - Holds the full version number encoded as a hexadecimal int with one byte (2 places) per number (see example below)
+\ ``hex``      - Holds the full version number encoded as a hexadecimal int with one byte (2 places) per number (see example below)
 
-``status``   - Holds the status (e.g. "beta", "rc1", "rc2", ... "stable") as a String
+\ ``status``   - Holds the status (e.g. "beta", "rc1", "rc2", ... "stable") as a String
 
-``hash``     - Holds the full Git commit hash as a String
+\ ``hash``     - Holds the full Git commit hash as a String
 
-``year``     - Holds the year the version was released in as an int
+\ ``year``     - Holds the year the version was released in as an int
 
-``string``   - ``major`` + ``minor`` + ``patch`` + ``status`` + ``build`` in a single String
+\ ``string``   - ``major`` + ``minor`` + ``patch`` + ``status`` + ``build`` in a single String
 
-**Note: ** This method does not contain the build name as in :ref:`Engine.get_version_info<class_Engine_method_get_version_info>`, since the build name is related to the engine, not the extension. In Goost, the build name is usually overridden to ``"goost"`` value.
+\ **Note: ** This method does not contain the build name as in :ref:`Engine.get_version_info<class_Engine_method_get_version_info>`, since the build name is related to the engine, not the extension. In Goost, the build name is usually overridden to ``"goost"`` value.
 
 ----
 

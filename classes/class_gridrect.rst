@@ -18,7 +18,7 @@ Description
 
 A control which allows to draw a rectangular grid of any size. Provides basic methods for converting between grid and view coordinates with or without snapping, see methods :ref:`view_to_point<class_GridRect_method_view_to_point>` and :ref:`point_to_view<class_GridRect_method_point_to_view>`. The drawing can be completely customized by overriding :ref:`_draw_line<class_GridRect_method__draw_line>` method.
 
-**Note**: the scope of this class is mostly limited to drawing, and does not provide additional features like dragging, scrolling or zooming as seen in classes like :ref:`GraphEdit<class_GraphEdit>`, but nonetheless possible to implement via script by modifying :ref:`origin_offset<class_GridRect_property_origin_offset>` and :ref:`origin_scale<class_GridRect_property_origin_scale>` properties.
+\ **Note**: the scope of this class is mostly limited to drawing, and does not provide additional features like dragging, scrolling or zooming as seen in classes like :ref:`GraphEdit<class_GraphEdit>`, but nonetheless possible to implement via script by modifying :ref:`origin_offset<class_GridRect_property_origin_offset>` and :ref:`origin_scale<class_GridRect_property_origin_scale>` properties.
 
 Properties
 ----------
@@ -330,11 +330,11 @@ Called before drawing a grid line. The first four parameters match the interface
 
 The ``line`` parameter is a :ref:`Dictionary<class_Dictionary>` which contains the following fields:
 
-``step``: The line's step, which describes the current grid integer coordinate along the axis (can be negative or positive).
+\ ``step``: The line's step, which describes the current grid integer coordinate along the axis (can be negative or positive).
 
-``axis``: The line's axis along which it's drawn, one of :ref:`Axis<enum_GridRect_Axis>` values.
+\ ``axis``: The line's axis along which it's drawn, one of :ref:`Axis<enum_GridRect_Axis>` values.
 
-``type``: The line's type, one of :ref:`Line<enum_GridRect_Line>` values.
+\ ``type``: The line's type, one of :ref:`Line<enum_GridRect_Line>` values.
 
 Return ``true`` to draw the current line using default parameters, or ``false`` to discard it. You can still draw the line using :ref:`CanvasItem.draw_line<class_CanvasItem_method_draw_line>` method, or any other drawing method.
 

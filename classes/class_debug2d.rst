@@ -45,15 +45,15 @@ You can then access the captured snapshots using :ref:`get_capture<class_Debug2D
 
 Default draw parameters such as color or line width can be configured via :ref:`ProjectSettings<class_ProjectSettings>` (see ``debug/draw`` section), or using one of the ``draw_set_*`` methods. Arguments passed directly to methods will override parameters set by ``draw_set_*`` methods, and ``draw_set_*`` methods will override parameters defined in :ref:`ProjectSettings<class_ProjectSettings>`.
 
-**List of common parameters:**
+\ **List of common parameters:**\ 
 
-``color:`` Specifies draw color.
+\ ``color:`` Specifies draw color.
 
-``filled:`` If ``true``, then all geometrical primitives such as polygon, circle, rectangle etc. will be drawn with a solid color, otherwise only the outline is drawn.
+\ ``filled:`` If ``true``, then all geometrical primitives such as polygon, circle, rectangle etc. will be drawn with a solid color, otherwise only the outline is drawn.
 
-``line_width:`` Specifies line with for methods such as :ref:`draw_line<class_Debug2D_method_draw_line>`, or line width of unfilled primitives.
+\ ``line_width:`` Specifies line with for methods such as :ref:`draw_line<class_Debug2D_method_draw_line>`, or line width of unfilled primitives.
 
-**Note:** the drawing works in debug builds only.
+\ **Note:** the drawing works in debug builds only.
 
 Properties
 ----------

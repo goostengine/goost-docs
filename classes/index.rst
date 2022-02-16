@@ -33,6 +33,10 @@ further instructions.
     class_commandlineoption.rst
     class_commandlineparser.rst
     class_goostengine.rst
+    class_graph.rst
+    class_graphedge.rst
+    class_graphiterator.rst
+    class_graphvertex.rst
     class_invokestate.rst
     class_linkedlist.rst
     class_listnode.rst
@@ -105,7 +109,6 @@ further instructions.
 
     class_debug2d.rst
     class_debugcapture.rst
-    class_gradienttexture2d.rst
     class_lighttexture.rst
     class_polycapsule2d.rst
     class_polycircle2d.rst

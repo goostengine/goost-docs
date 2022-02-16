@@ -20,7 +20,7 @@ This is a resource which stores MIDI data used by :ref:`MidiPlayer<class_MidiPla
 
 To load data into the MidiPlayer simply load a ``MidiFile`` with :ref:`FORMAT_MIDI<class_MidiFile_constant_FORMAT_MIDI>` into :ref:`MidiPlayer.midi<class_MidiPlayer_property_midi>` or a ``MidiFile`` with :ref:`FORMAT_SF2<class_MidiFile_constant_FORMAT_SF2>` into :ref:`MidiPlayer.soundfont<class_MidiPlayer_property_soundfont>`.
 
-**Note**: It is not recommended that you set byte :ref:`data<class_MidiFile_property_data>` directly or change the :ref:`format<class_MidiFile_property_format>`. These methods are more useful when loading MIDI data from a :ref:`File<class_File>` and you need to set byte data and format manually.
+\ **Note**: It is not recommended that you set byte :ref:`data<class_MidiFile_property_data>` directly or change the :ref:`format<class_MidiFile_property_format>`. These methods are more useful when loading MIDI data from a :ref:`File<class_File>` and you need to set byte data and format manually.
 
 Properties
 ----------

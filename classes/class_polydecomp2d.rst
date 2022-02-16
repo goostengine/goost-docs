@@ -103,7 +103,7 @@ Partitions polygons into several other convex polygons. The exact algorithm used
 
 Both outer and inner polygons can be passed to cut holes during decomposition and are distinguished automatically, with potential performance cost.
 
-**Note:** :ref:`DECOMP_TRIANGLES_OPT<class_PolyDecomp2D_constant_DECOMP_TRIANGLES_OPT>` and :ref:`DECOMP_TRIANGLES_OPT<class_PolyDecomp2D_constant_DECOMP_TRIANGLES_OPT>` do not support partitioning of a polygon with holes.
+\ **Note:** :ref:`DECOMP_TRIANGLES_OPT<class_PolyDecomp2D_constant_DECOMP_TRIANGLES_OPT>` and :ref:`DECOMP_TRIANGLES_OPT<class_PolyDecomp2D_constant_DECOMP_TRIANGLES_OPT>` do not support partitioning of a polygon with holes.
 
 ----
 

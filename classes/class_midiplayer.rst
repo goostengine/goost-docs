@@ -33,21 +33,21 @@ You can find MIDI songs and General MIDI SoundFonts online. Here are just a few 
 
 It should be possible to play notes via :ref:`InputEventMIDI<class_InputEventMIDI>` as well.
 
-**List of keywords:**
+\ **List of keywords:**\ 
 
-``channel:`` And audio channels (or tracks) is the audio route the sound takes and allows one instrument to play. Multiple channels allow for different instruments to play on top of each other. Channel 10 is always set to Drums and is handled differently. The number of channels depends on implementation most commonly 16. Tiny Sound Font (which MidiPlayer uses) allocates channels dynamically so you can have as many as you want.
+\ ``channel:`` And audio channels (or tracks) is the audio route the sound takes and allows one instrument to play. Multiple channels allow for different instruments to play on top of each other. Channel 10 is always set to Drums and is handled differently. The number of channels depends on implementation most commonly 16. Tiny Sound Font (which MidiPlayer uses) allocates channels dynamically so you can have as many as you want.
 
-``voice:`` A voice is related to a channel except that this is the actual audio you hear. Each channel has a voice called a Channel Voice. Some instruments or sound effects may also use voices. The number of voices depends on the implementation. On a typical instrument can be anywhere from 1 (monophonic) to 64 (polyphonic). Similar to channels, voices are allocated dynamically so you may have as many as you wish. There is a way to hard limit the max voices but hasn't been implemented.
+\ ``voice:`` A voice is related to a channel except that this is the actual audio you hear. Each channel has a voice called a Channel Voice. Some instruments or sound effects may also use voices. The number of voices depends on the implementation. On a typical instrument can be anywhere from 1 (monophonic) to 64 (polyphonic). Similar to channels, voices are allocated dynamically so you may have as many as you wish. There is a way to hard limit the max voices but hasn't been implemented.
 
-``program:`` A program is the tone quality. Drums has a unique program for playing individual samples, regular notes have a program, many effects have a program. Note that reverb and chorus have not been implemented.
+\ ``program:`` A program is the tone quality. Drums has a unique program for playing individual samples, regular notes have a program, many effects have a program. Note that reverb and chorus have not been implemented.
 
-``preset/instrument:`` This is the instrument for example Piano, Harpsichord, etc. It uses various PCM samples mapped to regions of the keyboard. Drums (usually set to channel 10) are special in that each key has a unique sample and the entire instrument is handled by a drum program.
+\ ``preset/instrument:`` This is the instrument for example Piano, Harpsichord, etc. It uses various PCM samples mapped to regions of the keyboard. Drums (usually set to channel 10) are special in that each key has a unique sample and the entire instrument is handled by a drum program.
 
-``bank:`` All samples inside a SoundFont are organized in groups called banks. A bank is commonly 128 samples. In practice most SoundFonts define their own internal sample organization.
+\ ``bank:`` All samples inside a SoundFont are organized in groups called banks. A bank is commonly 128 samples. In practice most SoundFonts define their own internal sample organization.
 
-``note/message:`` Sometimes called message as it represents a note ON/OFF event. This is the note (or key) to play. It must be a value between 0 and 127. A value of 60 is middle C (C4).
+\ ``note/message:`` Sometimes called message as it represents a note ON/OFF event. This is the note (or key) to play. It must be a value between 0 and 127. A value of 60 is middle C (C4).
 
-``volume/velocity:`` Commonly called velocity. A value of 0.0 means lowest volume (mute) while a value of 1.0 is loudest volume.
+\ ``volume/velocity:`` Commonly called velocity. A value of 0.0 means lowest volume (mute) while a value of 1.0 is loudest volume.
 
 Properties
 ----------
@@ -126,7 +126,7 @@ Signals
 
 Emitted when the MIDI song finishes playing one loop. This signal is emitted only if looping is ``true``.
 
-**Note**: When not looping, a ``finished`` signal is emitted instead and the MidiPlayer will automatically stop itself when reaching the end of the song.
+\ **Note**: When not looping, a ``finished`` signal is emitted instead and the MidiPlayer will automatically stop itself when reaching the end of the song.
 
 Property Descriptions
 ---------------------

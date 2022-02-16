@@ -162,7 +162,7 @@ If ``invert`` is ``true``, flips all values to either zero or one.
 
 Fills the area with a ``fill_color`` confined by other opaque pixels. If ``fill_image`` is ``false``, the filled image chunk shall not overwrite the original image. The filled chunk is returned as another :ref:`Image<class_Image>` in all cases.
 
-:ref:`Connectivity<enum_GoostImage_Connectivity>` specifies the flood fill algorithm. :ref:`FOUR_CONNECTED<class_GoostImage_constant_FOUR_CONNECTED>` allows the filling pixels to go through diagonally placed opaque pixels and is slightly more efficient compared to :ref:`EIGHT_CONNECTED<class_GoostImage_constant_EIGHT_CONNECTED>`.
+\ :ref:`Connectivity<enum_GoostImage_Connectivity>` specifies the flood fill algorithm. :ref:`FOUR_CONNECTED<class_GoostImage_constant_FOUR_CONNECTED>` allows the filling pixels to go through diagonally placed opaque pixels and is slightly more efficient compared to :ref:`EIGHT_CONNECTED<class_GoostImage_constant_EIGHT_CONNECTED>`.
 
 ----
 
@@ -262,11 +262,11 @@ In order to render a SVG from a :ref:`File<class_File>`:
     var image = GoostImage.render_svg(svg)
     file.close()
 
-**Known limitations:**
+\ **Known limitations:**\ 
 
 This method reuses **nanosvg** implementation bundled with Godot for rendering editor icons and importing simple SVG images, so the functionality may be limited for more complex images.
 
-**Note:** this method is not available in Godot builds with SVG module disabled (enabled by default).
+\ **Note:** this method is not available in Godot builds with SVG module disabled (enabled by default).
 
 ----
 

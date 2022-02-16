@@ -18,7 +18,7 @@ Description
 
 A class which extends the run-time functionality of objects that use :ref:`MixinScript<class_MixinScript>`. All scripts added to :ref:`MixinScript<class_MixinScript>` must inherit from ``Mixin``.
 
-**Warning:** ``Mixin`` objects are instantiated internally and cannot be used as a :ref:`Node<class_Node>` in the scene tree. Do not instantiate ``Mixin`` objects manually.
+\ **Warning:** ``Mixin`` objects are instantiated internally and cannot be used as a :ref:`Node<class_Node>` in the scene tree. Do not instantiate ``Mixin`` objects manually.
 
 Properties
 ----------

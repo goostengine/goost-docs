@@ -219,7 +219,7 @@ Performs :ref:`PolyBoolean2D.OP_UNION<class_PolyBoolean2D_constant_OP_UNION>` be
 
 Returns an array of 2D-dimensional raster coordinates approximating a circle using a Bresenham type algorithm.
 
-**Note:** pixels are created per circle's octant for performance reasons, so you should not rely on the order of returned pixels. If you do need ordered points, consider using methods such as :ref:`polygon_to_pixels<class_GoostGeometry2D_method_polygon_to_pixels>` and :ref:`circle<class_GoostGeometry2D_method_circle>` with lower values for ``max_error`` parameter, but take in mind that the quality of the returned points is going to be sub-optimal in comparison.
+\ **Note:** pixels are created per circle's octant for performance reasons, so you should not rely on the order of returned pixels. If you do need ordered points, consider using methods such as :ref:`polygon_to_pixels<class_GoostGeometry2D_method_polygon_to_pixels>` and :ref:`circle<class_GoostGeometry2D_method_circle>` with lower values for ``max_error`` parameter, but take in mind that the quality of the returned points is going to be sub-optimal in comparison.
 
 ----
 
@@ -269,7 +269,7 @@ Returns the perimeter of an arbitrary polygon. See also :ref:`polyline_length<cl
 
 Returns an array of 2D-dimensional raster coordinates approximating a polygon going through ``points`` using :ref:`pixel_line<class_GoostGeometry2D_method_pixel_line>`. Point coordinates in the input ``points`` are rounded to nearest integer values.
 
-**Note:** this method does not fill the interior of the polygon. If you need this to raster polygons onto an image, use :ref:`GoostImage.render_polygon<class_GoostImage_method_render_polygon>` instead.
+\ **Note:** this method does not fill the interior of the polygon. If you need this to raster polygons onto an image, use :ref:`GoostImage.render_polygon<class_GoostImage_method_render_polygon>` instead.
 
 ----
 
@@ -370,6 +370,25 @@ Unlike :ref:`smooth_polygon_approx<class_GoostGeometry2D_method_smooth_polygon_a
 - :ref:`Array<class_Array>` **triangulate_polygon** **(** :ref:`PoolVector2Array<class_PoolVector2Array>` polygon **)** |const|
 
 Decomposes the polygon into individual triangles using :ref:`PolyDecomp2D.DECOMP_TRIANGLES_MONO<class_PolyDecomp2D_constant_DECOMP_TRIANGLES_MONO>`.
+
+Note that this method is different from Godot's :ref:`Geometry.triangulate_polygon<class_Geometry_method_triangulate_polygon>`, because it doesn't return indices. If you need to render the resulting triangles, you'll need to generate a continuous array of vertices and indices yourself. For example:
+
+::
+
+    extends Node2D
+    
+    func _draw():
+        var polygon = GoostGeometry2D.circle(100)
+        var triangles = GoostGeometry2D.triangulate_polygon(polygon)
+    
+        var vertices = PoolVector2Array()
+        for tri in triangles:
+            for p in tri:
+                vertices.push_back(p)
+    
+        var indices = range(vertices.size())
+    
+        VisualServer.canvas_item_add_triangle_array(get_canvas_item(), indices, vertices, PoolColorArray([Color.white]))
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`

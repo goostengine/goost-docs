@@ -290,7 +290,7 @@ Method Descriptions
 
 Forces an instantiation of a new :ref:`Node<class_Node>` from a :ref:`resource<class_Spawner2D_property_resource>`, even when :ref:`enabled<class_Spawner2D_property_enabled>` is set to ``false``. By default, the new node is added as a child to this one, unless :ref:`spawn_path<class_Spawner2D_property_spawn_path>` is customized.
 
-**Note**: the :ref:`node_spawned<class_Spawner2D_signal_node_spawned>` won't be emitted by calling this function, so if you need to spawn multiple instances from the same :ref:`resource<class_Spawner2D_property_resource>`, you can do so safely during signal emission. If you do need to notify other objects about this event, you can emit the :ref:`node_spawned<class_Spawner2D_signal_node_spawned>` signal manually.
+\ **Note**: the :ref:`node_spawned<class_Spawner2D_signal_node_spawned>` won't be emitted by calling this function, so if you need to spawn multiple instances from the same :ref:`resource<class_Spawner2D_property_resource>`, you can do so safely during signal emission. If you do need to notify other objects about this event, you can emit the :ref:`node_spawned<class_Spawner2D_signal_node_spawned>` signal manually.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`

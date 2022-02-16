@@ -385,7 +385,7 @@ Parses command-line ``args``. Returns :ref:`@GlobalScope.OK<class_@GlobalScope_c
 
 The method can accept command-line arguments returned by :ref:`OS.get_cmdline_args<class_OS_method_get_cmdline_args>`.
 
-**Note**: this method accepts a list of strings. Do not attempt to parse a single string containing command-line arguments with this method. You should split the string into components prior to parsing using :ref:`String.split<class_String_method_split>`, if needed.
+\ **Note**: this method accepts a list of strings. Do not attempt to parse a single string containing command-line arguments with this method. You should split the string into components prior to parsing using :ref:`String.split<class_String_method_split>`, if needed.
 
 ----
 

@@ -86,7 +86,7 @@ The specific :ref:`FillRule<enum_PolyBooleanParameters2D_FillRule>` used for ``p
 
 By default, when three or more vertices are collinear in the input polygons (subject or clip), the "inner" vertices are removed before clipping. If ``true``, prevents this default behavior to allow these inner vertices to appear in the solution.
 
-**Note:** this is only implemented in the **clipper6** backend.
+\ **Note:** this is only implemented in the **clipper6** backend.
 
 ----
 
@@ -104,7 +104,7 @@ By default, when three or more vertices are collinear in the input polygons (sub
 
 If ``true``, inverts the order of vertices in the clipping solution.
 
-**Note:** this is only implemented in the **clipper6** backend.
+\ **Note:** this is only implemented in the **clipper6** backend.
 
 ----
 
@@ -122,7 +122,7 @@ If ``true``, inverts the order of vertices in the clipping solution.
 
 If ``true``, ensures that the returned solution are always non self-intersecting polygons that does not contain "touching" vertices nor "touching" edges.
 
-**Note:** it's computationally expensive ensuring polygons are strictly simple in **clipper6** backend so this property is disabled by default. Yet **clipper10** backend always returns strictly simple polygons without performance costs, so this property is ignored there.
+\ **Note:** it's computationally expensive ensuring polygons are strictly simple in **clipper6** backend so this property is disabled by default. Yet **clipper10** backend always returns strictly simple polygons without performance costs, so this property is ignored there.
 
 ----
 

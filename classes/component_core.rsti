@@ -8,6 +8,10 @@ Classes
 * :ref:`CommandLineOption<class_CommandLineOption>`
 * :ref:`CommandLineParser<class_CommandLineParser>`
 * :ref:`GoostEngine<class_GoostEngine>`
+* :ref:`Graph<class_Graph>`
+* :ref:`GraphEdge<class_GraphEdge>`
+* :ref:`GraphIterator<class_GraphIterator>`
+* :ref:`GraphVertex<class_GraphVertex>`
 * :ref:`InvokeState<class_InvokeState>`
 * :ref:`LinkedList<class_LinkedList>`
 * :ref:`ListNode<class_ListNode>`

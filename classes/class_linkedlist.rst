@@ -18,7 +18,7 @@ Description
 
 A data structure which consists of a set of sequentially linked elements called nodes. Uses :ref:`ListNode<class_ListNode>` as a basic building block. Each node contains a reference to the previous node, the next node, and the data associated with the node. Insertion and deletion operations are faster ``O(1)`` compared to :ref:`Array<class_Array>`, but performs worse for random access ``O(n)``.
 
-:ref:`ListNode<class_ListNode>`\ s are constructed by inserting values to the list, and are not meant to be instantiated directly:
+\ :ref:`ListNode<class_ListNode>`\ s are constructed by inserting values to the list, and are not meant to be instantiated directly:
 
 ::
 

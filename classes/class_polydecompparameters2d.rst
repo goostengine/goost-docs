@@ -60,7 +60,7 @@ Property Descriptions
 
 Filling indicates those regions that are inside a closed path ("filled" with a brush color or pattern in a graphical display) and those regions that are outside.
 
-**Note:** this is only currently relevant in the **clipper10** backend for :ref:`PolyDecomp2D.DECOMP_TRIANGLES_MONO<class_PolyDecomp2D_constant_DECOMP_TRIANGLES_MONO>` algorithm.
+\ **Note:** this is only currently relevant in the **clipper10** backend for :ref:`PolyDecomp2D.DECOMP_TRIANGLES_MONO<class_PolyDecomp2D_constant_DECOMP_TRIANGLES_MONO>` algorithm.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`

@@ -111,23 +111,23 @@ Method Descriptions
 
 Performs a boolean operation between an array of polygons, with the ``polygons_a`` acting as the *subject* of the operation. Returns an array of resulting polygons with vertices in either clockwise or counterclockwise order, which determines whether a polygon is an outer polygon (boundary) or an inner polygon (hole). The orientation of returned polygons can be checked with :ref:`Geometry.is_polygon_clockwise<class_Geometry_method_is_polygon_clockwise>`. If you need to retain the hierarchy of nested outer and inner polygons, use :ref:`boolean_polygons_tree<class_PolyBoolean2D_method_boolean_polygons_tree>` instead.
 
-**Operations:**
+\ **Operations:**\ 
 
-:ref:`OP_UNION<class_PolyBoolean2D_constant_OP_UNION>`:
+\ :ref:`OP_UNION<class_PolyBoolean2D_constant_OP_UNION>`:
 
 Merges polygons into one if they overlap in any way. Passing ``polygons_b`` is optional in this case, but you can specify a different :ref:`PolyBooleanParameters2D.clip_fill_rule<class_PolyBooleanParameters2D_property_clip_fill_rule>` for these polygons, producing different results.
 
 This operation can also be used to convert arbitrary polygons into strictly simple ones (no self-intersections).
 
-:ref:`OP_DIFFERENCE<class_PolyBoolean2D_constant_OP_DIFFERENCE>`:
+\ :ref:`OP_DIFFERENCE<class_PolyBoolean2D_constant_OP_DIFFERENCE>`:
 
 Clips polygons, the *subject* remains intact if neither polygons overlap. Returns an empty array if ``polygons_b`` completely covers ``polygons_a``. If ``polygons_b`` are enclosed by ``polygons_a``, returns an array of boundary and hole polygons.
 
-:ref:`OP_INTERSECTION<class_PolyBoolean2D_constant_OP_INTERSECTION>`:
+\ :ref:`OP_INTERSECTION<class_PolyBoolean2D_constant_OP_INTERSECTION>`:
 
 Intersects polygons, effectively returning the common area shared by these polygons. Returns an empty array if no intersection occurs.
 
-:ref:`@GlobalScope.OP_XOR<class_@GlobalScope_constant_OP_XOR>`:
+\ :ref:`@GlobalScope.OP_XOR<class_@GlobalScope_constant_OP_XOR>`:
 
 Mutually excludes common area defined by the intersection of the polygons. In other words, returns all but common area between the polygons.
 

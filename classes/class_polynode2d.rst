@@ -129,7 +129,7 @@ Property Descriptions
 
 Draws polygons and polylines antialiased.
 
-**Note:** anti-aliasing may not work reliably in Godot 3.2, especially on GLES3 backend. This property will be removed in the future version of Godot.
+\ **Note:** anti-aliasing may not work reliably in Godot 3.2, especially on GLES3 backend. This property will be removed in the future version of Godot.
 
 ----
 

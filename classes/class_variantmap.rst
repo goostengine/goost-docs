@@ -114,7 +114,7 @@ Clears all elements in this map.
 
 Initializes the map by allocating new data to hold ``width * height`` elements. By default, all elements of the map are initialized to ``null`` values.
 
-**Note:** this clears all existing elements from the map before creation.
+\ **Note:** this clears all existing elements from the map before creation.
 
 ----
 

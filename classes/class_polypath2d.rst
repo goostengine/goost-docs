@@ -18,7 +18,7 @@ Description
 
 Generates a buffered outline defined by curves added with :ref:`Path2D<class_Path2D>`. The ``PolyPath2D`` must have at least one :ref:`Path2D<class_Path2D>` added as a child with :ref:`Curve2D<class_Curve2D>` defined. The process of curve deflation is done via :ref:`PolyOffset2D<class_PolyOffset2D>` internally, so you can use :ref:`buffer_parameters<class_PolyPath2D_property_buffer_parameters>` to configure offsetting behavior.
 
-**Note:** the class makes sure that changes to :ref:`Curve2D<class_Curve2D>` in :ref:`Path2D<class_Path2D>` lead to automatic updates in ``PolyPath2D`` using internal process callback on each idle frame. If you'd like to optimize the updating behavior, you can turn off internal processing using :ref:`Node.set_process_internal<class_Node_method_set_process_internal>` method.
+\ **Note:** the class makes sure that changes to :ref:`Curve2D<class_Curve2D>` in :ref:`Path2D<class_Path2D>` lead to automatic updates in ``PolyPath2D`` using internal process callback on each idle frame. If you'd like to optimize the updating behavior, you can turn off internal processing using :ref:`Node.set_process_internal<class_Node_method_set_process_internal>` method.
 
 Properties
 ----------

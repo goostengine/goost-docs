@@ -103,7 +103,7 @@ Property Descriptions
 
 If ``true``, the stopwatch will automatically start when entering the :ref:`SceneTree<class_SceneTree>`.
 
-**Note:** This property is automatically set to ``false`` after the stopwatch enters the :ref:`SceneTree<class_SceneTree>` and starts.
+\ **Note:** This property is automatically set to ``false`` after the stopwatch enters the :ref:`SceneTree<class_SceneTree>` and starts.
 
 ----
 

@@ -82,7 +82,7 @@ The fill color used to draw the :ref:`shape<class_VisualShape2D_property_shape>`
 
 If ``true``, respects the "Visible Collision Shapes" option so that the shape is only drawn when the option is enabled while the game is running.
 
-**Note:** available in debug builds only.
+\ **Note:** available in debug builds only.
 
 ----
 
@@ -100,7 +100,7 @@ If ``true``, respects the "Visible Collision Shapes" option so that the shape is
 
 If ``true``, this overrides the :ref:`color<class_VisualShape2D_property_color>` with the color used to draw the collision shapes.
 
-**Note:** available in debug builds only.
+\ **Note:** available in debug builds only.
 
 ----
 
