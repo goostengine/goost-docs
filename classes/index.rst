@@ -32,6 +32,7 @@ further instructions.
     class_commandlinehelpformat.rst
     class_commandlineoption.rst
     class_commandlineparser.rst
+    class_datacontainer.rst
     class_goostengine.rst
     class_graph.rst
     class_graphedge.rst
@@ -40,8 +41,7 @@ further instructions.
     class_invokestate.rst
     class_linkedlist.rst
     class_listnode.rst
-    class_variantmap.rst
-    class_variantresource.rst
+    class_map2d.rst
 
 .. toctree::
     :maxdepth: 1

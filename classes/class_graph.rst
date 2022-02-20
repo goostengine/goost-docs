@@ -392,20 +392,20 @@ Use depth-first search iterator (default).
 
 - :ref:`Dictionary<class_Dictionary>` **shortest_path_tree** **(** :ref:`GraphVertex<class_GraphVertex>` root **)** |const|
 
-Returns a shortest path tree starting at the ``root`` vertex using Dijkstra's algorithm. This solves the Single-Source Shortest Path (SSSP) problem, which allows to find the shortest paths between a given vertex to all other vertices in the graph. The algorithm is structurally equivalent to the breadth-first search, except that this uses a priority queue to choose the next vertex based on :ref:`GraphEdge.value<class_GraphEdge_property_value>` weights interpreted as :ref:`float<class_float>` values.
+Returns a shortest path tree starting at the ``root`` vertex using Dijkstra's algorithm. This solves the Single-Source Shortest Path (SSSP) problem, which allows to find the shortest paths between a given vertex to all other vertices in the graph. The algorithm is structurally equivalent to the breadth-first search, except that this uses a priority queue to choose the next vertex based on :ref:`GraphEdge.value<class_GraphEdge_property_value>` weights interpreted as :ref:`float<class_float>` values. The weight of each edge should not be negative for the Dijkstra's algorithm to work properly.
 
 The tree is represented as a :ref:`Dictionary<class_Dictionary>` containing the following keys:
 
-\ ``backtrace:`` A :ref:`Dictionary<class_Dictionary>` which contains exhaustive information that allows to reconstruct the shortest path. The keys hold current :ref:`GraphVertex<class_GraphVertex>`, and values contain previous :ref:`GraphVertex<class_GraphVertex>`. Therefore, the shortest path between the source to any other connected vertex can be obtained in the following way:
+\ ``backtrace:`` A :ref:`Dictionary<class_Dictionary>` which contains an exhaustive information that allows to reconstruct the shortest path. The keys hold current :ref:`GraphVertex<class_GraphVertex>`, and values contain previous :ref:`GraphVertex<class_GraphVertex>`. Therefore, the shortest path between the source to any other connected vertex can be obtained in the following way:
 
 ::
 
     # Find the shortest path tree starting from the root vertex of interest.
-    var root = Random.choice(graph.get_vertices())
+    var root = Random.pick(graph.get_vertices())
     var tree = graph.shortest_path_tree(root)
     
     # Pick any target vertex.
-    var current = Random.choice(graph.get_vertices())
+    var current = Random.pick(graph.get_vertices())
     
     # Extract shortest path.
     var shortest_path = []

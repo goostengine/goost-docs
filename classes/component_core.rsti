@@ -7,6 +7,7 @@ Classes
 * :ref:`CommandLineHelpFormat<class_CommandLineHelpFormat>`
 * :ref:`CommandLineOption<class_CommandLineOption>`
 * :ref:`CommandLineParser<class_CommandLineParser>`
+* :ref:`DataContainer<class_DataContainer>`
 * :ref:`GoostEngine<class_GoostEngine>`
 * :ref:`Graph<class_Graph>`
 * :ref:`GraphEdge<class_GraphEdge>`
@@ -15,8 +16,7 @@ Classes
 * :ref:`InvokeState<class_InvokeState>`
 * :ref:`LinkedList<class_LinkedList>`
 * :ref:`ListNode<class_ListNode>`
-* :ref:`VariantMap<class_VariantMap>`
-* :ref:`VariantResource<class_VariantResource>`
+* :ref:`Map2D<class_Map2D>`
 
 Usage
 -----

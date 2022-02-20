@@ -91,11 +91,11 @@ If ``radius_min == 0``, generates points inside a unit circle, such that :ref:`G
 
 If ``radius_min != radius_max``, generates points within the ring's area, such that the inner area defined by ``radius_min`` remains unaffected.
 
-If ``radius_min == radius_max``, generates points exactly **on** the circle's boundary, but do note that a point may slightly deviate from the actual circle's boundary due to floating point error accumulation.
+If ``radius_min == radius_max``, generates points exactly **on** the circle's boundary, but do note that a point may slightly deviate from the actual circle's boundary due to floating point error accumulation, so :ref:`Geometry.is_point_in_circle<class_Geometry_method_is_point_in_circle>` may occasionally return ``false``.
 
 ::
 
-    var point: Vector2()
+    var point: Vector2
     point = Random2D.point_in_circle(1.0, 1.0) # Unit vector.
     point = Random2D.point_in_circle(0.0, 1.0) # Inside a circle.
     point = Random2D.point_in_circle(0.5, 1.0) # Within a ring.

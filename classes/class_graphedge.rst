@@ -32,13 +32,13 @@ Properties
 Methods
 -------
 
-+---------------------------+------------------------------------------------------------------------+
-| :ref:`Graph<class_Graph>` | :ref:`get_graph<class_GraphEdge_method_get_graph>` **(** **)** |const| |
-+---------------------------+------------------------------------------------------------------------+
-| :ref:`bool<class_bool>`   | :ref:`is_directed<class_GraphEdge_method_is_directed>` **(** **)**     |
-+---------------------------+------------------------------------------------------------------------+
-| :ref:`bool<class_bool>`   | :ref:`is_loop<class_GraphEdge_method_is_loop>` **(** **)**             |
-+---------------------------+------------------------------------------------------------------------+
++---------------------------+----------------------------------------------------------------------------+
+| :ref:`Graph<class_Graph>` | :ref:`get_graph<class_GraphEdge_method_get_graph>` **(** **)** |const|     |
++---------------------------+----------------------------------------------------------------------------+
+| :ref:`bool<class_bool>`   | :ref:`is_directed<class_GraphEdge_method_is_directed>` **(** **)** |const| |
++---------------------------+----------------------------------------------------------------------------+
+| :ref:`bool<class_bool>`   | :ref:`is_loop<class_GraphEdge_method_is_loop>` **(** **)** |const|         |
++---------------------------+----------------------------------------------------------------------------+
 
 Property Descriptions
 ---------------------
@@ -92,7 +92,7 @@ Returns the master :ref:`Graph<class_Graph>` that instantiated and manages this 
 
 .. _class_GraphEdge_method_is_directed:
 
-- :ref:`bool<class_bool>` **is_directed** **(** **)**
+- :ref:`bool<class_bool>` **is_directed** **(** **)** |const|
 
 Returns ``true`` if the edge has a notion of direction, otherwise returns ``false`` (associative edge).
 
@@ -100,7 +100,7 @@ Returns ``true`` if the edge has a notion of direction, otherwise returns ``fals
 
 .. _class_GraphEdge_method_is_loop:
 
-- :ref:`bool<class_bool>` **is_loop** **(** **)**
+- :ref:`bool<class_bool>` **is_loop** **(** **)** |const|
 
 Returns ``true`` if the edge is a self-loop, meaning that :ref:`a<class_GraphEdge_property_a>` is equal to :ref:`b<class_GraphEdge_property_b>`.
 

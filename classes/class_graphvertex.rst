@@ -16,7 +16,7 @@ A data structure used to represent a vertex in a :ref:`Graph<class_Graph>`.
 Description
 -----------
 
-A vertex holds a data and information about all neighbor vertices that are connected to it. To traverse all neighbors:
+A vertex holds a data and information about all neighbor vertices that are connected to it. To traverse all neighbors, use :ref:`get_neighbors<class_GraphVertex_method_get_neighbors>`:
 
 ::
 
@@ -29,6 +29,13 @@ You can also use a built-in (GDScript) iterator to traverse all neighbors (may b
 
     for n in v:
         print(n)
+
+For enumerating edges instead of vertices, use :ref:`get_edges<class_GraphVertex_method_get_edges>`:
+
+::
+
+    for e in v.get_edges():
+        print(e.a, " ", e.b)
 
 If you need to traverse the graph without producing duplicates, you may also consider using graph's default :ref:`Graph.iterator<class_Graph_property_iterator>`.
 
@@ -43,11 +50,17 @@ Methods
 -------
 
 +---------------------------+--------------------------------------------------------------------------------------------------+
+| :ref:`Array<class_Array>` | :ref:`get_edges<class_GraphVertex_method_get_edges>` **(** **)** |const|                         |
++---------------------------+--------------------------------------------------------------------------------------------------+
 | :ref:`Graph<class_Graph>` | :ref:`get_graph<class_GraphVertex_method_get_graph>` **(** **)** |const|                         |
++---------------------------+--------------------------------------------------------------------------------------------------+
+| :ref:`Array<class_Array>` | :ref:`get_incoming_edges<class_GraphVertex_method_get_incoming_edges>` **(** **)** |const|       |
 +---------------------------+--------------------------------------------------------------------------------------------------+
 | :ref:`int<class_int>`     | :ref:`get_neighbor_count<class_GraphVertex_method_get_neighbor_count>` **(** **)** |const|       |
 +---------------------------+--------------------------------------------------------------------------------------------------+
 | :ref:`Array<class_Array>` | :ref:`get_neighbors<class_GraphVertex_method_get_neighbors>` **(** **)** |const|                 |
++---------------------------+--------------------------------------------------------------------------------------------------+
+| :ref:`Array<class_Array>` | :ref:`get_outgoing_edges<class_GraphVertex_method_get_outgoing_edges>` **(** **)** |const|       |
 +---------------------------+--------------------------------------------------------------------------------------------------+
 | :ref:`int<class_int>`     | :ref:`get_predecessor_count<class_GraphVertex_method_get_predecessor_count>` **(** **)** |const| |
 +---------------------------+--------------------------------------------------------------------------------------------------+
@@ -76,11 +89,27 @@ Vertex data (could a label, a list of attributes etc).
 Method Descriptions
 -------------------
 
+.. _class_GraphVertex_method_get_edges:
+
+- :ref:`Array<class_Array>` **get_edges** **(** **)** |const|
+
+Returns all :ref:`GraphEdge<class_GraphEdge>`\ s associated with this vertex, including incoming and outgoing edges, see :ref:`get_incoming_edges<class_GraphVertex_method_get_incoming_edges>` and :ref:`get_outgoing_edges<class_GraphVertex_method_get_outgoing_edges>` methods.
+
+----
+
 .. _class_GraphVertex_method_get_graph:
 
 - :ref:`Graph<class_Graph>` **get_graph** **(** **)** |const|
 
 Returns the master :ref:`Graph<class_Graph>` that instantiated and manages this vertex.
+
+----
+
+.. _class_GraphVertex_method_get_incoming_edges:
+
+- :ref:`Array<class_Array>` **get_incoming_edges** **(** **)** |const|
+
+Returns all :ref:`GraphEdge<class_GraphEdge>`\ s that point from predecessor vertices.
 
 ----
 
@@ -97,6 +126,14 @@ Returns the total number of neighbor vertices.
 - :ref:`Array<class_Array>` **get_neighbors** **(** **)** |const|
 
 Returns a list of all ``GraphVertex`` neighbors.
+
+----
+
+.. _class_GraphVertex_method_get_outgoing_edges:
+
+- :ref:`Array<class_Array>` **get_outgoing_edges** **(** **)** |const|
+
+Returns all :ref:`GraphEdge<class_GraphEdge>`\ s that point to successor vertices.
 
 ----
 
