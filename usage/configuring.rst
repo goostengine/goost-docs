@@ -175,12 +175,6 @@ officially maintained by the Goost authors and are versioned as part of the
 extension. Community modules represent ``git`` submodules which are maintained
 by third-party developers.
 
-The ``disable_builtin.py`` and ``disable_community.py`` configuration scripts
-located at ``modules/`` directory aim to list all modules in such a way that
-they can be disabled by users, as modules are enabled by default once detected
-by the build system, unless they are explicitly disabled via
-``config.py::is_enabled`` method per each module.
-
 If you'd like to opt-out from compiling certain modules, you'll have to disable
 each of the unused modules explicitly:
 
@@ -190,12 +184,11 @@ each of the unused modules explicitly:
     module_a_enabled="no" module_b_enabled="no" module_c_enabled="no" ...
 
 All of the above options can be conveniently defined by creating ``custom.py`` at
-the root of Godot source, or pointing to an existing configuration file such as
-above:
+the root of Godot source, or pointing to an existing configuration file:
 
 .. code-block:: shell
 
-    scons profile="modules/goost/disable_community.py"
+    scons profile="/path/to/profile.py"
 
 Community modules can be fetched with:
 

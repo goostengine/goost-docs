@@ -14,10 +14,6 @@ directory.
 See Godot Engine's :ref:`Custom modules in C++ <doc_custom_modules_in_c++>` for
 an exhaustive instructions on developing modules.
 
-Don't forget to include the newly developed module in ``disable_builtin.py`` so
-that all built-in modules can be easily disabled by a user, and enable a module
-of interest explicitly via the command line.
-
 .. _doc_adding_community_modules:
 
 Adding community modules
