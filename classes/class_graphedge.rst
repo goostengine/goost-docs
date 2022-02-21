@@ -18,6 +18,8 @@ Description
 
 An edge connects two :ref:`GraphVertex<class_GraphVertex>` vertices together. The edge's direction is determined by whether it was added via :ref:`Graph.add_edge<class_Graph_method_add_edge>` or :ref:`Graph.add_directed_edge<class_Graph_method_add_directed_edge>`. If the edge is directed, then :ref:`a<class_GraphEdge_property_a>` and :ref:`b<class_GraphEdge_property_b>` must be interpreted as endpoints of an arrow pointing *from* a vertex *to* another.
 
+You can call :ref:`Object.free<class_Object_method_free>` to remove this edge from the :ref:`Graph<class_Graph>` it belongs to.
+
 Properties
 ----------
 

@@ -52,8 +52,6 @@ Methods
 -------
 
 +-----------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Variant<class_Variant>`     | :ref:`pick<class_Random_method_pick>` **(** :ref:`Variant<class_Variant>` from **)**                                                                                                                                                                                                                                                                                                                     |
-+-----------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | :ref:`Array<class_Array>`         | :ref:`choices<class_Random_method_choices>` **(** :ref:`Variant<class_Variant>` sequence, :ref:`int<class_int>` count=1, :ref:`PoolIntArray<class_PoolIntArray>` weights=null, :ref:`bool<class_bool>` cumulative=false **)**                                                                                                                                                                            |
 +-----------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | :ref:`Color<class_Color>`         | :ref:`color_hsv<class_Random_method_color_hsv>` **(** :ref:`float<class_float>` hue_min=0.0, :ref:`float<class_float>` hue_max=1.0, :ref:`float<class_float>` saturation_min=0.0, :ref:`float<class_float>` saturation_max=1.0, :ref:`float<class_float>` value_min=0.0, :ref:`float<class_float>` value_max=1.0, :ref:`float<class_float>` alpha_min=1.0, :ref:`float<class_float>` alpha_max=1.0 **)** |
@@ -64,7 +62,9 @@ Methods
 +-----------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | :ref:`Reference<class_Reference>` | :ref:`new_instance<class_Random_method_new_instance>` **(** **)** |const|                                                                                                                                                                                                                                                                                                                                |
 +-----------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Variant<class_Variant>`     | :ref:`pop<class_Random_method_pop>` **(** :ref:`Variant<class_Variant>` from **)**                                                                                                                                                                                                                                                                                                                       |
+| :ref:`Variant<class_Variant>`     | :ref:`pick<class_Random_method_pick>` **(** :ref:`Variant<class_Variant>` sequence **)**                                                                                                                                                                                                                                                                                                                 |
++-----------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Variant<class_Variant>`     | :ref:`pop<class_Random_method_pop>` **(** :ref:`Variant<class_Variant>` sequence **)**                                                                                                                                                                                                                                                                                                                   |
 +-----------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | :ref:`Variant<class_Variant>`     | :ref:`range<class_Random_method_range>` **(** :ref:`Variant<class_Variant>` from, :ref:`Variant<class_Variant>` to **)**                                                                                                                                                                                                                                                                                 |
 +-----------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -149,21 +149,13 @@ Generates a random real number in the range of ``0.0..1.0``. Equivalent to :ref:
 Method Descriptions
 -------------------
 
-.. _class_Random_method_pick:
-
-- :ref:`Variant<class_Variant>` **pick** **(** :ref:`Variant<class_Variant>` from **)**
-
-Returns a random element from a container or indexable sequence, such as :ref:`Array<class_Array>`, :ref:`Dictionary<class_Dictionary>`, :ref:`String<class_String>`. If container is empty, prints an error and returns ``null``.
-
-----
-
 .. _class_Random_method_choices:
 
 - :ref:`Array<class_Array>` **choices** **(** :ref:`Variant<class_Variant>` sequence, :ref:`int<class_int>` count=1, :ref:`PoolIntArray<class_PoolIntArray>` weights=null, :ref:`bool<class_bool>` cumulative=false **)**
 
-Returns an :ref:`Array<class_Array>` of randomly picked elements from a ``sequence``, with the number of elements equal to ``count``. The elements are picked according to integer ``weights`` or an array of values from the ``sequence`` if it's a :ref:`Dictionary<class_Dictionary>` and if ``weights[/codes] is empty.
+Returns an :ref:`Array<class_Array>` of randomly picked elements from a ``sequence``, with the number of elements equal to ``count``. The elements are picked according to integer ``weights`` or an array of values from the ``sequence`` if it's a :ref:`Dictionary<class_Dictionary>` and if ``weights`` is empty.
 
-All elements of [code]weights`` must be non-negative integers, and must contain at least one non-zero element if ``weights`` is not empty. Additionally, the order of integers should be non-decreasing if ``cumulative`` is ``true``.
+All elements of ``weights`` must be non-negative integers, and must contain at least one non-zero element if ``weights`` is not empty. Additionally, the order of integers should be non-decreasing if ``cumulative`` is ``true``.
 
 If ``weights`` is not empty and if ``sequence`` is not a :ref:`Dictionary<class_Dictionary>`, then the size of ``weights`` must be equal to the size of ``sequence``.
 
@@ -213,9 +205,17 @@ Instantiates a new local ``Random`` instance based on :ref:`RandomNumberGenerato
 
 ----
 
+.. _class_Random_method_pick:
+
+- :ref:`Variant<class_Variant>` **pick** **(** :ref:`Variant<class_Variant>` sequence **)**
+
+Returns a random element from a container or indexable ``sequence``, such as :ref:`Array<class_Array>`, :ref:`Dictionary<class_Dictionary>`, :ref:`String<class_String>`. If container is empty, prints an error and returns ``null``.
+
+----
+
 .. _class_Random_method_pop:
 
-- :ref:`Variant<class_Variant>` **pop** **(** :ref:`Variant<class_Variant>` from **)**
+- :ref:`Variant<class_Variant>` **pop** **(** :ref:`Variant<class_Variant>` sequence **)**
 
 Returns a random element from an :ref:`Array<class_Array>` or :ref:`Dictionary<class_Dictionary>`, and then removes the value from it. If container is empty, prints an error and returns ``null``.
 

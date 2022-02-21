@@ -39,6 +39,8 @@ For enumerating edges instead of vertices, use :ref:`get_edges<class_GraphVertex
 
 If you need to traverse the graph without producing duplicates, you may also consider using graph's default :ref:`Graph.iterator<class_Graph_property_iterator>`.
 
+You can call :ref:`Object.free<class_Object_method_free>` to remove this vertex from the :ref:`Graph<class_Graph>` it belongs to.
+
 Properties
 ----------
 

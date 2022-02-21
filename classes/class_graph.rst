@@ -362,6 +362,8 @@ In order to obtain a *maximum spanning tree*, you can inverse the weights, for e
 
 Removes an edge from the graph. If the graph is simple, you could find an edge with :ref:`find_edge<class_Graph_method_find_edge>` first, and then remove it.
 
+Alternatively, you can also remove the edge by calling :ref:`Object.free<class_Object_method_free>` on it.
+
 ----
 
 .. _class_Graph_method_remove_vertex:
@@ -369,6 +371,8 @@ Removes an edge from the graph. If the graph is simple, you could find an edge w
 - void **remove_vertex** **(** :ref:`GraphVertex<class_GraphVertex>` vertex **)**
 
 Removes the specified vertex from the graph. All edges that are connected to the vertex will be automatically deleted.
+
+Alternatively, you can also remove the vertex by calling :ref:`Object.free<class_Object_method_free>` on it.
 
 ----
 
