@@ -138,6 +138,10 @@ If you don't want to reinvent the wheel and you need to use a feature for which
 there's an existing C/C++ library which can be bundled as part of Goost, that's
 also a justifiable reason for a feature to be integrated.
 
+Embedding third-party software development kits (SDK) is out of scope for Goost
+due to licensing issues and maintenance burden. However, providing an interface
+to such SDKs may be appropriate in some cases.
+
 Alternatives
 ~~~~~~~~~~~~
 
