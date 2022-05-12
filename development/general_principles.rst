@@ -15,19 +15,10 @@ you to read :ref:`doc_godot_development_philosophy` as well. Everything that
 goes below describe the difference between Goost and Godot development
 philosophies.
 
-If something should be in Godot, let it be in Godot
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+If something is not in Godot, let it be in Goost
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Goost is *not* a Godot Engine fork. We're *not* interested in the division of
-Godot community.
-
-If you really believe that a particular feature should be implemented directly
-in Godot Engine for the greater good of everyone, please go ahead and create a
-`Godot Improvement Proposal <https://github.com/godotengine/godot-proposals>`_
-to be discussed and reviewed by Godot core developers first. A feature backed up
-by a Godot proposal that received a decent amount of user support is more likely
-to be approved for Goost development, even if no consensus is reached among
-Godot core contributors.
+Goost is *not* a Godot Engine fork.
 
 One of the main reasons why Goost exists as a project is because of
 `Godot's idea of being small <https://docs.godotengine.org/en/stable/about/faq.html#why-does-godot-aim-to-keep-its-core-feature-set-small>`_
@@ -39,14 +30,14 @@ deliver feature-rich experience.
 No need to wait
 ~~~~~~~~~~~~~~~
 
-We use Goost as a bridge that allows us to implement features independently of
-Godot's review process and release cycles. Following this kind of development
-approach helps us to port existing Goost features to Godot itself with ease in
-the future, given that a particular feature is eventually approved for Godot
-development. If you think that a particular feature might be a bit controversial
-to implement directly in Godot, in all likelihood you should consider
-contributing to Goost. Don't allow your feature proposals and pull requests
-stagnate in the Limbo!
+We use Goost both as a platform and a bridge that allows us to implement
+features independently of Godot's review process and release cycles. Following
+this kind of development approach helps us to port existing Goost features to
+Godot itself with ease in the future, but only if we're certain that a
+particular feature is actually approved for Godot development. If you think that
+a particular feature might be a bit controversial to implement directly in
+Godot, in all likelihood you should consider contributing to Goost. Don't allow
+your feature proposals and pull requests stagnate in the Limbo!
 
 Maximum workflow compatibility
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -55,8 +46,10 @@ Even though Goost is not an engine fork, we aim to replicate existing Godot
 development workflows in the best way possible. This allows to minimize the time
 it would take for existing Godot contributors to start implementing features in
 Goost. If you're already familiar with the engine development process, whenever
-fixing a bug or implementing a new feature, always try to think of a problem in
-terms of Godot first.
+fixing a bug or implementing a new feature, we invite you to try to think of a
+problem in terms of Godot first. But of course, this principle may not always
+apply, since Goost may require other structure for the work to be done
+efficiently in terms of a module.
 
 Completeness
 ~~~~~~~~~~~~
@@ -92,8 +85,8 @@ deemed meaningful for Goost development.
 
 Goost's development is mainly focused on game development needs, even if they're
 marginally related. We also realize that Godot can be used to develop general
-GUI-only applications, so we don't exclude the possibility of supporting these
-type of features as well.
+GUI-only and web applications, so we don't exclude the possibility of supporting
+these type of features as well.
 
 Regardless of below criteria, you can also refer to
 `the list of features already pre-approved for development <https://github.com/goostengine/goost/issues/7>`_,
@@ -107,9 +100,9 @@ particular feature would be useful or needed for most or only a handful of the
 users, but lets make some estimations.
 
 If you're developing a new feature directly in Godot Engine, the proposed
-feature must be useful for at least **70%** of the users. Now, if you're
+feature must be useful for at least **70%** of the user base. Now, if you're
 developing a new feature in Goost, the feature must be useful for at least
-**30%** of the users.
+**30%** of the user base.
 
 A lot of the existing Goost functionality is a result of not approved and
 not-yet-approved proposals by Godot Engine's core developers but which received
@@ -192,14 +185,7 @@ particular feature.
 Note that we are unlikely (if ever) remove a feature just because it's used only
 by a few users at a given period of time, as long as a feature is relatively
 easy to maintain. Unlike in Godot, Goost does not impose engine binary size
-limits which result from having new features implemented. Since Goost's core
-development principles are customization and extensibility, engine's binary size
-is a bad reason to remove a particular feature in Goost.
-
-While we understand the frustration which may result from a lacking feature
-which was present in previous versions of Goost, we also hope that you
-understand the amount of work needed to maintain those features, especially when
-the work is done on a voluntary basis.
+limits which result from having new features implemented.
 
 Whether a particular feature is going to remain or be removed largely depends on
 user support and the number of contributors interested in development.
