@@ -28,7 +28,7 @@ Properties
 +-------------------------------------------+-----------------------------------------------+-----------------------+
 | :ref:`PoolByteArray<class_PoolByteArray>` | :ref:`data<class_MidiFile_property_data>`     | ``PoolByteArray(  )`` |
 +-------------------------------------------+-----------------------------------------------+-----------------------+
-| :ref:`int<class_int>`                     | :ref:`format<class_MidiFile_property_format>` | ``0``                 |
+| Format                                    | :ref:`format<class_MidiFile_property_format>` | ``0``                 |
 +-------------------------------------------+-----------------------------------------------+-----------------------+
 
 Methods
@@ -74,7 +74,7 @@ A stream of bytes which represents MIDI data. This data is not meant to be modif
 
 .. _class_MidiFile_property_format:
 
-- :ref:`int<class_int>` **format**
+- Format **format**
 
 +-----------+-------------------+
 | *Default* | ``0``             |
